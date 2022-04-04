@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class CheckSlow100 {
     public static void main(String[] args) {
+
         int number = 0;
         while (number<100) {
             boolean check = true;
