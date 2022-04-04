@@ -27,10 +27,11 @@ public class CountCow {
 
         System.out.println("Enter element index  : ");
         int index = s.nextInt();
-            int sum = 0;
-            for (int i = 0; i < arr[index].length; i++) {
-                sum += arr[index][i];
-            }
+
+        int sum = 0;
+        for (int i = 0; i < arr[index].length; i++) {
+            sum += arr[index][i];
+        }
         System.out.println("Sum of element with index = " + index + ": " + sum);
     }
 }
