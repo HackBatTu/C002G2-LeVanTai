@@ -8,7 +8,7 @@ public class CountCharFindString {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter the char Find String : ");
+        System.out.print("Enter the char Find in String : ");
         char main = sc.nextLine().charAt(0);
 
         int count=0;

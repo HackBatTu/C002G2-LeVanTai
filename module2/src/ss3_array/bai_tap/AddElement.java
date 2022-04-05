@@ -11,10 +11,9 @@ public class AddElement {
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] = (int) (Math.random() * 99);
-        }
-        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + "\t");
         }
+
         System.out.println("Enter the X : ");
         int x = a.nextInt();
         System.out.println("Enter the index : ");
@@ -25,7 +24,8 @@ public class AddElement {
         }else{
             for(int i=arr.length-1 ;i>index ;i--) {
                  arr[i]= arr[i-1];
-            }arr[index] = x;
+            }
+            arr[index] = x;
         }
 
         for(int i = 0 ; i< arr.length; i++){
