@@ -7,7 +7,6 @@ public class StopWatch {
     private LocalTime endTime;
 
     public StopWatch() {
-        startTime = LocalTime.now();
     }
 
     public StopWatch(LocalTime startTime, LocalTime endTime) {
@@ -15,21 +14,27 @@ public class StopWatch {
         this.endTime = endTime;
     }
 
-    public LocalTime getStart() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public LocalTime getStop() {
+    public LocalTime getEndTime() {
         return endTime;
+    }
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
     public void start(){
         startTime=LocalTime.now();
     }
 
-    public void stop(){
+    public void end(){
         endTime=LocalTime.now();
     }
-
 
     public int getElapsedTime() {
         int miliSecond = ((endTime.getHour() - startTime.getHour()) * 3600 +
