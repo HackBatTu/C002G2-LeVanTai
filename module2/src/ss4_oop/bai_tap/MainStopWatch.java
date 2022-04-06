@@ -1,22 +1,19 @@
 package ss4_oop.bai_tap;
 
-import java.time.LocalTime;
+
 
 public class MainStopWatch {
 
     public static void main(String[] args) {
 
-        StopWatch st = new StopWatch();
+        long t1 = System.currentTimeMillis();
+        for (int i =0 ; i<100000; i++){
+            System.out.println("gà");
+        }
+        long t2 = System.currentTimeMillis();
 
-        st.setStartTime(LocalTime.now());
-        LocalTime start = LocalTime.now();
-        System.out.println(start);
-
-        System.out.println("nhập thời gian kết thúc : ");
-        LocalTime end = st.getEndTime();
-        System.out.println(end);
-        System.out.println("Elapsed time: " + st.getElapsedTime());
-        st.start();
-        st.end();
+        System.out.println(" fisrt: "+ t1);
+        System.out.println(" later : "+ t2);
+        System.out.println("thời gian : " + (t2-t1)+ " miligiay" );
     }
 }

@@ -29,17 +29,17 @@ public class StopWatch {
         this.endTime = endTime;
     }
     public void start(){
-        startTime=LocalTime.now();
+        startTime = LocalTime.now();
     }
 
     public void end(){
-        endTime=LocalTime.now();
+        endTime = LocalTime.now();
     }
 
     public int getElapsedTime() {
-        int miliSecond = ((endTime.getHour() - startTime.getHour()) * 3600 +
+        int milisecond = ((endTime.getHour() - startTime.getHour()) * 3600 +
                 (endTime.getMinute() - startTime.getMinute()) * 60 +
                 (endTime.getSecond() - startTime.getSecond())) * 1000;
-        return miliSecond;
+        return milisecond;
     }
 }
