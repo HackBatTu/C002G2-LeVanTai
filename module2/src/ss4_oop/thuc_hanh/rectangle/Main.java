@@ -1,5 +1,7 @@
-package ss4_oop.thuc_hanh;
+package ss4_oop.thuc_hanh.rectangle;
 
+
+import ss4_oop.thuc_hanh.rectangle.ClassRectangle;
 
 import java.util.Scanner;
 

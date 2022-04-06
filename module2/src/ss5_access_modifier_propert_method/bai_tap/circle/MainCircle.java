@@ -1,4 +1,6 @@
-package ss5_access_modifier_propert_method.bai_tap;
+package ss5_access_modifier_propert_method.bai_tap.circle;
+
+import ss5_access_modifier_propert_method.bai_tap.circle.Circle;
 
 import java.util.Scanner;
 

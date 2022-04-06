@@ -1,4 +1,6 @@
-package ss5_access_modifier_propert_method.thuc_hanh;
+package ss5_access_modifier_propert_method.thuc_hanh.static_method;
+
+import ss5_access_modifier_propert_method.thuc_hanh.static_method.StaticMethod;
 
 public class MainStaticMethod {
         public static void main(String[] args) {

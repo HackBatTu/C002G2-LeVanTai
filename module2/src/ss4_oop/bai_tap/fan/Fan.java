@@ -1,4 +1,4 @@
-package ss4_oop.bai_tap;
+package ss4_oop.bai_tap.fan;
 
 public class Fan {
     private final int slow = 1;

@@ -1,4 +1,6 @@
-package ss4_oop.bai_tap;
+package ss4_oop.bai_tap.fan;
+
+import ss4_oop.bai_tap.fan.Fan;
 
 public class MainFan {
     public static void main(String[] args) {

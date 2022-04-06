@@ -1,4 +1,4 @@
-package ss4_oop.thuc_hanh;
+package ss4_oop.thuc_hanh.rectangle;
 
 
 public class ClassRectangle {
