@@ -3,6 +3,7 @@ package ss5_access_modifier_propert_method.bai_tap;
 
 
 public class test {
+
     public static void main(String[] args) {
 
         String str = "";
@@ -14,8 +15,9 @@ public class test {
                     str += " ";
                 }
             }
-            str += "\n";
-
+            if(i<5) {
+                str += "\n";
+            }
         }
         for (int i = 4; i > 0; i--) {
             for (int j = 0; j <= 9; j++) {

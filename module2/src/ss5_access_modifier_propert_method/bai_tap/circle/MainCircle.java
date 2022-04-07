@@ -10,7 +10,10 @@ public class MainCircle {
 
         System.out.print(" Enter the Radius: ");
         double r = sc.nextDouble();
+
         Circle circle = new Circle(r);
-        System.out.print(" S = " + circle.getArea());
+        circle.setColor("red");
+
+        System.out.print(circle + "\n"+ "-S = " + circle.getArea());
     }
 }
