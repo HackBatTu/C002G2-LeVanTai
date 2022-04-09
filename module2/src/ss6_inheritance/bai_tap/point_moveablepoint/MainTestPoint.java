@@ -8,6 +8,7 @@ public class MainTestPoint {
 //        point.setXY(3,4);
 //        System.out.println(point);
         Point point = new MovablePoint(3,4,5,6);
+
         point = new MovablePoint(point.getX(), point.getY(),8,7);
 
         System.out.println(point);

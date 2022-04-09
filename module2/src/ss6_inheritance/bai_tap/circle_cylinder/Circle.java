@@ -3,6 +3,8 @@ package ss6_inheritance.bai_tap.circle_cylinder;
 public class Circle {
     protected double radius = 1.0;
     protected String color = "green";
+    protected double area = Math.PI * Math.pow(radius, 2);
+
 
     public Circle(){};
 
@@ -22,8 +24,9 @@ public class Circle {
     public void setColor(String color) {
         this.color = color;
     }
+
     public double getArea() {
-        return Math.PI * Math.pow(radius, 2);
+        return area;
     }
 
     public double getPerimeter() {
@@ -33,7 +36,7 @@ public class Circle {
     @Override
     public String toString() {
         return "Circle :" +"\n"+
-                "radius=" + radius +"\n"+
-                "color='" + color + '\'';
+                "radius= " + radius +"\n"+
+                "color= " + color ;
     }
 }
