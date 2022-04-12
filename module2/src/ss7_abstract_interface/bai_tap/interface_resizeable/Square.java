@@ -20,7 +20,7 @@ public class Square extends Shape{
         this.width = width;
     }
 
-    double getArea() {
+    public double getArea() {
         return width *width;
     }
     @Override
