@@ -1,7 +1,7 @@
 package ss6_inheritance.bai_tap.triangle;
 
 public class Shape {
-    protected  String color = "red";
+    private   String color = "red";
 
     public Shape(){
 

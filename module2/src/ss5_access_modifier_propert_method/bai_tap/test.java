@@ -5,31 +5,32 @@ package ss5_access_modifier_propert_method.bai_tap;
 public class test {
 
     public static void main(String[] args) {
-
         String str = "";
+        String str1 = "";
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j <= 9; j++) {
-                if ((j == 5 - i) || (j == 4 + i)) {
+                if ((j == 8 / 2 + 1 - i) || (j == 8 / 2 + i)) {
                     str += "" + i;
                 } else {
                     str += " ";
                 }
             }
-            if(i<5) {
+            if (i < 5) {
                 str += "\n";
             }
         }
         for (int i = 4; i > 0; i--) {
             for (int j = 0; j <= 9; j++) {
-                if (j == 5 - i || j == i+4 ) {
-
-                    str += "" + i;
+                if (j == 7 / 2 + 2 - i || j == i + 4) {
+                    str1 += "" + i;
                 } else {
-                    str += " ";
+                    str1 += " ";
                 }
             }
-            str += "\n";
+            str1 += "\n";
         }
-        System.out.println(str);
+        String str3 = str + "\n" + str1;
+        System.out.println(str3);
+
     }
 }

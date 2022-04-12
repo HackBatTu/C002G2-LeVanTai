@@ -30,9 +30,9 @@ public class Cylinder extends Circle {
     public String toString() {
         return "Cylinder: " +
                 "height =" + height +"\n"+
-                "Radius = "+ radius +"\n"+
+                "Radius = "+ getRadius() +"\n"+
                 "V = " +getV()+"\n"+
-                "Color : "+color;
+                "Color : "+getColor();
 
 
     }

@@ -3,8 +3,8 @@ package ss5_access_modifier_propert_method.bai_tap.student;
 import javafx.scene.shape.Circle;
 
 public class Student {
-    String name = "John";
-    String classes = "C02";
+    private String name = "John";
+    private String classes = "C02";
 
     public Student(){}
     public Student(String name , String classes){
