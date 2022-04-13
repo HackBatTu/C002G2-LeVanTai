@@ -2,8 +2,6 @@ package ss7_abstract_interface.bai_tap.interface_resizeable;
 
 import ss7_abstract_interface.bai_tap.interface_colorable.Colorable;
 
-import java.util.Objects;
-
 public class Shape implements Resizeable, Colorable {
     private String color = "red";
 
@@ -23,7 +21,9 @@ public class Shape implements Resizeable, Colorable {
     }
 
     @Override
-    public void resize(double percent) {}
+    public double resize(double percent) {
+        return percent;
+    }
 
     @Override
     public void howToColor() {

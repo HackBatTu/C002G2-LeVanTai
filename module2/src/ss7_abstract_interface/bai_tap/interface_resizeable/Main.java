@@ -10,17 +10,22 @@ public class Main {
         shapes[2] = new Square("red",x);
 
         for (Shape a : shapes){
-            System.out.println(a);
+            if(a instanceof Circle) {
+                shapes[0].resize(Math.random() * 100);
+                System.out.println(shapes[0].toString());
+            }
+            if(a instanceof Rectangle) {
+                shapes[1].resize(Math.random() * 100);
+                System.out.println(shapes[1].toString());
+            }
+            if(a instanceof Square) {
+                shapes[2].resize(Math.random() * 100);
+                System.out.println(shapes[2].toString());
+
+            }
         }
 
-        shapes[0].resize(Math.random() * 100);
-        System.out.println(shapes[0].toString());
 
-        shapes[1].resize(Math.random()*100);
-        System.out.println(shapes[1].toString());
-
-        shapes[2].resize(Math.random()*100);
-        System.out.println(shapes[2].toString());
 
     }
 }

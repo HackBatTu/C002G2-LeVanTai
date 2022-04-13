@@ -29,8 +29,9 @@ public class Circle extends Shape{
                 ']';
     }
     @Override
-    public void resize(double percent) {
+    public double resize(double percent) {
         this.radius += percent;
+        return percent;
     }
 
     @Override
