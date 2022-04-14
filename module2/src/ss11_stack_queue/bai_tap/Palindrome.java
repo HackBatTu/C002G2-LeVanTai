@@ -7,8 +7,8 @@ import java.util.LinkedList;
 public class Palindrome {
     public static void main(String[] args) {
         System.out.print("Enter the String :");
-        Scanner in=new Scanner(System.in);
-        String inputString = in.nextLine();
+        Scanner sc =new Scanner(System.in);
+        String inputString = sc.nextLine();
         Queue queue = new LinkedList();
         for (int i = inputString.length()-1; i >=0; i--) {
             queue.add(inputString.charAt(i));
