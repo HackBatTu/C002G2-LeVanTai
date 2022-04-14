@@ -61,6 +61,7 @@ public class Refactoring {
         int firstScore = Integer.parseInt(scanner.nextLine());
         System.out.print("Enter the second: ");
         int secondScore = Integer.parseInt(scanner.nextLine());
+
         System.out.println(Refactoring.getScore(playerOne,playerTwo,firstScore,secondScore));
     }
 }

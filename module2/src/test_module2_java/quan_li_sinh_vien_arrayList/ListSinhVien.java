@@ -50,11 +50,12 @@ public class ListSinhVien {
 //     8.tìm sv dựa theo tên
 //    public boolean findSV(SinhVien name){
 //        for (SinhVien sv: list){
-//            if(sv.getName().indexOf(name))>=0){
+//            if(sv.getName().indexOf(name)>=0){
 //                System.out.println(sv);
 //            }
 //        }
 //    }
+
     // 9. in ra sv điểm cao- thấp
     public void sapXep(){
         Collections.sort(this.list, new Comparator<SinhVien>() {

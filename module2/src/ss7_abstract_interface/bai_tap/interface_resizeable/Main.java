@@ -12,15 +12,15 @@ public class Main {
         for (Shape a : shapes){
             if(a instanceof Circle) {
                 shapes[0].resize(Math.random() * 100);
-                System.out.println(shapes[0].toString());
+                System.out.println(((Circle) a).toString());
             }
             if(a instanceof Rectangle) {
                 shapes[1].resize(Math.random() * 100);
-                System.out.println(shapes[1].toString());
+                System.out.println(((Rectangle) a).toString());
             }
             if(a instanceof Square) {
                 shapes[2].resize(Math.random() * 100);
-                System.out.println(shapes[2].toString());
+                System.out.println(((Square) a).toString());
 
             }
         }
