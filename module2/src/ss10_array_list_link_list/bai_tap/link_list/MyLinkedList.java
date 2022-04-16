@@ -159,10 +159,8 @@ public class MyLinkedList<E> {
 
 
      //Trả về phần tử ở vị trí cuối cùng
-
     public E getLast() {
         Node temp = head;
-
         while (temp.next != null) {
             temp = temp.next;
         }

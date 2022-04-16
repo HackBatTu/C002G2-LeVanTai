@@ -1,8 +1,6 @@
 package ss11_stack_queue.bai_tap;
 
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Palindrome {
     public static void main(String[] args) {
@@ -21,5 +19,30 @@ public class Palindrome {
             System.out.println("this is a Palindrome String");
         else
             System.out.println("this is a not Palindrome String ");
+
+//        String str = "Able was I ere I saw Elba";
+//        boolean flag = false;
+//
+//        Stack<String> stack = new Stack<>();
+//        Queue<String> queue = new ArrayDeque<>();
+//
+//        for (int i = 0; i < str.length(); i++) {
+//            stack.push(str.charAt(i) + "");
+//            queue.offer(str.charAt(i)+ "");
+//        }
+//
+//        for (int i = 0; i < str.length(); i++) {
+//            if (stack.pop().equalsIgnoreCase(queue.poll())) {
+//                flag = true;
+//            } else {
+//                flag = false;
+//                break;
+//            }
+//        }
+//        if (flag) {
+//            System.out.println("\"" + str + "\" is palindrome!");
+//        } else {
+//            System.out.println("\"" + str + "\" is NOT palindrome!");
+//        }
     }
 }

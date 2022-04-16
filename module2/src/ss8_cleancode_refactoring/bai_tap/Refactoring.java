@@ -55,7 +55,7 @@ public class Refactoring {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter player 1: ");
         String playerOne = scanner.nextLine();
-        System.out.print("Enter player 1: ");
+        System.out.print("Enter player 2: ");
         String playerTwo = scanner.nextLine();
         System.out.print("Enter the first: ");
         int firstScore = Integer.parseInt(scanner.nextLine());
