@@ -1,4 +1,6 @@
-package Transport;
+package Transport.model;
+
+import java.util.Scanner;
 
 public class Car extends Transport {
     private int soChoNgoi;
@@ -33,13 +35,23 @@ public class Car extends Transport {
     public void setKieuXe(String kieuXe) {
         this.kieuXe = kieuXe;
     }
-
+    @Override
+    public void input() {
+        Scanner sc = new Scanner(System.in);
+        super.input();
+        System.out.println("Enter số chỗ ngồi : ");
+        this.soChoNgoi = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the type : ");
+        this.kieuXe  = sc.nextLine();
+    }
     @Override
     public String toString() {
-        return "Car: " +"\n"+
-                "soChoNgoi: " + soChoNgoi +
-                ", kieuxe: " + kieuXe +
-                super.toString();
+        return "Car [" +
+                super.toString() +
+                ", chỗ ngồi : " + soChoNgoi +
+                ", kiểu xe : '" + kieuXe + '\'' +
+                ']';
+
     }
 
 }
