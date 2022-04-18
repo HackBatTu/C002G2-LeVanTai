@@ -1,4 +1,6 @@
-package ss12_Java_collection_framework.bai_tap;
+package ss12_Java_collection_framework.bai_tap.luyen_tap_arraylist.service;
+
+import ss12_Java_collection_framework.bai_tap.luyen_tap_arraylist.model.Product;
 
 import java.util.ArrayList;
 import java.util.Collections;

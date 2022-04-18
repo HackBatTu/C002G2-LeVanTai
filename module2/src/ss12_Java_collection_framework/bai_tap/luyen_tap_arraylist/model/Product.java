@@ -1,4 +1,4 @@
-package ss12_Java_collection_framework.bai_tap;
+package ss12_Java_collection_framework.bai_tap.luyen_tap_arraylist.model;
 
 public class Product implements Comparable<Product>{
     private Integer id = 0;

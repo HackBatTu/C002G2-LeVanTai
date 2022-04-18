@@ -1,4 +1,6 @@
-package ss12_Java_collection_framework.bai_tap;
+package ss12_Java_collection_framework.bai_tap.luyen_tap_arraylist.controller;
+
+import ss12_Java_collection_framework.bai_tap.luyen_tap_arraylist.service.ProductManager;
 
 import java.util.Scanner;
 
