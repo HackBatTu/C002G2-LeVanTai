@@ -17,7 +17,7 @@ public class Car extends Transport {
     public Car(String bienKiemSoat, HangSanXuat hangSanXuat, int namSanXuat, String chuSoHuu, int soChoNgoi, String kieuxe) {
         super(bienKiemSoat, hangSanXuat, namSanXuat, chuSoHuu);
         this.soChoNgoi = soChoNgoi;
-        this.kieuXe = kieuXe;
+        this.kieuXe = kieuXe ;
     }
 
     public int getSoChoNgoi() {

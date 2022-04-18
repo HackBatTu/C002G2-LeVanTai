@@ -37,7 +37,7 @@ public class Motorcycle extends Transport {
     @Override
     public String toString() {
         return "Motorcycle: ["+super.toString() +
-       "congSuat='" + congSuat + '\'';
+       " , congSuat='" + congSuat + '\'';
 
     }
 }

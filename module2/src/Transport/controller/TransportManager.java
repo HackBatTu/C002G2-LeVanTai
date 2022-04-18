@@ -43,13 +43,13 @@ public class TransportManager implements IService {
                     transport.add(newCar);
                     break;
                 case 2:
-                    System.out.println("*****Add new Car : ");
+                    System.out.println("*****Add new Moto : ");
                     Transport newMoto = new Motorcycle();
                     newMoto.input();
                     transport.add(newMoto);
                     break;
                 case 3:
-                    System.out.println("*****Add new Car : ");
+                    System.out.println("*****Add new Truck : ");
                     Transport newTruck = new Truck();
                     newTruck.input();
                     transport.add(newTruck);
@@ -95,6 +95,11 @@ public class TransportManager implements IService {
                         }
                     }
                     break;
+                case 4:
+                    System.out.println("**** List Transport: ");
+                    for (Transport x : transport){
+                        System.out.println(x);
+                    }
                 case 0:
                    return;
                 default:
@@ -155,8 +160,6 @@ public class TransportManager implements IService {
     public void update() {
         Scanner sc = new Scanner(System.in);
         boolean flag = false;
-
-        System.out.println("find transport");
         System.out.print("Enter bks: ");
         String bks = sc.nextLine();
 

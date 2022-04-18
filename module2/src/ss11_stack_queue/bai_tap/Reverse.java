@@ -2,7 +2,7 @@ package ss11_stack_queue.bai_tap;
 
 import java.util.Stack;
 
-public class ReverseInteger {
+public class Reverse {
     private static Stack<Integer> st = new Stack<>();
     private static Stack<String> tack = new Stack<>();
 
@@ -46,11 +46,12 @@ public class ReverseInteger {
 
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6,7};
-        ReverseInteger reverseInteger = new ReverseInteger();
+        Reverse reverseInteger = new Reverse();
         System.out.println(reverseInteger.reverseArray(arr));
         System.out.println("----------------");
+
         String str = "con gà luận";
-        ReverseInteger reverse = new ReverseInteger();
+        Reverse reverse = new Reverse();
         System.out.println(reverse.reverseString(str));
         System.out.println("----------------");
         int number = 1234567;

@@ -31,14 +31,15 @@ public class Truck extends Transport {
     public void input() {
         Scanner sc = new Scanner(System.in);
         super.input();
-        System.out.print("Enter tonnage (T): ");
+        System.out.print("Enter trọng tải(tấn ): ");
         this.trongTai = Integer.parseInt(sc.nextLine());
     }
     @Override
     public String toString() {
         return "Truck: " +
-                "trongTai: " + trongTai +
-                super.toString();
+                super.toString()+
+                "trongTai: " + trongTai ;
+
 
     }
 }

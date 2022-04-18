@@ -45,7 +45,7 @@ public class Menu {
                 case 4:
                     transportManager.update();
                     break;
-                case 5:
+                case 0:
                     System.out.println("see you again");
                     return;
                 default:

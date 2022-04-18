@@ -58,7 +58,7 @@ public abstract class Transport {
         System.out.println("Enter the BKS : ");
         this.bienKiemSoat =sc.nextLine();
 
-        this.hangSanXuat = this.hangSX();
+        this.hangSanXuat = hangSX();
 
         System.out.println("Enter the year: ");
         this.namSanXuat = Integer.parseInt(sc.nextLine());
@@ -76,23 +76,17 @@ public abstract class Transport {
 //        System.out.println("enter the nation: ");
 //        String nation = sc.nextLine();
 //        hangSXList.add(new HangSanXuat(id, name, nation));
-        hangSXList.add(new HangSanXuat(1, "Vinfast", "VN"));
-        hangSXList.add(new HangSanXuat(3, "Lao", "Lao"));
-        hangSXList.add(new HangSanXuat(4, "Fake", "China"));
-        hangSXList.add(new HangSanXuat(6, "xxx", "Japan"));
-        hangSXList.add(new HangSanXuat(6, "zzz", "Chú bộ đội"));
-        System.out.println("CHOICE HangSX :"+"\n" +
-                "1.make in Vietnamess"+"\n" +
-                "2.make in Lào"+"\n" +
-                "3.make in China"+"\n" +
-                "4.make in Japan"+"\n" +
-                "5.make in chú bộ đội.");
+        hangSXList.add(new HangSanXuat(1, "Make in Vn", "VN"));
+        hangSXList.add(new HangSanXuat(3, "Make in Lao", "Lao"));
+        hangSXList.add(new HangSanXuat(4, "Make in China", "China"));
+        hangSXList.add(new HangSanXuat(6, "Make in Japan", "Japan"));
+        hangSXList.add(new HangSanXuat(6, "Make in Chú bộ đội", "Chú bộ đội"));
         int choice;
         do {
             for (int i = 0; i < hangSXList.size(); i++) {
                 System.out.println((i + 1) + ": " + hangSXList.get(i).getName());
             }
-            System.out.print("Your choice: ");
+            System.out.print("Your choice Hãng SX: ");
             choice = Integer.parseInt(sc.nextLine());
             if (choice > 0 && choice < hangSXList.size()) {
                 return hangSXList.get(choice - 1);
