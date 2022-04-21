@@ -1,16 +1,16 @@
 package casestudy.models;
 
 public class Contract {
-    private Integer contractID;
-    private Integer bookingID;
-    private Integer firstMoney;
-    private Integer totalMoney;
-    private Integer customerID;
+    private String contractID;
+    private Booking bookingID;
+    private String firstMoney;
+    private String totalMoney;
+    private Customer customerID;
 
 //    Số hợp đồng, mã booking, Số tiền cọc trước, Tổng số tiền thanh toán, mã khách hàng.
-    public Contract() {
-    }
-    public Contract(Integer contractID, Integer bookingID, Integer firstMoney, Integer totalMoney, Integer customerID) {
+
+
+    public Contract(String contractID, Booking bookingID, String firstMoney, String totalMoney, Customer customerID) {
         this.contractID = contractID;
         this.bookingID = bookingID;
         this.firstMoney = firstMoney;
@@ -18,43 +18,46 @@ public class Contract {
         this.customerID = customerID;
     }
 
-    public Integer getContractID() {
+    public Contract() {
+    }
+
+    public String getContractID() {
         return contractID;
     }
 
-    public void setContractID(Integer contractID) {
+    public void setContractID(String contractID) {
         this.contractID = contractID;
     }
 
-    public Integer getBookingID() {
+    public Booking getBookingID() {
         return bookingID;
     }
 
-    public void setBookingID(Integer bookingID) {
+    public void setBookingID(Booking bookingID) {
         this.bookingID = bookingID;
     }
 
-    public Integer getFirstMoney() {
+    public String getFirstMoney() {
         return firstMoney;
     }
 
-    public void setFirstMoney(Integer firstMoney) {
+    public void setFirstMoney(String firstMoney) {
         this.firstMoney = firstMoney;
     }
 
-    public Integer getTotalMoney() {
+    public String getTotalMoney() {
         return totalMoney;
     }
 
-    public void setTotalMoney(Integer totalMoney) {
+    public void setTotalMoney(String totalMoney) {
         this.totalMoney = totalMoney;
     }
 
-    public Integer getCustomerID() {
+    public Customer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(Integer customerID) {
+    public void setCustomerID(Customer customerID) {
         this.customerID = customerID;
     }
 

@@ -1,4 +1,6 @@
 package casestudy.services;
 
-public interface IBookingService extends IService{
+public interface IBookingService{
+    void addBooking();
+    void displayListBooking();
 }

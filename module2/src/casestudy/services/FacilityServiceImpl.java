@@ -8,73 +8,103 @@ import casestudy.models.Villa;
 import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService{
-    LinkedHashMap<Facility, Integer> facilities = new LinkedHashMap<>();
 
-    HouseImpl house = new HouseImpl();
-    RoomImpl room = new RoomImpl();
-    VillaImpl villa = new VillaImpl();
-
+    Map<Facility, Integer> facilities = new LinkedHashMap<>();
+    static Scanner sc = new Scanner(System.in);
     {
-        Villa villa1 = new Villa("villa1",1000,20000,10,"vip","vip",30,20);
-        Villa villa2 = new Villa("villa2",500,10000,5,"pro","vip",15,10);
-        House house1 = new House("house1",1000,20000,10,"vip","vip",30);
-        House house2 = new House("house2",500,10000,5,"pro","vip",15);
-        Room room1 = new Room("villa1",1000,20000,10,"vip","buffet");
-        Room room2 = new Room("villa2",500,10000,5,"pro","alacarte");
+        Villa villa1 = new Villa(01,"villa1",1000,20000,10,"vip","vip",30,20);
+        House house1 = new House(01,"house1",1000,20000,10,"vip","vip",30);
+        Room room1 = new Room(01,"villa1",1000,20000,10,"vip","buffet");
         facilities.put(villa1,0);
-        facilities.put(villa2,0);
         facilities.put(house1,0);
-        facilities.put(house2,0);
         facilities.put(room1,0);
-        facilities.put(room2,0);
-
-
-    }
-
-
-    Scanner sc = new Scanner(System.in);
-    int choice;
-    @Override
-    public void add() {
-        System.out.println("Enter the Service you want add : ");
-        System.out.println("*---Menu add Service---*"+"\n" +
-                "1.Add New Villa\n" +
-                "2.Add New House\n" +
-                "3.Add New Room\n" +
-                "0.Back to menu\n");
-        choice = Integer.parseInt(sc.nextLine());
-        while (true){
-            switch (choice){
-                case 1:
-                    villa.add();
-                    break;
-                case 2:
-                    house.add();
-                    break;
-                case 3:
-                    room.add();
-                    break;
-                case 0:
-                    return;
-                default:
-                    System.out.println("see you again");
-                    break;
-            }
-        }
     }
 
     @Override
     public void display() {
         System.out.println("*---List---*");
-        for (Map.Entry<Facility, Integer> entry : facilities.entrySet()) {
-            System.out.println("Key: " + entry.getKey().getServiceName());
-            System.out.println("Value: " + entry.getValue());
+        for (Map.Entry<Facility, Integer> element : facilities.entrySet()) {
+            System.out.println("Service : " + element.getKey().getServiceName());
+            System.out.println("Số lần đã thuê : " +element.getValue());
         }
 
     }
 
     @Override
-    public void edit() {
+    public void displayMaintain() {
 
     }
+
+
+    @Override
+    public void addNewVilla() {
+        System.out.println("*---Enter the Villa---*");
+        System.out.println("Enter the ID Villa: ");
+        Integer id = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the service Name Villa: ");
+        String name = sc.nextLine();
+        System.out.println("Enter the Area Villa: ");
+        Integer area = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the rental cost Villa: ");
+        int costs = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the Max Person : ");
+        int person = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the rental Type : ");
+        String type = sc.nextLine();
+        System.out.println("Enter the room standard : ");
+        String room = sc.nextLine();
+        System.out.println("Enter the poolArea : ");
+        Integer pool = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the num of floors : ");
+        int num = Integer.parseInt(sc.nextLine());
+        Villa villa = new Villa(id,name,area,costs,person,type,room,pool,num);
+        facilities.put(villa,0);
+        System.out.println("add thành công");
+    }
+
+    @Override
+    public void addNewHouse() {
+        System.out.println("*---Enter the House---*");
+        System.out.println("Enter the ID House : ");
+        int id = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the service Name House: ");
+        String name = sc.nextLine();
+        System.out.println("Enter the Area House: ");
+        int area = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the rental cost House: ");
+        int costs = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the Max Person House: ");
+        int person = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the rental Type : ");
+        String type = sc.nextLine();
+        System.out.println("Enter the room standard : ");
+        String room = sc.nextLine();
+        System.out.println("Enter the num of floors : ");
+        int num = Integer.parseInt(sc.nextLine());
+        House house = new House(id,name,area,costs,person,type,room,num);
+        facilities.put(house,0);
+    }
+
+    @Override
+    public void addNewRoom() {
+        System.out.println("*---Enter the Room---*");
+        System.out.println("Enter the ID room : ");
+        Integer id = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the Service Name Room: ");
+        String name = sc.nextLine();
+        System.out.println("Enter the Area Room: ");
+        Integer area = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the rental cost : ");
+        int costs = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the Max Person : ");
+        int person = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the rental Type : ");
+        String type = sc.nextLine();
+        System.out.println("Enter the freeService : ");
+        String free = sc.nextLine();
+        Room room = new Room(id,name,area,costs,person,type,free);
+        facilities.put(room,0);
+    }
+
+
 }

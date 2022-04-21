@@ -4,21 +4,22 @@ public class Booking {
     private Integer bookingID;
     private String startDay;
     private String endDay;
-    private Integer customerID;
+    private Customer customerID;
     private String serviceName;
-    private String serviceType;
+    private Facility serviceID;
 
-    public Booking() {
+    public Booking(int id, String starDay, String endDay, Customer customer, Facility facility) {
     }
     //    mã booking, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.
-    public Booking(Integer bookingID, String startDay, String endDay, Integer customerID, String serviceName, String serviceType) {
+    public Booking(Integer bookingID, String startDay, String endDay, Customer customerID, String serviceName, Facility serviceID) {
         this.bookingID = bookingID;
         this.startDay = startDay;
         this.endDay = endDay;
         this.customerID = customerID;
         this.serviceName = serviceName;
-        this.serviceType = serviceType;
+        this.serviceID = serviceID;
     }
+
 
     public Integer getBookingID() {
         return bookingID;
@@ -44,11 +45,11 @@ public class Booking {
         this.endDay = endDay;
     }
 
-    public Integer getCustomerID() {
+    public Customer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(Integer customerID) {
+    public void setCustomerID(Customer customerID) {
         this.customerID = customerID;
     }
 
@@ -60,12 +61,12 @@ public class Booking {
         this.serviceName = serviceName;
     }
 
-    public String getServiceType() {
-        return serviceType;
+    public Facility getServiceID() {
+        return serviceID;
     }
 
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
+    public void setServiceType(Facility serviceType) {
+        this.serviceID = serviceID;
     }
 
     @Override
@@ -76,7 +77,7 @@ public class Booking {
                 ", endDay: " + endDay + '\'' +
                 ", customerID: " + customerID +
                 ", serviceName: " + serviceName + '\'' +
-                ", serviceType: " + serviceType + '\'' +
+                ", serviceType: " + serviceID + '\'' +
                 ']';
     }
 }

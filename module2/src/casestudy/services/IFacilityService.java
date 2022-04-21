@@ -1,7 +1,9 @@
 package casestudy.services;
 
-public interface IFacilityService extends IService{
-    void add();
+public interface IFacilityService{
     void display();
-    void edit();
+    void displayMaintain();
+    void addNewVilla();
+    void addNewHouse();
+    void addNewRoom();
 }
