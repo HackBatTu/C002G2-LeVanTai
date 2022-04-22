@@ -44,9 +44,6 @@ public class BookingServiceImpl implements IBookingService {
         String sv = sc.nextLine();
         Facility facility = chooseFacility();
 
-
-
-
 //      Booking(Integer bookingID, String startDay, String endDay, Integer customerID, String serviceName, Integer serviceID)
         Booking booking = new Booking(id, starDay, endDay, customer, sv,facility);
         bookingSet.add(booking);
