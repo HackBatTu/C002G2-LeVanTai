@@ -48,10 +48,10 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public void display() {
         System.out.println("*---List Customer---*\n");
-        List<Customer> customerLists =  (List<Customer>) ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
-        for (Customer x : customerLists) {
-            System.out.println(x);
-        }
+//        List<Customer> customerLists =  ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
+//        for (Customer x : customerLists) {
+//            System.out.println(x);
+//        }
     }
 
     @Override
