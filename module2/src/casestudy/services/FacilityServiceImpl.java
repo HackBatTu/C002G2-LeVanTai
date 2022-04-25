@@ -8,16 +8,20 @@ import casestudy.models.Villa;
 import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService{
-
-    Map<Facility, Integer> facilities = new LinkedHashMap<>();
-    static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
+    private static Map<Facility, Integer> facilities = new LinkedHashMap<>();
+    private static List<Facility> facilityList = new ArrayList<>();
+    private static List<Facility> maintenancefacilities = new ArrayList<>();
     {
-        Villa villa1 = new Villa(01,"villa1",1000,20000,10,"vip","vip",30,20);
-        House house1 = new House(01,"house1",1000,20000,10,"vip","vip",30);
-        Room room1 = new Room(01,"villa1",1000,20000,10,"vip","buffet");
-        facilities.put(villa1,0);
-        facilities.put(house1,0);
-        facilities.put(room1,0);
+        facilities.put(new Villa(1, "Villa 1", 1000, 500, 10, "Day", "Vip", 100, 2), 0);
+        facilities.put(new Villa(2, "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5), 0);
+//        Integer id,String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType, String roomStandard, Integer numberOfFloors
+        facilities.put(new House(3, "House 1", 2000, 1000, 30, "Day", "Vip",4), 0);
+        facilities.put(new House(4, "House", 2000, 1000, 30, "Day", "Vip", 2), 0);
+//        Integer id,String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType, String freeService
+        facilities.put(new Room(5, "Room 1", 2000, 1000, 30, "Day","Breakfast"), 0);
+        facilities.put(new Room(6, "Room 2", 2000, 1000, 30, "Day", "BBQ"), 0);
+
     }
 
     @Override
@@ -32,8 +36,31 @@ public class FacilityServiceImpl implements IFacilityService{
 
     @Override
     public void displayMaintain() {
-
+        for (Facility facility : maintenancefacilities) {
+            System.out.println(facility);
+        }
     }
+
+    @Override
+    public void displayNumberUsedOfService() {
+        for (Map.Entry<Facility,Integer> entry: facilities.entrySet()) {
+            System.out.println("Service: " + entry.getKey().getServiceName());
+            System.out.println("Number of used: " + entry.getValue());
+        }
+    }
+
+    @Override
+    public void maintenanceCheck(Facility facility) {
+        if (facilities.get(facility) >= 5) {
+            System.out.println("Service is under maintenance!");
+            maintenancefacilities.add(facility);
+            facilities.put(facility, 0);
+        }
+    }
+    public static List<Facility> getFacilities() {
+        return facilityList;
+    }
+
 
 
     @Override
@@ -83,6 +110,7 @@ public class FacilityServiceImpl implements IFacilityService{
         int num = Integer.parseInt(sc.nextLine());
         House house = new House(id,name,area,costs,person,type,room,num);
         facilities.put(house,0);
+
     }
 
     @Override

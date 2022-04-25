@@ -1,6 +1,7 @@
 package casestudy.services;
 
 import casestudy.models.Customer;
+import casestudy.utils.ReadAndWrite;
 import ss10_array_list_link_list.bai_tap.link_list.MainMyLinkedList;
 
 import java.util.LinkedList;
@@ -11,14 +12,10 @@ public class CustomerServiceImpl implements ICustomerService {
     private static final LinkedList<Customer> customerLinkedList = new LinkedList<>();
 
     static {
-        Customer customer1 = new Customer("Hoàn1", "01/01/2001", "male", 2001, "0909", "Hoanchodien@email", 101, "vip", "xó núi");
-        Customer customer2 = new Customer("Luận1", "01/02/2001", "male", 2002, "0908", "Luanchodien@email", 102, "gà", "bãi rác");
-        Customer customer3 = new Customer("Phương1", "01/03/2001", "male", 2003, "0907", "Hoanchodien@email", 103, "non", "xó núi");
-        Customer customer4 = new Customer("Hậu1", "01/04/2001", "male", 2004, "0906", "Hoanchodien@email", 104, "vippro", "bãi rác");
-        customerLinkedList.add(customer1);
-        customerLinkedList.add(customer2);
-        customerLinkedList.add(customer3);
-        customerLinkedList.add(customer4);
+        customerLinkedList.add(new Customer("Hoàn", "01/01/2001", "male", 1001, "01234", "Hoan@gmail.com", 1, "Vip", "xó núi"));
+        customerLinkedList.add(new Customer("Luận", "01/01/2002", "male", 1001, "01234", "Luan@gmail.com", 2, "Vip", "xó núi"));
+        customerLinkedList.add(new Customer("Phương", "01/02/2003", "male", 1002, "012345", "phuong@gmail.com", 3, "Normal", "xó núi"));
+        ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
     }
 
     Scanner sc = new Scanner(System.in);
@@ -45,12 +42,14 @@ public class CustomerServiceImpl implements ICustomerService {
         String address = sc.nextLine();
         Customer customer = new Customer(name, date, gender, idCard, phone, email, customerID, customerType, address);
         customerLinkedList.addLast(customer);
+        ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
     }
 
     @Override
     public void display() {
         System.out.println("*---List Customer---*\n");
-        for (Customer x : customerLinkedList) {
+        List<Customer> customerLists =  (List<Customer>) ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
+        for (Customer x : customerLists) {
             System.out.println(x);
         }
     }
@@ -91,6 +90,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
                 }
             }
+            ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
         } else {
             System.out.println("is not found Customer");
         }

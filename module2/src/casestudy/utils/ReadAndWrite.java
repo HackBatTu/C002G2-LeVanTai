@@ -1,10 +1,13 @@
 package casestudy.utils;
 
+import casestudy.models.Customer;
+
 import java.io.*;
 import java.util.Collection;
+import java.util.List;
 
 public class ReadAndWrite {
-    public static void write(Collection collection, String diaChi){
+    public static List<Customer> write(Collection collection, String diaChi){
         File file = new File(diaChi);
 
         if(!file.exists()){
@@ -32,6 +35,7 @@ public class ReadAndWrite {
                 e.printStackTrace();
             }
         }
+        return null;
     }
     public static Object read(String diaChi){
         FileInputStream fileInputStream = null;

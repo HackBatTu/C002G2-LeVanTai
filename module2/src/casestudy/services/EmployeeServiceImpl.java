@@ -21,6 +21,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         employees.add(employee2);
         employees.add(employee3);
         employees.add(employee4);
+        ReadAndWrite.write(employees,"src/casestudy/data/employee.csv");
     }
 
     @Override
@@ -47,16 +48,16 @@ public class EmployeeServiceImpl implements IEmployeeService {
         int wage = Integer.parseInt(sc.nextLine());
         Employee employee = new Employee(name, date, gender, idCard, phone, email, employeeID, lever, position, wage);
         employees.add(employee);
-
-//        ReadAndWrite.write(employees,"E:\\C002G2-LeVanTai-Module2\\module2\\src\\casestudy\\data\\employee.csv");
+        ReadAndWrite.write(employees,"src/casestudy/data/employee.csv");
 
     }
 
     @Override
     public void display() {
 //        employees = ReadAndWrite.read("E:\\C002G2-LeVanTai-Module2\\module2\\src\\casestudy\\data\\employee.csv");
+        List<Employee> employeess = (List<Employee>) ReadAndWrite.read("src/casestudy/data/employee.csv");
         System.out.print("*----List Employee----*\n");
-        for (Employee x : employees) {
+        for (Employee x : employeess) {
             System.out.println(x);
         }
     }
@@ -98,6 +99,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     break;
                 }
             }
+            ReadAndWrite.write(employees,"src/casestudy/data/employee.csv");
         }else {
             System.out.print("is not found EmployeeID");
         }

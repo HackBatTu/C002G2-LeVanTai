@@ -11,6 +11,7 @@ public class FuramaController {
     FacilityServiceImpl facility= new FacilityServiceImpl();
     BookingServiceImpl bookingService = new BookingServiceImpl();
     ContactServiceImpl contactService = new ContactServiceImpl();
+
     Scanner sc= new Scanner(System.in);
     int choice;
     public void displayMainMenu(){
@@ -23,13 +24,7 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "0.Exit\n"+
             "Enter the choice : ");
-            try{
-                choice = Integer.parseInt(sc.nextLine());
-                return;
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
+            choice = Integer.parseInt(sc.nextLine());
             switch(choice) {
                 case 1:
                    employeeMenu();
@@ -64,12 +59,8 @@ public class FuramaController {
                     "3.Edit employee\n" +
                     "0.Return main menu\n"+
                     "Enter the choice : ");
-            try{
+
                 choice = Integer.parseInt(sc.nextLine());
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
             switch (choice){
                 case 1:
                     employee.display();
@@ -96,12 +87,7 @@ public class FuramaController {
                     "3.Edit customer\n" +
                     "0.Return main menu\n"+
                     "Enter the choice : ");
-            try{
-                choice = Integer.parseInt(sc.nextLine());
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
+            choice = Integer.parseInt(sc.nextLine());
             switch (choice){
                 case 1:
                     customer.display();
@@ -128,12 +114,9 @@ public class FuramaController {
                     "3.Display list facility maintenance\n" +
                     "0.Return main menu\n"+
                     "Enter the choice : ");
-            try{
+
                 choice = Integer.parseInt(sc.nextLine());
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
+
             switch (choice){
                 case 1:
                     facility.display();
@@ -142,7 +125,7 @@ public class FuramaController {
                     addFacilityMenu2();
                     break;
                 case 3:
-
+                    facility.displayMaintain();
                     break;
                 case 0:
                     return;
@@ -160,12 +143,9 @@ public class FuramaController {
                     "2.Add New House\n" +
                     "3.Add New Room\n" +
                     "0.Back to menu\n"+"Enter the Service you want add : ");
-            try{
+
                 choice = Integer.parseInt(sc.nextLine());
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
+
             switch (choice){
                 case 1:
                     facility.addNewVilla();
@@ -197,19 +177,15 @@ public class FuramaController {
                     "5.Edit contracts\n" +
                     "0.Return main menu\n"+
                     "Enter the choice : ");
-            try{
+
                 choice = Integer.parseInt(sc.nextLine());
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
+
             switch (choice){
                 case 1:
                     bookingService.addBooking();
                     break;
                 case 2:
                     bookingService.displayListBooking();
-
                     break;
                 case 3:
                     contactService.createNewContract();
@@ -233,12 +209,9 @@ public class FuramaController {
                     "2.Display list customers get voucher\n" +
                     "0.Return main menu\n"+
                     "Enter the choice : ");
-            try{
-                choice = Integer.parseInt(sc.nextLine());
-            }catch (NumberFormatException e){
-                e.printStackTrace();
-                System.out.println("You Re- choice");
-            }
+
+            choice = Integer.parseInt(sc.nextLine());
+
             switch (choice){
                 case 1:
                     break;

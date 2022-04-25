@@ -5,18 +5,24 @@ public class Booking {
     private String startDay;
     private String endDay;
     private Customer customerID;
-    private String serviceName;
+    private Facility serviceName;
     private Facility serviceID;
 
-    public Booking(int id, String starDay, String endDay, Customer customer, Facility facility) {
-    }
     //    mã booking, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.
-    public Booking(Integer bookingID, String startDay, String endDay, Customer customerID, String serviceName, Facility serviceID) {
+//    public Booking(Integer bookingID, String startDay, String endDay, Customer customerID, Facility serviceName, Facility serviceID) {
+//        this.bookingID = bookingID;
+//        this.startDay = startDay;
+//        this.endDay = endDay;
+//        this.customerID = customerID;
+//        this.serviceName = serviceName;
+//        this.serviceID = serviceID;
+//    }
+
+    public Booking(Integer bookingID, String startDay, String endDay, Customer customerID, Facility serviceID) {
         this.bookingID = bookingID;
         this.startDay = startDay;
         this.endDay = endDay;
         this.customerID = customerID;
-        this.serviceName = serviceName;
         this.serviceID = serviceID;
     }
 
@@ -53,11 +59,11 @@ public class Booking {
         this.customerID = customerID;
     }
 
-    public String getServiceName() {
+    public Facility getServiceName() {
         return serviceName;
     }
 
-    public void setServiceName(String serviceName) {
+    public void setServiceName(Facility serviceName) {
         this.serviceName = serviceName;
     }
 

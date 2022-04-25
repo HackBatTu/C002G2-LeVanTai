@@ -1,9 +1,6 @@
 package casestudy.services;
 
-import casestudy.models.Booking;
-import casestudy.models.Customer;
-import casestudy.models.Facility;
-import casestudy.models.Villa;
+import casestudy.models.*;
 import casestudy.utils.BookingComparator;
 
 import java.util.*;
@@ -18,11 +15,18 @@ public class BookingServiceImpl implements IBookingService {
 
     //    (String name, String date, String gender, Integer idCard, String phone, String email, Integer customerID, String customerType, String address
     static {
-        customerList.add(new Customer("tai", "01/01/2001", "male", 1001, "01234", "tai@gmail.com", 01, "Vip", "xó núi"));
-        customerList.add(new Customer("tai2", "01/02/2001", "male", 1002, "012345", "tai@gmail.com", 01, "Normal", "xó núi"));
+        customerList.add(new Customer("Hoàn", "01/01/2001", "male", 1001, "01234", "Hoan@gmail.com", 1, "Vip", "xó núi"));
+        customerList.add(new Customer("Luận", "01/01/2002", "male", 1001, "01234", "Luan@gmail.com", 2, "Vip", "xó núi"));
+        customerList.add(new Customer("Phương", "01/02/2003", "male", 1002, "012345", "phuong@gmail.com", 3, "Normal", "xó núi"));
 //public Villa(String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType, String roomStandard, Integer poolArea, Integer numberOfFloors)
         facilityIntegerMap.put(new Villa(1, "Villa 1", 1000, 500, 10, "Day", "Vip", 100, 2), 0);
         facilityIntegerMap.put(new Villa(2, "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5), 0);
+//        Integer id,String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType, String roomStandard, Integer numberOfFloors
+        facilityIntegerMap.put(new House(3, "House 1", 2000, 1000, 30, "Day", "Vip",4), 0);
+        facilityIntegerMap.put(new House(4, "House", 2000, 1000, 30, "Day", "Vip", 2), 0);
+//        Integer id,String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType, String freeService
+        facilityIntegerMap.put(new Room(5, "Room 1", 2000, 1000, 30, "Day","Breakfirst"), 0);
+        facilityIntegerMap.put(new Room(6, "Room 2", 2000, 1000, 30, "Day", "BBQ"), 0);
     }
 
     public Set<Booking> sendBooking() {
@@ -35,19 +39,16 @@ public class BookingServiceImpl implements IBookingService {
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
         }
-        System.out.println("Enter the Check in: ");
+        System.out.println("Enter the Day Check in: ");
         String starDay = sc.nextLine();
-        System.out.println("Enter the Check out: ");
+        System.out.println("Enter the Day Check out: ");
         String endDay = sc.nextLine();
         Customer customer = chooseCustomer();
-        System.out.println("Enter the serviceName: ");
-        String sv = sc.nextLine();
         Facility facility = chooseFacility();
 
 //      Booking(Integer bookingID, String startDay, String endDay, Integer customerID, String serviceName, Integer serviceID)
-        Booking booking = new Booking(id, starDay, endDay, customer, sv,facility);
+        Booking booking = new Booking(id, starDay, endDay, customer,facility);
         bookingSet.add(booking);
-        System.out.println("tạo booking id thành công");
     }
 
     @Override
@@ -68,7 +69,7 @@ public class BookingServiceImpl implements IBookingService {
         while (check) {
             for (Customer customer : customerList) {
                 if (id == customer.getCustomerID()) {
-                    check = false;
+                    check = true;
                     return customer;
                 }
             }
@@ -91,7 +92,7 @@ public class BookingServiceImpl implements IBookingService {
         while (check) {
             for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
                 if (id == entry.getKey().getId()) {
-                    check = false;
+                    check = true;
                     return entry.getKey();
                 }
             }
