@@ -1,6 +1,5 @@
 package test_module2_java;
 
-import java.util.Objects;
 
 public class Date {
     private int day;
@@ -54,6 +53,4 @@ public class Date {
         Date date = (Date) o;
         return day == date.day && month == date.month && year == date.year;
     }
-
-
 }

@@ -4,11 +4,12 @@ import casestudy.models.Customer;
 import casestudy.utils.ReadAndWrite;
 import ss10_array_list_link_list.bai_tap.link_list.MainMyLinkedList;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CustomerServiceImpl implements ICustomerService {
+public class CustomerServiceImpl implements ICustomerService, Serializable {
     private static final LinkedList<Customer> customerLinkedList = new LinkedList<>();
 
     static {
@@ -47,7 +48,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void display() {
-        System.out.println("*---List Customer---*\n");
+//        System.out.println("*---List Customer---*\n");
 //        List<Customer> customerLists =  ReadAndWrite.write(customerLinkedList,"src/casestudy/data/customer.csv");
 //        for (Customer x : customerLists) {
 //            System.out.println(x);

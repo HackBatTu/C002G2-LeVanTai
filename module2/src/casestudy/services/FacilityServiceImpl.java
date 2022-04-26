@@ -5,9 +5,10 @@ import casestudy.models.House;
 import casestudy.models.Room;
 import casestudy.models.Villa;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class FacilityServiceImpl implements IFacilityService{
+public class FacilityServiceImpl implements IFacilityService, Serializable {
     private static Scanner sc = new Scanner(System.in);
     private static Map<Facility, Integer> facilities = new LinkedHashMap<>();
     private static List<Facility> facilityList = new ArrayList<>();
