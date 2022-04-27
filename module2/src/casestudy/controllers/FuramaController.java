@@ -1,67 +1,81 @@
 package casestudy.controllers;
 
-import casestudy.models.Employee;
-import casestudy.services.*;
+import casestudy.services.impl.*;
 
 import java.util.Scanner;
 
 public class FuramaController {
     EmployeeServiceImpl employee = new EmployeeServiceImpl();
     CustomerServiceImpl customer = new CustomerServiceImpl();
-    FacilityServiceImpl facility= new FacilityServiceImpl();
+    FacilityServiceImpl facility = new FacilityServiceImpl();
     BookingServiceImpl bookingService = new BookingServiceImpl();
     ContactServiceImpl contactService = new ContactServiceImpl();
 
-    Scanner sc= new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     int choice;
-    public void displayMainMenu(){
-        do{
+
+    private int getChoice() {
+        do {
+            try {
+                choice = Integer.parseInt(sc.nextLine());
+                return choice;
+            } catch (NumberFormatException e) {
+                System.err.print("Error: " + e.getMessage());
+                System.out.print("-------" + "\n" + "Re-choice: ");
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+
+        } while (true);
+    }
+
+    public void displayMainMenu() {
+        do {
             System.out.println("*-----Menu Manager-----* ");
             System.out.print("1.Employee Management\n" +
                     "2.Customer Management\n" +
                     "3.Facility Management \n" +
                     "4.Booking Management\n" +
                     "5.Promotion Management\n" +
-                    "0.Exit\n"+
-            "Enter the choice : ");
-            choice = Integer.parseInt(sc.nextLine());
-            switch(choice) {
+                    "0.Exit\n" +
+                    "Enter the choice : ");
+            getChoice();
+            switch (choice) {
                 case 1:
-                   employeeMenu();
-                   break;
+                    employeeMenu();
+                    break;
                 case 2:
-                   customerMenu();
-                   break;
+                    customerMenu();
+                    break;
                 case 3:
-                   facilityMenu();
-                   break;
+                    facilityMenu();
+                    break;
                 case 4:
-                   bookingAndContractMenu();
-                   break;
+                    bookingAndContractMenu();
+                    break;
                 case 5:
-                   promotionMenu();
-                   break;
+                    promotionMenu();
+                    break;
                 case 0:
                     return;
                 default:
                     System.out.println("***You Re-Choice: ");
                     break;
             }
-        }while (true);
+        } while (true);
 
     }
 
-    public void employeeMenu(){
-        while (true){
+    public void employeeMenu() {
+        while (true) {
             System.out.println("*-----Employee Management-----*  ");
             System.out.println("1.Display list employees\n" +
                     "2.Add new employee\n" +
                     "3.Edit employee\n" +
-                    "0.Return main menu\n"+
+                    "0.Return main menu\n" +
                     "Enter the choice : ");
-
-                choice = Integer.parseInt(sc.nextLine());
-            switch (choice){
+            getChoice();
+            switch (choice) {
                 case 1:
                     employee.display();
                     break;
@@ -79,16 +93,17 @@ public class FuramaController {
             }
         }
     }
-    public void customerMenu(){
-        while (true){
+
+    public void customerMenu() {
+        while (true) {
             System.out.println("*-----Customer Management-----*  ");
             System.out.println("1.Display list customers\n" +
                     "2.Add new customer\n" +
                     "3.Edit customer\n" +
-                    "0.Return main menu\n"+
+                    "0.Return main menu\n" +
                     "Enter the choice : ");
-            choice = Integer.parseInt(sc.nextLine());
-            switch (choice){
+            getChoice();
+            switch (choice) {
                 case 1:
                     customer.display();
                     break;
@@ -106,18 +121,17 @@ public class FuramaController {
             }
         }
     }
-    public void facilityMenu(){
-        while (true){
+
+    public void facilityMenu() {
+        while (true) {
             System.out.println("*-----Facility Management -----* ");
             System.out.println("1.Display list facility\n" +
                     "2.Add new facility\n" +
                     "3.Display list facility maintenance\n" +
-                    "0.Return main menu\n"+
+                    "0.Return main menu\n" +
                     "Enter the choice : ");
-
-                choice = Integer.parseInt(sc.nextLine());
-
-            switch (choice){
+            getChoice();
+            switch (choice) {
                 case 1:
                     facility.display();
                     break;
@@ -136,17 +150,16 @@ public class FuramaController {
         }
 
     }
+
     public void addFacilityMenu2() {
-        while (true){
-            System.out.println("*---Menu add Service add New---*"+"\n" +
+        while (true) {
+            System.out.println("*---Menu add Service add New---*" + "\n" +
                     "1.Add New Villa\n" +
                     "2.Add New House\n" +
                     "3.Add New Room\n" +
-                    "0.Back to menu\n"+"Enter the Service you want add : ");
-
-                choice = Integer.parseInt(sc.nextLine());
-
-            switch (choice){
+                    "0.Back to menu\n" + "Enter the Service you want add : ");
+            getChoice();
+            switch (choice) {
                 case 1:
                     facility.addNewVilla();
                     facilityMenu();
@@ -167,25 +180,26 @@ public class FuramaController {
             }
         }
     }
-    public void bookingAndContractMenu(){
-        while (true){
+
+    public void bookingAndContractMenu() {
+        while (true) {
             System.out.println("*-----Booking Management-----*: ");
             System.out.println("1.\tAdd new booking\n" +
                     "2.Display list booking\n" +
                     "3.Create new constracts\n" +
                     "4.Display list contracts\n" +
                     "5.Edit contracts\n" +
-                    "0.Return main menu\n"+
+                    "0.Return main menu\n" +
                     "Enter the choice : ");
-
-                choice = Integer.parseInt(sc.nextLine());
-
-            switch (choice){
+            getChoice();
+            switch (choice) {
                 case 1:
                     bookingService.addBooking();
+                    bookingAndContractMenu();
                     break;
                 case 2:
                     bookingService.displayListBooking();
+                    bookingAndContractMenu();
                     break;
                 case 3:
                     contactService.createNewContract();
@@ -202,17 +216,16 @@ public class FuramaController {
             }
         }
     }
-    public void promotionMenu(){
-        while (true){
+
+    public void promotionMenu() {
+        while (true) {
             System.out.println("*-----Promotion Management-----*");
             System.out.println("1.Display list customers use service\n" +
                     "2.Display list customers get voucher\n" +
-                    "0.Return main menu\n"+
+                    "0.Return main menu\n" +
                     "Enter the choice : ");
-
-            choice = Integer.parseInt(sc.nextLine());
-
-            switch (choice){
+            getChoice();
+            switch (choice) {
                 case 1:
                     break;
                 case 2:
