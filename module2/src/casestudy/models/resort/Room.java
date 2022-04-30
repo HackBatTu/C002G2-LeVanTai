@@ -21,7 +21,10 @@ public class Room extends Facility {
     public void setFreeService(String freeService) {
         this.freeService = freeService;
     }
-
+    public String convertLine() {
+        String line = super.convertLine()+","+this.freeService;
+        return line;
+    }
     @Override
     public String toString() {
         return "Room [ " +super.toString()+

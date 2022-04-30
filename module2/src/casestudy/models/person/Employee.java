@@ -39,6 +39,11 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    public String convertLine(){
+        String line = super.convertLine() + ","+ this.level+","+ this.position+","+ this.salary;
+        return line;
+    }
+
     @Override
     public String toString() {
         return "Employee [" + super.toString()+

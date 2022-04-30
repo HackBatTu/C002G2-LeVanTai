@@ -31,6 +31,10 @@ public class House extends Facility {
     public void setNumberOfFloors(Integer numberOfFloors) {
         this.numberOfFloors = numberOfFloors;
     }
+    public String convertLine() {
+        String line = super.convertLine()+","+this.roomStandard+","+this.numberOfFloors;
+        return line;
+    }
 
     @Override
     public String toString() {

@@ -34,7 +34,7 @@ public class ContactServiceImpl implements IContactService {
             contractList.add(contract);
             System.out.println("Contract : " + contract.toString());
         }
-        ReadAndWriteBuffer.writeFile(contractList,"src/casestudy/data/contract.csv");
+        ReadAndWriteBuffer.writeContract("src/casestudy/data/contract.csv",contractList);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class ContactServiceImpl implements IContactService {
                     contractList.get(i).setFirstMoney(sc.nextLine());
                     System.out.println("new total ");
                     contractList.get(i).setTotalMoney(sc.nextLine());
-                    ReadAndWriteBuffer.writeFile(contractList,"src/casestudy/data/contract.csv");
+                    ReadAndWriteBuffer.writeContract("src/casestudy/data/contract.csv",contractList);
                 }else {
                     System.out.println("dont find ID");
                 }

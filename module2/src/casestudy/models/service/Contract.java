@@ -62,7 +62,10 @@ public class Contract {
     public void setCustomerID(Customer customerID) {
         this.customerID = customerID;
     }
-
+   public String convertLine(){
+        String line = this.contractID+","+this.bookingID+","+this.firstMoney+","+this.totalMoney+","+this.customerID;
+        return line;
+   }
     @Override
     public String toString() {
 //        return String.format("%5d%5d%10s%10s%5d", contractID,bookingID,firstMoney,totalMoney,customerID);

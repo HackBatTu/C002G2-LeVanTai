@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public abstract class Person implements Serializable {
     private Integer iD;
-    private String name ;
+    private String name;
     private String date;
     private String gender;
     private Integer idCard;
@@ -82,16 +82,26 @@ public abstract class Person implements Serializable {
         this.email = email;
     }
 
+    public String convertLine() {
+        String line = this.iD + "," +
+                this.name + "," +
+                this.date + "," +
+                this.gender + "," +
+                this.idCard + "," +
+                this.phone + "," +
+                this.email;
+        return line;
+    }
+
     @Override
     public String toString() {
-        return
-                "id='" + iD + '\'' +
-                ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
-                ", gender='" + gender + '\'' +
-                ", idCard=" + idCard +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ",";
+        return "id='" + iD + '\'' +
+                        ", name='" + name + '\'' +
+                        ", date='" + date + '\'' +
+                        ", gender='" + gender + '\'' +
+                        ", idCard=" + idCard +
+                        ", phone='" + phone + '\'' +
+                        ", email='" + email + '\'' +
+                        ",";
     }
 }

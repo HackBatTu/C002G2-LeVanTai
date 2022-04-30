@@ -1,6 +1,7 @@
 package casestudy.controllers;
 
 import casestudy.services.impl.*;
+import casestudy.utils.regex.Regex;
 
 import java.util.Scanner;
 
@@ -10,24 +11,7 @@ public class FuramaController {
     FacilityServiceImpl facility = new FacilityServiceImpl();
     BookingServiceImpl bookingService = new BookingServiceImpl();
     ContactServiceImpl contactService = new ContactServiceImpl();
-
-    Scanner sc = new Scanner(System.in);
-    int choice;
-
-    private int getChoice() {
-        do {
-            try {
-                choice = Integer.parseInt(sc.nextLine());
-                return choice;
-            } catch (NumberFormatException e) {
-                System.err.print("Error: " + e.getMessage());
-                System.out.print("-------" + "\n" + "Re-choice: ");
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-
-        } while (true);
-    }
+    PromotionServiceImpl promotionService = new PromotionServiceImpl();
 
     public void displayMainMenu() {
         do {
@@ -39,8 +23,9 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "0.Exit\n" +
                     "Enter the choice : ");
-            getChoice();
-            switch (choice) {
+            int choiceMain = 0;
+            choiceMain = Regex.getChoice(choiceMain);
+            switch (choiceMain) {
                 case 1:
                     employeeMenu();
                     break;
@@ -74,8 +59,9 @@ public class FuramaController {
                     "3.Edit employee\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            getChoice();
-            switch (choice) {
+            int choiceEm = 0;
+            choiceEm=Regex.getChoice(choiceEm);
+            switch (choiceEm) {
                 case 1:
                     employee.display();
                     break;
@@ -102,8 +88,9 @@ public class FuramaController {
                     "3.Edit customer\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            getChoice();
-            switch (choice) {
+            int choiceCus = 0;
+            choiceCus=Regex.getChoice(choiceCus);
+            switch (choiceCus) {
                 case 1:
                     customer.display();
                     break;
@@ -125,13 +112,14 @@ public class FuramaController {
     public void facilityMenu() {
         while (true) {
             System.out.println("*-----Facility Management -----* ");
-            System.out.println("1.Display list facility\n" +
+            System.out.print("1.Display list facility\n" +
                     "2.Add new facility\n" +
                     "3.Display list facility maintenance\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            getChoice();
-            switch (choice) {
+            int choice1 = 0;
+            choice1 = Regex.getChoice(choice1);
+            switch (choice1) {
                 case 1:
                     facility.display();
                     break;
@@ -153,13 +141,14 @@ public class FuramaController {
 
     public void addFacilityMenu2() {
         while (true) {
-            System.out.println("*---Menu add Service add New---*" + "\n" +
+            System.out.print("*---Menu add Service add New---*" + "\n" +
                     "1.Add New Villa\n" +
                     "2.Add New House\n" +
                     "3.Add New Room\n" +
                     "0.Back to menu\n" + "Enter the Service you want add : ");
-            getChoice();
-            switch (choice) {
+            int choice2 = 0;
+            choice2=Regex.getChoice(choice2);
+            switch (choice2) {
                 case 1:
                     facility.addNewVilla();
                     facilityMenu();
@@ -184,22 +173,21 @@ public class FuramaController {
     public void bookingAndContractMenu() {
         while (true) {
             System.out.println("*-----Booking Management-----*: ");
-            System.out.println("1.\tAdd new booking\n" +
+            System.out.print("1.Add new booking\n" +
                     "2.Display list booking\n" +
                     "3.Create new constracts\n" +
                     "4.Display list contracts\n" +
                     "5.Edit contracts\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            getChoice();
-            switch (choice) {
+            int choiceBook =0;
+            choiceBook=Regex.getChoice(choiceBook);
+            switch (choiceBook) {
                 case 1:
                     bookingService.addBooking();
-                    bookingAndContractMenu();
                     break;
                 case 2:
                     bookingService.displayListBooking();
-                    bookingAndContractMenu();
                     break;
                 case 3:
                     contactService.createNewContract();
@@ -208,6 +196,7 @@ public class FuramaController {
                     contactService.displayListContract();
                     break;
                 case 5:
+                    contactService.editContract();
                     break;
                 case 0:
                     return;
@@ -220,15 +209,18 @@ public class FuramaController {
     public void promotionMenu() {
         while (true) {
             System.out.println("*-----Promotion Management-----*");
-            System.out.println("1.Display list customers use service\n" +
+            System.out.print("1.Display list customers use service\n" +
                     "2.Display list customers get voucher\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            getChoice();
-            switch (choice) {
+            int choicePro = 0;
+            choicePro = Regex.getChoice(choicePro);
+            switch (choicePro) {
                 case 1:
+                    promotionService.displayListCustomersUseService();
                     break;
                 case 2:
+                    promotionService.voucher();
                     break;
                 case 0:
                     return;

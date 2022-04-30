@@ -1,4 +1,4 @@
-Employee [id='1', name='hoàn', date='01/01/2001', gender='male', idCard=1001, phone='0909', email='gaHoan@gmail.com',level='con gà', position='xách dép', salary: 1000]
-Employee [id='2', name='phương', date='01/02/2001', gender='male', idCard=2002, phone='0909', email='gaHoan@gmail.com',level='hơi non', position='culi', salary: 2000]
-Employee [id='3', name='luận', date='01/03/2001', gender='male', idCard=3003, phone='0909', email='gaHoan@gmail.com',level='con gà', position='nhặt ống bơ', salary: 1500]
-Employee [id='4', name='hậu', date='01/04/2001', gender='male', idCard=4004, phone='0909', email='gaHoan@gmail.com',level='con gà', position='xách dép', salary: 1500]
+1,hoan,01/01/2001,male,1001,0909,gaHoan@gmail.com,con gà,xách dép,1000
+2,phương,01/02/2001,male,2002,0909,gaHoan@gmail.com,hơi non,culi,2000
+3,luận,01/03/2001,male,3003,0909,gaHoan@gmail.com,con gà,nhặt ống bơ,1500
+4,hậu,01/04/2001,male,4004,0909,gaHoan@gmail.com,con gà,xách dép,1500

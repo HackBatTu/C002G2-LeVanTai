@@ -1,3 +1,3 @@
- Customer [ id='1', name='Hoan', date='day', gender='male', idCard=12345567, phone='054643', email='Hoan@1234',typeCustomer='Vip', address='xó núi']
- Customer [ id='2', name='Luan', date='day', gender='male', idCard=4366566, phone='01232323', email='Luan@1234',typeCustomer='Vip', address='xó núi']
- Customer [ id='3', name='Phuong', date='day', gender='male', idCard=1213123, phone='04543', email='Phuong@1234',typeCustomer='Vip', address='xó núi']
+1,Hoan,01/01/2001,male,12345567,054643,Hoan@1234,Vip,xó núi
+2,Luan,02/02/2001,male,4366566,01232323,Luan@1234,Vip,xó núi
+3,Phuong,03/03/2001,male,1213123,04543,Phuong@1234,Vip,xó núi

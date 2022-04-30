@@ -9,6 +9,7 @@ import casestudy.models.service.Booking;
 import casestudy.services.inter_face.IBookingService;
 import casestudy.utils.comparator.BookingComparator;
 import casestudy.utils.file.ReadAndWriteBuffer;
+import casestudy.utils.regex.Regex;
 
 import java.util.*;
 
@@ -20,24 +21,26 @@ public class BookingServiceImpl implements IBookingService {
 
     static Map<Facility, Integer> facilities = new LinkedHashMap<>();
 
+    private static final String REGEX_DATE = "^(0?[1-9]|[12][0-9]|3[01])\\/(0?[1-9]|1[012])\\/\\d{4}$";
+
 
     static {
-        customerList.add(new Customer(1, "Hoan", "day", "male", 12345567, "054643", "Hoan@1234", "Vip", "xó núi"));
-        customerList.add(new Customer(2, "Luan", "day", "male", 4366566, "01232323", "Luan@1234", "Vip", "xó núi"));
-        customerList.add(new Customer(3, "Phuong", "day", "male", 1213123, "04543", "Phuong@1234", "Vip", "xó núi"));
+        customerList.add(new Customer(1, "Hoan", "01/01/2001", "male", 12345567, "054643", "Hoan@1234", "Vip", "xó núi"));
+        customerList.add(new Customer(2, "Luan", "02/02/2001", "male", 4366566, "01232323", "Luan@1234", "Vip", "xó núi"));
+        customerList.add(new Customer(3, "Phuong", "03/03/2001", "male", 1213123, "04543", "Phuong@1234", "Vip", "xó núi"));
 
-        facilities.put(new Villa("1", "Villa 1", 500, 500, 10, "Day", "Vip", 100, 2), 0);
-        facilities.put(new Villa("2", "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5), 0);
+        facilities.put(new Villa("SVVL-1996", "Villa 1", 500, 500, 10, "Day", "Vip", 100, 2), 0);
+        facilities.put(new Villa("SVVL-1997", "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5), 0);
 
-        facilities.put(new House("3", "House 1", 500, 1000, 30, "Day", "Vip",4), 0);
-        facilities.put(new House("4", "House 2", 2000, 1000, 30, "Day", "Vip", 2), 0);
+        facilities.put(new House("SVHO-1996", "House 1", 500, 1000, 30, "Day", "Vip",4), 0);
+        facilities.put(new House("SVHO-1997", "House 2", 2000, 1000, 30, "Day", "Vip", 2), 0);
 
-        facilities.put(new Room("5", "Room 1", 500, 1000, 30, "Day","Breakfast"), 0);
-        facilities.put(new Room("6", "Room 2", 2000, 1000, 30, "Day", "BBQ"), 0);
+        facilities.put(new Room("SVRO-1996", "Room 1", 500, 1000, 30, "Day","Breakfast"), 0);
+        facilities.put(new Room("SVRO-1997", "Room 2", 2000, 1000, 30, "Day", "BBQ"), 0);
 
     }
 
-    public Set<Booking> sendBooking() {
+    public static Set<Booking> sendBooking() {
         return bookingSet;
     }
 
@@ -48,16 +51,16 @@ public class BookingServiceImpl implements IBookingService {
             id = bookingSet.size();
         }
         System.out.println("Enter the Day Check in: ");
-        String starDay = sc.nextLine();
+        String starDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: sai định dạng ngày tháng");
         System.out.println("Enter the Day Check out: ");
-        String endDay = sc.nextLine();
+        String endDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: sai định dạng ngày tháng");
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
 
 //      Booking(Integer bookingID, String startDay, String endDay, Integer customerID, String serviceName, Integer serviceID)
         Booking booking = new Booking(id, starDay, endDay, customer,facility);
         bookingSet.add(booking);
-        ReadAndWriteBuffer.writeFile(bookingSet,"src/casestudy/data/booking.csv");
+        ReadAndWriteBuffer.writeBooking("src/casestudy/data/booking.csv",bookingSet);
     }
 
     @Override
@@ -70,7 +73,7 @@ public class BookingServiceImpl implements IBookingService {
     public static Customer chooseCustomer() {
         System.out.println("List Customer: ");
         for (Customer customer : customerList) {
-            System.out.println(customer.toString());
+            System.out.println( " - " + customer.getID() + ": "+ customer.getName()+".");
         }
         System.out.println("Enter the ID Customer: ");
         boolean check = true;
@@ -90,10 +93,13 @@ public class BookingServiceImpl implements IBookingService {
         return null;
     }
 
+
+
     public static Facility chooseFacility() {
         System.out.println("List Service: ");
         for (Map.Entry<Facility, Integer> entry : facilities.entrySet()) {
-            System.out.println(entry.getKey().toString());
+            System.out.println("- ID Facility Service : " + entry.getKey().getId());
+            System.out.println("  Số lần đã sử dụng : " + entry.getValue());
         }
         boolean check = true;
         System.out.println("Enter the ID Service: ");
@@ -109,7 +115,7 @@ public class BookingServiceImpl implements IBookingService {
                 System.out.println("You Re- choice: ");
                 id = sc.nextLine();
             }
-        }
-        return null;
+        }return null;
+
     }
 }

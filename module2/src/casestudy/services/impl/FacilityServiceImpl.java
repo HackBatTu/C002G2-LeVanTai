@@ -12,35 +12,30 @@ import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService {
     private static Scanner sc = new Scanner(System.in);
-
     private static Map<Facility, Integer> facilities = new LinkedHashMap<>();
-
+    private static List<Villa> villas = new ArrayList<>();
+    private static List<House> houses = new ArrayList<>();
+    private static List<Room> rooms = new ArrayList<>();
     private static List<Facility> facilityList = new ArrayList<>();
+
     private static List<Facility> maintenancefacilities = new ArrayList<>();
 
-    public static final String REGEX_ID_VL = "^(SVVL)\\-[0-9]{4}$";
-    public static final String REGEX_ID_HO = "^(SVHO)-[0-9]{4}$";
-    public static final String REGEX_ID_RO = "^(SVRO)[-][0-9]{4}$";
-    public static final String REGEX_NAME = "^[A-Z][a-z0-9]+$";
-    public static final String REGEX_PERSON = "^[1-9]|([1][0-9])|(20)$";
-    public static final String REGEX_AREA = "^(3-9)\\d|([1-9]\\d{1,})$";
-    public static final String REGEX_INT = "^(1-9)|([1][0-9])$";
-
-
     static {
-        facilities.put(new Villa("1", "Villa 1", 500, 500, 10, "Day", "Vip", 100, 2), 0);
-        facilities.put(new Villa("2", "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5), 0);
-        ReadAndWriteBuffer.writeFile(facilityList,"src/casestudy/data/villa.csv");
-    }
-    static {
-        facilities.put(new House("3", "House 1", 500, 1000, 30, "Day", "Vip", 4), 0);
-        facilities.put(new House("4", "House", 2000, 1000, 30, "Day", "Vip", 2), 0);
-        ReadAndWriteBuffer.writeFile(facilityList,"src/casestudy/data/house.csv");
-    }
-    static {
-        facilities.put(new Room("5", "Room 1", 500, 1000, 30, "Day", "Breakfast"), 0);
-        facilities.put(new Room("6", "Room 2", 2000, 1000, 30, "Day", "BBQ"), 0);
-        ReadAndWriteBuffer.writeFile(facilityList,"src/casestudy/data/room.csv");
+        Villa villa= new Villa("SVVL-1996", "Villa 1", 500, 500, 10, "Day", "Vip", 100, 2);
+       Villa villa1 = new Villa("SVVL-1997", "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5);
+        House house=new House("SVHO-1996", "House 1", 500, 1000, 30, "Day", "Vip",4);
+        House house1 =new House("SVHO-1997", "House 2", 2000, 1000, 30, "Day", "Vip", 2);
+       Room room =new Room("SVRO-1996", "Room 1", 500, 1000, 30, "Day","Breakfast");
+        Room room1 =new Room("SVRO-1997", "Room 2", 2000, 1000, 30, "Day", "BBQ");
+        houses.add(house); facilityList.add(house); facilities.put(house,1);
+        rooms.add(room); facilityList.add(room); facilities.put(room,1);
+        villas.add(villa); facilityList.add(villa);facilities.put(villa,1);
+        houses.add(house1); facilityList.add(house1);facilities.put(house1,1);
+        rooms.add(room1); facilityList.add(room1);facilities.put(room1,1);
+        villas.add(villa1); facilityList.add(villa1);facilities.put(villa1,1);
+        ReadAndWriteBuffer.writeVilla("src/casestudy/data/villa.csv",villas);
+        ReadAndWriteBuffer.writeHouse("src/casestudy/data/house.csv",houses);
+        ReadAndWriteBuffer.writeRoom("src/casestudy/data/room.csv",rooms);
     }
     @Override
     public void add(Facility facility) {
@@ -64,8 +59,6 @@ public class FacilityServiceImpl implements IFacilityService {
         }
     }
 
-
-
     @Override
     public void display() {
         System.out.println("*---List---*");
@@ -75,7 +68,6 @@ public class FacilityServiceImpl implements IFacilityService {
         }
 
     }
-
 
     @Override
     public void displayMaintain() {
@@ -113,101 +105,52 @@ public class FacilityServiceImpl implements IFacilityService {
     @Override
     public void addNewVilla() {
         System.out.println("*---Enter the Villa---*");
-        String id = inputIDVL();
-        String name = inputName();
-        Integer area = Integer.parseInt(inputArea());
-        int costs = Integer.parseInt(inputRentalCost());
-        int person = Integer.parseInt(inputMaxPerson());
-        String type = inputRentalType();
-        String room = inputRoomStandard();
-        Integer pool = Integer.parseInt(inputPoolArea());
-        int num = Integer.parseInt(inputNumOfFloors());
+        String id = Regex.inputIDVL();
+        String name = Regex.inputName();
+        Integer area = Integer.parseInt( Regex.inputArea());
+        int costs = Integer.parseInt( Regex.inputRentalCost());
+        int person = Integer.parseInt( Regex.inputMaxPerson());
+        String type =  Regex.inputRentalType();
+        String room =  Regex.inputRoomStandard();
+        Integer pool = Integer.parseInt( Regex.inputPoolArea());
+        int num = Integer.parseInt( Regex.inputNumOfFloors());
         Facility villa = new Villa(id, name, area, costs, person, type, room, pool, num);
         this.add(villa);
-        System.out.println("add thành công");
-        ReadAndWriteBuffer.writeFile(facilityList,"src/casestudy/data/villa.csv");
-
+        System.out.println("add thành công!");
+        ReadAndWriteBuffer.writeVilla("src/casestudy/data/villa.csv", villas);
     }
 
     @Override
     public void addNewHouse() {
         System.out.println("*---Enter the House---*");
-        String id = inputIDHO();
-        String name = inputName();
-        Integer area = Integer.parseInt(inputArea());
-        int costs = Integer.parseInt(inputRentalCost());
-        int person = Integer.parseInt(inputMaxPerson());
-        String type = inputRentalType();
-        String room = inputRoomStandard();
-        int num = Integer.parseInt(inputNumOfFloors());
+        String id =  Regex.inputIDHO();
+        String name =  Regex.inputName();
+        Integer area = Integer.parseInt( Regex.inputArea());
+        int costs = Integer.parseInt( Regex.inputRentalCost());
+        int person = Integer.parseInt( Regex.inputMaxPerson());
+        String type =  Regex.inputRentalType();
+        String room =  Regex.inputRoomStandard();
+        int num = Integer.parseInt( Regex.inputNumOfFloors());
         Facility house = new House(id, name, area, costs, person, type, room, num);
         this.add(house);
-        ReadAndWriteBuffer.writeFile(facilityList,"src/casestudy/data/house.csv");
+        System.out.println("add thành công!");
+        ReadAndWriteBuffer.writeHouse("src/casestudy/data/house.csv", houses);
     }
 
     @Override
     public void addNewRoom() {
         System.out.println("*---Enter the Room---*");
-        String id = inputIDRO();
-        String name = inputName();
-        Integer area = Integer.parseInt(inputArea());
-        int costs = Integer.parseInt(inputRentalCost());
-        int person = Integer.parseInt(inputMaxPerson());
-        String type = inputRentalType();
-        String free = inputFreeService();
+        String id =  Regex.inputIDRO();
+        String name =  Regex.inputName();
+        Integer area = Integer.parseInt( Regex.inputArea());
+        int costs = Integer.parseInt( Regex.inputRentalCost());
+        int person = Integer.parseInt( Regex.inputMaxPerson());
+        String type =  Regex.inputRentalType();
+        String free =  Regex.inputFreeService();
         Facility room = new Room(id, name, area, costs, person, type, free);
         this.add(room);
-        ReadAndWriteBuffer.writeFile(facilityList,"src/casestudy/data/room.csv");
-    }
-
-    public String inputIDVL(){
-        System.out.println("Enter the ID Villa: ");
-        return Regex.regex(sc.nextLine(), REGEX_ID_VL, "nhập sai định dạng phải có dạng SVVL-XXXX");
-    }
-    public String inputIDHO(){
-        System.out.println("Enter the ID House: ");
-        return Regex.regex(sc.nextLine(), REGEX_ID_HO, "nhập sai định dạng phải có dạng SVHO-XXXX");
-    }
-    public String inputIDRO(){
-        System.out.println("Enter the ID Room: ");
-        return Regex.regex(sc.nextLine(), REGEX_ID_RO, "nhập sai định dạng phải có dạng SVRO-XXXX");
-    }
-    public String inputName(){
-        System.out.println("Enter the service Name Villa: ");
-        return Regex.regex(sc.nextLine(), REGEX_NAME, "nhập sai định dạng phải có chữ hoa đầu");
-    }
-    public  String inputArea(){
-        System.out.println("Enter the Area House : ");
-        return Regex.regex(sc.nextLine(), REGEX_AREA, "Area >30m2");
-
-    }
-    public  String inputRentalCost(){
-        System.out.println("Enter the rental cost House: ");
-        return Regex.regex(sc.nextLine(), REGEX_INT, "nhập sai định dạng giá là số dương");
-    }
-    public  String inputMaxPerson(){
-        System.out.println("Enter the Max Person : ");
-        return Regex.regex(sc.nextLine(), REGEX_PERSON, "nhập sai định dạng phải lớn 1 nhỏ hơn 20");
-    }
-    public  String inputRentalType(){
-        System.out.println("Enter the rental Type House: ");
-        return Regex.regex(sc.nextLine(), REGEX_NAME, "nhập sai định dạng phải có chữ hoa đầu");
-    }
-    public  String inputRoomStandard(){
-        System.out.println("Enter the room standard House: ");
-        return Regex.regex(sc.nextLine(), REGEX_NAME, "nhập sai định dạng phải có chữ hoa đầu");
-    }
-    public  String inputPoolArea(){
-        System.out.println("Enter the poolArea : ");
-        return Regex.regex(sc.nextLine(), REGEX_AREA, "Area >30m2");
-    }
-    public  String inputNumOfFloors(){
-        System.out.println("Enter the num of floors : ");
-        return Regex.regex(sc.nextLine(), REGEX_INT, "nhập sai định dạng giá là số dương");
-    }
-    public  String inputFreeService(){
-        System.out.println("Enter the rental Type House: ");
-        return Regex.regex(sc.nextLine(), REGEX_NAME, "nhập sai định dạng phải có chữ hoa đầu");
+        System.out.println("add thành công!");
+        ReadAndWriteBuffer.writeRoom("src/casestudy/data/room.csv",rooms);
     }
 
 }

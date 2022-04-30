@@ -60,7 +60,10 @@ public class Booking {
     public void setServiceType(Facility serviceType) {
         this.facilityID = facilityID;
     }
-
+    public String convertLine() {
+        String line = this.bookingID+","+this.customerID+","+this.endDay+","+this.customerID+","+this.facilityID;
+        return line;
+    }
     @Override
     public String toString() {
         return "Booking [" +

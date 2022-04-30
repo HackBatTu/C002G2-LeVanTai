@@ -7,17 +7,18 @@ import casestudy.utils.regex.Regex;
 
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements ICustomerService, Serializable {
-    private static LinkedList<Customer> customerLinkedList = new LinkedList<>();
-    private static final String DATE_REGEX ="([12][0-9]|3[01]|0?[1-9])-(0?[1-9]|1[012])-((?:19|20)\\\\d\\\\d)";
+    private static List<Customer> customerLinkedList = new LinkedList<>();
+    private static final String DATE_REGEX ="^(0?[1-9]|[12][0-9]|3[01])\\/(0?[1-9]|1[012])\\/(((19)[2-9]{1}[0-9]{1})|(200)[1-4]{1})$";
     static {
-        customerLinkedList.add(new Customer(1, "Hoan", "day", "male", 12345567, "054643", "Hoan@1234", "Vip", "xó núi"));
-        customerLinkedList.add(new Customer(2, "Luan", "day", "male", 4366566, "01232323", "Luan@1234", "Vip", "xó núi"));
-        customerLinkedList.add(new Customer(3, "Phuong", "day", "male", 1213123, "04543", "Phuong@1234", "Vip", "xó núi"));
+        customerLinkedList.add(new Customer(1, "Hoan", "01/01/2001", "male", 12345567, "054643", "Hoan@1234", "Vip", "xó núi"));
+        customerLinkedList.add(new Customer(2, "Luan", "02/02/2001", "male", 4366566, "01232323", "Luan@1234", "Vip", "xó núi"));
+        customerLinkedList.add(new Customer(3, "Phuong", "03/03/2001", "male", 1213123, "04543", "Phuong@1234", "Vip", "xó núi"));
 
-        ReadAndWriteBuffer.writeFile(customerLinkedList,"src/casestudy/data/customer.csv");
+        ReadAndWriteBuffer.writeCustomer("src/casestudy/data/customer.csv",customerLinkedList);
     }
 
     Scanner sc = new Scanner(System.in);
@@ -43,17 +44,21 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
         System.out.print("Enter the Address: ");
         String address = sc.nextLine();
         Customer customer = new Customer(customerID,name,date,gender,idCard,phone,email,customerType,address);
-        customerLinkedList.addLast(customer);
-        ReadAndWriteBuffer.writeFile(customerLinkedList,"src/casestudy/data/customer.csv");
+        customerLinkedList.add(customer);
+        ReadAndWriteBuffer.writeCustomer("src/casestudy/data/customer.csv",customerLinkedList);
     }
 
     @Override
     public void display() {
         System.out.println("*---List Customer---*\n");
-//        customerLinkedList = (LinkedList<Customer>) ReadAndWriteBuffer.readFile("src/casestudy/data/customer.csv");
+        customerLinkedList = ReadAndWriteBuffer.readCustomer();
         for (Customer customer : customerLinkedList) {
             System.out.println(customer);
         }
+    }
+    public static List<Customer> getCustomers() {
+        customerLinkedList =  ReadAndWriteBuffer.readCustomer();
+        return customerLinkedList;
     }
 
     @Override
@@ -92,7 +97,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
 
                 }
             }
-            ReadAndWriteBuffer.writeFile(customerLinkedList,"src/casestudy/data/customer.csv");
+            ReadAndWriteBuffer.writeCustomer("src/casestudy/data/customer.csv",customerLinkedList);
         } else {
             System.out.println("is not found Customer");
         }

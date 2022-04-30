@@ -31,6 +31,11 @@ public class Customer extends Person {
         this.address = address;
     }
 
+    public String convertLine(){
+        String line = super.convertLine() +","+this.typeCustomer +","+ this.address;
+        return line;
+    }
+
     @Override
     public String toString() {
         return " Customer [ "+super.toString()+
