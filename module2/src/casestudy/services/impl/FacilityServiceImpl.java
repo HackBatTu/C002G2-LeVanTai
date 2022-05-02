@@ -38,6 +38,16 @@ public class FacilityServiceImpl implements IFacilityService {
         ReadAndWriteBuffer.writeRoom("src/casestudy/data/room.csv",rooms);
     }
     @Override
+    public void display() {
+        System.out.println("*---List---*");
+        for (Map.Entry<Facility, Integer> element : facilities.entrySet()) {
+            System.out.println("Service : " + element.getKey().getServiceName());
+            System.out.println("Số lần đã thuê : " + element.getValue());
+        }
+
+    }
+
+    @Override
     public void add(Facility facility) {
         Set<Facility> facilityKey = facilities.keySet();
 
@@ -58,17 +68,6 @@ public class FacilityServiceImpl implements IFacilityService {
             }
         }
     }
-
-    @Override
-    public void display() {
-        System.out.println("*---List---*");
-        for (Map.Entry<Facility, Integer> element : facilities.entrySet()) {
-            System.out.println("Service : " + element.getKey().getServiceName());
-            System.out.println("Số lần đã thuê : " + element.getValue());
-        }
-
-    }
-
     @Override
     public void displayMaintain() {
         if (!maintenancefacilities.isEmpty()) {

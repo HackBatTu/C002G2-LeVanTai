@@ -2,6 +2,7 @@ package casestudy.utils.file;
 
 import casestudy.models.person.Customer;
 import casestudy.models.person.Employee;
+import casestudy.models.resort.Facility;
 import casestudy.models.resort.House;
 import casestudy.models.resort.Room;
 import casestudy.models.resort.Villa;
@@ -157,11 +158,10 @@ public class ReadAndWriteBuffer {
 //    public static Set<Booking> readBooking(){
 //        List<String> list = readFile("src/casestudy/models/service/Booking.java");
 //        Set<Booking> bookingSet = new TreeSet<>();
-//        Customer customer = new Customer();
 //        String[] arr = null;
 //        for(String str : list){
 //            arr = str.split(",");
-//            bookingSet.add(new Booking(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3],arr[4]) );
+//            bookingSet.add(new Booking(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3], arr[4]) );
 //        }
 //        return bookingSet;
 //    }
@@ -169,9 +169,11 @@ public class ReadAndWriteBuffer {
 //        List<String> list = readFile("src/casestudy/models/service/Booking.java");
 //        List<Contract> contractList = new ArrayList<>();
 //        String[] arr = null;
+//        Booking booking = new Booking();
+//        Customer customer = new Customer();
 //        for(String str : list){
 //            arr = str.split(",");
-//            contractList.add(new Contract(arr[0],arr[1],arr[2],arr[3],arr[4]) );
+//            contractList.add(new Contract(arr[0],arr[1], arr[2],arr[3],arr[4]) );
 //        }
 //        return contractList;
 //    }

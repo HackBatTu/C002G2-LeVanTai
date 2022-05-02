@@ -15,7 +15,6 @@ public class ContactServiceImpl implements IContactService {
     private static Scanner sc = new Scanner(System.in);
     @Override
     public void createNewContract() {
-
         for(Booking booking: bookingSet){
             bookingQueue.add(booking);
         }
@@ -23,7 +22,7 @@ public class ContactServiceImpl implements IContactService {
             Booking booking = bookingQueue.poll();
             Customer customer = booking.getCustomerID();
             System.out.println("Contract for booking : " + booking.toString());
-            System.out.println("Contract for Customer : " + customer.toString());
+            System.out.println("Contract for Customer : " + customer.getName());
             System.out.println("Enter the Contract Id  : ");
             String id = sc.nextLine();
             System.out.println("Money check in :");
@@ -64,8 +63,8 @@ public class ContactServiceImpl implements IContactService {
                 if(contractList.get(i).getContractID().equals(id)){
                     Booking booking = bookingQueue.poll();
                     Customer customer = booking.getCustomerID();
-                    System.out.println("edit Booking : " + booking.toString());
-                    System.out.println("edit Customer : " + customer.toString());
+                    System.out.println("edit Booking : " + booking.getBookingID());
+                    System.out.println("edit Customer : " + customer.getName());
                     System.out.print("new ID contract: ");
                     contractList.get(i).setContractID(sc.nextLine());
                     System.out.println("new money ");

@@ -18,24 +18,6 @@ public class Regex {
     private static final String REGEX_AREA = "^((([3-9]\\d)|([1-9]\\d\\d+))\\.\\d{1,})$";
     private static final String REGEX_INT = "^(1-9)|([1][0-9]+)$";
 
-    public static int getChoice( int choice) {
-        boolean check = true;
-        while (check){
-            try {
-                choice = Integer.parseInt(sc.nextLine());
-                check =false;
-            } catch (NumberFormatException e) {
-                System.err.print("Error: " + e.getMessage());
-                System.out.print("-------" + "\n" + "\n"+ "Re-choice: ");
-                check = true;
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-                check =true;
-            }
-
-        }
-        return choice;
-    }
     public static String regex(String scanner, String regex, String error) {
         boolean check = true;
         do {
@@ -97,5 +79,24 @@ public class Regex {
             }
         }
         return scanner;
+    }
+
+    public static int getChoice(int choice) {
+        boolean check = true;
+        while (check){
+            try {
+                choice = Integer.parseInt(sc.nextLine());
+                check =false;
+            } catch (NumberFormatException e) {
+                System.err.print("Error: " + e.getMessage());
+                System.out.print("-------" + "\n" + "\n"+ "Re-choice: ");
+                check = true;
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+                check =true;
+            }
+
+        }
+        return choice;
     }
 }

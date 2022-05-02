@@ -20,6 +20,8 @@ public class Booking {
         this.facilityID = facilityID;
     }
 
+    public Booking() {
+    }
 
     public Integer getBookingID() {
         return bookingID;

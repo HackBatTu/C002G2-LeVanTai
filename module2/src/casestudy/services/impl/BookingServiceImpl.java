@@ -31,10 +31,8 @@ public class BookingServiceImpl implements IBookingService {
 
         facilities.put(new Villa("SVVL-1996", "Villa 1", 500, 500, 10, "Day", "Vip", 100, 2), 0);
         facilities.put(new Villa("SVVL-1997", "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5), 0);
-
         facilities.put(new House("SVHO-1996", "House 1", 500, 1000, 30, "Day", "Vip",4), 0);
         facilities.put(new House("SVHO-1997", "House 2", 2000, 1000, 30, "Day", "Vip", 2), 0);
-
         facilities.put(new Room("SVRO-1996", "Room 1", 500, 1000, 30, "Day","Breakfast"), 0);
         facilities.put(new Room("SVRO-1997", "Room 2", 2000, 1000, 30, "Day", "BBQ"), 0);
 
@@ -56,20 +54,16 @@ public class BookingServiceImpl implements IBookingService {
         String endDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: sai định dạng ngày tháng");
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
-
-//      Booking(Integer bookingID, String startDay, String endDay, Integer customerID, String serviceName, Integer serviceID)
         Booking booking = new Booking(id, starDay, endDay, customer,facility);
         bookingSet.add(booking);
         ReadAndWriteBuffer.writeBooking("src/casestudy/data/booking.csv",bookingSet);
     }
-
     @Override
     public void displayListBooking() {
         for (Booking booking : bookingSet) {
             System.out.println(booking.toString());
         }
     }
-
     public static Customer chooseCustomer() {
         System.out.println("List Customer: ");
         for (Customer customer : customerList) {

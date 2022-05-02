@@ -72,6 +72,7 @@ public abstract class Facility implements Serializable {
     public void setRentalType(String rentalType) {
         this.rentalType = rentalType;
     }
+
     public String convertLine() {
         String line = this.idFacility + "," + this.serviceName+ ","+ this.area+ "," +this.rentalCosts + "," + this.maxPerson + "," + this.rentalType ;
         return line;

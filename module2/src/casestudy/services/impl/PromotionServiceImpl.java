@@ -29,7 +29,6 @@ public class PromotionServiceImpl implements IPromotionService {
     public void displayListCustomersUseService() {
         Set<Booking> bookingList = BookingServiceImpl.sendBooking();
         boolean check = false;
-
         System.out.print("Enter year: ");
         String year = sc.nextLine();
 
@@ -39,7 +38,6 @@ public class PromotionServiceImpl implements IPromotionService {
                 break;
             }
         }
-
         if (check) {
             for (Booking booking : bookingList) {
                 if (booking.getEndDay().equals(year)) {

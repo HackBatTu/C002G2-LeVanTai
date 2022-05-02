@@ -20,7 +20,6 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
 
         ReadAndWriteBuffer.writeCustomer("src/casestudy/data/customer.csv",customerLinkedList);
     }
-
     Scanner sc = new Scanner(System.in);
 
     @Override
