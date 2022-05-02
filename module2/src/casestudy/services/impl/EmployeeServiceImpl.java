@@ -17,10 +17,10 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
     private static final String DATE_REGEX ="^(0?[1-9]|[12][0-9]|3[01])\\/(0?[1-9]|1[012])\\/(((19)[2-9]{1}[0-9]{1})|(200)[1-4]{1})$";
 
     {
-        Employee employee1 = new Employee(1,"hoan", "01/01/2001", "male", 1001, "0909", "gaHoan@gmail.com",  "con gà", "xách dép", 1000);
-        Employee employee2 = new Employee(2,"phương", "01/02/2001", "male", 2002, "0909", "gaHoan@gmail.com",  "hơi non", "culi", 2000);
-        Employee employee3 = new Employee(3,"luận", "01/03/2001", "male", 3003, "0909", "gaHoan@gmail.com",  "con gà", "nhặt ống bơ", 1500);
-        Employee employee4 = new Employee(4,"hậu", "01/04/2001", "male", 4004, "0909", "gaHoan@gmail.com",  "con gà", "xách dép", 1500);
+        Employee employee1 = new Employee(1,"hoan", "01/01/2001", "male", 1001, "0909", "gaHoan@gmail.com",  "Undergraduate", "Waiter", 1000);
+        Employee employee2 = new Employee(2,"phương", "01/02/2001", "male", 2002, "0909", "gaHoan@gmail.com",  "College", "Waiter", 2000);
+        Employee employee3 = new Employee(3,"luận", "01/03/2001", "male", 3003, "0909", "gaHoan@gmail.com",  "Graduate", "Waiter", 1500);
+        Employee employee4 = new Employee(4,"hậu", "01/04/2001", "male", 4004, "0909", "gaHoan@gmail.com",  "Graduate", "Director", 1500);
         employees.add(employee1);
         employees.add(employee2);
         employees.add(employee3);
@@ -44,18 +44,70 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
         String phone = sc.nextLine();
         System.out.print("Enter the Email: ");
         String email = sc.nextLine();
-        System.out.print("Enter the Level: ");
-        String lever = sc.nextLine();
-        System.out.print("Enter the Position: ");
-        String position = sc.nextLine();
-        System.out.print("Enter the Wage: ");
-        int wage = Integer.parseInt(sc.nextLine());
-        Employee employee = new Employee(employeeID,name, date, gender, idCard, phone, email, lever, position, wage);
+        String lever = menuLevel();
+        String position = menuPosition();
+        System.out.print("Enter the Salary: ");
+        int salary = Integer.parseInt(sc.nextLine());
+        Employee employee = new Employee(employeeID,name, date, gender, idCard, phone, email, lever, position, salary);
         employees.add(employee);
         ReadAndWriteBuffer.writeEmployee("src/casestudy/data/employee.csv",employees);
-
     }
+    public String menuPosition() {
+        while (true) {
+            System.out.println("*--Position Employee : " + "\n" +
+                    "1.Receptionist  " + "\n" +
+                    "2.Waiter  " + "\n" +
+                    "3.Specialist " + "\n" +
+                    "4.Supervisor " + "\n" +
+                    "5.Manager" + "\n" +
+                    "6.Director" + "\n" +
+                    "you choice: ");
+            int choice = 0;
+            choice = Regex.getChoice(choice);
+            switch (choice) {
+                case 1:
+                    return "Receptionist";
+                case 2:
+                    return "Waiter";
+                case 3:
+                    return "Specialist";
+                case 4:
+                    return "Supervisor";
+                case 5:
+                    return "Manager";
+                case 6:
+                    return "Director";
+                default:
+                    System.out.println("Re choice: ");
 
+            }
+        }
+    }
+    public String menuLevel() {
+        while (true) {
+            System.out.println("*--Level Employee : " + "\n" +
+                    "1.Intermediate  " + "\n" +
+                    "2.College  " + "\n" +
+                    "3.Undergraduate " + "\n" +
+                    "4.Graduate " + "\n" +
+                    "you choice: ");
+            int choiceLevel = 0;
+            choiceLevel = Regex.getChoice(choiceLevel);
+            switch (choiceLevel) {
+                case 1:
+                    return "Intermediate";
+                case 2:
+                    return "College";
+                case 3:
+                    return "Undergraduate";
+                case 4:
+                    return "Graduate";
+                default:
+                    System.out.println("Re choice: ");
+
+            }
+        }
+    }
     @Override
     public void display() {
         employees = ReadAndWriteBuffer.readEmployee();
@@ -93,10 +145,8 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
                     employee.setPhone(sc.nextLine());
                     System.out.print("Enter the new Email: ");
                     employee.setEmail(sc.nextLine());
-                    System.out.print("Enter the new Level: ");
-                    employee.setLevel(sc.nextLine());
-                    System.out.print("Enter the new Position: ");
-                    employee.setPosition(sc.nextLine());
+                    employee.setLevel(menuLevel());
+                    employee.setPosition(menuPosition());
                     System.out.print("Enter the new Wage: ");
                     employee.setSalary(Integer.parseInt(sc.nextLine()));
                     break;

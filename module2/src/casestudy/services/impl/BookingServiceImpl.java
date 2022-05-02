@@ -49,23 +49,24 @@ public class BookingServiceImpl implements IBookingService {
             id = bookingSet.size();
         }
         System.out.println("Enter the Day Check in: ");
-        String starDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: sai định dạng ngày tháng");
+        String starDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: dd/MM/yyyy");
         System.out.println("Enter the Day Check out: ");
-        String endDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: sai định dạng ngày tháng");
-        Customer customer = chooseCustomer();
-        Facility facility = chooseFacility();
+        String endDay = Regex.regex(sc.nextLine(),REGEX_DATE,"Error: dd/MM/yyyy");
+        Integer customer = chooseCustomer();
+        String facility = chooseFacility();
         Booking booking = new Booking(id, starDay, endDay, customer,facility);
         bookingSet.add(booking);
         ReadAndWriteBuffer.writeBooking("src/casestudy/data/booking.csv",bookingSet);
     }
     @Override
     public void displayListBooking() {
+        bookingSet = ReadAndWriteBuffer.readBooking();
         for (Booking booking : bookingSet) {
             System.out.println(booking.toString());
         }
     }
-    public static Customer chooseCustomer() {
-        System.out.println("List Customer: ");
+    public static Integer chooseCustomer() {
+        System.out.println("*List Customer: ");
         for (Customer customer : customerList) {
             System.out.println( " - " + customer.getID() + ": "+ customer.getName()+".");
         }
@@ -76,7 +77,7 @@ public class BookingServiceImpl implements IBookingService {
             for (Customer customer : customerList) {
                 if (id == customer.getID()) {
                     check = true;
-                    return customer;
+                    return customer.getID();
                 }
             }
             if (check) {
@@ -89,11 +90,11 @@ public class BookingServiceImpl implements IBookingService {
 
 
 
-    public static Facility chooseFacility() {
-        System.out.println("List Service: ");
+        public static String chooseFacility() {
+        System.out.println("*List Service: ");
         for (Map.Entry<Facility, Integer> entry : facilities.entrySet()) {
-            System.out.println("- ID Facility Service : " + entry.getKey().getId());
-            System.out.println("  Số lần đã sử dụng : " + entry.getValue());
+            System.out.println("-ID Facility Service : " + entry.getKey().getId());
+            System.out.println("-Số lần đã sử dụng  : " + entry.getValue());
         }
         boolean check = true;
         System.out.println("Enter the ID Service: ");
@@ -102,7 +103,7 @@ public class BookingServiceImpl implements IBookingService {
             for (Map.Entry<Facility, Integer> entry : facilities.entrySet()) {
                 if (entry.getKey().getId().equals(id)) {
                     check = true;
-                    return entry.getKey();
+                    return entry.getKey().getId()+"";
                 }
             }
             if (check) {

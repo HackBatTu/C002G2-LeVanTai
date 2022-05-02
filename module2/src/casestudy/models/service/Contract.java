@@ -5,14 +5,14 @@ import casestudy.models.service.Booking;
 
 public class Contract {
     private String contractID;
-    private Booking bookingID;
+    private Integer bookingID;
     private String firstMoney;
     private String totalMoney;
-    private Customer customerID;
+    private Integer customerID;
 
 //    Số hợp đồng, mã booking, Số tiền cọc trước, Tổng số tiền thanh toán, mã khách hàng.
 
-    public Contract(String contractID, Booking bookingID, String firstMoney, String totalMoney, Customer customerID) {
+    public Contract(String contractID, Integer bookingID, String firstMoney, String totalMoney, Integer customerID) {
         this.contractID = contractID;
         this.bookingID = bookingID;
         this.firstMoney = firstMoney;
@@ -31,11 +31,11 @@ public class Contract {
         this.contractID = contractID;
     }
 
-    public Booking getBookingID() {
+    public Integer getBookingID() {
         return bookingID;
     }
 
-    public void setBookingID(Booking bookingID) {
+    public void setBookingID(Integer bookingID) {
         this.bookingID = bookingID;
     }
 
@@ -55,11 +55,11 @@ public class Contract {
         this.totalMoney = totalMoney;
     }
 
-    public Customer getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(Customer customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
    public String convertLine(){

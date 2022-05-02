@@ -7,12 +7,12 @@ public class Booking {
     private Integer bookingID;
     private String startDay;
     private String endDay;
-    private Customer customerID;
-    private Facility facilityID;
+    private Integer customerID;
+    private String facilityID;
 
     //    mã booking, ngày bắt đầu, ngày kết thúc, mã khách hàng, tên dịch vụ, loại dịch vụ.
 
-    public Booking(Integer bookingID, String startDay, String endDay, Customer customerID, Facility facilityID) {
+    public Booking(Integer bookingID, String startDay, String endDay, Integer customerID, String facilityID) {
         this.bookingID = bookingID;
         this.startDay = startDay;
         this.endDay = endDay;
@@ -47,19 +47,19 @@ public class Booking {
         this.endDay = endDay;
     }
 
-    public Customer getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(Customer customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
 
-    public Facility getServiceID() {
+    public String getServiceID() {
         return facilityID;
     }
 
-    public void setServiceType(Facility serviceType) {
+    public void setServiceType(String serviceType) {
         this.facilityID = facilityID;
     }
     public String convertLine() {

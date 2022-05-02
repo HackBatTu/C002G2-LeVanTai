@@ -1,1 +1,1 @@
-1, Customer [ id='1', name='Hoan', date='01/01/2001', gender='male', idCard=12345567, phone='054643', email='Hoan@1234',typeCustomer='Vip', address='xó núi'],12/12/2022, Customer [ id='1', name='Hoan', date='01/01/2001', gender='male', idCard=12345567, phone='054643', email='Hoan@1234',typeCustomer='Vip', address='xó núi'],Villa [ id: SVVL-1996', serviceName: Villa 1', area: 500, rentalCosts: 500, maxPerson: 10, rentalType: Day,roomStandard: Vip', poolArea: 100, numberOfFloors: 2]
+1,2,12/12/2022,2,SVVL-1996

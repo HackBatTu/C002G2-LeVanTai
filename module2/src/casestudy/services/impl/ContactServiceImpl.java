@@ -18,18 +18,18 @@ public class ContactServiceImpl implements IContactService {
         for(Booking booking: bookingSet){
             bookingQueue.add(booking);
         }
-        while (!bookingQueue.isEmpty()) {
-            Booking booking = bookingQueue.poll();
-            Customer customer = booking.getCustomerID();
-            System.out.println("Contract for booking : " + booking.toString());
-            System.out.println("Contract for Customer : " + customer.getName());
+        if (!bookingQueue.isEmpty()) {
+            Integer booking = bookingQueue.element().getBookingID();
+            Integer customer = bookingQueue.element().getCustomerID();
+            System.out.println("*Contract for bookingID : " + booking.toString());
+            System.out.println("*Contract for CustomerID : " + customer.toString());
             System.out.println("Enter the Contract Id  : ");
             String id = sc.nextLine();
             System.out.println("Money check in :");
             String money = sc.nextLine();
             System.out.println("Total bill :");
             String total = sc.nextLine();
-            Contract contract = new Contract(id, booking, money, total, customer);
+            Contract contract = new Contract(id, booking, money, total,customer);
             contractList.add(contract);
             System.out.println("Contract : " + contract.toString());
         }
@@ -38,7 +38,7 @@ public class ContactServiceImpl implements IContactService {
 
     @Override
     public void displayListContract() {
-//        contractList = ReadAndWriteBuffer.readFile("src/casestudy/data/contract.csv");
+        contractList = ReadAndWriteBuffer.readContract();
         for(Contract contract: contractList){
             System.out.println(contract);
         }
@@ -61,10 +61,10 @@ public class ContactServiceImpl implements IContactService {
         if(check){
             for (int i = 0; i < contractList.size(); i++) {
                 if(contractList.get(i).getContractID().equals(id)){
-                    Booking booking = bookingQueue.poll();
-                    Customer customer = booking.getCustomerID();
-                    System.out.println("edit Booking : " + booking.getBookingID());
-                    System.out.println("edit Customer : " + customer.getName());
+                    Integer booking = bookingQueue.element().getBookingID();
+                    Integer customer = bookingQueue.element().getCustomerID();
+                    System.out.println("edit Booking : " + booking);
+                    System.out.println("edit Customer : " + customer);
                     System.out.print("new ID contract: ");
                     contractList.get(i).setContractID(sc.nextLine());
                     System.out.println("new money ");

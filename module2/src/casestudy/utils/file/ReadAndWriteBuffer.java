@@ -146,7 +146,7 @@ public class ReadAndWriteBuffer {
         return houseList;
     }
     public static List<Room> readRoom(){
-        List<String> list = readFile("src/casestudy/models/resort/Room.java");
+        List<String> list = readFile("src/casestudy/data/employee.csv");
         List<Room> roomList = new ArrayList<>();
         String[] arr = null;
         for(String str : list){
@@ -155,27 +155,27 @@ public class ReadAndWriteBuffer {
         }
         return roomList;
     }
-//    public static Set<Booking> readBooking(){
-//        List<String> list = readFile("src/casestudy/models/service/Booking.java");
-//        Set<Booking> bookingSet = new TreeSet<>();
-//        String[] arr = null;
-//        for(String str : list){
-//            arr = str.split(",");
-//            bookingSet.add(new Booking(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3], arr[4]) );
-//        }
-//        return bookingSet;
-//    }
-//    public static List<Contract> readContract(){
-//        List<String> list = readFile("src/casestudy/models/service/Booking.java");
-//        List<Contract> contractList = new ArrayList<>();
-//        String[] arr = null;
-//        Booking booking = new Booking();
-//        Customer customer = new Customer();
-//        for(String str : list){
-//            arr = str.split(",");
-//            contractList.add(new Contract(arr[0],arr[1], arr[2],arr[3],arr[4]) );
-//        }
-//        return contractList;
-//    }
+    public static Set<Booking> readBooking(){
+        List<String> list = readFile("src/casestudy/data/booking.csv");
+        Set<Booking> bookingSet = new TreeSet<>();
+        String[] arr = null;
+        for(String str : list){
+            arr = str.split(",");
+            bookingSet.add(new Booking(Integer.parseInt(arr[0]),arr[1],arr[2],Integer.parseInt(arr[3]), arr[4]) );
+        }
+        return bookingSet;
+    }
+    public static List<Contract> readContract(){
+        List<String> list = readFile("src/casestudy/data/contract.csv");
+        List<Contract> contractList = new ArrayList<>();
+        String[] arr = null;
+        Booking booking = new Booking();
+        Customer customer = new Customer();
+        for(String str : list){
+            arr = str.split(",");
+            contractList.add(new Contract(arr[0],Integer.parseInt(arr[1]), arr[2],arr[3],Integer.parseInt(arr[4])) );
+        }
+        return contractList;
+    }
 
 }
