@@ -31,6 +31,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
 
     @Override
     public void add() {
+        employees = ReadAndWriteBuffer.readEmployee();
         System.out.print("Enter the EmployeeID: ");
         int employeeID = Integer.parseInt(sc.nextLine());
         System.out.print("Enter the Name: ");
@@ -120,6 +121,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
 
     @Override
     public void edit() {
+        employees = ReadAndWriteBuffer.readEmployee();
         System.out.println("Enter the EmployeeID you want edit: ");
         int newEdit = Integer.parseInt(sc.nextLine());
         boolean flag = false;

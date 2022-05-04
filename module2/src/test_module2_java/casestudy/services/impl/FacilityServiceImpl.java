@@ -24,18 +24,18 @@ public class FacilityServiceImpl implements IFacilityService {
 
 
     static {
-        Villa villa= new Villa("SVVL-1996", "Villa 1", 500, 500, 10, "Day", "Vip", 100, 2);
-       Villa villa1 = new Villa("SVVL-1997", "Villa 2", 2000, 1000, 30, "Day", "Vip", 400, 5);
-        House house=new House("SVHO-1996", "House 1", 500, 1000, 30, "Day", "Vip",4);
-        House house1 =new House("SVHO-1997", "House 2", 2000, 1000, 30, "Day", "Vip", 2);
-       Room room =new Room("SVRO-1996", "Room 1", 500, 1000, 30, "Day","Breakfast");
-        Room room1 =new Room("SVRO-1997", "Room 2", 2000, 1000, 30, "Day", "BBQ");
-        houses.add(house); facilityList.add(house); facilities.put(house,1);
-        rooms.add(room); facilityList.add(room); facilities.put(room,1);
-        villas.add(villa); facilityList.add(villa);facilities.put(villa,1);
-        houses.add(house1); facilityList.add(house1);facilities.put(house1,1);
-        rooms.add(room1); facilityList.add(room1);facilities.put(room1,1);
-        villas.add(villa1); facilityList.add(villa1);facilities.put(villa1,1);
+        Villa villa= new Villa("SVVL-1996", "Villa 1", 500.0, 500, 10, "Day", "Vip", 100.0, 2);
+       Villa villa1 = new Villa("SVVL-1997", "Villa 2", 2000.0, 1000, 30, "Day", "Vip", 400.0, 5);
+        House house=new House("SVHO-1996", "House 1", 500.0, 1000, 30, "Day", "Vip",4);
+        House house1 =new House("SVHO-1997", "House 2", 2000.0, 1000, 30, "Day", "Vip", 2);
+       Room room =new Room("SVRO-1996", "Room 1", 500.0, 1000, 30, "Day","Breakfast");
+        Room room1 =new Room("SVRO-1997", "Room 2", 2000.0, 1000, 30, "Day", "BBQ");
+        houses.add(house); facilityList.add(house); facilities.put(house,0);
+        rooms.add(room); facilityList.add(room); facilities.put(room,0);
+        villas.add(villa); facilityList.add(villa);facilities.put(villa,0);
+        houses.add(house1); facilityList.add(house1);facilities.put(house1,0);
+        rooms.add(room1); facilityList.add(room1);facilities.put(room1,0);
+        villas.add(villa1); facilityList.add(villa1);facilities.put(villa1,0);
         ReadAndWriteBuffer.writeVilla(PATH_VILLA,villas);
         ReadAndWriteBuffer.writeHouse(PATH_HOUSE,houses);
         ReadAndWriteBuffer.writeRoom(PATH_ROOM,rooms);
@@ -106,15 +106,16 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addNewVilla() {
+        villas = ReadAndWriteBuffer.readVilla();
         System.out.println("*---Enter the Villa---*");
         String id = Regex.inputIDVL();
         String name = Regex.inputName();
-        Integer area = Integer.parseInt( Regex.inputArea());
+        Double area = Double.parseDouble( Regex.inputArea());
         int costs = Integer.parseInt( Regex.inputRentalCost());
         int person = Integer.parseInt( Regex.inputMaxPerson());
         String type =  Regex.inputRentalType();
         String room =  Regex.inputRoomStandard();
-        Integer pool = Integer.parseInt( Regex.inputPoolArea());
+        Double pool = Double.parseDouble( Regex.inputPoolArea());
         int num = Integer.parseInt( Regex.inputNumOfFloors());
         Facility villa = new Villa(id, name, area, costs, person, type, room, pool, num);
         this.add(villa);
@@ -124,10 +125,11 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addNewHouse() {
+        houses = ReadAndWriteBuffer.readHouse();
         System.out.println("*---Enter the House---*");
         String id =  Regex.inputIDHO();
         String name =  Regex.inputName();
-        Integer area = Integer.parseInt( Regex.inputArea());
+        Double area = Double.parseDouble( Regex.inputArea());
         int costs = Integer.parseInt( Regex.inputRentalCost());
         int person = Integer.parseInt( Regex.inputMaxPerson());
         String type =  Regex.inputRentalType();
@@ -141,10 +143,11 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addNewRoom() {
+        rooms = ReadAndWriteBuffer.readRoom();
         System.out.println("*---Enter the Room---*");
         String id =  Regex.inputIDRO();
         String name =  Regex.inputName();
-        Integer area = Integer.parseInt( Regex.inputArea());
+        Double area = Double.parseDouble( Regex.inputArea());
         int costs = Integer.parseInt( Regex.inputRentalCost());
         int person = Integer.parseInt( Regex.inputMaxPerson());
         String type =  Regex.inputRentalType();

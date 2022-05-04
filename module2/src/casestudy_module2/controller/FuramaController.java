@@ -49,8 +49,8 @@ public class FuramaController {
     public void customerMenu(){
         System.out.println("***---Customer Menu---***");
         System.out.print("1.Display list customers\n" +
-                "2.Add new customer\n" +
-                "3.Edit customer\n" +
+                "2.Add new customer.csv\n" +
+                "3.Edit customer.csv\n" +
                 "0.Return main menu\n"+
                 "enter the choice: ");
     }

@@ -16,6 +16,7 @@ public class ContactServiceImpl implements IContactService {
 
     @Override
     public void createNewContract() {
+        contractList = ReadAndWriteBuffer.readContract();
         for(Booking booking: bookingSet){
             bookingQueue.add(booking);
         }
@@ -47,6 +48,8 @@ public class ContactServiceImpl implements IContactService {
 
     @Override
     public void editContract() {
+        contractList = ReadAndWriteBuffer.readContract();
+
         for(Booking booking: bookingSet){
             bookingQueue.add(booking);
         }

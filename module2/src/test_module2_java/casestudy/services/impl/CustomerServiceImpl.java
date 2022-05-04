@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements ICustomerService, Serializable {
     private static List<Customer> customerLinkedList = new LinkedList<>();
     private static final String DATE_REGEX = "^(0?[1-9]|[12][0-9]|3[01])\\/(0?[1-9]|1[012])\\/(((19)[2-9]{1}[0-9]{1})|(200)[1-4]{1})$";
-    private static final String PATH_CUS = "src/test_module2_java/casestudy/data/customer.csv";
+    private static final String PATH_CUS = "src/test_module2_java/casestudy/data/customer.csv.csv";
     static {
         customerLinkedList.add(new Customer(1, "Hoan", "01/01/2001", "male", 12345567, "054643", "Hoan@1234", "Member", "xó núi"));
         customerLinkedList.add(new Customer(2, "Luan", "02/02/2001", "male", 4366566, "01232323", "Luan@1234", "Gold", "xó núi"));
@@ -26,6 +26,8 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
 
     @Override
     public void add() {
+        customerLinkedList = ReadAndWriteBuffer.readCustomer();
+
         System.out.print("Enter the CustomerID: ");
         int customerID = Integer.parseInt(sc.nextLine());
         System.out.print("Enter the Name: ");
@@ -94,6 +96,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
 
     @Override
     public void edit() {
+        customerLinkedList = ReadAndWriteBuffer.readCustomer();
         System.out.println("Enter the CustomerID you want edit: ");
         int newID = Integer.parseInt(sc.nextLine());
         boolean flag = false;

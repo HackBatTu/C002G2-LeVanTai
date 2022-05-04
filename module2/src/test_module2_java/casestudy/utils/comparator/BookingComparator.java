@@ -10,8 +10,10 @@ public class BookingComparator implements Comparator<Booking> {
     @Override
     public int compare(Booking o1, Booking o2) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         LocalDate starDate1 = LocalDate.parse(o1.getStartDay(), formatter);
         LocalDate starDate2 = LocalDate.parse(o1.getStartDay(), formatter);
+
         LocalDate endDate1 = LocalDate.parse(o1.getEndDay(), formatter);
         LocalDate endDate2 = LocalDate.parse(o1.getEndDay(), formatter);
         if(starDate1.compareTo(starDate2)>0){

@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.*;
 
 public class ReadAndWriteBuffer {
-    private static final String PATH_CUS = "src/test_module2_java/casestudy/data/customer.csv";
+    private static final String PATH_CUS = "src/test_module2_java/casestudy/data/customer.csv.csv";
     private static final String PATH_EM="src/test_module2_java/casestudy/data/employee.csv";
     private static final String PATH_VILLA="src/test_module2_java/casestudy/data/villa.csv";
     private static final String PATH_HOUSE="src/test_module2_java/casestudy/data/house.csv";
@@ -24,7 +24,6 @@ public class ReadAndWriteBuffer {
         try {
             FileWriter fileWriter = new FileWriter(pathFile);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            String line = null;
             for (String s : list) {
                 bufferedWriter.write(s);
                 bufferedWriter.newLine();
@@ -114,7 +113,6 @@ public class ReadAndWriteBuffer {
         List<String> list = readFile(PATH_EM);
         List<Employee> employeeList = new ArrayList<>();
         String[] arr = null;
-        Employee employee = null;
         for (String str: list) {
             arr = str.split(",");
             employeeList.add(new Employee(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3],Integer.parseInt(arr[4]),arr[5],arr[6],arr[7],arr[8],Integer.parseInt(arr[9])));
@@ -137,7 +135,7 @@ public class ReadAndWriteBuffer {
         String[] arr = null;
         for(String str : list){
             arr = str.split(",");
-            villaList.add(new Villa(arr[0],arr[1], Integer.parseInt(arr[2]),Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],arr[6],Integer.parseInt(arr[7]),Integer.parseInt(arr[8]) ));
+            villaList.add(new Villa(arr[0],arr[1], Double.parseDouble(arr[2]),Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],arr[6],Double.parseDouble(arr[7]),Integer.parseInt(arr[8]) ));
 
         }
         return villaList;
@@ -148,7 +146,7 @@ public class ReadAndWriteBuffer {
         String[] arr = null;
         for(String str : list){
             arr = str.split(",");
-            houseList.add(new House(arr[0],arr[1], Integer.parseInt(arr[2]),Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],arr[6],Integer.parseInt(arr[7]) ));
+            houseList.add(new House(arr[0],arr[1], Double.parseDouble(arr[2]),Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],arr[6],Integer.parseInt(arr[7]) ));
         }
         return houseList;
     }
@@ -158,7 +156,7 @@ public class ReadAndWriteBuffer {
         String[] arr = null;
         for(String str : list){
             arr = str.split(",");
-            roomList.add(new Room(arr[0],arr[1], Integer.parseInt(arr[2]),Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],arr[6]));
+            roomList.add(new Room(arr[0],arr[1], Double.parseDouble(arr[2]),Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],arr[6]));
         }
         return roomList;
     }
@@ -176,8 +174,6 @@ public class ReadAndWriteBuffer {
         List<String> list = readFile(PATH_CONTRACT);
         List<Contract> contractList = new ArrayList<>();
         String[] arr = null;
-        Booking booking = new Booking();
-        Customer customer = new Customer();
         for(String str : list){
             arr = str.split(",");
             contractList.add(new Contract(arr[0],Integer.parseInt(arr[1]), arr[2],arr[3],Integer.parseInt(arr[4])) );

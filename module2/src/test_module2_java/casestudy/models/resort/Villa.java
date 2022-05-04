@@ -2,7 +2,7 @@ package test_module2_java.casestudy.models.resort;
 
 public class Villa extends Facility {
     private String roomStandard;
-    private Integer poolArea;
+    private Double poolArea;
     private Integer numberOfFloors;
 //    Tiêu chuẩn phòng, Diện tích hồ bơi, Số tầng.
 
@@ -10,7 +10,7 @@ public class Villa extends Facility {
     public Villa() {
     }
 
-    public Villa(String idFacility, String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType, String roomStandard, Integer poolArea, Integer numberOfFloors) {
+    public Villa(String idFacility, String serviceName, Double area, Integer rentalCosts, Integer maxPerson, String rentalType, String roomStandard, Double poolArea, Integer numberOfFloors) {
         super(idFacility, serviceName, area, rentalCosts, maxPerson, rentalType);
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
@@ -25,11 +25,11 @@ public class Villa extends Facility {
         this.roomStandard = roomStandard;
     }
 
-    public Integer getPoolArea() {
+    public Double getPoolArea() {
         return poolArea;
     }
 
-    public void setPoolArea(Integer poolArea) {
+    public void setPoolArea(Double poolArea) {
         this.poolArea = poolArea;
     }
 

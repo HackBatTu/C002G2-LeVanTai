@@ -6,7 +6,7 @@ import java.util.Objects;
 public abstract class Facility implements Serializable {
     private String idFacility;
     private String serviceName;
-    private Integer area;
+    private Double area;
     private Integer rentalCosts;
     private Integer maxPerson;
     private String rentalType;
@@ -16,7 +16,7 @@ public abstract class Facility implements Serializable {
     public Facility() {
     }
 
-    public Facility(String idFacility,String serviceName, Integer area, Integer rentalCosts, Integer maxPerson, String rentalType) {
+    public Facility(String idFacility,String serviceName, Double area, Integer rentalCosts, Integer maxPerson, String rentalType) {
         this.idFacility = idFacility;
         this.serviceName = serviceName;
         this.area = area;
@@ -41,11 +41,11 @@ public abstract class Facility implements Serializable {
         this.serviceName = serviceName;
     }
 
-    public Integer getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(Integer area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 

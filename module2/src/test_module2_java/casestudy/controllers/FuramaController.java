@@ -82,8 +82,8 @@ public class FuramaController {
         while (true) {
             System.out.println("***---Customer Management---***  ");
             System.out.println("1.Display list customers\n" +
-                    "2.Add new customer\n" +
-                    "3.Edit customer\n" +
+                    "2.Add new customer.csv\n" +
+                    "3.Edit customer.csv\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
             int choice2 = 0;
