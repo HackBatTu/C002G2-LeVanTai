@@ -9,7 +9,7 @@ public class Exchange {
         double vnd = 23000;
         double usd;
         usd = sc.nextDouble();
-        double exChange = usd * 23000;
+        double exChange = usd * vnd;
         System.out.print("Gía Trị VND : " + exChange);
     }
 }

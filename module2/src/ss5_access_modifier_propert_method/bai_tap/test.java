@@ -1,7 +1,5 @@
 package ss5_access_modifier_propert_method.bai_tap;
 
-
-
 public class test {
 
     public static void main(String[] args) {
