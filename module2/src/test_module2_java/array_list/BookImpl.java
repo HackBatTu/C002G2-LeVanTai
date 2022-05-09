@@ -3,10 +3,7 @@ package test_module2_java.array_list;
 
 import com.sun.javaws.IconUtil;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class BookImpl {
@@ -135,7 +132,8 @@ public class BookImpl {
 
 
 
-    public void f12(ArrayList<Book> list){
+    public void f12(){
+        List<Book> list = new ArrayList<>();
         Collections.sort(list, new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {

@@ -1,4 +1,6 @@
-package bai_tap_lam_them.bai_1;
+package bai_tap_lam_them.bai_1_movie;
+
+import java.util.Objects;
 
 public class Movie {
     private String id;

@@ -32,6 +32,6 @@ public class Main {
         book.f9((ArrayList<Book>) listArr);
         book.f10((ArrayList<Book>) listArr);
         book.f11((ArrayList<Book>) listArr);
-        book.f12((ArrayList<Book>) listArr);
+        book.f12();
     }
 }

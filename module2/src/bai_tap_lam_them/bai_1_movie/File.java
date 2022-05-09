@@ -1,11 +1,11 @@
-package bai_tap_lam_them.bai_1;
+package bai_tap_lam_them.bai_1_movie;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class File {
-    static final String PATH = "src/bai_tap_lam_them/bai_1/movie.csv";
+    static final String PATH = "src/bai_tap_lam_them/bai_1_movie/movie.csv";
 
     public static void writeFile(String path,List<String> list){
         try {

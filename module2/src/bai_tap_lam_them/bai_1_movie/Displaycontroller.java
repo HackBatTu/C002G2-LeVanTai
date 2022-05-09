@@ -1,4 +1,4 @@
-package bai_tap_lam_them.bai_1;
+package bai_tap_lam_them.bai_1_movie;
 
 public class Displaycontroller {
     static MovieImpl movie = new MovieImpl();
@@ -8,7 +8,7 @@ public class Displaycontroller {
             System.out.print(" 1. list Movie.\n" +
                     " 2. add Movie \n" +
                     " 3. delete Movie by id .\n" +
-                    " 0. Thoát.\n" +"you choice : ");
+                    " 0. exit .\n" +"you choice : ");
             int choice = 0;
             choice = Regex.getChoice(choice);
             switch (choice){

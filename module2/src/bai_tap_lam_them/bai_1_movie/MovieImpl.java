@@ -1,4 +1,4 @@
-package bai_tap_lam_them.bai_1;
+package bai_tap_lam_them.bai_1_movie;
 
 import java.util.*;
 
@@ -6,15 +6,6 @@ public class MovieImpl implements IService {
     static List<Movie> list = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     private static final String REGEX_DATE = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
-
-    static {
-        list.add(new Movie("CL-1111", "HUNTER", "11/11/2022", 50));
-        list.add(new Movie("CL-1222", "HUNTER", "11/11/2022", 100));
-        list.add(new Movie("CL-1234", "Mavel", "11/11/2022", 50));
-        list.add(new Movie("CL-1333", "holywood", "11/11/2022", 100));
-        File.writeMovie(list);
-
-    }
 
     @Override
     public void display() {
