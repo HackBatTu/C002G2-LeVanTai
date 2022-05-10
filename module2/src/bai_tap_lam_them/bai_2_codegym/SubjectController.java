@@ -6,11 +6,13 @@ public class SubjectController {
     public void display() {
 
       while (true){
-          System.out.println(" 1. Display Subject\n" +
+          System.out.println("***---Menu Manager---***");
+          System.out.print("1. Display Subject\n" +
                   "2. Add Subject\n" +
                   "3. Update Subject\n" +
                   "4. Delete Subject\n" +
-                  "0. Exit \n:" +
+                  "5. Sort by Version\n"+
+                  "0. Exit \n" +
                   "you choice: ");
           int choice = 0;
           choice = Regex.getChoice(choice);
@@ -26,6 +28,9 @@ public class SubjectController {
                   break;
               case 4:
                   subject.delete();
+                  break;
+              case 5:
+                  subject.sort();
                   break;
               case 0:
                   return;
