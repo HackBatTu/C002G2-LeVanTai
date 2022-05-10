@@ -14,8 +14,7 @@ public class SubjectController {
                   "5. Sort by Version\n"+
                   "0. Exit \n" +
                   "you choice: ");
-          int choice = 0;
-          choice = Regex.getChoice(choice);
+          int choice = Regex.getChoice();
           switch (choice) {
               case 1:
                   subject.display();

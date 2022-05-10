@@ -22,24 +22,6 @@ public class FacilityServiceImpl implements IFacilityService {
     private static final String PATH_ROOM ="src/casestudy/data/room.csv";
     private static final String PATH_VILLA="src/casestudy/data/villa.csv";
 
-
-//    static {
-//        Villa villa= new Villa("SVVL-1996", "Villa 1", 500.0, 500, 10, "Day", "Vip", 100.0, 2);
-//       Villa villa1 = new Villa("SVVL-1997", "Villa 2", 2000.0, 1000, 30, "Day", "Vip", 400.0, 5);
-//        House house=new House("SVHO-1996", "House 1", 500.0, 1000, 30, "Day", "Vip",4);
-//        House house1 =new House("SVHO-1997", "House 2", 2000.0, 1000, 30, "Day", "Vip", 2);
-//       Room room =new Room("SVRO-1996", "Room 1", 500.0, 1000, 30, "Day","Breakfast");
-//        Room room1 =new Room("SVRO-1997", "Room 2", 2000.0, 1000, 30, "Day", "BBQ");
-//        houses.add(house); facilityList.add(house); facilities.put(house,5);
-//        rooms.add(room); facilityList.add(room); facilities.put(room,0);
-//        villas.add(villa); facilityList.add(villa);facilities.put(villa,0);
-//        houses.add(house1); facilityList.add(house1);facilities.put(house1,0);
-//        rooms.add(room1); facilityList.add(room1);facilities.put(room1,0);
-//        villas.add(villa1); facilityList.add(villa1);facilities.put(villa1,0);
-//        ReadAndWriteBuffer.writeVilla(PATH_VILLA,villas);
-//        ReadAndWriteBuffer.writeHouse(PATH_HOUSE,houses);
-//        ReadAndWriteBuffer.writeRoom(PATH_ROOM,rooms);
-//    }
     @Override
     public void display() {
         houses = ReadAndWriteBuffer.readHouse();

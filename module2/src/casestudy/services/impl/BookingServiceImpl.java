@@ -25,10 +25,6 @@ public class BookingServiceImpl implements IBookingService {
     private static final String PATH_BOOK ="src/casestudy/data/booking.csv";
 
     static {
-//        customerList.add(new Customer(1, "Hoan", "01/01/2001", "male", 12345567, "054643", "Hoan@1234", "Vip", "xó núi"));
-//        customerList.add(new Customer(2, "Luan", "02/02/2001", "male", 4366566, "01232323", "Luan@1234", "Vip", "xó núi"));
-//        customerList.add(new Customer(3, "Phuong", "03/03/2001", "male", 1213123, "04543", "Phuong@1234", "Vip", "xó núi"));
-//
         facilities.put(new Villa("SVVL-1996", "Villa 1", 500.0, 500, 10, "Day", "Vip", 100.0, 2), 1);
         facilities.put(new Villa("SVVL-1997", "Villa 2", 2000.0, 1000, 30, "Day", "Vip", 400.0, 5), 2);
         facilities.put(new House("SVHO-1996", "House 1", 500.0, 1000, 30, "Day", "Vip",4), 2);

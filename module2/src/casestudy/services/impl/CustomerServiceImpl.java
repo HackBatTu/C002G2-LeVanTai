@@ -14,13 +14,6 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
     private static List<Customer> customerLinkedList = new LinkedList<>();
     private static final String DATE_REGEX = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
     private static final String PATH_CUS = "src/casestudy/data/customer.csv.csv";
-//    static {
-//        customerLinkedList.add(new Customer(1, "Hoan", "01/01/2001", "male", 12345567, "054643", "Hoan@1234", "Member", "xó núi"));
-//        customerLinkedList.add(new Customer(2, "Luan", "02/02/2001", "male", 4366566, "01232323", "Luan@1234", "Gold", "xó núi"));
-//        customerLinkedList.add(new Customer(3, "Phuong", "03/03/2001", "male", 1213123, "04543", "Phuong@1234", "Diamond", "xó núi"));
-//
-//        ReadAndWriteBuffer.writeCustomer(PATH_CUS, customerLinkedList);
-//    }
 
     Scanner sc = new Scanner(System.in);
 

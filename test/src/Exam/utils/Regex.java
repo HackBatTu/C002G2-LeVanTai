@@ -31,19 +31,15 @@ public class Regex {
 //        System.out.println("Enter the ID Room: ");
 //        return Regex.regexInput(sc.nextLine(), , "Error: ");
 //    }
-    public static int getChoice(int choice) {
-        boolean check = true;
-        while (check){
+    public static int checkParseInt() {
+        int choice;
+        while (true){
             try {
                 choice = Integer.parseInt(sc.nextLine());
-                check =false;
+                break;
             } catch (NumberFormatException e) {
                 System.err.print("Error: " + e.getMessage());
                 System.out.print("-------" + "\n" + "\n"+ "Re-choice: ");
-                check = true;
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-                check =true;
             }
         }
         return choice;

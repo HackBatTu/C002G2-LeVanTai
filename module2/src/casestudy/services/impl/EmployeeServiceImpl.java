@@ -17,18 +17,6 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
     private static final String DATE_REGEX ="^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
     private static final String PATH_EM="src/casestudy/data/employee.csv";
 
-//    {
-//        Employee employee1 = new Employee(1,"hoan", "01/01/2001", "male", 1001, "0909", "gaHoan@gmail.com",  "Undergraduate", "Waiter", 1000);
-//        Employee employee2 = new Employee(2,"phương", "01/02/2001", "male", 2002, "0909", "gaHoan@gmail.com",  "College", "Waiter", 2000);
-//        Employee employee3 = new Employee(3,"luận", "01/03/2001", "male", 3003, "0909", "gaHoan@gmail.com",  "Graduate", "Waiter", 1500);
-//        Employee employee4 = new Employee(4,"hậu", "01/04/2001", "male", 4004, "0909", "gaHoan@gmail.com",  "Graduate", "Director", 1500);
-//        employees.add(employee1);
-//        employees.add(employee2);
-//        employees.add(employee3);
-//        employees.add(employee4);
-//        ReadAndWriteBuffer.writeEmployee(PATH_EM,employees);
-//    }
-
     @Override
     public void add() {
         employees = ReadAndWriteBuffer.readEmployee();

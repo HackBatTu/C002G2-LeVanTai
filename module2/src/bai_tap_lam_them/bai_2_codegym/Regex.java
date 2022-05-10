@@ -35,15 +35,14 @@ public class Regex {
         return Regex.regex(sc.nextLine(),REGEX_HOURS,"Error:INT(h)");
     }
 
-    public static int getChoice(int choice) {
-        boolean check = true;
-        while (check) {
+    public static int getChoice() {
+        int choice;
+        while (true) {
             try {
                 choice = Integer.parseInt(sc.nextLine());
-                check = false;
+                break;
             } catch (NumberFormatException e) {
                 System.err.print("Error!!! Re- choice:  ");
-                check = true;
             }
         }
         return choice;

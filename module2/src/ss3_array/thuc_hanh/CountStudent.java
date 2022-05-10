@@ -27,6 +27,6 @@ public class CountStudent {
             if (array[i] >= 5 && array[i] <= 10)
                 count++;
         }
-        System.out.print("\nThe number of students passing the exam is " + count);
+        System.out.print("\nThe number of students passing the bai_tap_lam_them.exam is " + count);
     }
 }
