@@ -21,8 +21,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
     public void add() {
         employees = ReadAndWriteBuffer.readEmployee();
         System.out.print("Enter the EmployeeID: ");
-        int employeeID = 0;
-        employeeID = Regex.getChoice(employeeID);
+        int employeeID = Regex.getChoice();
         System.out.print("Enter the Name: ");
         String name = sc.nextLine();
         System.out.print("Enter the Date: ");
@@ -30,8 +29,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
         System.out.print("Enter the Gender: ");
         String gender = sc.nextLine();
         System.out.print("Enter the idCard: ");
-        int idCard = 0;
-        idCard = Regex.getChoice(idCard);
+        int idCard = Regex.getChoice();
         System.out.print("Enter the Phone: ");
         String phone = sc.nextLine();
         System.out.print("Enter the Email: ");
@@ -39,8 +37,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
         String lever = menuLevel();
         String position = menuPosition();
         System.out.print("Enter the Salary: ");
-        int salary = 0;
-        salary = Regex.getChoice(salary);
+        int salary = Regex.getChoice();
         Employee employee = new Employee(employeeID,name, date, gender, idCard, phone, email, lever, position, salary);
         employees.add(employee);
         ReadAndWriteBuffer.writeEmployee(PATH_EM,employees);
@@ -55,8 +52,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
                     "5.Manager" + "\n" +
                     "6.Director" + "\n" +
                     "you choice: ");
-            int choice = 0;
-            choice = Regex.getChoice(choice);
+            int choice = Regex.getChoice();
             switch (choice) {
                 case 1:
                     return "Receptionist";
@@ -84,8 +80,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
                     "3.Undergraduate " + "\n" +
                     "4.Graduate " + "\n" +
                     "you choice: ");
-            int choiceLevel = 0;
-            choiceLevel = Regex.getChoice(choiceLevel);
+            int choiceLevel = Regex.getChoice();
             switch (choiceLevel) {
                 case 1:
                     return "Intermediate";
@@ -126,8 +121,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
             for (Employee employee : employees) {
                 if (employee.getID().equals(newEdit)) {
                     System.out.print("Enter the new EmployeeID: ");
-                    int employeeID = 0;
-                    employeeID = Regex.getChoice(employeeID);
+                    int employeeID = Regex.getChoice();
                     employee.setId(employeeID);
                     System.out.print("Enter the new Name: ");
                     employee.setName(sc.nextLine());
@@ -136,8 +130,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
                     System.out.print("Enter the new Gender: ");
                     employee.setGender(sc.nextLine());
                     System.out.print("Enter the new idCard: ");
-                    int idCard = 0;
-                    idCard = Regex.getChoice(idCard);
+                    int idCard = Regex.getChoice();
                     employee.setIdCard(idCard);
                     System.out.print("Enter the new Phone: ");
                     employee.setPhone(sc.nextLine());
@@ -146,8 +139,7 @@ public class EmployeeServiceImpl implements IEmployeeService, Serializable {
                     employee.setLevel(menuLevel());
                     employee.setPosition(menuPosition());
                     System.out.print("Enter the new Wage: ");
-                    int salary = 0;
-                    salary = Regex.getChoice(salary);
+                    int salary = Regex.getChoice();
                     employee.setSalary(salary);
                     break;
                 }

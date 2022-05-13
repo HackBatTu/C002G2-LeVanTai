@@ -22,8 +22,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
         customerLinkedList = ReadAndWriteBuffer.readCustomer();
 
         System.out.print("Enter the CustomerID: ");
-        int customerID = 0;
-        customerID = Regex.getChoice(customerID);
+        int customerID = Regex.getChoice();
         System.out.print("Enter the Name: ");
         String name = sc.nextLine();
         System.out.print("Enter the Date: ");
@@ -31,8 +30,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
         System.out.print("Enter the Gender: ");
         String gender = sc.nextLine();
         System.out.print("Enter the idCard: ");
-        int idCard = 0;
-        idCard = Regex.getChoice(idCard);
+        int idCard  = Regex.getChoice();
         System.out.print("Enter the Phone: ");
         String phone = sc.nextLine();
         System.out.print("Enter the Email: ");
@@ -54,8 +52,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
                     "4.Silver " + "\n" +
                     "5.Member" + "\n" +
                     "you choice: ");
-            int choice = 0;
-            choice = Regex.getChoice(choice);
+            int choice = Regex.getChoice();
             switch (choice) {
                 case 1:
                     return "Diamond";
@@ -105,8 +102,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
             for (int i = 0; i < customerLinkedList.size(); i++) {
                 if (customerLinkedList.get(i).getID().equals(newID)) {
                     System.out.print("Enter the new EmployeeID: ");
-                    int customerID = 0;
-                    customerID = Regex.getChoice(customerID);
+                    int customerID = Regex.getChoice();
                     customerLinkedList.get(i).setId(customerID);
                     System.out.print("Enter the new Name: ");
                     customerLinkedList.get(i).setName(sc.nextLine());
@@ -115,8 +111,7 @@ public class CustomerServiceImpl implements ICustomerService, Serializable {
                     System.out.print("Enter the new Gender: ");
                     customerLinkedList.get(i).setGender(sc.nextLine());
                     System.out.print("Enter the new idCard: ");
-                    int idCard = 0;
-                    idCard = Regex.getChoice(idCard);
+                    int idCard = Regex.getChoice();
                     customerLinkedList.get(i).setIdCard(idCard);
                     System.out.print("Enter the new Phone: ");
                     customerLinkedList.get(i).setPhone(sc.nextLine());

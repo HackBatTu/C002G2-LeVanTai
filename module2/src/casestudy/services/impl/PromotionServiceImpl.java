@@ -71,14 +71,11 @@ public class PromotionServiceImpl implements IPromotionService {
     @Override
     public void giveAwayVoucher() {
         System.out.print("Enter count of voucher (10%): ");
-        int count10Percent = 0;
-        count10Percent = Regex.getChoice(count10Percent);
+        int count10Percent = Regex.getChoice();
         System.out.print("Enter count of voucher (20%): ");
-        int count20Percent = 0;
-        count20Percent = Regex.getChoice(count20Percent);
+        int count20Percent = Regex.getChoice();
         System.out.print("Enter count of voucher (50%): ");
-        int count50Percent = 0;
-        count50Percent = Regex.getChoice(count50Percent);
+        int count50Percent = Regex.getChoice();
 
         while ((count10Percent + count20Percent + count50Percent) > totalOfVoucher) {
             System.err.println("The total number of voucher cannot be greater than the total number of customers");

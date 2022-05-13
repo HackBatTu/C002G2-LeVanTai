@@ -21,8 +21,7 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "0.Exit\n" +
                     "Enter the choice : ");
-            int choiceMain = 0;
-            choiceMain = Regex.getChoice(choiceMain);
+            int choiceMain = Regex.getChoice();
             switch (choiceMain) {
                 case 1:
                     employeeMenu();
@@ -57,8 +56,7 @@ public class FuramaController {
                     "3.Edit employee\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            int choice1 = 0;
-            choice1=Regex.getChoice(choice1);
+            int choice1 = Regex.getChoice();
             switch (choice1) {
                 case 1:
                     employee.display();
@@ -86,8 +84,7 @@ public class FuramaController {
                     "3.Edit customer.csv\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            int choice2 = 0;
-            choice2 =Regex.getChoice(choice2);
+            int choice2 = Regex.getChoice();
             switch (choice2) {
                 case 1:
                     customer.display();
@@ -115,8 +112,7 @@ public class FuramaController {
                     "3.Display list facility maintenance\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            int choice3 = 0;
-            choice3 = Regex.getChoice(choice3);
+            int choice3 = Regex.getChoice();
             switch (choice3) {
                 case 1:
                     facility.display();
@@ -144,8 +140,7 @@ public class FuramaController {
                     "2.Add New House\n" +
                     "3.Add New Room\n" +
                     "0.Back to menu\n" + "Enter the Service you want add : ");
-            int choice4 = 0;
-            choice4 =Regex.getChoice(choice4);
+            int choice4 = Regex.getChoice();
             switch (choice4) {
                 case 1:
                     facility.addNewVilla();
@@ -178,8 +173,7 @@ public class FuramaController {
                     "5.Edit contracts\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            int choiceBook =0;
-            choiceBook=Regex.getChoice(choiceBook);
+            int choiceBook = Regex.getChoice();
             switch (choiceBook) {
                 case 1:
                     bookingService.addBooking();
@@ -212,8 +206,7 @@ public class FuramaController {
                     "2.Display list customers get voucher\n" +
                     "0.Return main menu\n" +
                     "Enter the choice : ");
-            int choicePro = 0;
-            choicePro = Regex.getChoice(choicePro);
+            int choicePro = Regex.getChoice();
             switch (choicePro) {
                 case 1:
                     promotionService.displayListCustomersUseService();

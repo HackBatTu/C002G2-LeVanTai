@@ -1,7 +1,9 @@
 package Exam.services;
 
-public interface IServices {
+public interface IServices{
     void display();
     void add();
     void delete();
+    void search();
+
 }

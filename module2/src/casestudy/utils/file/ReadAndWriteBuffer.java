@@ -20,7 +20,7 @@ public class ReadAndWriteBuffer {
     private static final String PATH_BOOK ="src/casestudy/data/booking.csv";
     private static final String PATH_CONTRACT ="src/casestudy/data/contract.csv";
 
-    private static void writeToFile(String pathFile, List<String> list) {
+    public static void writeToFile(String pathFile, List<String> list) {
         try {
             FileWriter fileWriter = new FileWriter(pathFile);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

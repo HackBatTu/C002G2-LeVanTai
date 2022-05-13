@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class Regex {
     static Scanner sc = new Scanner(System.in);
-    private static final String REGEX_1 = "^$";
-    private static final String REGEX_2 = "^$";
+    private static final String REGEX_INT = "^[0-9][0-9]{1,}$";
+    private static final String REGEX_YEAR = "^[0-9][1-9]{1}|[0-6][0-9][0-9]|[7][0-2][0-9]$";
+
 
     public static String regexInput(String input, String regex, String error) {
         boolean check = true;
@@ -19,18 +20,11 @@ public class Regex {
         } while (check);
         return input;
     }
-//    public static String inputIDVL(){
-//        System.out.println("Enter the ID Villa: ");
-//        return Regex.regexInput(sc.nextLine(), , "Error: ");
-//    }
-//    public static String inputIDHO(){
-//        System.out.println("Enter the ID House: ");
-//        return Regex.regexInput(sc.nextLine(), , "Error: ");
-//    }
-//    public static String inputIDRO(){
-//        System.out.println("Enter the ID Room: ");
-//        return Regex.regexInput(sc.nextLine(), , "Error: ");
-//    }
+    public static String inputInt(){
+        return Regex.regexInput(sc.nextLine(), REGEX_INT, "định dạng là số dương");}
+    public static String inputYear(){
+        System.out.print("Nhập thời gian bảo hành: ");
+        return Regex.regexInput(sc.nextLine(), REGEX_YEAR, "định dạng là số dương nhỏ hơn 730");}
     public static int checkParseInt() {
         int choice;
         while (true){
@@ -39,7 +33,7 @@ public class Regex {
                 break;
             } catch (NumberFormatException e) {
                 System.err.print("Error: " + e.getMessage());
-                System.out.print("-------" + "\n" + "\n"+ "Re-choice: ");
+                System.out.print("Re-choice: ");
             }
         }
         return choice;
