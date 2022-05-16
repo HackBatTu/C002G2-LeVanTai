@@ -1,4 +1,4 @@
-drop database case_study_module3;
+-- drop database case_study_module3;
 create database case_study_module3;
 use case_study_module3;
 create table vi_tri (
@@ -150,12 +150,25 @@ value (1,'2020-12-08','2020-12-08',0,3,1,3),
 insert into promotion_chi_tiet
 value (1,2,4,5),(2,2,5,8),(3,2,6,15),(4,3,1,1),
 (5,3,2,11),(6,3,1,1),(7,1,2,2),(8,12,2,2);
-
+-- task 2
 select * from employee
 where name_employee like 'H%' or name_employee like  'T%' or name_employee like  'K%' and  length(name_employee) < 15;
-
+-- task 3
 select * from customer
 where year(curdate())-year(date_customer)>18 and year(curdate())-year(date_customer)<50
 and (address like '%Đà Nẵng' or address like '%Quảng Trị');
-
-select now() from customer;
+-- task 4
+SELECT customer.id_customer,customer.name_customer,count(promotion.id_customer) as so_lan_dat_phong FROM customer
+JOIN promotion ON customer.id_customer=promotion.id_customer
+where (id_customer_type = (select id_customer_type from  customer_type where name_customer_type = 'Diamond'))
+group by promotion.id_customer
+order by count(promotion.id_customer);
+-- task 5
+select customer.id_customer,customer.name_customer,customer_type.name_customer_type,promotion.id_promotion,service.name_service,promotion.date_now,promotion.date_end,
+promotion.money_checkin + (service_di_kem.price * promotion_chi_tiet.number_promotion) as tong_tien from customer
+join customer_type on customer.id_customer = customer_type.id
+left join promotion on customer.id_customer = promotion.id_customer
+left join service on promotion.id_service = service.id_service
+left join promotion_chi_tiet on promotion.id_promotion = promotion_chi_tiet.id_promotion
+left join service_di_kem on promotion_chi_tiet.id_service_kem = service_di_kem.id
+order by customer.id_customer;
