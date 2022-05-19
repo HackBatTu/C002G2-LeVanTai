@@ -1,15 +1,15 @@
--- drop database case_study_module3;
-create database case_study_module3;
-use case_study_module3;
-create table vi_tri (
-id int auto_increment primary key,
-name_vi_tri varchar(255));
-create table trinh_do (
-id int auto_increment primary key,
-name_trinh_do varchar(255));
-create table bo_phan(
-id int auto_increment primary key,
-name_bo_phan varchar(255));
+-- drop database case_study;
+create database case_study;
+use case_study;
+create table location (
+id_location int auto_increment primary key,
+name_location varchar(255));
+create table levels (
+id_levels int auto_increment primary key,
+name_levels varchar(255));
+create table part(
+id_part int auto_increment primary key,
+name_part varchar(255));
 create table employee (
 id_employee int auto_increment primary key,
 name_employee varchar(255),
@@ -19,20 +19,20 @@ salary double,
 phone varchar(255),
 email varchar(255),
 address varchar(255),
-id_vi_tri int,
-id_trinh_do int,
-id_bo_phan int,
-foreign key(id_bo_phan) REFERENCES bo_phan(id),
-foreign key(id_trinh_do) references trinh_do(id),
-foreign key (id_vi_tri) references vi_tri(id)
+id_location int,
+id_levels int,
+id_part int,
+foreign key(id_location) REFERENCES location(id_location),
+foreign key(id_levels) references levels(id_levels),
+foreign key (id_part) references part(id_part)
 );
 create table customer_type(
-id int auto_increment primary key,
+id_customer_type int auto_increment primary key,
 name_customer_type varchar(255));
 create table customer(
 id_customer int auto_increment primary key,
 id_customer_type int,
-foreign key(id_customer_type) references customer_type(id),
+foreign key(id_customer_type) references customer_type(id_customer_type),
 name_customer varchar(255),
 date_customer date,
 gender bit(1),
@@ -40,56 +40,56 @@ id_card varchar(255),
 phone varchar(255),
 email varchar(255),
 address varchar(255));
-create table kieu_thue(
-id int auto_increment primary key,
-name varchar(255));
+create table rental_type(
+id_rental_type int auto_increment primary key,
+name_rental_type varchar(255));
 create table type_service(
-id int auto_increment primary key,
-name_type varchar(255));
+id_type_service int auto_increment primary key,
+name_type_service varchar(255));
 create table service(
 id_service int auto_increment primary key,
 name_service varchar(255),
 area_service int,
-cost double,
+cost_service double,
 max_person int,
-tieu_chuan_phong varchar(255),
-mo_ta_tien_nghi_khac varchar(255),
+room_standard varchar(255),
+another_convenient varchar(255),
 pool_area double,
 number_of_floors int,
-id_kieu_thue int,
-foreign key(id_kieu_thue) references kieu_thue(id),
+id_rental_type int,
+foreign key(id_rental_type) references rental_type(id_rental_type),
 id_type_service int,
-foreign key(id_type_service) references type_service(id)
+foreign key(id_type_service) references type_service(id_type_service)
 );
-create table service_di_kem(
-id int auto_increment primary key,
-name_service varchar(255),
+create table accompani_service(
+id_accompani_service int auto_increment primary key,
+name_accompani_service varchar(255),
 prince double,
-don_vi varchar(255),
-trang_thai varchar(255));
-create table promotion (
-id_promotion int auto_increment primary key,
-date_now datetime,
-date_end datetime,
-money_checkin double,
+unit varchar(255),
+statuss varchar(255));
+create table contract (
+id_contract int auto_increment primary key,
+date_check_in datetime,
+date_check_out datetime,
+money_check_in double,
 id_employee int,
 id_customer int,
 id_service int,
 foreign key(id_employee) references employee(id_employee),
 foreign key(id_customer) references customer(id_customer),
 foreign key(id_service) references service(id_service));
-create table promotion_chi_tiet(
-id_promotion_lock int auto_increment primary key,
-id_promotion int,
-foreign key(id_promotion) references promotion(id_promotion),
-id_service_kem int,
-foreign key(id_service_kem) references service_di_kem(id),
-number_promotion int);
-insert into vi_tri
+create table details_contract(
+id_details_contract int auto_increment primary key,
+id_contract int,
+foreign key(id_contract) references contract(id_contract),
+id_accompani_service int,
+foreign key(id_accompani_service) references accompani_service(id_accompani_service),
+number_contract int);
+insert into location
 value (1,'Quản Lí'),(2,'Nhân Viên');
-insert into trinh_do
+insert into levels
 value (1,'Trung Cấp'),(2,'Cao Đẳng'),(3,'Đại Học'),(4,'Sau Đại Học');
-insert into bo_phan
+insert into part
 value (1,'Sale-Marketing'),(2,'Hành Chính'),(3,'Phục vụ'),(4,'Quản lý');
 insert into employee
 value 
@@ -116,7 +116,7 @@ value (1,5,'Nguyễn Thị Hào','1970-11-07',0,'643431213','0945423362','thihao
 	(8,3,'Nguyễn Thị Hào','1999-04-08',0,'965656433','0763212345','haohao99@gmail.com','55 Nguyễn Văn Linh,Kon Tum'),
 	(9,1,'Trần Đại Danh','1994-07-01',1,'432341235','0643343433','danhhai99@gmail.com','24 Lý Thường Kiệt Quảng Ngãi'),
 	(10,2,'Nguyễn Tâm Đắc','1989-07-01',1,'344343432','0987654321','dactam@gmail.com','22 Ngô Quyền, Đà Nẵng');
-insert into kieu_thue
+insert into rental_type
 value (1,'year'),(2,'month'),(3,'day'),(4,'hour');
 insert into type_service
 value (1,'Villa'),(2,'House'),(3,'Room');
@@ -127,14 +127,14 @@ value (	1,'Villa Beach Front',25000,10000000,10,'vip','Có hồ bơi',500,4,3,1)
 	(4,'Villa No Beach Front',22000,9000000,8,'normal','Có hồ bơi',300,3,3,1),
 	(5,'House Princess 02',10000,4000000,5,'normal','Có thêm bếp nướng',null,2,3,2),
 	(6,'Room Twin 02',3000,900000,2,'normal','Có tivi',null,null,4,3);
-insert into service_di_kem
+insert into accompani_service
 value (1,'Karaoke',10000,'giờ','tiện nghi,hiện tại'),
 	(2,'Thuê xe máy',10000,'chiếc','hỏng 1 xe'),
 	(3,'Thuê xe đạp',20000,'chiếc','tốt'),
 	(4,'Buffet buổi sáng',15000,'suất','đầy đủ đồ ăn,tráng miệng'),
 	(5,'Buffet buổi trưa',90000,'suất','đầy đủ đồ ăn,tráng miệng'),
 	(6,'Buffet buổi tối',16000,'suất','đầy đủ đồ ăn,tráng miệng');
-insert into promotion
+insert into contract
 value (1,'2020-12-08','2020-12-08',0,3,1,3),
 (2,'2020-07-14','2020-07-21',200000,7,3,1),
 (3,'2021-03-15','2021-03-17',50000,3,4,2),
@@ -147,6 +147,6 @@ value (1,'2020-12-08','2020-12-08',0,3,1,3),
 (10,'2021-04-12','2021-04-14',0,10,3,5),
 (11,'2021-04-25','2021-04-25',0,2,2,1),
 (12,'2021-05-25','2021-05-27',0,7,10,1);
-insert into promotion_chi_tiet
+insert into details_contract
 value (1,2,4,5),(2,2,5,8),(3,2,6,15),(4,3,1,1),
 (5,3,2,11),(6,3,1,1),(7,1,2,2),(8,12,2,2);
