@@ -1,5 +1,7 @@
+
+drop database demo;
 create database demo;
--- drop database demo;
+
 use demo;
 create table products(
 id int primary key,
@@ -24,7 +26,8 @@ create unique index unique_index on products(product_code);
 create index composite_index on products(product_name,product_prince);
 -- drop index unique_index ;
 -- drop index composite_index ;
-explain select * from products ;
+explain select * from products
+where product_code = 10 ;
 
 -- 2.view
 create view view_products as
@@ -32,9 +35,11 @@ select product_code,product_name,product_prince,product_status from products;
 
 SELECT * FROM view_products ;
 
+SET SQL_SAFE_UPDATES = 0;
 update view_products
-set product_name = 'xxx'
+set product_name = 'xe độp'
 where product_code = 0;
+SET SQL_SAFE_UPDATES = 1; 
 
 delete from view_products
 where product_code = 0;
@@ -50,13 +55,30 @@ end //
 delimiter ;
 call procedure_products();
 
+delimiter //
+create procedure add_new_product(`p_code` int, `p_name` varchar(255), `p_price` double, `p_amount` int, `p_description` text)
+begin
 insert into products
 value (6,61,'tên lửa',100000,5,'màu đỏ',0);
+end //
+delimiter ;
+call add_new_product( 71,'tàu con thoi', '10000000', 2, 'speed');
 
+delimiter //
+create procedure edit_product_by_id(p_id int, p_name varchar(255))
+begin
 update products
 set product_name = 'xe đạp'
 where id = 2;
+end //
+delimiter ;
+call edit_product_by_id(2,"xe đạp");
 
+delimiter //
+create procedure delete_product_by_id(p_id int)
+begin
 delete from products
-where id = 3;
-
+where id = 3 ;
+end //
+delimiter ;
+call delete_product_by_id(3);
