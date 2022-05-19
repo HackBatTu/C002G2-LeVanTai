@@ -107,8 +107,9 @@ select employee.id_employee,employee.name_employee,levels.name_levels,part.name_
 left join levels on employee.id_levels = levels.id_levels
 left join part  on employee.id_part = part.id_part
 left join contract on contract.id_employee = employee.id_employee
-where year(contract.date_check_in) between '2020' and '2021'
+where year(contract.date_check_in) between '2020' and '2021' 
 group by employee.id_employee
 having count(employee.id_employee) >=3;
 
+-- task 16
 
