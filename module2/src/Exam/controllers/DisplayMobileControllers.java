@@ -12,7 +12,7 @@ public class DisplayMobileControllers {
             System.out.println("**---Menu Manager---***");
             System.out.print("1. Mobile Chính Hãng Manager\n"+
                     "2. Mobie Xach Tay Manager\n"+
-                    " 0. Thoát.\n" +
+                    "0. Thoát.\n" +
                     "you choice : ");
             int choice =  Regex.checkParseInt();
             switch (choice){
@@ -36,7 +36,7 @@ public class DisplayMobileControllers {
                     "2. Add mobile\n"+
                     "3. Delete mobie\n"+
                     "4. Search mobile by id\n"+
-                    " 0. Thoát.\n" +
+                    "0. Thoát.\n" +
                     "you choice : ");
             int choice =  Regex.checkParseInt();
             switch (choice){
@@ -66,7 +66,7 @@ public class DisplayMobileControllers {
                     "2. Add mobile\n"+
                     "3. Delete mobie\n"+
                     "4. Search mobile by id\n"+
-                    " 0. Thoát.\n" +
+                    "0. Thoát.\n" +
                     "you choice : ");
             int choice =  Regex.checkParseInt();
             switch (choice){
