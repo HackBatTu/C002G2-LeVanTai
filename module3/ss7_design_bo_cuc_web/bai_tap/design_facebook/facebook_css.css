@@ -1,6 +1,8 @@
 body{
     font-family: Arial, Tahoma;
-    font-size: 12px;
+    font-size: 11px;
+    background-image: url("https://salt.tikicdn.com/cache/400x400/ts/product/1d/f4/86/ad5803dee2a2d9bd8d6aa3110a3237e1.PNG");
+    color: white;
 }
 
 #main{
@@ -11,62 +13,180 @@ body{
 }
 
 #head{
-    height: 60px;
-    background-color: blue;
-    border: 1px solid #CDCDCD;
-    margin-bottom:5px;
+    height: 30px;
+    border: none;
+    margin-top: 10px;
 }
-.imgfb{
-    width: 5%;
-    height: 60px;
-    float: left;
+.icon{
+    width: 3%;
+    height: 30px;
 }
-.inputs{
+.icon-1{
+    width: 30px;
     height: 25px;
-    border-radius: 10px;
+    padding: 1px 40px;
+    text-align: left;
+    border-radius: 50px;
+}
+.icon-1-1{
+    padding-left: 40px;
+}
+.icon-2{
+    width: 30px;
+    height: 25px;
+    float: right;
+    padding: 1px 13px;
+    text-align: left;
+    border-radius: 50px;
 }
 
-#head-link{
-    height: 30px;
-    line-height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid #CDCDCD;
-    background-color: #F5F5F5;
-    margin-bottom:5px;
-    clear: both;
+.inputs{
+    width: 190px;
+    height: 22px;
+    border-radius: 10px;
+    padding-left: 40px;
+    margin-top: 10px;
+    align-items: center;
+    background-color: #3a3b3c;
 }
 
 #left{
+    border: none;
+    margin-top: 15px;
     width: 20%;
-    min-height: 470px;
-    border: 1px solid #CDCDCD;
+    min-height: 570px;
     float:left;
-    background-color: #004C00;
     margin-bottom: 5px;
+}
+.temp-left{
+    display: flex;
+    align-items: center;
+}
+.icon-left{
+    width: 12%;
+    height: 30px;
+    padding: 4px;
+    border-radius: 50px;
+}
+#content{
+    border: none;
+    width: 45%;
+    min-height: 570px;
+    float:left;
+    margin-left: 80px;
+    margin-right: 20px;
+    margin-top: 15px;
+
+}
+.icon-content{
+    border: none;
+    width: 107px;
+    height: 80%;
+    border-radius: 10px;
+    padding: 2px;
+
+}
+.icon-content-1{
+    display: flex;
+}
+.icon-content-2{
+    width: 90%;
+    height: 45px;
+    padding: 2px;
+    border-radius: 60px;
+}
+.icon-content-3{
+    width: 40%;
+    height: 40px;
+    border-radius: 80px;
+}
+.icon-content-5{
+    display: flex;
+    align-items: center;
+    float: left;
+}
+.temp-content-4{
+    width: 100%;
+    padding: 5px 5px;
+}
+.temp-content-1{
+     display: flex;
+     align-items: center;
+     float: left;
+ }
+.input-content{
+    border-radius: 10px;
+    width: 500px;
+    height: 28px;
+    background-color: #3a3b3c;
 }
 
-#content{
-    width: 58%;
-    min-height: 470px;
-    border: 1px solid #CDCDCD;
-    float:left;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
 
 #right{
-    width: 20%;
-    min-height: 470px;
-    border: 1px solid #CDCDCD;
+    border: none;
+    width: 22%;
+    min-height: 500px;
     float:right;
+    margin-top: 15px;
     margin-bottom: 5px;
-    background-color: chartreuse;
+
+}
+#right .loi-moi-ket-ban {
+    list-style-type: none;
+    border: 0px;
 }
 
+#right .loi-moi-ket-ban-box {
+    width: 77%;
+    height: 60px;
+    border: 2px solid #dad9d9;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+#right .loi-moi-ket-ban-box img {
+    width: 65px;
+    border-radius: 50%;
+}
+
+#right .loi-moi-ket-ban-box .box-left {
+    float: left;
+}
+
+#right .loi-moi-ket-ban-box .box-right {
+    float: left;
+    color: #dad8d8;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.loi-moi-ket-ban-box .box-right .button-dong-y, .button-tu-choi {
+    padding: 7px;
+    border-radius: 30px;
+}
+
+.loi-moi-ket-ban-box .box-right .button-dong-y, .button-tu-choi {
+    background-color: #2374e1;
+    color: #d7d7d7;
+}
+.loi-moi{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.icon-right{
+    width: 12%;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50px;
+}
+.img{
+    width: 10px;
+    height: 50px;
+}
 #footer{
-    height: 40px;
+    height: 35px;
     clear: both;
     border: 1px solid #CDCDCD;
     background-color: black;

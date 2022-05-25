@@ -1,0 +1,125 @@
+body{
+    font-family: Arial;
+    font-size: 15px;
+}
+
+#menu{
+    height: 35px;
+    padding:0;
+    margin:0;
+    background-color: #000000;
+    border: 1px solid #CDCDCD;
+}
+
+#menu ul, #menu li{
+    padding:0;
+    margin:0;
+}
+
+#menu li{
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+#menu li a{
+    width:100px;
+    height: 30px;
+    display: block;
+    text-decoration:none;
+    text-align: center;
+    line-height: 30px;
+    background-color: black;
+    color: white;
+}
+
+#menu ul ul li a{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu li a:hover{
+    background-color: red;
+}
+
+#menu ul ul{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
+.login{
+    float: right;
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+#left{
+    width: 20%;
+    height: 560px;
+    float: left;
+    background-color: #CDCDCD;
+}
+.temp-left{
+    padding: 20px 100px;
+}
+.temp-left-1{
+    text-decoration: none;
+}
+#center{
+    width: 58%;
+    height: 560px;
+    float: left;
+    background-color: white;
+    padding-left: 20px;
+
+}
+#right{
+    width: 20%;
+    height: 560px;
+    float: right;
+    background-color: #CDCDCD;
+}
+.temp-right{
+    border: solid 1px red;
+    width: 30%;
+    padding: 60px;
+    margin: 30px;
+    height: auto;
+}
+.ads{
+    padding: 14px;
+}
+#footer{
+    height: 30px;
+    clear: both;
+    border: 1px solid #CDCDCD;
+    background-color: black;
+    color: #CDCDCD;
+    text-align: center;
+    padding: 10px;
+}
+@media screen and (max-width: 100px){
+    #menu{
+      width: 100%;
+    }
+    #left{
+        width: 20%;
+    }
+    #center{
+        width: 58%;
+    }
+    #right{
+        width: 20%;
+    }
+    #footer{
+        width: 100%;
+    }
+}
