@@ -4,68 +4,123 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="layout_rwd.css">
+    <style>
+        .col-1 {
+            width: 8.33%;
+        }
 
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<div id="menu">
+
+<div id="menu" class="row col-12 col-m-12 ">
     <ul>
-        <li><a href="#">Logo</a>
+        <li class="col-1"><a href="#">Logo</a>
         </li>
-        <li><a href="#">Home </a>
+        <li class="col-1"><a href="#">Home </a>
         </li>
-        <li><a href="#">About</a>
+        <li class="col-1"><a href="#">About</a>
         </li>
-        <li><a href="#">Projects</a>
+        <li class="col-1"><a href="#">Projects</a>
         </li>
-        <li><a href="#">Contact</a>
+        <li class="col-1"><a href="#">Contact</a>
         </li>
         <span class="login">Login</span>
-        <span><img width="20px" height="20px" class="login" src="data:image/png;base64,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"></span>
+        <span><img width="20px" height="20px" class="login"
+                   src="data:image/png;base64,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"></span>
     </ul>
 </div>
-<div id="left">
-    <div class="temp-left"><a class="temp-left-1" href="#">Link</a></div>
-    <div class="temp-left"><a class="temp-left-1" href="#">Link</a></div>
-    <div class="temp-left"><a class="temp-left-1" href="#">Link</a></div>
-</div>
-<div id="center">
-    <div>
-        <h2>Welcome</h2>
-        <div> It's been a long day without you, my friend
-            And I'll tell you all about it when I see you again
-            We've come a long way from where we began
-            Oh, I'll tell you all about it when I see you again
-            When I see you again
-            Damn, who knew?<br>
-            All the planes we flew, good things we been through
-            That I'd be standing right here talking to you
-            'Bout another path, I know we loved to hit the road and laugh
-            But something told me that it wouldn't last
-            Had to switch up, look at things different, see the bigger picture
-            Those were the days, hard work forever pays
-            Now I see you in a better place (see you in a better place)
-            Uh<br>
-            How can we not talk about family when family's all that we got?
-            Everything I went through, you were standing there by my side
-            And now you gon' be with me for the last ride</div>
+
+<div class="row">
+    <div id="left" class="col-2 col-m-2 display">
+        <div class="temp-left col-12"><a class="temp-left-1" href="#">Link</a></div>
+        <div class="temp-left col-12"><a class="temp-left-1" href="#">Link</a></div>
+        <div class="temp-left col-12"><a class="temp-left-1" href="#">Link</a></div>
     </div>
-    <hr>
-    <div>
-        <h3>Test</h3>
-        <div>See you again...</div>
+    <div id="center" class="col-8 col-m-8" style="padding: 15px 15px">
+        <div>
+            <h2>Welcome</h2>
+            <div> It's been a long day without you, my friend
+                And I'll tell you all about it when I see you again
+                We've come a long way from where we began
+                Oh, I'll tell you all about it when I see you again
+                When I see you again
+                Damn, who knew?<br>
+                All the planes we flew, good things we been through
+                That I'd be standing right here talking to you
+                'Bout another path, I know we loved to hit the road and laugh
+                But something told me that it wouldn't last
+                Had to switch up, look at things different, see the bigger picture
+                Those were the days, hard work forever pays
+                Now I see you in a better place (see you in a better place)
+                Uh<br>
+                How can we not talk about family when family's all that we got?
+                Everything I went through, you were standing there by my side
+                And now you gon' be with me for the last ride
+            </div>
+        </div>
+        <hr>
+        <div style="padding: 10px 0px">
+            <h3>Test</h3>
+            <div>See you again...</div>
+        </div>
+    </div>
+    <div id="right" class="col-2 display col-m-2">
+        <div>
+            <ul class="temp-right">
+                <span class="ads">ADS</span>
+            </ul>
+            <ul class="temp-right">
+                <span class="ads">ADS</span>
+            </ul>
+        </div>
     </div>
 </div>
-<div id="right">
-    <div>
-        <ul class="temp-right">
-            <span class="ads">ADS</span>
-        </ul>
-        <ul class="temp-right">
-            <span class="ads">ADS</span>
-        </ul>
-    </div>
-</div>
-<div id="footer">
+
+<div id="footer" class="col-12 col-m-12">
     <a>Footer Text</a>
 </div>
 </body>
