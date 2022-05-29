@@ -10,7 +10,7 @@
 <head>
     <title>$Title$</title>
     <style type="text/css">
-        .product-discount {
+        .login {
             height: 200px;
             width: 210px;
             margin: 0;
@@ -25,8 +25,8 @@
     </style>
 </head>
 <body>
-<form method="post" action="/discount">
-    <div class="product-discount">
+<form action="/display-discount" method="post">
+    <div class="login">
         <label>Product Description: </label><br/>
         <textarea name="productDescription" placeholder="Enter your Product Description: "></textarea>
         <br>
