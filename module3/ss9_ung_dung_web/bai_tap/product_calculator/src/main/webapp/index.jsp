@@ -17,18 +17,17 @@
             padding: 10px;
             border: 1px solid red;
         }
-
         .login input {
             padding: 4px;
             margin: 4px
         }
-    </style>
+      </style>
 </head>
 <body>
-<form method="post" action="/discount">
+<form method="post" action="display-discount">
     <div class="product-discount">
         <label>Product Description: </label><br/>
-        <textarea name="productDescription" placeholder="Enter your Product Description: "></textarea>
+        <textarea name="productDescription" placeholder="Enter Product Description: "></textarea>
         <br>
         <label>List Price: </label><br/>
         <input type="text" name="listPrice" placeholder="Enter your List Price: "/>

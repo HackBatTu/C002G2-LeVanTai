@@ -10,23 +10,22 @@
 <head>
     <title>$Title$</title>
     <style type="text/css">
-        .login {
+        .product-discount {
             height: 200px;
             width: 210px;
             margin: 0;
             padding: 10px;
             border: 1px solid red;
         }
-
         .login input {
             padding: 4px;
             margin: 4px
         }
-    </style>
+      </style>
 </head>
 <body>
-<form action="/display-discount" method="post">
-    <div class="login">
+<form method="post" action="display-discount">
+    <div class="product-discount">
         <label>Product Description: </label><br/>
         <textarea name="productDescription" placeholder="Enter your Product Description: "></textarea>
         <br>
