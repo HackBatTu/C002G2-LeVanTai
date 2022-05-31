@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class MobileChinhHangImpl implements IMobieChinhHangService{
     List<DienThoaiChinhHang> dienThoaiChinhHangs = new ArrayList<>();
-    private static final String FILE_NAME_CHINH_HANG = "E:\\C002G2-LeVanTai-Module2\\test\\src\\Exam\\data\\mobilec.csv";
+    private static final String FILE_NAME_CHINH_HANG = "E:\\C002G2-LeVanTai\\module2\\src\\Exam\\data\\mobilec.csv";
     private static Scanner sc = new Scanner(System.in);
 
     @Override

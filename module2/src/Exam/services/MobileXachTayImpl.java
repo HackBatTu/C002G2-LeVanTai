@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class MobileXachTayImpl implements IMobieXachTayService{
     List<DienThoaiXachTay> dienThoaiXachTayList = new ArrayList<>();
-    private static final String FILE_NAME_XACH_TAY = "E:\\C002G2-LeVanTai-Module2\\test\\src\\Exam\\data\\mobilex.csv";
+    private static final String FILE_NAME_XACH_TAY = "E:\\C002G2-LeVanTai\\module2\\src\\Exam\\data\\mobilex.csv";
     private static Scanner sc = new Scanner(System.in);
 
     @Override

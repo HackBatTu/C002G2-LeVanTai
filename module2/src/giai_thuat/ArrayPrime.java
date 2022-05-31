@@ -16,31 +16,28 @@ public class ArrayPrime {
        return true;
     }
 
-    public static int[] solution(int[][] arrs) {
-        List<Integer> list = new ArrayList<>();
-        int[] arr2 = new int[];
-
-        for (int i = 0; i < arrs.length; i++) {
-            for (int j = 0; j < arrs[i].length; j++) {
-                if (checkPrime(arrs[i][j])) {
-                    list.add(arrs[i][j]);
-                }
-            }
-        }
-
-
-        return arr2;
-    }
-    public static void main(String[] args) {
-        int[][] arr =new int[4][4];
-        for (int i=0; i < arr.length; i++) {
-            for (int j=0; j < arr[i].length; j++) {
-                arr[i][j] = (int)(Math.random()*99);
-            }
-        }
-        solution(arr);
-
-    }
+//    public static int[] solution(int[][] arrs) {
+//        List<Integer> list = new ArrayList<>();
+////        int[] arr2 = new int[];
+//
+//        for (int i = 0; i < arrs.length; i++) {
+//            for (int j = 0; j < arrs[i].length; j++) {
+//                if (checkPrime(arrs[i][j])) {
+//                    list.add(arrs[i][j]);
+//                }
+//            }
+//        }
+//    }
+//    public static void main(String[] args) {
+//        int[][] arr =new int[4][4];
+//        for (int i=0; i < arr.length; i++) {
+//            for (int j=0; j < arr[i].length; j++) {
+//                arr[i][j] = (int)(Math.random()*99);
+//            }
+//        }
+//        solution(arr);
+//
+//    }
 
 }
 
