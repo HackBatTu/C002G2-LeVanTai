@@ -34,10 +34,10 @@
         </tr>
         <c:forEach var="user" items="${listUser}">
             <tr>
-                <td><c:out value="${user.id}"/></td>
-                <td><c:out value="${user.name}"/></td>
-                <td><c:out value="${user.email}"/></td>
-                <td><c:out value="${user.country}"/></td>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.country}</td>
                 <td><a href="/users?action=edit&id=${user.id}">Edit</a></td>
                 <td><a href="/users?action=delete&id=${user.id}">Delete</a></td>
             </tr>

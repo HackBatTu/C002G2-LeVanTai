@@ -34,7 +34,7 @@ public class UserServlet extends HttpServlet {
                     updateUser(request, response);
                     break;
                 case "viewCountry":
-                    showViewCountry(request,response);
+                    viewCountry(request,response);
                     break;
                 case "delete":
                     deleteUser(request,response);
@@ -44,10 +44,9 @@ public class UserServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
-    private void showViewCountry(HttpServletRequest request, HttpServletResponse response) {
+    private void viewCountry(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("country");
-        userRepository.findByCountry(country);
-        request.setAttribute("listUser", country);
+        request.setAttribute("listUser", userRepository.findByCountry(country));
         try {
             request.getRequestDispatcher("user/viewCountry.jsp").forward(request,response);
         } catch (ServletException e) {
@@ -62,12 +61,17 @@ public class UserServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         try {
             userRepository.deleteUser(id);
+            request.getRequestDispatcher("user/delete.jsp").forward(request,response);
             try {
                 response.sendRedirect("/users");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -78,9 +82,10 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         User newUser = new User(name, email, country);
-        userRepository.insertUser(newUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
-        dispatcher.forward(request, response);
+//        userRepository.insertUser(newUser);
+        userRepository.insertUserStore(newUser);
+
+        request.getRequestDispatcher("user/create.jsp").forward(request, response);
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response)
@@ -92,8 +97,7 @@ public class UserServlet extends HttpServlet {
 
         User book = new User(id, name, email, country);
         userRepository.updateUser(book);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
-        dispatcher.forward(request, response);
+       request.getRequestDispatcher("user/edit.jsp").forward(request, response);
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -116,6 +120,17 @@ public class UserServlet extends HttpServlet {
                 case "sortByName":
                     softByName(request,response);
                     break;
+                case "permision":
+                    addUserPermision(request, response);
+                    break;
+                case "test-without-tran":
+
+                    testWithoutTran(request, response);
+                    break;
+                case "test-use-tran":
+
+                    testUseTran(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -123,6 +138,23 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
+        userRepository.insertUpdateUseTransaction();
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        userRepository.insertUpdateWithoutTransaction();
+    }
+
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+        User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
+
+        int[] permision = {1, 2, 4};
+
+        userRepository.addUserTransaction(user, permision);
+
     }
 
     private void softByName(HttpServletRequest request, HttpServletResponse response) {
@@ -155,7 +187,8 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User existingUser = userRepository.selectUser(id);
+//        User existingUser = userRepository.selectUser(id);
+        User existingUser = userRepository.getUserById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);

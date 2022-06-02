@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
   <title>Deleting customer</title>
@@ -21,21 +23,24 @@
     <legend>User information</legend>
     <table>
       <tr>
-        <td>Name: </td>
-        <td>${"name"}</td>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Country</th>
       </tr>
-      <tr>
-        <td>Email: </td>
-        <td>${"email"}</td>
-      </tr>
-      <tr>
-        <td>Country: </td>
-        <td>${"country"}</td>
-      </tr>
-      <tr>
+      <c:forEach var="user" items="${listUser}">
+        <tr>
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.email}></td>
+          <td>${user.country}</td>
+        </tr>
+      </c:forEach>
+  <tr>
         <td><input type="submit" value="Delete user"></td>
       </tr>
     </table>
   </fieldset>
+</form>
 </body>
 </html>
