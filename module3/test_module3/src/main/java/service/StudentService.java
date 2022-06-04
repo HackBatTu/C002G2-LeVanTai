@@ -16,10 +16,9 @@ public class StudentService implements IStudentService {
 
     @Override
     public void add(Student student) {
-        if(student.getPoint()>0 && student.getPoint()<10){
+        if(student.getPoint()>0 && student.getPoint()<=10){
             iStudentRepository.add(student);
         }
-
     }
 
     @Override
@@ -42,4 +41,5 @@ public class StudentService implements IStudentService {
         return iStudentRepository.sortByName();
 
     }
+
 }

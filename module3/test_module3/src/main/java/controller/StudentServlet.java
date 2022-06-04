@@ -14,6 +14,7 @@ import java.util.List;
 @WebServlet(name = "StudentServlet", urlPatterns = "/student")
 public class StudentServlet extends HttpServlet {
     private IStudentService studentService = new StudentService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -24,13 +25,16 @@ public class StudentServlet extends HttpServlet {
             case "add":
                 request.getRequestDispatcher("view_student/add.jsp").forward(request,response);
                 break;
-            case "showEdit":
+            case "edit":
                 showEdit(request,response);
+                break;
+            case "delete":
+                deleteStudent(request,response);
                 break;
             case "search":
                 searchByName(request,response);
                 break;
-            case "sort":
+            case "sortByName":
                 sortByName(request,response);
                 break;
             default:
@@ -40,6 +44,16 @@ public class StudentServlet extends HttpServlet {
         }
     }
 
+
+    private void deleteStudent(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        studentService.deleteStudent(id);
+        try {
+            response.sendRedirect("/student");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding("UTF-8");
@@ -47,13 +61,11 @@ public class StudentServlet extends HttpServlet {
             request.getRequestDispatcher("view_student/list.jsp").forward(request, response);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        } catch (ServletException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
         }
-
-
     }
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
@@ -76,15 +88,15 @@ public class StudentServlet extends HttpServlet {
                 request.setAttribute("name", student.getName());
                 request.setAttribute("point", student.getPoint());
                 request.setAttribute("gender", student.getGender());
+                try {
+                    request.getRequestDispatcher("view_student/edit.jsp").forward(request, response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
-        }
-        try {
-            request.getRequestDispatcher("view_student/edit.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -113,24 +125,13 @@ public class StudentServlet extends HttpServlet {
             case "edit":
                 editStudent(request,response);
                 break;
-            case "delete":
-                deleteStudent(request,response);
-                break;
-            default:
-                listStudent(request,response);
-                break;
+//            default:
+//                listStudent(request,response);
+//                break;
         }
     }
 
-    private void deleteStudent(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("idDelete"));
-        studentService.deleteStudent(id);
-        try {
-            response.sendRedirect("/student");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     private void editStudent(HttpServletRequest request, HttpServletResponse response) {
         Integer id = Integer.parseInt(request.getParameter("id"));
@@ -140,9 +141,7 @@ public class StudentServlet extends HttpServlet {
         Student student = new Student(id,name,point,gender);
         this.studentService.editStudent(student);
         try {
-            request.getRequestDispatcher("view_student/edit.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+            response.sendRedirect("/student");
         } catch (IOException e) {
             e.printStackTrace();
         }

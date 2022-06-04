@@ -11,12 +11,13 @@
 <html>
 <head>
     <title>Student Management Application</title>
+
 </head>
 <body>
 <center>
     <h1>Student Management</h1>
     <h2>
-        <a href="student?action=students">List All Users</a>
+        <a href="/student">List All Users</a>
     </h2>
 </center>
 <div align="center">
@@ -27,20 +28,18 @@
                     Edit Student
                 </h2>
             </caption>
-            <c:if test="${students != null}">
-                <input type="hidden" name="id" value="<c:out value='${students.id}' />"/>
-            </c:if>
+                <input type="hidden" name="id" value="${id}"/>
             <tr>
                 <th>User Name:</th>
-                <td><input type="text" name="name" size="45" value="${students.name}" /></td>
+                <td><input type="text" name="name" size="45" value="${name}" /></td>
             </tr>
             <tr>
                 <th>User Point:</th>
-                <td><input type="text" name="point" size="45" value="${students.point}"></td>
+                <td><input type="text" name="point" size="45" value="${point}"></td>
             </tr>
             <tr>
                 <th>Gender:</th>
-                <td><input type="text" name="gender" size="15" value="${students.gender}"/></td>
+                <td><input type="text" name="gender" size="15" value="${gender}"/></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">

@@ -16,6 +16,9 @@ public class Student {
     }
 
     public Student(String name, Double point, Integer gender) {
+        this.name=name;
+        this.point=point;
+        this.gender = gender;
     }
 
     public int getId() {

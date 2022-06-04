@@ -17,4 +17,5 @@ public interface IStudentRepository {
     List<Student> searchByName(String name);
 
     List<Student> sortByName();
+
 }

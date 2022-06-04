@@ -16,7 +16,7 @@
 <center>
   <h1>Student Management</h1>
   <h2>
-    <a href="student?action=students">List All Student</a>
+    <a href="/student">List All Student</a>
   </h2>
 </center>
 <div align="center">
