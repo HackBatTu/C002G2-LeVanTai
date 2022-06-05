@@ -23,18 +23,17 @@
     <h1>Employee Management</h1>
 </div>
 
-<div class="col-lg-12">
-    <h3>
-        <a href="/employee?action=create">Add New Employee</a>
-    </h3>
-</div>
-
-<div class="col-lg-12">
-    <form method="get" action="/employee">
-        <input type="hidden" name="action" value="search">
-        <input type="text" placeholder="Enter the Name" name="name">
-        <input type="submit" name="name" value="search">
-    </form>
+<div class="col-12 row">
+    <nav class="navbar navbar-dark bg-warning">
+        <div class="container-fluid">
+            <a href="/employee?action=create"><h4>Add New Employee</h4></a>
+            <form method="get" action="/employee" class="d-flex">
+                <input type="hidden" name="action" value="search">
+                <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search" width="100px">
+                <input type="submit" name="name" value="search">
+            </form>
+        </div>
+    </nav>
 </div>
 
 <div class="col-lg-12">
@@ -43,14 +42,17 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Customer_type_id</th>
             <th>Name</th>
             <th>BirthDay</th>
-            <th>Gender</th>
             <th>Id Card</th>
+            <th>Salary</th>
             <th>Phone</th>
             <th>Email</th>
             <th>Address</th>
+            <th>EmployeePosition</th>
+            <th>EducationDegree</th>
+            <th>Division</th>
+            <th>User</th>
             <th>Status</th>
             <th></th>
             <th></th>
@@ -60,22 +62,20 @@
         <c:forEach var="s" items="${employeeList}">
             <tr>
                 <td>${s.id}</td>
-                <td>${s.customerType}</td>
                 <td>${s.name}</td>
                 <td>${s.birthDay}</td>
-                <td>
-                    <c:if test="${s.gender==0}">FeMale</c:if>
-                    <c:if test="${s.gender==1}">Male</c:if>
-                    <c:if test="${s.gender==null}">Other</c:if>
-                </td>
                 <td>${s.idCard}</td>
+                <td>${s.salary}</td>
                 <td>${s.phone}</td>
                 <td>${s.email}</td>
                 <td>${s.address}</td>
+                <td>${s.employeePosition.name}</td>
+                <td>${s.educationDegree.name}</td>
+                <td>${s.division.name}</td>
+                <td>${s.userName.userName}</td>
                 <td>${s.status}</td>
-                <td><button type="submit">
-                    <a href="/employee?action=edit&id=${s.id}">Edit</a>
-                </button>
+                <td><button type="submit" class="btn btn-danger">
+                    <a href="/employee?action=edit&id=${s.id}">Edit</a></button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
@@ -89,13 +89,13 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabelAddNew">Delete Customer</h5>
+                                <h5 class="modal-title" id="staticBackdropLabelAddNew">Delete Employee</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="alert alert-warning">
-                                    Do you want delete student <strong>${s.name}</strong>
+                                    Do you want delete employee <strong>${s.name}</strong>
                                 </div>
                                 <a href="/employee?action=delete&id=${s.id}" class="btn btn-success">Submit</a>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
@@ -119,7 +119,7 @@
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 5
+            "pageLength": 4
         });
     } );
 </script>

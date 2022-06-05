@@ -19,25 +19,25 @@
 </head>
 <body>
 
-<div class="col-lg-12">
+<div class="col-lg-12 text-center text-primary">
     <h1>Customer Management</h1>
 </div>
 
-<div class="col-lg-12">
-    <h3>
-        <a href="/customer?action=create">Add New Customer</a>
-    </h3>
+<div class="col-12 row">
+    <nav class="navbar navbar-dark bg-warning">
+        <div class="container-fluid">
+            <a href="/customer?action=create"><h4>Add New Customer</h4></a>
+            <a href="/customer?action=sortByName"><h4>Sort By Name</h4></a>
+            <form method="get" action="/customer" class="d-flex">
+                <input type="hidden" name="action" value="search">
+                <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search" width="100px">
+                <input type="submit" name="name" value="search">
+            </form>
+        </div>
+    </nav>
 </div>
 
-<div class="col-lg-12">
-    <form method="get" action="/customer">
-        <input type="hidden" name="action" value="search">
-        <input type="text" placeholder="Enter the Name" name="name">
-        <input type="submit" name="name" value="search">
-    </form>
-</div>
-
-<div class="col-lg-12">
+<div class="col-lg-12 row w-100">
     <caption><h2>List of customer</h2></caption>
     <table id="myTable" class="table table-dark table-hover" style="width: 100%">
         <thead>
@@ -60,7 +60,7 @@
         <c:forEach var="s" items="${customerList}">
             <tr>
                 <td>${s.id}</td>
-                <td>${s.customerType}</td>
+                <td>${s.customerType.name}</td>
                 <td>${s.name}</td>
                 <td>${s.birthDay}</td>
                 <td>
@@ -73,7 +73,7 @@
                 <td>${s.email}</td>
                 <td>${s.address}</td>
                 <td>${s.status}</td>
-                <td><button type="submit">
+                <td><button type="submit" class="btn btn-danger">
                         <a href="/customer?action=edit&id=${s.id}">Edit</a>
                     </button>
                 </td>
@@ -109,7 +109,6 @@
         </c:forEach>
         </tbody>
     </table>
-    <a href="/customer?action=sortByName">Sort By Name</a>
 </div>
 </body>
 <script src="../jquery/jquery-3.5.1.min.js"></script>
@@ -120,7 +119,7 @@
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 5
+            "pageLength": 4
         });
     } );
 </script>

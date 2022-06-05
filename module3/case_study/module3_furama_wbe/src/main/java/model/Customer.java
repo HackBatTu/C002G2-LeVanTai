@@ -26,7 +26,7 @@ public class Customer {
     }
 
     public Customer(int id, CustomerType customerType, String name, String birthDay, int gender, String idCard, String phone, String email, String address) {
-        this.id = this.id;
+        this.id = id;
         this.customerType = customerType;
         this.name = name;
         this.birthDay = birthDay;

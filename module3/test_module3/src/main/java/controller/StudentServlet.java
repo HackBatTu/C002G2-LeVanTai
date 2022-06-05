@@ -125,9 +125,9 @@ public class StudentServlet extends HttpServlet {
             case "edit":
                 editStudent(request,response);
                 break;
-//            default:
-//                listStudent(request,response);
-//                break;
+            default:
+                listStudent(request,response);
+                break;
         }
     }
 

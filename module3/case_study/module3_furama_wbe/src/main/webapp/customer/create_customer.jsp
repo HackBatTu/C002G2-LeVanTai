@@ -22,11 +22,12 @@
 <div align="center">
     <form method="post">
         <table border="1" cellpadding="5">
-<%--            public Customer(CustomerType customerType, String name, String birthDay, int gender, String idCard, String phone, String email, String address) {--%>
             <caption><h2>Add New Customer</h2></caption>
             <tr>
                 <th>Customer Type:</th>
-                <td><input type="text" name="customerType" id="customerType" size="45"/></td>
+                <td>
+                <input type="text" name="customerType" id="customerType" size="45"/>
+                </td>
             </tr>
             <tr>
                 <th>Name</th>
@@ -58,7 +59,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
+                    <input type="submit" value="create"/>
                 </td>
             </tr>
         </table>

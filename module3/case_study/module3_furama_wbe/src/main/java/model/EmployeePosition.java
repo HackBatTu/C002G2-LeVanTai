@@ -5,7 +5,12 @@ public class EmployeePosition {
     private String name;
     private int status;
 
-    public EmployeePosition() {
+    public EmployeePosition(int employee_position_id) {
+        this.id = employee_position_id;
+    }
+    public EmployeePosition(int employee_position_id,String employee_position_name) {
+        this.id = employee_position_id;
+        this.name = employee_position_name;
     }
 
     public EmployeePosition(int id, String name,int status) {

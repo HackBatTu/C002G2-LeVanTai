@@ -11,7 +11,13 @@ public class EducationDegree {
         this.status=status;
     }
 
-    public EducationDegree() {
+    public EducationDegree(int education_degree_id) {
+        this.id = education_degree_id;
+    }
+    public EducationDegree(int education_degree_id,String education_degree_name) {
+        this.id = education_degree_id;
+        this.name = education_degree_name;
+
     }
 
     public int getId() {

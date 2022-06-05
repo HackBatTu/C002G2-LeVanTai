@@ -14,9 +14,9 @@ import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
     private BaseStudentRepository baseStudentRepository = new BaseStudentRepository();
-    private static final String SELECT_ALL = "select customer_id,customer.customer_type_id,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address,customer.status from customer join customer_type on customer_type.customer_type_id= customer.customer_type_id where customer.status=0;";
-    private static final String INSERT_INTO= "insert into customer(customer_id,customer_type_id,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) value (?,?,?,?,?,?,?,?,?);";
-    private static final String UPDATE ="update customer set customer_type_id=?,customer_name=?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id=? and status=0;";
+    private static final String SELECT_ALL = "select customer_id,customer.customer_type_id,customer_type.customer_type_name,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address,customer.status from customer join customer_type on customer_type.customer_type_id= customer.customer_type_id where customer.status=0;";
+    private static final String INSERT_INTO= "insert into customer(customer_id,customer.customer_type_id,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) value (?,?,?,?,?,?,?,?,?);";
+    private static final String UPDATE ="update customer set customer.customer_type_id=?,customer_name=?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id=? and customer.status=0;";
     private static final String DELETE_CUSTOMER = " update customer set status = 1 where customer_id = ?; ";
     private static final String SEARCH_BY_NAME = "select * from customer where customer_name like ? and status=0 ;";
     private static final String SORT_BY_NAME = "select * from customer where status=0 order by customer_name;";
@@ -31,15 +31,21 @@ public class CustomerRepository implements ICustomerRepository {
             while (resultSet.next()){
                 int id = resultSet.getInt("customer_id");
                 int idCustomerType = resultSet.getInt("customer_type_id");
+                String nameCustomerType = resultSet.getString("customer_type_name");
                 String name = resultSet.getString("customer_name");
                 String birthDay = resultSet.getString("customer_birthday");
-                int gender = resultSet.getInt("customer_geder");
+                int gender = resultSet.getInt("customer_gender");
                 String idCard = resultSet.getString("customer_id_card");
                 String phone = resultSet.getString("customer_phone");
                 String email = resultSet.getString("customer_email");
                 String address = resultSet.getString("customer_address");
-                customerList.add(new Customer(id, new CustomerType(idCustomerType),name,birthDay,gender, idCard, phone,email,address ));
+                customerList.add(new Customer(id, new CustomerType(idCustomerType,nameCustomerType),name,birthDay,gender, idCard, phone,email,address ));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,6 +70,11 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -81,6 +92,11 @@ public class CustomerRepository implements ICustomerRepository {
             preparedStatement.setString(8,customerList.getAddress());
             preparedStatement.setInt(9,customerList.getId());
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -128,6 +144,11 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return customerList;
     }
 
@@ -150,6 +171,11 @@ public class CustomerRepository implements ICustomerRepository {
                 String address = resultSet.getString("customer_address");
                 customerList.add(new Customer(id, new CustomerType(idCustomerType),names,birthDay,gender, idCard, phone,email,address ));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

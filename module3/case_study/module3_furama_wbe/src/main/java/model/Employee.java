@@ -31,7 +31,33 @@ public class Employee {
         this.status = status;
     }
 
-    public Employee() {
+    public Employee(int id, String name, String birthDay, String idCard, double salary, String phone, String email, String address, EmployeePosition employeePosition, EducationDegree educationDegree, Division division, User userName) {
+        this.id = id;
+        this.name = name;
+        this.birthDay = birthDay;
+        this.idCard = idCard;
+        this.salary = salary;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.employeePosition = employeePosition;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.userName = userName;
+    }
+
+    public Employee(String name, String birthDay, String idCard, double salary, String phone, String email, String address, EmployeePosition employeePosition, EducationDegree educationDegree, Division division, User userName) {
+        this.name = name;
+        this.birthDay = birthDay;
+        this.idCard = idCard;
+        this.salary = salary;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.employeePosition = employeePosition;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.userName = userName;
     }
 
     public int getId() {

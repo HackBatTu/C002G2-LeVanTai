@@ -144,7 +144,7 @@ public class CustomerServlet extends HttpServlet {
         for (Customer customerList : iCustomerService.selectAll()) {
             if (customerList.getId() == id) {
                 request.setAttribute("id", customerList.getId());
-                request.setAttribute("customerType", customerList.getCustomerType());
+                request.setAttribute("customerType", customerList.getCustomerType().getId());
                 request.setAttribute("name", customerList.getName());
                 request.setAttribute("birthDay", customerList.getBirthDay());
                 request.setAttribute("gender", customerList.getGender());

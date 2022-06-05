@@ -31,10 +31,6 @@
             <input type="hidden" name="id" value="${id}"/>
 
             <tr>
-                <th>Customer Type:</th>
-                <td><input type="text" name="customerType" id="customerType" value="${customerType}" size="45"/></td>
-            </tr>
-            <tr>
                 <th>Name</th>
                 <td><input type="text" name="name" id="name" value="${name}" size="45"/></td>
             </tr>
@@ -43,12 +39,12 @@
                 <td><input type="text" name="birthDay" id="birthDay" value="${birthDay}" size="15"/></td>
             </tr>
             <tr>
-                <th>Gender</th>
-                <td><input type="text" name="gender" id="gender" value="${gender}" size="15"/></td>
-            </tr>
-            <tr>
                 <th>id Card</th>
                 <td><input type="text" name="idCard" id="idCard" value="${idCard}" size="15"/></td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td><input type="text" name="salary" id="salary" value="${salary}" size="15"/></td>
             </tr>
             <tr>
                 <th>phone</th>
@@ -63,8 +59,24 @@
                 <td><input type="text" name="address" id="address" value="${address}" size="15"/></td>
             </tr>
             <tr>
+                <th>Position</th>
+                <td><input type="text" name=" employeePosition" id=" employeePosition" value="${employeePosition}" size="15"/></td>
+            </tr>
+            <tr>
+                <th>EducationDegree</th>
+                <td><input type="text" name="educationDegree" id="educationDegree" value="${educationDegree}" size="15"/></td>
+            </tr>
+            <tr>
+                <th>Division</th>
+                <td><input type="text" name="division" id="division" value="${division}" size="15"/></td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td><input type="text" name="userName" id="userName" value="${userName}" size="15"/></td>
+            </tr>
+            <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
+                    <input type="submit" value="edit"/>
                 </td>
             </tr>
         </table>
