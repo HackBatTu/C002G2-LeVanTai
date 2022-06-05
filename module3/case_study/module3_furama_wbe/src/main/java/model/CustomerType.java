@@ -3,12 +3,24 @@ package model;
 public class CustomerType {
     private int id;
     private String name;
+    private int status;
 
-    public CustomerType(int id, String name) {
+    public CustomerType(int id, String name,int status) {
         this.id = id;
         this.name = name;
+        this.status = status;
     }
-    public CustomerType() {
+    public CustomerType(int idCustomerType, String nameCusType) {
+        this.id = idCustomerType;
+        this.name = nameCusType;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public CustomerType(int id) {
