@@ -24,9 +24,7 @@
     <form method="post">
         <table border="1" cellpadding="5">
             <caption>
-                <h2>
-                    Edit customer
-                </h2>
+                <h2>Edit customer</h2>
             </caption>
             <input type="hidden" name="id" value="${id}"/>
 

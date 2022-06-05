@@ -47,7 +47,8 @@
             <th>Point</th>
             <th>Gender</th>
             <th>Ranks</th>
-            <th colspan="2">.....</th>
+            <th>.....</th>
+            <th>.....</th>
         </tr>
         </thead>
         <tbody>
