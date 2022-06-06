@@ -1,6 +1,7 @@
 package service.impl;
 
 import model.Customer;
+import model.CustomerType;
 import repository.impl.CustomerRepository;
 import repository.ICustomerRepository;
 import service.ICustomerService;
@@ -39,5 +40,11 @@ public class CustomerService implements ICustomerService {
     @Override
     public List<Customer> sortByName() {
         return iCustomerRepository.sortByName();
+    }
+
+    @Override
+    public List<CustomerType> getAllCustomerType() {
+        return iCustomerRepository.getAllCustomerType();
+
     }
 }

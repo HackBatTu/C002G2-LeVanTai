@@ -59,6 +59,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
         int idCustomerType = Integer.parseInt(request.getParameter("customerType"));
+        String nameCustomerType = request.getParameter("nameCustomerType");
         String name = request.getParameter("name");
         String birthDay = request.getParameter("birthDay");
         int gender = Integer.parseInt(request.getParameter("gender"));
@@ -66,7 +67,7 @@ public class CustomerServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customerList = new Customer(new CustomerType(idCustomerType), name, birthDay, gender, idCard, phone, email, address);
+        Customer customerList = new Customer(new CustomerType(idCustomerType,nameCustomerType), name, birthDay, gender, idCard, phone, email, address);
         iCustomerService.add(customerList);
         try {
             response.sendRedirect("/customer");
@@ -85,6 +86,9 @@ public class CustomerServlet extends HttpServlet {
             case "create":
                 request.getRequestDispatcher("customer/create_customer.jsp").forward(request, response);
                 break;
+            case "select":
+                select(request,response);
+                break;
             case "edit":
                 showEdit(request, response);
                 break;
@@ -94,7 +98,7 @@ public class CustomerServlet extends HttpServlet {
             case "search":
                 searchByName(request, response);
                 break;
-            case "sort":
+            case "sortByName":
                 sortByName(request, response);
                 break;
             default:
@@ -103,10 +107,24 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
+    private void select(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
+        try {
+            request.getRequestDispatcher("customer/create_customer.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding("UTF-8");
             request.setAttribute("customerList", iCustomerService.sortByName());
+            for (Customer customer:iCustomerService.sortByName()) {
+                System.out.println(customer);
+            }
             request.getRequestDispatcher("customer/display_customer.jsp").forward(request, response);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

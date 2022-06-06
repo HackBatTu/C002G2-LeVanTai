@@ -163,4 +163,23 @@ public class Employee {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", salary=" + salary +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", employeePosition=" + employeePosition +
+                ", educationDegree=" + educationDegree +
+                ", division=" + division +
+                ", userName=" + userName +
+                ", status=" + status +
+                '}';
+    }
 }

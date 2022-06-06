@@ -16,18 +16,49 @@
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap413/css/bootstrap.min.css">
     <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.css">
+
+    <style>
+        body{
+            box-sizing: border-box;
+            padding: 0px;
+            border: 0px;
+        }
+        table{
+            font-size: 12px;
+        }
+        html{
+            font-size: 12px !important;
+        }
+    </style>
 </head>
 <body>
-
-<div class="col-lg-12 text-center text-primary">
-    <h1>Customer Management</h1>
+<div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark active" href="../index.jsp"><h4>*Home</h4></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-lg-12 text-center">
+        <h1>Customer Management</h1>
+    </div>
 </div>
-
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
         <div class="container-fluid">
-            <a href="/customer?action=create"><h4>Add New Customer</h4></a>
-            <a href="/customer?action=sortByName"><h4>Sort By Name</h4></a>
+            <a href="/customer?action=create"><h5>*Add New Customer</h5></a>
+            <a href="/customer?action=sortByName"><h5>Sort By Name</h5></a>
             <form method="get" action="/customer" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search" width="100px">
@@ -38,7 +69,7 @@
 </div>
 
 <div class="col-lg-12 row w-100">
-    <caption><h2>List of customer</h2></caption>
+    <caption><h4>List of customer : </h4></caption>
     <table id="myTable" class="table table-dark table-hover" style="width: 100%">
         <thead>
         <tr>
@@ -119,7 +150,7 @@
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 4
+            "pageLength": 7
         });
     } );
 </script>

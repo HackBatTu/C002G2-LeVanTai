@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Admin
-  Date: 2/6/2022
-  Time: 3:31 PM
+  Date: 5/6/2022
+  Time: 12:47 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,68 +11,101 @@
 
 <html>
 <head>
-    <title>Student Management Application</title>
+    <title>Customer Management Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap413/css/bootstrap.min.css">
     <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.css">
+
+    <style>
+        body{
+            box-sizing: border-box;
+            padding: 0px;
+            border: 0px;
+        }
+        table{
+            font-size: 12px;
+        }
+        html{
+            font-size: 12px !important;
+        }
+    </style>
 </head>
 <body>
-
-<div class="col-lg-12">
-    <h1>Student Management</h1>
+<div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark active" href="../index.jsp"><h4>*Home</h4></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-lg-12 text-center">
+        <h1>Customer Management</h1>
+    </div>
+</div>
+<div class="col-12 row">
+    <nav class="navbar navbar-dark bg-warning">
+        <div class="container-fluid">
+            <a href="/customer?action=create"><h5>*Add New Customer</h5></a>
+            <a href="/customer?action=sortByName"><h5>Sort By Name</h5></a>
+            <form method="get" action="/customer" class="d-flex">
+                <input type="hidden" name="action" value="search">
+                <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search" width="100px">
+                <input type="submit" name="name" value="search">
+            </form>
+        </div>
+    </nav>
 </div>
 
-<div class="col-lg-12">
-    <h3>
-        <a href="/student?action=add">Add New Student</a>
-    </h3>
-</div>
-
-<div class="col-lg-12">
-    <form method="get" action="/student">
-        <input type="hidden" name="action" value="search">
-        <input type="text" placeholder="Enter the Name" name="name">
-        <input type="submit" name="name" value="search">
-    </form>
-</div>
-
-<div class="col-lg-12">
-    <caption><h2>List of Student</h2></caption>
+<div class="col-lg-12 row w-100">
+    <caption><h4>List of customer : </h4></caption>
     <table id="myTable" class="table table-dark table-hover" style="width: 100%">
         <thead>
         <tr>
             <th>ID</th>
+            <th>Customer_type_id</th>
             <th>Name</th>
-            <th>Point</th>
+            <th>BirthDay</th>
             <th>Gender</th>
-            <th>Ranks</th>
-            <th>.....</th>
-            <th>.....</th>
+            <th>Id Card</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="s" items="${listStudent}">
+        <c:forEach var="s" items="${customerList}">
             <tr>
                 <td>${s.id}</td>
+                <td>${s.customerType.name}</td>
                 <td>${s.name}</td>
-                <td>${s.point}</td>
+                <td>${s.birthDay}</td>
                 <td>
                     <c:if test="${s.gender==0}">FeMale</c:if>
                     <c:if test="${s.gender==1}">Male</c:if>
                     <c:if test="${s.gender==null}">Other</c:if>
                 </td>
-                <td>
-                    <c:choose>
-                        <c:when test="${s.point>8}">Xuất sắc</c:when>
-                        <c:when test="${s.point>6.5}">Tiên Tiến</c:when>
-                        <c:when test="${s.point>5}">TB</c:when>
-                        <c:when test="${s.point>0}">Yếu</c:when>
-                    </c:choose>
-                </td>
-                <td>
-                    <button type="submit">
-                        <a href="/student?action=edit&id=${s.id}">Edit</a>
+                <td>${s.idCard}</td>
+                <td>${s.phone}</td>
+                <td>${s.email}</td>
+                <td>${s.address}</td>
+                <td>${s.status}</td>
+                <td><button type="submit" class="btn btn-danger">
+                        <a href="/customer?action=edit&id=${s.id}">Edit</a>
                     </button>
                 </td>
                 <td>
@@ -87,7 +120,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabelAddNew">Delete Student</h5>
+                                <h5 class="modal-title" id="staticBackdropLabelAddNew">Delete Customer</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
@@ -95,7 +128,7 @@
                                 <div class="alert alert-warning">
                                     Do you want delete student <strong>${s.name}</strong>
                                 </div>
-                                <a href="/student?action=delete&id=${s.id}" class="btn btn-success">Submit</a>
+                                <a href="/customer?action=delete&id=${s.id}" class="btn btn-success">Submit</a>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                 </button>
                             </div>
@@ -107,7 +140,6 @@
         </c:forEach>
         </tbody>
     </table>
-    <a href="/student?action=sortByName">Sort By Name</a>
 </div>
 </body>
 <script src="../jquery/jquery-3.5.1.min.js"></script>
@@ -118,7 +150,7 @@
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 5
+            "pageLength": 7
         });
     } );
 </script>

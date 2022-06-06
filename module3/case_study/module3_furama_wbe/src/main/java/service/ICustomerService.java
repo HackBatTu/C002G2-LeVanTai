@@ -1,6 +1,7 @@
 package service;
 
 import model.Customer;
+import model.CustomerType;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface ICustomerService {
     List<Customer> searchByName(String name);
 
     List<Customer> sortByName();
+
+    List<CustomerType> getAllCustomerType();
 }

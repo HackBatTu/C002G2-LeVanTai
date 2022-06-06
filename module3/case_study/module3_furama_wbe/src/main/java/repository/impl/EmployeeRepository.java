@@ -15,11 +15,14 @@ import java.util.List;
 public class EmployeeRepository implements IEmployeeRepository {
     private BaseStudentRepository baseStudentRepository = new BaseStudentRepository();
     private static final String SELECT_ALL ="select employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,employee.employee_position_id,employee_position.employee_position_name,employee.education_degree_id,education_degree.education_degree_name,employee.division_id,division.division_name,employee.username,user.password,employee.status from employee join employee_position on employee_position.employee_position_id= employee.employee_position_id join division on division.division_id=employee.division_id join education_degree on education_degree.education_degree_id=employee.education_degree_id join user on user.username= employee.username where employee.status=0;";
-    private static final String INSERT_INTO= "insert into employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,employee.employee_position_id,employee.education_degree_id,employee.division_id,employee.password) value (?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String INSERT_INTO= "insert into employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,employee.employee_position_id,employee.education_degree_id,employee.division_id,employee.username) value (?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE = "update employee set employee_name=?,employee_birthday=?,employee_id_card=?,employee_salary=?,employee_phone=?,employee_email=?,employee_address=?,employee.employee_position_id=?,employee.education_degree_id=?,employee.division_id=?,employee.password=? where employee_id=? and employee.status=0;";
     private static final String DELETE_EMPLOYEE = " update employee set status = 1 where employee_id = ?; ";
     private static final String SEARCH_BY_NAME = "select * from employee where employee_name like ? and status=0 ;";
-
+    private final String SELECT_ALL_POSITION = " select * from employee_position where status = 0; ";
+    private final String SELECT_ALL_EDUCATION = " select * from education_degree where status = 0;  ";
+    private final String SELECT_ALL_DIVISION = " select * from division where status = 0;  ";
+    private final String SELECT_ALL_USER = " select * from user; ";
 
     @Override
     public List<Employee> selectAll() {
@@ -149,15 +152,15 @@ public class EmployeeRepository implements IEmployeeRepository {
                 String phone = resultSet.getString("employee_phone");
                 String email = resultSet.getString("employee_email");
                 String address = resultSet.getString("employee_address");
-                int employee_position_id = resultSet.getInt("employee_position_id");
+                int employeePosition = resultSet.getInt("employee_position_id");
                 String employee_position_name = resultSet.getString("employee_position_name");
-                int education_degree_id = resultSet.getInt("education_degree_id");
+                int educationDegree = resultSet.getInt("education_degree_id");
                 String education_degree_name = resultSet.getString("education_degree_name");
-                int division_id = resultSet.getInt("division_id");
+                int division = resultSet.getInt("division_id");
                 String division_name = resultSet.getString("division_name");
                 String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
-                employeeList.add(new Employee(id,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employee_position_id,employee_position_name),new EducationDegree(education_degree_id,education_degree_name),new Division(division_id,division_name),new User(username,password)));
+                employeeList.add(new Employee(id,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition,employee_position_name),new EducationDegree(educationDegree,education_degree_name),new Division(division,division_name),new User(username,password)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -169,6 +172,107 @@ public class EmployeeRepository implements IEmployeeRepository {
         }
         return employeeList;
     }
+
+    @Override
+    public List<EmployeePosition> getAllEmployeePosition() {
+        List<EmployeePosition> positions = new ArrayList<>();
+        Connection connection = baseStudentRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_POSITION);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int positionId = resultSet.getInt("employee_position_id");
+                String positionName = resultSet.getString("employee_position_name");
+                int status = resultSet.getInt("status");
+                positions.add(new EmployeePosition(positionId, positionName, status));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return positions;
+    }
+
+    @Override
+    public List<EducationDegree> getAllEducationDegree() {
+        List<EducationDegree> educationDegrees = new ArrayList<>();
+        Connection connection = baseStudentRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_EDUCATION);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int edId = resultSet.getInt("education_degree_id");
+                String edName = resultSet.getString("education_degree_name");
+                int status = resultSet.getInt("status");
+                educationDegrees.add(new EducationDegree(edId, edName, status));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return educationDegrees;
+    }
+
+    @Override
+    public List<Division> getAllDivision() {
+        List<Division> divisions = new ArrayList<>();
+        Connection connection = baseStudentRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_DIVISION);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int divisionId = resultSet.getInt("division_id");
+                String divisitonName = resultSet.getString("division_name");
+                int status = resultSet.getInt("status");
+                divisions.add(new Division(divisionId, divisitonName, status));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return divisions;
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        List<User> users = new ArrayList<>();
+        Connection connection = baseStudentRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USER);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                int status = resultSet.getInt("status");
+                users.add(new User(username,password,status));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return users;
+    }
+
 
 
 }

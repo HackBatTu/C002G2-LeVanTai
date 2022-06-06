@@ -5,14 +5,16 @@ public class Division {
     private String name;
     private int status;
 
-    public Division(int division_id,String division_name) {
-        this.id = division_id;
+    public Division(int division,String division_name) {
+        this.id = division;
         this.name = division_name;
     }
-    public Division(int division_id) {
-        this.id = division_id;
+
+    public Division(int division) {
+        this.id = division;
     }
-    public Division(int id, String name,int status) {
+
+    public Division(int id, String name, int status) {
         this.id = id;
         this.name = name;
         this.status=status;

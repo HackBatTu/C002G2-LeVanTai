@@ -1,6 +1,6 @@
 package service;
 
-import model.Employee;
+import model.*;
 
 import java.util.List;
 
@@ -14,4 +14,12 @@ public interface IEmployeeService {
     void delete(int id);
 
     List<Employee> searchByName(String name);
+
+    List<EmployeePosition> getAllEmployeePosition();
+
+    List<EducationDegree> getAllEducationDegree();
+
+    List<Division> getAllDivision();
+
+    List<User> getAllUser();
 }

@@ -1,6 +1,6 @@
 package service.impl;
 
-import model.Employee;
+import model.*;
 import repository.IEmployeeRepository;
 import repository.impl.EmployeeRepository;
 import service.IEmployeeService;
@@ -33,5 +33,25 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public List<Employee> searchByName(String name) {
         return iEmployeeRepository.searchByName(name);
+    }
+
+    @Override
+    public List<EmployeePosition> getAllEmployeePosition() {
+        return iEmployeeRepository.getAllEmployeePosition();
+    }
+
+    @Override
+    public List<EducationDegree> getAllEducationDegree() {
+        return iEmployeeRepository.getAllEducationDegree();
+    }
+
+    @Override
+    public List<Division> getAllDivision() {
+        return iEmployeeRepository.getAllDivision();
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return iEmployeeRepository.getAllUser();
     }
 }

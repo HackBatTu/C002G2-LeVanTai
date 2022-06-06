@@ -5,18 +5,20 @@ public class EmployeePosition {
     private String name;
     private int status;
 
-    public EmployeePosition(int employee_position_id) {
-        this.id = employee_position_id;
-    }
-    public EmployeePosition(int employee_position_id,String employee_position_name) {
-        this.id = employee_position_id;
-        this.name = employee_position_name;
-    }
 
     public EmployeePosition(int id, String name,int status) {
         this.id = id;
         this.name = name;
         this.status = status;
+    }
+
+    public EmployeePosition(int employeePosition) {
+        this.id = employeePosition;
+    }
+
+    public EmployeePosition(int employeePosition, String employee_position_name) {
+        this.id = employeePosition;
+        this.name = employee_position_name;
     }
 
     public int getId() {

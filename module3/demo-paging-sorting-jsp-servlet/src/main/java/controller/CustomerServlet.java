@@ -114,7 +114,6 @@ public class CustomerServlet extends HttpServlet {
             msg = "Id Card not match";
             flag = true;
         }
-        ;
         String phone = request.getParameter("phone");
         int idCustomerType = Integer.parseInt(request.getParameter("id_customer_type"));
         Customer customer = new Customer(name, idCard, phone, new CustomerType(idCustomerType));

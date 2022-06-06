@@ -29,7 +29,7 @@ public class EmployeeServlet extends HttpServlet {
                 updateEmployee(request, response);
                 break;
             default:
-                displayEmployee(request,response);
+                displayEmployee(request, response);
                 break;
         }
     }
@@ -43,12 +43,12 @@ public class EmployeeServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        int employeePosition_id = Integer.parseInt(request.getParameter("employeePosition"));
-        int educationDegree_id = Integer.parseInt(request.getParameter("educationDegree"));
-        int division_id = Integer.parseInt(request.getParameter("division"));
+        int employeePosition = Integer.parseInt(request.getParameter("employeePosition"));
+        int educationDegree = Integer.parseInt(request.getParameter("educationDegree"));
+        int division = Integer.parseInt(request.getParameter("division"));
         String userName = request.getParameter("userName");
 
-        Employee employeeList = new Employee(id,name, birthDay, idCard,salary, phone, email, address,new EmployeePosition(employeePosition_id),new EducationDegree(educationDegree_id),new Division(division_id),new User(userName));
+        Employee employeeList = new Employee(id, name, birthDay, idCard, salary, phone, email, address, new EmployeePosition(employeePosition), new EducationDegree(educationDegree), new Division(division), new User(userName));
         iEmployeeService.update(employeeList);
         try {
             response.sendRedirect("/customer");
@@ -59,33 +59,37 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void createEmployee(HttpServletRequest request, HttpServletResponse response) {
-            String name = request.getParameter("name");
-            String birthDay = request.getParameter("birthDay");
-            String idCard = request.getParameter("idCard");
-            double salary = Double.parseDouble(request.getParameter("salary"));
-            String phone = request.getParameter("phone");
-            String email = request.getParameter("email");
-            String address = request.getParameter("address");
-            int employeePosition_id = Integer.parseInt(request.getParameter("employeePosition"));
-            int educationDegree_id = Integer.parseInt(request.getParameter("educationDegree"));
-            int division_id = Integer.parseInt(request.getParameter("division"));
-            String userName = request.getParameter("userName");
+        String name = request.getParameter("name");
+        String birthDay = request.getParameter("birthDay");
+        String idCard = request.getParameter("idCard");
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int employeePosition = Integer.parseInt(request.getParameter("position"));
+        String employeePosition_name = request.getParameter("employeePosition_name");
+        int educationDegree = Integer.parseInt(request.getParameter("education"));
+        String educationDegree_name = request.getParameter("educationDegree_name");
+        int division = Integer.parseInt(request.getParameter("division"));
+        String division_name = request.getParameter("division_name");
+        String username = request.getParameter("userName");
+        String password = request.getParameter("password");
 
-        Employee employeeList = new Employee(name, birthDay, idCard,salary, phone, email, address,new EmployeePosition(employeePosition_id),new EducationDegree(educationDegree_id),new Division(division_id),new User(userName));
-            iEmployeeService.add(employeeList);
-            try {
-                response.sendRedirect("/customer");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        Employee employeeList = new Employee(name, birthDay, idCard, salary, phone, email, address, new EmployeePosition(employeePosition, employeePosition_name), new EducationDegree(educationDegree, educationDegree_name), new Division(division, division_name), new User(username, password));
+        iEmployeeService.add(employeeList);
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     private void displayEmployee(HttpServletRequest request, HttpServletResponse response) {
         List<Employee> employeeList = iEmployeeService.selectAll();
-        request.setAttribute("employeeList",employeeList);
+        request.setAttribute("employeeList", employeeList);
         try {
-            request.getRequestDispatcher("employee/display_employee.jsp").forward(request,response);
+            request.getRequestDispatcher("employee/display_employee.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -100,10 +104,13 @@ public class EmployeeServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                request.getRequestDispatcher("employee/create_employee.jsp").forward(request,response);
+                request.getRequestDispatcher("employee/create_employee.jsp").forward(request, response);
+                break;
+            case "select" :
+                select(request,response);
                 break;
             case "edit":
-                showEdit(request,response);
+                showEdit(request, response);
                 break;
             case "delete":
                 delete(request, response);
@@ -112,8 +119,22 @@ public class EmployeeServlet extends HttpServlet {
                 searchByName(request, response);
                 break;
             default:
-                displayEmployee(request,response);
+                displayEmployee(request, response);
                 break;
+        }
+    }
+
+    private void select(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("listEmployeePosition", iEmployeeService.getAllEmployeePosition());
+        request.setAttribute("listEducationDegree", iEmployeeService.getAllEducationDegree());
+        request.setAttribute("listDivision", iEmployeeService.getAllDivision());
+        request.setAttribute("listUser", iEmployeeService.getAllUser());
+        try {
+            request.getRequestDispatcher("employee/employee-form-create.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

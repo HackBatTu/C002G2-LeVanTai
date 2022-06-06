@@ -12,24 +12,32 @@
   <title>Furama Management</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    body{
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+    html{
+      font-size: 12px !important;
+    }
+  </style>
 </head>
 <body>
-
 <div class="container">
   <div class="col-12 row">
-    <div class="col-1"><img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" width="65px"></div>
+    <div class="col-1"><img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" width="50px"></div>
     <div class="col-11 bg-warning">
       <div class="col-lg-12 row">
         <div class="col-lg-10 text-center"><h2>Furama Management</h2></div>
         <div class="col-lg-2">
-          <p>Welcome to <strong>Furama Resort!!!</strong>
-          </p>
+          <p>Welcome to<strong>Furama Resort!!!</strong></p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-12 row">
+  <div class="col-12 row ">
     <nav class="navbar navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/index.jsp">Home</a>
@@ -37,7 +45,7 @@
         <a class="navbar-brand" href="/customer">Customer</a>
         <a class="navbar-brand" href="/service">Service</a>
         <a class="navbar-brand" href="/contract">Contract</a>
-        <form class="d-flex">
+        <form class="d-flex navbar-brand">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" width="100px">
           <button class="btn btn-outline-success bg-dark" type="submit">Search</button>
         </form>
@@ -47,7 +55,7 @@
 
   <div class="col-12 row">
     <div class="col-3">
-      <div class="card" style="width: 18rem;">
+      <div class="card w-100">
         <img src="https://cf.bstatic.com/xdata/images/hotel/square200/352170974.webp?k=653aede4611125b3739b165a5b57757f056ab7bddd8e086c320ab6e10f74c8aa&o=&s=1" class="card-img-top" alt="..." height="150px">
         <div class="card-body">
           <h5 class="card-title">Furama</h5>
@@ -55,7 +63,7 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <div class="card" style="width: 18rem; height: 100px">
+      <div class="card w-100">
         <img src="https://cf.bstatic.com/xdata/images/hotel/square200/210973040.webp?k=8fd9ab1cad9a8ad4a4991b0edb6155f57747d7e8925f4a33baac1aec0db87003&o=&s=1" class="card-img-top" alt="..." height="150px">
         <div class="card-body">
           <h5 class="card-title">Furama</h5>
@@ -74,23 +82,23 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://cdn.oneesports.vn/cdn-data/sites/4/2022/02/hinh-nen-Luffy-2K-chat-ngau.jpg" class="d-block" width="100%" height="500px" alt="">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>First slide label</h4>
+            <img src="https://cdn.oneesports.vn/cdn-data/sites/4/2022/02/hinh-nen-Luffy-2K-chat-ngau.jpg" class="d-block" width="100%" height="518px" alt="">
+            <div class="carousel-caption d-none d-md-block text-dark">
+              <h3>Mấy Con Gà Này</h3>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="https://media.suara.com/pictures/970x544/2022/03/20/59382-luffy-image-credit-zunesha-fandom.jpg" class="d-block" width="100%" height="500px" alt="">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Second slide label</h4>
+            <img src="https://media.suara.com/pictures/970x544/2022/03/20/59382-luffy-image-credit-zunesha-fandom.jpg" class="d-block" width="100%" height="518px" alt="">
+            <div class="carousel-caption d-none d-md-block text-dark">
+              <h3>Mấy Con Gà Này</h3>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="https://cuongtruyen.com/wp-content/uploads/2019/09/luffy-funny-face-1024x576.jpg" class="d-block" width="100%" height="500px" alt="">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Third slide label</h4>
+            <img src="https://cuongtruyen.com/wp-content/uploads/2019/09/luffy-funny-face-1024x576.jpg" class="d-block" width="100%" height="518px" alt="">
+            <div class="carousel-caption d-none d-md-block text-dark">
+              <h3>Mấy Con Gà Này</h3>
               <p>Some representative placeholder content for the third slide.</p>
             </div>
           </div>
@@ -107,9 +115,9 @@
     </div>
   </div>
 
-  <div class="container-fluid text-center bg-pink p-2 text-light">
+  <footer class="container-fluid text-center bg-dark p-2 text-light" style="height: 22px">
     <p class="text-light">Furama Resort - &copy; Copyright by Háck Bất Tử 2022</p>
-  </div>
+  </footer>
 
 </div>
 

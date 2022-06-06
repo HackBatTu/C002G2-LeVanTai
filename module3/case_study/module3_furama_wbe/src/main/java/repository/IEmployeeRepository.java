@@ -1,6 +1,6 @@
 package repository;
 
-import model.Employee;
+import model.*;
 
 import java.util.List;
 
@@ -14,4 +14,12 @@ public interface IEmployeeRepository {
     void delete(int id);
 
     List<Employee> searchByName(String name);
+
+    List<EmployeePosition> getAllEmployeePosition();
+
+    List<EducationDegree> getAllEducationDegree();
+
+    List<Division> getAllDivision();
+
+    List<User> getAllUser();
 }

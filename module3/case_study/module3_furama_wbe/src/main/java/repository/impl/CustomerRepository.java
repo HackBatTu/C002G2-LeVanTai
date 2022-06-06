@@ -20,6 +20,8 @@ public class CustomerRepository implements ICustomerRepository {
     private static final String DELETE_CUSTOMER = " update customer set status = 1 where customer_id = ?; ";
     private static final String SEARCH_BY_NAME = "select * from customer where customer_name like ? and status=0 ;";
     private static final String SORT_BY_NAME = "select * from customer where status=0 order by customer_name;";
+    private final String SELECT_CUSTOMER_TYPE = " select * from customer_type where `status` = 0; ";
+
 
     @Override
     public List<Customer> selectAll() {
@@ -105,7 +107,6 @@ public class CustomerRepository implements ICustomerRepository {
     @Override
     public void delete(int id) {
         Connection connection = baseStudentRepository.getConnection();
-
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CUSTOMER);
             preparedStatement.setInt(1, id);
@@ -134,12 +135,12 @@ public class CustomerRepository implements ICustomerRepository {
                 int idCustomerType = resultSet.getInt("customer_type_id");
                 String names = resultSet.getString("customer_name");
                 String birthDay = resultSet.getString("customer_birthday");
-                int gender = resultSet.getInt("gender");
+                int gender = resultSet.getInt("customer_gender");
                 String idCard = resultSet.getString("customer_id_card");
                 String phone = resultSet.getString("customer_phone");
                 String email = resultSet.getString("customer_email");
                 String address = resultSet.getString("customer_address");
-                customerList.add(new Customer(id, new CustomerType(idCustomerType),names,birthDay,gender, idCard, phone,email,address ));
+                customerList.add(new Customer(id, new CustomerType(idCustomerType),names,birthDay,gender, idCard, phone,email,address));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -164,12 +165,12 @@ public class CustomerRepository implements ICustomerRepository {
                 int idCustomerType = resultSet.getInt("customer_type_id");
                 String names = resultSet.getString("customer_name");
                 String birthDay = resultSet.getString("customer_birthday");
-                int gender = resultSet.getInt("gender");
+                int gender = resultSet.getInt("customer_gender");
                 String idCard = resultSet.getString("customer_id_card");
                 String phone = resultSet.getString("customer_phone");
                 String email = resultSet.getString("customer_email");
                 String address = resultSet.getString("customer_address");
-                customerList.add(new Customer(id, new CustomerType(idCustomerType),names,birthDay,gender, idCard, phone,email,address ));
+                customerList.add(new Customer(id, new CustomerType(idCustomerType),names,birthDay,gender, idCard, phone,email,address));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -180,4 +181,31 @@ public class CustomerRepository implements ICustomerRepository {
             e.printStackTrace();
         }
         return customerList;    }
+
+    @Override
+    public List<CustomerType> getAllCustomerType() {
+        Connection connection = baseStudentRepository.getConnection();
+        List<CustomerType> customerTypes = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_TYPE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("customer_type_id");
+                String name = resultSet.getString("customer_type_name");
+                int status = resultSet.getInt("status");
+                CustomerType customerType = new CustomerType(id, name, status);
+                customerTypes.add(customerType);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return customerTypes;
+    }
 }
