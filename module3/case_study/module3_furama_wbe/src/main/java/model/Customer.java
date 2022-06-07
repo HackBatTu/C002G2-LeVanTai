@@ -46,6 +46,12 @@ public class Customer {
         this.email = email;
         this.address = address;
     }
+
+    public Customer(int customerId, String customerName) {
+        this.id = customerId;
+        this.name = customerName;
+    }
+
     public int getStatus() {
         return status;
     }

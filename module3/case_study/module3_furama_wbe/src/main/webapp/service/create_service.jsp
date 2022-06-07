@@ -45,7 +45,7 @@
                     <a class="nav-link text-white active" href="../index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/customer">Back</a>
+                    <a class="nav-link text-white" href="/service">Back</a>
                 </li>
             </ul>
         </div>
@@ -53,59 +53,59 @@
 </nav>
 
 <div class="col-auto row col-12" style="margin: 0 auto;">
-    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px;">
+    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 0px 15px;">
         <form method="post">
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example1">Service Name</label>
                 <input type="text" id="form1Example1" class="form-control" name="name"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example2">Service Area</label>
-                <input type="date" id="form1Example2" class="form-control" name="area"/>
+                <input type="text" id="form1Example2" class="form-control" name="area"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example3">Service Cost</label>
                 <input type="text" id="form1Example3" class="form-control" name="cost"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example4">Service Max Person</label>
                 <input type="text" id="form1Example4" class="form-control" name="maxPerson"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example5">Room Standard</label>
                 <input type="text" id="form1Example5" class="form-control" name="roomStandard"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example6">Another Convenient</label>
                 <input type="text" id="form1Example6" class="form-control" name="anotherConvenient"/>
             </div>
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example7">Pool Area</label>
                 <input type="text" id="form1Example7" class="form-control" name="poolArea"/>
             </div>
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example8">numOfFloors</label>
                 <input type="text" id="form1Example8" class="form-control" name="numOfFloors"/>
             </div>
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example9">Rent Type</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example9" name="rentType">
                     <option selected disabled>Choice Rent Type</option>
-                    <c:forEach items="${listRentType}" var="i">
+                    <c:forEach items="${rentTypeList}" var="i">
                         <option value="${i.id}">${i.name}</option>
                     </c:forEach>
                 </select>
             </div>
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example10">Service Type</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example10" name="serviceType">
                     <option selected disabled>Choice Service Type</option>
-                    <c:forEach items="${listServiceType}" var="i">
+                    <c:forEach items="${serviceTypeList}" var="i">
                         <option value="${i.id}">${i.name}</option>
                     </c:forEach>
                 </select>
@@ -115,7 +115,7 @@
         </form>
     </div>
     <div class="float-sm-left col-7 ">
-        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="562px" width="100%"></a>
+        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="600px" width="100%"></a>
     </div>
 </div>
 

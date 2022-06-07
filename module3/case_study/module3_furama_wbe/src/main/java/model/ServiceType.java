@@ -11,7 +11,11 @@ public class ServiceType {
         this.status=status;
     }
 
-    public ServiceType() {
+    public ServiceType(int serviceType, String serviceTypeName) {
+        this.id = serviceType;
+        this.name = serviceTypeName;
+    } public ServiceType(int serviceType) {
+        this.id = serviceType;
     }
 
     public int getId() {

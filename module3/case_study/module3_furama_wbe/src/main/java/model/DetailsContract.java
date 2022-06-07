@@ -18,6 +18,13 @@ public class DetailsContract {
     public DetailsContract() {
     }
 
+    public DetailsContract(int id, int numberContract, Contract contract, AttachService attachService) {
+        this.id = id;
+        this.numberContract = numberContract;
+        this.contract = contract;
+        this.attachService = attachService;
+    }
+
     public int getStatus() {
         return status;
     }

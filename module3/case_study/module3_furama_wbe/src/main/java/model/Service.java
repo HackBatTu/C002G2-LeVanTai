@@ -29,7 +29,35 @@ public class Service {
         this.status = status;
     }
 
-    public Service() {
+    public Service(int id,String name, int area, double cost, int maxPerson, String roomStandard, String anotherConvenient, double poolArea, int numberOfFloors, RentType rentType, ServiceType serviceType) {
+        this.id = id;
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPerson = maxPerson;
+        this.roomStandard = roomStandard;
+        this.anotherConvenient = anotherConvenient;
+        this.poolArea = poolArea;
+        this.numOfFloors = numberOfFloors;
+        this.rentType = rentType;
+        this.serviceType = serviceType;
+    }
+    public Service(String name, int area, double cost, int maxPerson, String roomStandard, String anotherConvenient, double poolArea, int numberOfFloors, RentType rentType, ServiceType serviceType) {
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPerson = maxPerson;
+        this.roomStandard = roomStandard;
+        this.anotherConvenient = anotherConvenient;
+        this.poolArea = poolArea;
+        this.numOfFloors = numberOfFloors;
+        this.rentType = rentType;
+        this.serviceType = serviceType;
+    }
+
+    public Service(int serviceId, String serviceName) {
+        this.id = serviceId;
+        this.name = serviceName;
     }
 
     public int getId() {

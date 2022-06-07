@@ -11,9 +11,13 @@ public class RentType {
         this.status=status;
     }
 
-    public RentType() {
+    public RentType(int rentType, String rentTypeName) {
+        this.id = rentType;
+        this.name = rentTypeName;
     }
-
+    public RentType(int rentType) {
+        this.id = rentType;
+    }
     public int getId() {
         return id;
     }

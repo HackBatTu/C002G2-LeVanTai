@@ -53,7 +53,7 @@
 </nav>
 
 <div class="col-auto row col-12" style="margin: 0 auto;">
-    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px;">
+    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 1px 15px;">
         <form method="post">
             <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example1">Employee Name</label>
@@ -131,7 +131,7 @@
         </form>
     </div>
     <div class="float-sm-left col-7 ">
-        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="697px" width="100%"></a>
+        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="660px" width="100%"></a>
     </div>
 </div>
 

@@ -45,6 +45,7 @@
         <a class="navbar-brand" href="/customer">Customer</a>
         <a class="navbar-brand" href="/service">Service</a>
         <a class="navbar-brand" href="/contract">Contract</a>
+        <a class="navbar-brand" href="/details_contract">Contract_Details</a>
         <form class="d-flex navbar-brand">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" width="100px">
           <button class="btn btn-outline-success bg-dark" type="submit">Search</button>

@@ -11,6 +11,21 @@ public class Contract {
     private Service service;
     private int status;
 
+    public Contract(int id, String dateCheckIn, String dateCheckOut, double contractDeposit, double contractTotalMoney, Employee employee, Customer customer, Service service) {
+        this.id = id;
+        this.dateCheckIn = dateCheckIn;
+        this.dateCheckOut = dateCheckOut;
+        this.deposit = contractDeposit;
+        this.totalMoney = contractTotalMoney;
+        this.employee = employee;
+        this.customer = customer;
+        this.service = service;
+    }
+
+    public Contract(int contractId) {
+        this.id = contractId;
+    }
+
     public int getStatus() {
         return status;
     }

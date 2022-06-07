@@ -59,6 +59,10 @@ public class Employee {
         this.division = division;
         this.userName = userName;
     }
+    public Employee(int employeeId,String employeeName){
+        this.id = employeeId;
+        this.name = employeeName;
+    }
 
     public int getId() {
         return id;

@@ -8,6 +8,11 @@ public class AttachService {
     private String attachStatus;
     private int status;
 
+    public AttachService(int attachServiceId, String attachServiceName) {
+        this.id = attachServiceId;
+        this.name = attachServiceName;
+    }
+
     public int getStatus() {
         return status;
     }
