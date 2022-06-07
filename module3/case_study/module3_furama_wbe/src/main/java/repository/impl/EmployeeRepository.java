@@ -16,13 +16,14 @@ public class EmployeeRepository implements IEmployeeRepository {
     private BaseStudentRepository baseStudentRepository = new BaseStudentRepository();
     private static final String SELECT_ALL ="select employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,employee.employee_position_id,employee_position.employee_position_name,employee.education_degree_id,education_degree.education_degree_name,employee.division_id,division.division_name,employee.username,user.password,employee.status from employee join employee_position on employee_position.employee_position_id= employee.employee_position_id join division on division.division_id=employee.division_id join education_degree on education_degree.education_degree_id=employee.education_degree_id join user on user.username= employee.username where employee.status=0;";
     private static final String INSERT_INTO= "insert into employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,employee.employee_position_id,employee.education_degree_id,employee.division_id,employee.username) value (?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String UPDATE = "update employee set employee_name=?,employee_birthday=?,employee_id_card=?,employee_salary=?,employee_phone=?,employee_email=?,employee_address=?,employee.employee_position_id=?,employee.education_degree_id=?,employee.division_id=?,employee.password=? where employee_id=? and employee.status=0;";
+    private static final String UPDATE = "update employee set employee_name=?,employee_birthday=?,employee_id_card=?,employee_salary=?,employee_phone=?,employee_email=?,employee_address=?,employee.employee_position_id=?,employee.education_degree_id=?,employee.division_id=?,employee.username=? where employee_id=? and employee.status=0;";
     private static final String DELETE_EMPLOYEE = " update employee set status = 1 where employee_id = ?; ";
-    private static final String SEARCH_BY_NAME = "select * from employee where employee_name like ? and status=0 ;";
+    private static final String SEARCH_BY_NAME = "select employee.*,employee_position.employee_position_name,education_degree.education_degree_name,division.division_name from employee left join employee_position on employee_position.employee_position_id= employee.employee_position_id left join division on division.division_id=employee.division_id left join education_degree on education_degree.education_degree_id=employee.education_degree_id left join user on user.username= employee.username where employee.employee_name like ?;";
     private final String SELECT_ALL_POSITION = " select * from employee_position where status = 0; ";
     private final String SELECT_ALL_EDUCATION = " select * from education_degree where status = 0;  ";
     private final String SELECT_ALL_DIVISION = " select * from division where status = 0;  ";
     private final String SELECT_ALL_USER = " select * from user; ";
+    private static final String SELECT_EMPLOYEE = " select * from employee where employee_id = ? ;";
 
     @Override
     public List<Employee> selectAll() {
@@ -153,14 +154,13 @@ public class EmployeeRepository implements IEmployeeRepository {
                 String email = resultSet.getString("employee_email");
                 String address = resultSet.getString("employee_address");
                 int employeePosition = resultSet.getInt("employee_position_id");
-                String employee_position_name = resultSet.getString("employee_position_name");
+                String nameEmployeePosition = resultSet.getString("employee_position_name");
                 int educationDegree = resultSet.getInt("education_degree_id");
-                String education_degree_name = resultSet.getString("education_degree_name");
+                String nameEducationDegree = resultSet.getString("education_degree_name");
                 int division = resultSet.getInt("division_id");
-                String division_name = resultSet.getString("division_name");
+                String divisionName = resultSet.getString("division_name");
                 String username = resultSet.getString("username");
-                String password = resultSet.getString("password");
-                employeeList.add(new Employee(id,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition,employee_position_name),new EducationDegree(educationDegree,education_degree_name),new Division(division,division_name),new User(username,password)));
+                employeeList.add(new Employee(id,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition,nameEmployeePosition),new EducationDegree(educationDegree,nameEducationDegree),new Division(division,divisionName),new User(username)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -232,9 +232,9 @@ public class EmployeeRepository implements IEmployeeRepository {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int divisionId = resultSet.getInt("division_id");
-                String divisitonName = resultSet.getString("division_name");
+                String divisionName = resultSet.getString("division_name");
                 int status = resultSet.getInt("status");
-                divisions.add(new Division(divisionId, divisitonName, status));
+                divisions.add(new Division(divisionId, divisionName, status));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -273,6 +273,35 @@ public class EmployeeRepository implements IEmployeeRepository {
         return users;
     }
 
+    @Override
+    public List<Employee> findById(int idEdit) {
+        List<Employee> employeeList = new ArrayList<>();
+        Connection connection = baseStudentRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement= connection.prepareStatement(SELECT_EMPLOYEE);
+            preparedStatement.setInt(1,idEdit);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int ids = resultSet.getInt("employee_id");
+                String names = resultSet.getString("employee_name");
+                String birthDay = resultSet.getString("employee_birthday");
+                String idCard = resultSet.getString("employee_id_card");
+                int salary = resultSet.getInt("employee_salary");
+                String phone = resultSet.getString("employee_phone");
+                String email = resultSet.getString("employee_email");
+                String address = resultSet.getString("employee_address");
+                int employeePosition = resultSet.getInt("employee_position_id");
+                int educationDegree = resultSet.getInt("education_degree_id");
+                int division = resultSet.getInt("division_id");
+                String username = resultSet.getString("username");
+
+                employeeList.add(new Employee(ids,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition),new EducationDegree(educationDegree),new Division(division),new User(username)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employeeList;
+    }
 
 
 }

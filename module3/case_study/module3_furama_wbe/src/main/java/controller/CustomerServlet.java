@@ -55,7 +55,6 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-//    public Customer(int id, CustomerType customerType, String name, String birthDay, int gender, String idCard, String phone, String email, String address) {
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
         int idCustomerType = Integer.parseInt(request.getParameter("customerType"));
@@ -70,7 +69,7 @@ public class CustomerServlet extends HttpServlet {
         Customer customerList = new Customer(new CustomerType(idCustomerType,nameCustomerType), name, birthDay, gender, idCard, phone, email, address);
         iCustomerService.add(customerList);
         try {
-            response.sendRedirect("/customer");
+            response.sendRedirect("customer/create_customer.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,9 +83,6 @@ public class CustomerServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                request.getRequestDispatcher("customer/create_customer.jsp").forward(request, response);
-                break;
-            case "select":
                 select(request,response);
                 break;
             case "edit":
@@ -107,16 +103,6 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void select(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
-        try {
-            request.getRequestDispatcher("customer/create_customer.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -137,6 +123,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
+        request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
         request.setAttribute("customerList", iCustomerService.searchByName(name));
         try {
             request.getRequestDispatcher("customer/display_customer.jsp").forward(request, response);
@@ -159,10 +146,11 @@ public class CustomerServlet extends HttpServlet {
 
     private void showEdit(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
+        request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
         for (Customer customerList : iCustomerService.selectAll()) {
             if (customerList.getId() == id) {
                 request.setAttribute("id", customerList.getId());
-                request.setAttribute("customerType", customerList.getCustomerType().getId());
+                request.setAttribute("customerTypeId", customerList.getCustomerType().getId());
                 request.setAttribute("name", customerList.getName());
                 request.setAttribute("birthDay", customerList.getBirthDay());
                 request.setAttribute("gender", customerList.getGender());
@@ -178,6 +166,16 @@ public class CustomerServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+    private void select(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
+        try {
+            request.getRequestDispatcher("customer/create_customer.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

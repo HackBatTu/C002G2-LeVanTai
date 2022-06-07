@@ -121,7 +121,7 @@
                 <select class="form-select" aria-label="Default select example" id="form1Example2" name="userName">
                     <option selected disabled>Choice User for employee</option>
                     <c:forEach items="${listUser}" var="i">
-                        <option value="${i.userName}">${i.password}</option>
+                        <option value="${i.username}">${i.username}</option>
                     </c:forEach>
                 </select>
             </div>

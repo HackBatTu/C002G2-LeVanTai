@@ -54,4 +54,9 @@ public class EmployeeService implements IEmployeeService {
     public List<User> getAllUser() {
         return iEmployeeRepository.getAllUser();
     }
+
+    @Override
+    public List<Employee> findById(int id) {
+        return iEmployeeRepository.findById(id);
+    }
 }

@@ -58,7 +58,7 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example2">Customer Type</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example2" name="customerType">
-                    <option selected disabled>Choice Customer Type</option>
+                    <option class="selected disabled">Choice Customer Type</option>
                     <c:forEach items="${listCustomerType}" var="i">
                         <option value="${i.id}">${i.name}</option>
                     </c:forEach>

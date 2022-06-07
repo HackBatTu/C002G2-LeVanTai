@@ -58,10 +58,10 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example2">Customer Type</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example2"
-                        name="id">
+                        name="customerType">
                     <c:forEach items="${listCustomerType}" var="i">
                         <c:choose>
-                            <c:when test="${i.id == cTypeId}">
+                            <c:when test="${i.id == customerTypeId}">
                                 <option value="${i.id}" selected>${i.name}</option>
                             </c:when>
                             <c:otherwise>
@@ -85,22 +85,22 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example4">Customer Gender</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example4"
-                        name="customerGender">
+                        name="gender">
                     <c:choose>
-                        <c:when test="${customerGender == 0}">
+                        <c:when test="${gender == 0}">
                             <option value="1">Nam</option>
                             <option value="0" selected>Nữ</option>
-                            <option value="2">Tài</option>
+                            <option value="">Other</option>
                         </c:when>
-                        <c:when test="${customerGender == 1}">
+                        <c:when test="${gender == 1}">
                             <option value="1" selected>Nam</option>
                             <option value="0">Nữ</option>
-                            <option value="2">Tài</option>
+                            <option value="">Other</option>
                         </c:when>
                         <c:otherwise>
                             <option value="1">Nam</option>
                             <option value="0">Nữ</option>
-                            <option value="2" selected>Tài</option>
+                            <option value="" selected>Other</option>
                         </c:otherwise>
                     </c:choose>
                 </select>
@@ -116,31 +116,31 @@
                 <input type="text" id="form1Example6" class="form-control" name="phone" value="${phone}"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example7">Customer Email</label>
                 <input type="text" id="form1Example7" class="form-control" name="email" value="${email}"/>
             </div>
 
-            <div class="form-outline mb-2 w-75">
+            <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example8">Customer Address</label>
                 <input type="text" id="form1Example8" class="form-control" name="address"value="${address}"/>
             </div>
-            <div class="form-outline mb-2 w-75">
-                <label class="form-label" for="form1Example9">Customer Gender</label>
-                <select class="form-select" aria-label="Default select example" id="form1Example9"
-                        name="status">
-                    <c:choose>
-                        <c:when test="${status == 0}">
-                            <option value="0" selected class="text-success">Active</option>
-                            <option value="1" class="text-danger">Deleted</option>
-                        </c:when>
-                        <c:when test="${status == 1}">
-                            <option value="1" selected class="text-danger">Delete</option>
-                            <option value="0" class="text-success">Active</option>
-                        </c:when>
-                    </c:choose>
-                </select>
-            </div>
+<%--            <div class="form-outline mb-2 w-75">--%>
+<%--                <label class="form-label" for="form1Example9">Status</label>--%>
+<%--                <select class="form-select" aria-label="Default select example" id="form1Example9"--%>
+<%--                        name="status">--%>
+<%--                    <c:choose>--%>
+<%--                        <c:when test="${status == 0}">--%>
+<%--                            <option value="0" selected class="text-success">Active</option>--%>
+<%--                            <option value="1" class="text-danger">Deleted</option>--%>
+<%--                        </c:when>--%>
+<%--                        <c:when test="${status == 1}">--%>
+<%--                            <option value="1" selected class="text-danger">Delete</option>--%>
+<%--                            <option value="0" class="text-success">Active</option>--%>
+<%--                        </c:when>--%>
+<%--                    </c:choose>--%>
+<%--                </select>--%>
+<%--            </div>--%>
 
             <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>
         </form>

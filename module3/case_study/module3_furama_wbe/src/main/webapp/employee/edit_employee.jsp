@@ -92,10 +92,10 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example9">Employee Position</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example9"
-                        name="id">
+                        name="employeePosition">
                     <c:forEach items="${listEmployeePosition}" var="i">
                         <c:choose>
-                            <c:when test="${i.id == cTypeId}">
+                            <c:when test="${i.id == employeePositionId}">
                                 <option value="${i.id}" selected>${i.name}</option>
                             </c:when>
                             <c:otherwise>
@@ -108,10 +108,10 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example10">Education Degree</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example10"
-                        name="id">
+                        name="educationDegree">
                     <c:forEach items="${listEducationDegree}" var="i">
                         <c:choose>
-                            <c:when test="${i.id == cTypeId}">
+                            <c:when test="${i.id == educationDegreeId}">
                                 <option value="${i.id}" selected>${i.name}</option>
                             </c:when>
                             <c:otherwise>
@@ -124,10 +124,10 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example11">Division</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example11"
-                        name="id">
+                        name="division">
                     <c:forEach items="${listDivision}" var="i">
                         <c:choose>
-                            <c:when test="${i.id == cTypeId}">
+                            <c:when test="${i.id == divisionId}">
                                 <option value="${i.id}" selected>${i.name}</option>
                             </c:when>
                             <c:otherwise>
@@ -140,14 +140,14 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example12">User</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example12"
-                        name="id">
+                        name="userName">
                     <c:forEach items="${listUser}" var="i">
                         <c:choose>
-                            <c:when test="${i.id == cTypeId}">
-                                <option value="${i.username}" selected>${i.password}</option>
+                            <c:when test="${i.username == userNames}">
+                                <option value="${i.username}" selected>${i.username}</option>
                             </c:when>
                             <c:otherwise>
-                                <option value="${i.username}">${i.password}</option>
+                                <option value="${i.username}">${i.username}</option>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>

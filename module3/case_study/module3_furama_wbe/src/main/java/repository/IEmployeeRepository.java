@@ -22,4 +22,6 @@ public interface IEmployeeRepository {
     List<Division> getAllDivision();
 
     List<User> getAllUser();
+
+    List<Employee> findById(int id);
 }

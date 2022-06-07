@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ServiceRepository implements IServiceRepository {
     private BaseStudentRepository baseStudentRepository = new BaseStudentRepository();
-    private static final String SELECT_SERVICE ="";
+    private static final String SELECT_SERVICE ="select * from service where status = 0; ";
 
     @Override
     public List<Service> selectAllService() {
