@@ -36,7 +36,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -57,11 +57,11 @@
 
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
-        <div class="container-fluid">
+        <div class="container">
             <a href="/employee?action=create"><h5>*Add New Employee</h5></a>
             <form method="get" action="/employee" class="d-flex">
                 <input type="hidden" name="action" value="search">
-                <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search" width="100px">
+                <input class="form-control me-2" type="search" placeholder="Search By Name" name="name" aria-label="Search" width="100px" value="${nameSearch}">
                 <input type="submit" name="name" value="search">
             </form>
         </div>

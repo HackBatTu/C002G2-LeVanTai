@@ -69,7 +69,7 @@ public class CustomerServlet extends HttpServlet {
         Customer customerList = new Customer(new CustomerType(idCustomerType,nameCustomerType), name, birthDay, gender, idCard, phone, email, address);
         iCustomerService.add(customerList);
         try {
-            response.sendRedirect("customer/create_customer.jsp");
+            response.sendRedirect("/customer");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -123,6 +123,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
+        request.setAttribute("nameSearch",name);
         request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
         request.setAttribute("customerList", iCustomerService.searchByName(name));
         try {

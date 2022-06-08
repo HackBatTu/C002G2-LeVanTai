@@ -14,9 +14,9 @@ import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
     private BaseStudentRepository baseStudentRepository = new BaseStudentRepository();
-    private static final String SELECT_ALL = "select customer_id,customer.customer_type_id,customer_type.customer_type_name,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address,customer.status from customer join customer_type on customer_type.customer_type_id= customer.customer_type_id where customer.status=0;";
-    private static final String INSERT_INTO= "insert into customer(customer_id,customer.customer_type_id,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) value (?,?,?,?,?,?,?,?,?);";
-    private static final String UPDATE ="update customer set customer.customer_type_id=?,customer_name=?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id=? and customer.status=0;";
+    private static final String SELECT_ALL = " select customer_id,customer.customer_type_id,customer_type.customer_type_name,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address,customer.status from customer join customer_type on customer_type.customer_type_id= customer.customer_type_id where customer.status=0;";
+    private static final String INSERT_INTO= " insert into customer(customer_id,customer.customer_type_id,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) value (?,?,?,?,?,?,?,?,?);";
+    private static final String UPDATE =" update customer set customer.customer_type_id=?,customer_name=?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id=? and customer.status=0;";
     private static final String DELETE_CUSTOMER = " update customer set status = 1 where customer_id = ?; ";
     private static final String SEARCH_BY_NAME = "select customer.*,customer_type.customer_type_name from customer left join customer_type on customer.customer_type_id = customer_type.customer_type_id where customer.customer_name like ?;";
     private static final String SORT_BY_NAME = "select * from customer where status=0 order by customer_name;";

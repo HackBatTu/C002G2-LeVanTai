@@ -25,6 +25,12 @@ public class DetailsContract {
         this.attachService = attachService;
     }
 
+    public DetailsContract(int numberContract, Contract contract, AttachService attachService) {
+        this.numberContract = numberContract;
+        this.contract = contract;
+        this.attachService = attachService;
+    }
+
     public int getStatus() {
         return status;
     }

@@ -13,6 +13,19 @@ public class AttachService {
         this.name = attachServiceName;
     }
 
+    public AttachService(int attachServiceId) {
+        this.id = attachServiceId;
+    }
+    public AttachService(int attachServiceId,String attachServiceName,double attachServiceCost,String attachServiceUnit,String attachServiceStatus){
+        this.id = attachServiceId;
+        this.name = attachServiceName;
+        this.cost = attachServiceCost;
+        this.unit = attachServiceUnit;
+        this.attachStatus = attachServiceStatus;
+    }
+
+
+
     public int getStatus() {
         return status;
     }

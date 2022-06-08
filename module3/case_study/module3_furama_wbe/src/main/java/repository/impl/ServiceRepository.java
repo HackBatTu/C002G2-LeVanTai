@@ -14,14 +14,16 @@ import java.util.List;
 
 public class ServiceRepository implements IServiceRepository {
     private static BaseStudentRepository baseStudentRepository = new BaseStudentRepository();
-    private static final String SELECT_SERVICE = " select service.*,rent_type.rent_type_name,service_type.service_type_name from service left join rent_type on service.rent_type_id=rent_type.rent_type_id left join service_type on service.service_type_id=service_type.service_type_id where service.status = 0; ";
+    private static final String SELECT_SERVICE = " select service.*,rent_type.rent_type_name,service_type.service_type_name from service " +
+            " left join rent_type on service.rent_type_id=rent_type.rent_type_id left join service_type on service.service_type_id=service_type.service_type_id where service.status = 0; ";
     private static final String INSERT_INTO = " insert into service(service_id,service_name,service_area,service_cost,service_max_person,room_standard,another_convenient,pool_area,number_of_floors,service.rent_type_id,service.service_type_id) value (?,?,?,?,?,?,?,?,?,?,?);";
     private static final String SELECT_RENT_TYPE = " select * from rent_type where status = 0;";
     private static final String SELECT_SERVICE_TYPE = " select * from service_type where status = 0;";
     private static final String UPDATE_SERVICE = " update service set service_name=?,service_area=?,service_cost=?,service_max_person=?,room_standard=?,another_convenient=?,pool_area=?,number_of_floors=?,service.rent_type_id=?,service.service_type_id=? where service_id =?;";
     private static final String SELECT_SERVICE_BY_ID = " select * from service where service_id = ? ;";
     private static final String DELETE_SERVICE = " update service set status = 1 where service_id=?;";
-    private static final String SEARCH_BY_NAME= " select service.*,rent_type.rent_type_name,service_type.service_type_name from service left join rent_type on service.rent_type_id=rent_type.rent_type_id left join service_type on service.service_type_id=service_type.service_type_id where service.service_name like = ?;";
+    private static final String SEARCH_BY_NAME= " select service.*,rent_type.rent_type_name,service_type.service_type_name from service " +
+            " left join rent_type on service.rent_type_id=rent_type.rent_type_id left join service_type on service.service_type_id=service_type.service_type_id where service.service_name like ? ;";
 
 
     @Override

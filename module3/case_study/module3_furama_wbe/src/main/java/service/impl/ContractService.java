@@ -1,6 +1,9 @@
 package service.impl;
 
 import model.Contract;
+import model.Customer;
+import model.Employee;
+import model.Service;
 import repository.IContractRepository;
 import repository.impl.ContractRepository;
 import service.IContractService;
@@ -14,4 +17,41 @@ public class ContractService implements IContractService {
     public List<Contract> getAllContract() {
         return iContractRepository.getAllContract();
     }
+
+    @Override
+    public void getCreateContract(Contract contract) {
+        iContractRepository.getCreateContract(contract);
+    }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return iContractRepository.getAllEmployee();
+    }
+
+    @Override
+    public List<Customer> getAllCustomer() {
+        return iContractRepository.getAllCustomer();
+    }
+
+    @Override
+    public List<Service> getAllService() {
+        return iContractRepository.getAllService();
+    }
+
+    @Override
+    public void getUpdateContract(Contract contract) {
+        iContractRepository.getUpdateContract(contract);
+    }
+
+    @Override
+    public Contract findById(int idEdit) {
+        return  iContractRepository.findById(idEdit);
+    }
+
+    @Override
+    public void delete(int id) {
+        iContractRepository.delete(id);
+    }
+
+
 }

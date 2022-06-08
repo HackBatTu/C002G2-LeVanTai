@@ -62,12 +62,12 @@
 <div class="col-auto row col-12" style="margin: 0 auto;">
     <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 1px 15px;">
         <form method="post">
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example1">Number Contract</label>
                 <input type="text" id="form1Example1" class="form-control" name="numberContract"/>
             </div>
 
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example9">Contract</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example9" name="contract">
                     <option selected disabled>Choice Employee</option>
@@ -76,7 +76,7 @@
                     </c:forEach>
                 </select>
             </div>
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example10">Attach Service</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example10" name="attachService">
                     <option selected disabled>Choice Attach Service</option>

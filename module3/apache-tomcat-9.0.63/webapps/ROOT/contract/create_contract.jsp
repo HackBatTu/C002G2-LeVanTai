@@ -34,7 +34,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -53,29 +53,29 @@
 </nav>
 
 <div class="col-auto row col-12" style="margin: 0 auto;">
-    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 1px 15px;">
+    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px 20px;">
         <form method="post">
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example1">dateCheckIn</label>
                 <input type="date" id="form1Example1" class="form-control" name="dateCheckIn"/>
             </div>
 
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example2">dateCheckOut</label>
                 <input type="date" id="form1Example2" class="form-control" name="dateCheckOut"/>
             </div>
 
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example3">deposit</label>
                 <input type="text" id="form1Example3" class="form-control" name="deposit"/>
             </div>
 
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example4">totalMoney</label>
                 <input type="text" id="form1Example4" class="form-control" name="totalMoney"/>
 
             </div>
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example5">Employee</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example5" name="employee">
                     <option selected disabled>Choice Employee</option>
@@ -84,7 +84,7 @@
                     </c:forEach>
                 </select>
             </div>
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example6">Customer</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example6" name="customer">
                     <option selected disabled>Choice Customer</option>
@@ -93,7 +93,7 @@
                     </c:forEach>
                 </select>
             </div>
-            <div class="form-outline mb-1 w-75">
+            <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example7">Service</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example7" name="service">
                     <option selected disabled>Choice Service</option>
@@ -102,8 +102,9 @@
                     </c:forEach>
                 </select>
             </div>
-
-            <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>
+            <div>
+                <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>
+            </div>
         </form>
     </div>
     <div class="float-sm-left col-7 ">

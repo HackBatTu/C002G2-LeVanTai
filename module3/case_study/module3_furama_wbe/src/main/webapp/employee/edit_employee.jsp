@@ -34,7 +34,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="form-outline mb-1 w-75">
-                <label class="form-label" for="form1Example5">Customer ID Card</label>
+                <label class="form-label" for="form1Example5">Employee ID Card</label>
                 <input type="text" id="form1Example4" class="form-control" name="idCard" value="${idCard}"/>
             </div>
 

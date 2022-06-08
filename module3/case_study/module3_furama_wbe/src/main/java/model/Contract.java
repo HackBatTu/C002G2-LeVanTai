@@ -26,6 +26,16 @@ public class Contract {
         this.id = contractId;
     }
 
+    public Contract(String dateCheckIn, String dateCheckOut, double deposit, double totalMoney, Employee employee, Customer customer, Service service) {
+        this.dateCheckIn = dateCheckIn;
+        this.dateCheckOut = dateCheckOut;
+        this.deposit = deposit;
+        this.totalMoney = totalMoney;
+        this.employee = employee;
+        this.customer = customer;
+        this.service = service;
+    }
+
     public int getStatus() {
         return status;
     }

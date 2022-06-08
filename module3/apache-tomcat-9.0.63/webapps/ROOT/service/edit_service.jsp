@@ -34,7 +34,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -96,7 +96,7 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example9">RentType</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example9"
-                        name="employeePosition">
+                        name="rentType">
                     <c:forEach items="${rentTypeList}" var="i">
                         <c:choose>
                             <c:when test="${i.id == rentTypeId}">
@@ -112,7 +112,7 @@
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example10">Service Type</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example10"
-                        name="educationDegree">
+                        name="serviceType">
                     <c:forEach items="${serviceTypeList}" var="i">
                         <c:choose>
                             <c:when test="${i.id == serviceTypeId}">

@@ -56,7 +56,7 @@ public class ServiceServlet extends HttpServlet {
 
         iServiceService.getUpdateService(new Service(id,name,area,cost,maxPerson,roomStandard,anotherConvenient,poolArea,numOfFloors,new RentType(rentType,rentTypeName),new ServiceType(serviceType,serviceTypeName)));
         try {
-            response.sendRedirect("service/edit_service.jsp");
+            response.sendRedirect("/service");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,7 +78,7 @@ public class ServiceServlet extends HttpServlet {
 
         iServiceService.getCreateService(new Service(name,area,cost,maxPerson,roomStandard,anotherConvenient,poolArea,numOfFloors,new RentType(rentType,rentTypeName),new ServiceType(serviceType,serviceTypeName)));
         try {
-            response.sendRedirect("service/create_service.jsp");
+            response.sendRedirect("/service");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -126,6 +126,7 @@ public class ServiceServlet extends HttpServlet {
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
+        request.setAttribute("nameSearch",name);
         request.setAttribute("serviceList",iServiceService.searchByName(name));
         try {
             request.getRequestDispatcher("service/display_service.jsp").forward(request,response);

@@ -68,8 +68,8 @@
             <a href="/details_contract?action=create"><h5>*Add New Details Contract</h5></a>
             <form method="get" action="/details_contract" class="d-flex">
                 <input type="hidden" name="action" value="search">
-                <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search" width="100px">
-                <input type="submit" name="name" value="search">
+                <input class="form-control me-2" type="search" placeholder="Search By Name" name="id" aria-label="Search" width="100px" value="${nameSearch}">
+                <input type="submit" name="id" value="search">
             </form>
         </div>
     </nav>
@@ -82,8 +82,8 @@
         <tr>
             <th>ID</th>
             <th>number Contract</th>
-            <th>Contract</th>
-            <th>AttachService</th>
+            <th>ID Contract</th>
+            <th>Attach Service</th>
             <th>Status</th>
             <th></th>
             <th></th>
@@ -94,8 +94,8 @@
             <tr>
                 <td>${s.id}</td>
                 <td>${s.numberContract}</td>
-                <td>${s.contract}</td>
-                <td>${s.attachService}</td>
+                <td>${s.contract.id}</td>
+                <td>${s.attachService.name}</td>
                 <td>${s.status}</td>
                 <td><button type="submit" class="btn btn-danger">
                     <a href="/details_contract?action=edit&id=${s.id}">Edit</a></button>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="alert alert-warning">
-                                    Do you want delete Details Contract <strong>${s.name}</strong>
+                                    Do you want delete Details Contract <strong>${s.id}</strong>
                                 </div>
                                 <a href="/details_contract?action=delete&id=${s.id}" class="btn btn-success">Submit</a>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
