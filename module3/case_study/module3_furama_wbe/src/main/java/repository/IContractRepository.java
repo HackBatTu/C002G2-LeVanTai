@@ -24,4 +24,5 @@ public interface IContractRepository {
 
     void delete(int id);
 
+    List<Contract> searchById(String id);
 }

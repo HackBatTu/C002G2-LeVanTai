@@ -8,6 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -36,7 +37,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -44,7 +45,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark active" href="../index.jsp"><h3>*Home</h3></a>
+                        <a class="nav-link text-white active" href="../index.jsp"><h4>Home</h4></a>
                     </li>
                 </ul>
             </div>
@@ -69,14 +70,14 @@
 </div>
 
 <div class="col-lg-12 container">
-    <caption><h4>List of Employee : </h4></caption>
+    <caption><h4>List of Service : </h4></caption>
     <table id="myTable" class="table table-dark table-hover" style="width: 100%">
         <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Area</th>
-            <th>Cost</th>
+            <th>Cost(VND)</th>
             <th>Max Person</th>
             <th>roomStandard</th>
             <th>anotherConvenient</th>
@@ -85,8 +86,8 @@
             <th>rentType</th>
             <th>serviceType</th>
             <th>Status</th>
-            <th></th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -95,7 +96,7 @@
                 <td>${s.id}</td>
                 <td>${s.name}</td>
                 <td>${s.area}</td>
-                <td>${s.cost}</td>
+                <td><fmt:formatNumber currencyCode="currency" value="${s.cost}"/></td>
                 <td>${s.maxPerson}</td>
                 <td>${s.roomStandard}</td>
                 <td>${s.anotherConvenient}</td>

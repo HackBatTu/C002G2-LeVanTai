@@ -24,4 +24,5 @@ public interface IContractService {
 
     void delete(int id);
 
+    List<Contract> searchById(String id);
 }

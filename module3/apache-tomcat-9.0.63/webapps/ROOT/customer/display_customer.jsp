@@ -8,6 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <html>
 <head>
@@ -36,7 +38,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -44,7 +46,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark active" href="../index.jsp"><h4>*Home</h4></a>
+                        <a class="nav-link text-white active" href="../index.jsp"><h4>Home</h4></a>
                     </li>
                 </ul>
             </div>
@@ -62,6 +64,12 @@
             <form method="get" action="/customer" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search By Name" name="name" aria-label="Search" width="100px" value="${nameSearch}">
+<%--                <select name="customerType" id="">--%>
+<%--                    <option value="">Choose customer Type</option>--%>
+<%--                    <c:forEach items="${listCustomerType}" var="s">--%>
+<%--                        <option value="${s.id}">${s.name}</option>--%>
+<%--                    </c:forEach>--%>
+<%--                </select>--%>
                 <input type="submit" name="name" value="search">
             </form>
         </div>
@@ -83,8 +91,8 @@
             <th>Email</th>
             <th>Address</th>
             <th>Status</th>
-            <th></th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>

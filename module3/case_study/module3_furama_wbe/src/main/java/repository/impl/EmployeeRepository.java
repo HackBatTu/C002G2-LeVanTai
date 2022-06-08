@@ -274,9 +274,9 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public List<Employee> findById(int idEdit) {
-        List<Employee> employeeList = new ArrayList<>();
+    public Employee findById(int idEdit) {
         Connection connection = baseStudentRepository.getConnection();
+        Employee employee = null;
         try {
             PreparedStatement preparedStatement= connection.prepareStatement(SELECT_EMPLOYEE);
             preparedStatement.setInt(1,idEdit);
@@ -295,12 +295,12 @@ public class EmployeeRepository implements IEmployeeRepository {
                 int division = resultSet.getInt("division_id");
                 String username = resultSet.getString("username");
 
-                employeeList.add(new Employee(ids,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition),new EducationDegree(educationDegree),new Division(division),new User(username)));
+               employee = new Employee(ids,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition),new EducationDegree(educationDegree),new Division(division),new User(username));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return employeeList;
+        return employee;
     }
 
 

@@ -23,5 +23,5 @@ public interface IEmployeeRepository {
 
     List<User> getAllUser();
 
-    List<Employee> findById(int id);
+    Employee findById(int id);
 }

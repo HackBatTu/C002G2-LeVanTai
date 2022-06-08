@@ -15,7 +15,7 @@ public interface ICustomerService {
 
     void delete(int id);
 
-    List<Customer> searchByName(String name);
+    List<Customer> searchByName(String name,String customerType);
 
     List<Customer> sortByName();
 

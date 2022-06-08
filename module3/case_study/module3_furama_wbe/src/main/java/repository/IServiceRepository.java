@@ -18,7 +18,7 @@ public interface IServiceRepository {
 
     void getUpdateService(Service service);
 
-    List<Service> findById(int idEdit);
+    Service findById(int idEdit);
 
     void delete(int id);
 

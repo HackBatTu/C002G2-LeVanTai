@@ -20,6 +20,8 @@ public class DetailsContractRepository implements IDetailsContractRepository {
     private static final String UPDATE_DETAILS_CONTRACT = " update details_contract set number_contract=?,details_contract.contract_id=?,details_contract.attach_service_id=? where details_contract_id=?;";
     private static final String FIND_BY_ID = " select details_contract.*,attach_service.attach_service_name from details_contract left join contract on details_contract.contract_id=contract.contract_id left join attach_service on details_contract.attach_service_id = attach_service.attach_service_id where details_contract_id=?;";
     private static  final String DELETE = " update details_contract set status = 1 where details_contract_id = ?;";
+    private static  final String SEARCH_BY_ID = " select details_contract.*,attach_service.attach_service_name from details_contract " +
+            " left join attach_service on details_contract.attach_service_id = attach_service.attach_service_id where details_contract_id = ?;";
 
     @Override
     public List<DetailsContract> getAllDetailsContract(){
@@ -183,5 +185,32 @@ public class DetailsContractRepository implements IDetailsContractRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<DetailsContract> searchById(String id) {
+        Connection connection = baseStudentRepository.getConnection();
+        List<DetailsContract> detailsContractList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BY_ID);
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                int ids = resultSet.getInt("details_contract_id");
+                int numberContract = resultSet.getInt("number_contract");
+                int contractId = resultSet.getInt("contract_id");
+                int attachServiceId = resultSet.getInt("attach_service_id");
+                String attachServiceName = resultSet.getString("attach_service_name");
+                detailsContractList.add(new DetailsContract(ids,numberContract,new Contract(contractId),new AttachService(attachServiceId, attachServiceName) ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return detailsContractList;
     }
 }

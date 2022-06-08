@@ -46,4 +46,9 @@ public class DetailsContractService implements IDetailsContractService {
     public void delete(int id) {
         iDetailsContractRepository.delete(id);
     }
+
+    @Override
+    public List<DetailsContract> searchById(String id) {
+        return iDetailsContractRepository.searchById(id);
+    }
 }

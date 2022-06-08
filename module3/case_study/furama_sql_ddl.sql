@@ -100,8 +100,8 @@ attach_service_status varchar(255),
 );
 create table contract (
 contract_id int auto_increment primary key,
-date_check_in datetime,
-date_check_out datetime,
+date_check_in date,
+date_check_out date,
 contract_deposit double,
 contract_total_money double,
 employee_id int,

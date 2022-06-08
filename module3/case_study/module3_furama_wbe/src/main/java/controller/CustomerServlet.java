@@ -124,8 +124,10 @@ public class CustomerServlet extends HttpServlet {
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         request.setAttribute("nameSearch",name);
+        String customerType = request.getParameter("customerType");
+        List<Customer> customerList = iCustomerService.searchByName(name,customerType);
         request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
-        request.setAttribute("customerList", iCustomerService.searchByName(name));
+        request.setAttribute("customerList", customerList);
         try {
             request.getRequestDispatcher("customer/display_customer.jsp").forward(request, response);
         } catch (ServletException e) {

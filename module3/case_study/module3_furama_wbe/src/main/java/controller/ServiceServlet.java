@@ -17,24 +17,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ServletHome" , urlPatterns = "/service")
+@WebServlet(name = "ServletHome", urlPatterns = "/service")
 public class ServiceServlet extends HttpServlet {
 
     private IServiceService iServiceService = new ServiceService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       String action = request.getParameter("action");
-       if(action == null ){
-           action="";
-       }switch (action){
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
             case "create":
-                createService(request,response);
+                createService(request, response);
                 break;
             case "edit":
-                updateService(request,response);
+                updateService(request, response);
                 break;
             default:
-                displayService(request,response);
+                displayService(request, response);
                 break;
         }
     }
@@ -54,7 +55,7 @@ public class ServiceServlet extends HttpServlet {
         int serviceType = Integer.parseInt(request.getParameter("serviceType"));
         String serviceTypeName = request.getParameter("serviceTypeName");
 
-        iServiceService.getUpdateService(new Service(id,name,area,cost,maxPerson,roomStandard,anotherConvenient,poolArea,numOfFloors,new RentType(rentType,rentTypeName),new ServiceType(serviceType,serviceTypeName)));
+        iServiceService.getUpdateService(new Service(id, name, area, cost, maxPerson, roomStandard, anotherConvenient, poolArea, numOfFloors, new RentType(rentType, rentTypeName), new ServiceType(serviceType, serviceTypeName)));
         try {
             response.sendRedirect("/service");
         } catch (IOException e) {
@@ -76,7 +77,7 @@ public class ServiceServlet extends HttpServlet {
         int serviceType = Integer.parseInt(request.getParameter("serviceType"));
         String serviceTypeName = request.getParameter("serviceTypeName");
 
-        iServiceService.getCreateService(new Service(name,area,cost,maxPerson,roomStandard,anotherConvenient,poolArea,numOfFloors,new RentType(rentType,rentTypeName),new ServiceType(serviceType,serviceTypeName)));
+        iServiceService.getCreateService(new Service(name, area, cost, maxPerson, roomStandard, anotherConvenient, poolArea, numOfFloors, new RentType(rentType, rentTypeName), new ServiceType(serviceType, serviceTypeName)));
         try {
             response.sendRedirect("/service");
         } catch (IOException e) {
@@ -88,9 +89,9 @@ public class ServiceServlet extends HttpServlet {
 
     private void displayService(HttpServletRequest request, HttpServletResponse response) {
         List<Service> serviceList = iServiceService.getAllService();
-        request.setAttribute("serviceList",serviceList);
+        request.setAttribute("serviceList", serviceList);
         try {
-            request.getRequestDispatcher("service/display_service.jsp").forward(request,response);
+            request.getRequestDispatcher("service/display_service.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -106,10 +107,10 @@ public class ServiceServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                select(request,response);
+                select(request, response);
                 break;
             case "edit":
-                showEdit(request,response);
+                showEdit(request, response);
                 break;
             case "search":
                 searchByName(request, response);
@@ -118,7 +119,7 @@ public class ServiceServlet extends HttpServlet {
                 delete(request, response);
                 break;
             default:
-                displayService(request,response);
+                displayService(request, response);
                 break;
 
         }
@@ -126,10 +127,10 @@ public class ServiceServlet extends HttpServlet {
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        request.setAttribute("nameSearch",name);
-        request.setAttribute("serviceList",iServiceService.searchByName(name));
+        request.setAttribute("nameSearch", name);
+        request.setAttribute("serviceList", iServiceService.searchByName(name));
         try {
-            request.getRequestDispatcher("service/display_service.jsp").forward(request,response);
+            request.getRequestDispatcher("service/display_service.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -151,36 +152,36 @@ public class ServiceServlet extends HttpServlet {
     private void showEdit(HttpServletRequest request, HttpServletResponse response) {
         int idEdit = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("rentTypeList", iServiceService.getAllRentType());
-        request.setAttribute("serviceTypeList",iServiceService.getAllServiceType());
-        for (Service serviceList : iServiceService.findById(idEdit)) {
-            if (serviceList.getId() == idEdit) {
-                request.setAttribute("id", serviceList.getId());
-                request.setAttribute("name", serviceList.getName());
-                request.setAttribute("area", serviceList.getArea());
-                request.setAttribute("cost", serviceList.getCost());
-                request.setAttribute("maxPerson", serviceList.getMaxPerson());
-                request.setAttribute("roomStandard", serviceList.getRoomStandard());
-                request.setAttribute("anotherConvenient", serviceList.getAnotherConvenient());
-                request.setAttribute("poolArea", serviceList.getPoolArea());
-                request.setAttribute("numOfFloors", serviceList.getNumOfFloors());
-                request.setAttribute("rentTypeId", serviceList.getRentType().getId());
-                request.setAttribute("serviceTypeId", serviceList.getServiceType().getId());
-                try {
-                    request.getRequestDispatcher("service/edit_service.jsp").forward(request, response);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        request.setAttribute("serviceTypeList", iServiceService.getAllServiceType());
+        Service serviceList = iServiceService.findById(idEdit);
+
+        request.setAttribute("id", serviceList.getId());
+        request.setAttribute("name", serviceList.getName());
+        request.setAttribute("area", serviceList.getArea());
+        request.setAttribute("cost", serviceList.getCost());
+        request.setAttribute("maxPerson", serviceList.getMaxPerson());
+        request.setAttribute("roomStandard", serviceList.getRoomStandard());
+        request.setAttribute("anotherConvenient", serviceList.getAnotherConvenient());
+        request.setAttribute("poolArea", serviceList.getPoolArea());
+        request.setAttribute("numOfFloors", serviceList.getNumOfFloors());
+        request.setAttribute("rentTypeId", serviceList.getRentType().getId());
+        request.setAttribute("serviceTypeId", serviceList.getServiceType().getId());
+        try {
+            request.getRequestDispatcher("service/edit_service.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+
     }
 
     private void select(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("rentTypeList", iServiceService.getAllRentType());
-        request.setAttribute("serviceTypeList",iServiceService.getAllServiceType());
+        request.setAttribute("serviceTypeList", iServiceService.getAllServiceType());
         try {
-            request.getRequestDispatcher("service/create_service.jsp").forward(request,response);
+            request.getRequestDispatcher("service/create_service.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

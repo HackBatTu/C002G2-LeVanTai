@@ -108,12 +108,12 @@
         </form>
     </div>
     <div class="float-sm-left col-7 ">
-        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="660px" width="100%"></a>
+        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="555px" width="100%"></a>
     </div>
 </div>
 
 <footer class="container-fluid text-center bg-dark p-2 text-light">
-    <p class="text-light" style="height: 8px">Furama Resort - &copy; Copyright by Háck Bất Tử 2022</p>
+    <p class="text-light" style="height: 4px">Furama Resort - &copy; Copyright by Háck Bất Tử 2022</p>
 </footer>
 </body>
 <script src="../jquery/jquery-3.5.1.min.js"></script>

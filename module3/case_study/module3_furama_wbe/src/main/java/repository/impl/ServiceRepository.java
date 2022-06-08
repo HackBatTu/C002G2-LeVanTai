@@ -165,8 +165,8 @@ public class ServiceRepository implements IServiceRepository {
     }
 
     @Override
-    public List<Service> findById(int idEdit) {
-        List<Service> serviceList = new ArrayList<>();
+    public Service findById(int idEdit) {
+        Service serviceList = null;
         Connection connection = baseStudentRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SERVICE_BY_ID);
@@ -184,7 +184,7 @@ public class ServiceRepository implements IServiceRepository {
                 int numberOfFloors = resultSet.getInt("number_of_floors");
                 int rentType = resultSet.getInt("rent_type_id");
                 int serviceType = resultSet.getInt("service_type_id");
-                serviceList.add(new Service(id, name, area, cost, maxPerson, roomStandard, anotherConvenient, poolArea, numberOfFloors, new RentType(rentType), new ServiceType(serviceType)));
+                serviceList=new Service(id, name, area, cost, maxPerson, roomStandard, anotherConvenient, poolArea, numberOfFloors, new RentType(rentType), new ServiceType(serviceType));
             }
         } catch (SQLException e) {
             e.printStackTrace();

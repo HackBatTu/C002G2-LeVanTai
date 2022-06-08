@@ -38,7 +38,7 @@ public class ServiceService implements IServiceService {
    }
 
    @Override
-   public List<Service> findById(int idEdit) {
+   public Service findById(int idEdit) {
       return iServiceRepository.findById(idEdit);
    }
 

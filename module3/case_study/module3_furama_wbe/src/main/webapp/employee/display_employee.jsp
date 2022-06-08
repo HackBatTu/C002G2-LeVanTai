@@ -8,6 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <html>
 <head>
@@ -36,7 +38,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -44,7 +46,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark active" href="../index.jsp"><h3>*Home</h3></a>
+                        <a class="nav-link text-white active" href="../index.jsp"><h4>Home</h4></a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +59,7 @@
 
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
-        <div class="container">
+        <div class="container-fluid">
             <a href="/employee?action=create"><h5>*Add New Employee</h5></a>
             <form method="get" action="/employee" class="d-flex">
                 <input type="hidden" name="action" value="search">
@@ -68,7 +70,7 @@
     </nav>
 </div>
 
-<div class="col-lg-12 container">
+<div class="col-lg-12 row w-100">
     <caption><h4>List of Employee : </h4></caption>
     <table id="myTable" class="table table-dark table-hover" style="width: 100%">
         <thead>
@@ -77,7 +79,7 @@
             <th>Name</th>
             <th>BirthDay</th>
             <th>Id Card</th>
-            <th>Salary</th>
+            <th>Salary(VND)</th>
             <th>Phone</th>
             <th>Email</th>
             <th>Address</th>
@@ -86,8 +88,8 @@
             <th>Division</th>
             <th>User</th>
             <th>Status</th>
-            <th></th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -97,7 +99,7 @@
                 <td>${s.name}</td>
                 <td>${s.birthDay}</td>
                 <td>${s.idCard}</td>
-                <td>${s.salary}</td>
+                <td><fmt:formatNumber currencyCode="currency" value="${s.salary}"/></td>
                 <td>${s.phone}</td>
                 <td>${s.email}</td>
                 <td>${s.address}</td>
@@ -151,7 +153,7 @@
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 7
+            "pageLength": 6
         });
     } );
 </script>

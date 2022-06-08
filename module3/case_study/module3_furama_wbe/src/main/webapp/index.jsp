@@ -25,13 +25,13 @@
 </head>
 <body>
 <div class="container-fluid">
-  <div class="col-12 row">
-    <div class="col-1 bg-warning"><img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" style="width:45px;" class="rounded-pill"></div>
-    <div class="col-11 bg-warning">
+  <div class="col-12 row bg-white">
+    <div class="col-1 "><img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" style="width:45px;" class="rounded-pill"></div>
+    <div class="col-11 ">
       <div class="col-lg-12 row">
         <div class="col-lg-10 text-center"><h2>Furama Management</h2></div>
         <div class="col-lg-2">
-          <p>Welcome to<strong>Furama Resort!!!</strong></p>
+          <p>Welcome to ...<br><strong>...Furama Resort!!!</strong></p>
         </div>
       </div>
     </div>

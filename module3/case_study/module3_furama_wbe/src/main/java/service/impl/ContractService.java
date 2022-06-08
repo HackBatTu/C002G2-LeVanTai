@@ -53,5 +53,10 @@ public class ContractService implements IContractService {
         iContractRepository.delete(id);
     }
 
+    @Override
+    public List<Contract> searchById(String id) {
+        return iContractRepository.searchById(id);
+    }
+
 
 }

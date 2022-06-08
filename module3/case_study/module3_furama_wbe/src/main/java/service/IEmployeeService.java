@@ -23,5 +23,5 @@ public interface IEmployeeService {
 
     List<User> getAllUser();
 
-    List<Employee> findById(int id);
+    Employee findById(int id);
 }

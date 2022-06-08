@@ -19,4 +19,6 @@ public interface IDetailsContractRepository {
     DetailsContract findById(int id);
 
     void delete(int id);
+
+    List<DetailsContract> searchById(String id);
 }

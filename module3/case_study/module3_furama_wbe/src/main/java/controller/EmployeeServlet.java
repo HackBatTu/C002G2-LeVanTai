@@ -103,8 +103,8 @@ public class EmployeeServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create" :
-                select(request,response);
+            case "create":
+                select(request, response);
                 break;
             case "edit":
                 showEdit(request, response);
@@ -137,7 +137,7 @@ public class EmployeeServlet extends HttpServlet {
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        request.setAttribute("nameSearch",name);
+        request.setAttribute("nameSearch", name);
         request.setAttribute("employeeList", iEmployeeService.searchByName(name));
         try {
             request.getRequestDispatcher("employee/display_employee.jsp").forward(request, response);
@@ -164,28 +164,27 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("listEducationDegree", iEmployeeService.getAllEducationDegree());
         request.setAttribute("listDivision", iEmployeeService.getAllDivision());
         request.setAttribute("listUser", iEmployeeService.getAllUser());
-        for (Employee employeeList : iEmployeeService.findById(idEdit)) {
-            if (employeeList.getId() == idEdit) {
-                request.setAttribute("id", employeeList.getId());
-                request.setAttribute("name", employeeList.getName());
-                request.setAttribute("birthDay", employeeList.getBirthDay());
-                request.setAttribute("idCard", employeeList.getIdCard());
-                request.setAttribute("salary", employeeList.getSalary());
-                request.setAttribute("phone", employeeList.getPhone());
-                request.setAttribute("email", employeeList.getEmail());
-                request.setAttribute("address", employeeList.getAddress());
-                request.setAttribute("employeePositionId", employeeList.getEmployeePosition().getId());
-                request.setAttribute("educationDegreeId", employeeList.getEducationDegree().getId());
-                request.setAttribute("divisionId", employeeList.getDivision().getId());
-                request.setAttribute("userNames", employeeList.getUserName().getUsername());
-                try {
-                    request.getRequestDispatcher("employee/edit_employee.jsp").forward(request, response);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        Employee employeeList = iEmployeeService.findById(idEdit);
+        request.setAttribute("id", employeeList.getId());
+        request.setAttribute("name", employeeList.getName());
+        request.setAttribute("birthDay", employeeList.getBirthDay());
+        request.setAttribute("idCard", employeeList.getIdCard());
+        request.setAttribute("salary", employeeList.getSalary());
+        request.setAttribute("phone", employeeList.getPhone());
+        request.setAttribute("email", employeeList.getEmail());
+        request.setAttribute("address", employeeList.getAddress());
+        request.setAttribute("employeePositionId", employeeList.getEmployeePosition().getId());
+        request.setAttribute("educationDegreeId", employeeList.getEducationDegree().getId());
+        request.setAttribute("divisionId", employeeList.getDivision().getId());
+        request.setAttribute("userNames", employeeList.getUserName().getUsername());
+        try {
+            request.getRequestDispatcher("employee/edit_employee.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
 }
+

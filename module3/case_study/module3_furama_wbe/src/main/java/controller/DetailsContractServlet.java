@@ -26,14 +26,14 @@ public class DetailsContractServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create" :
-               creatDetailsContract(request,response);
+            case "create":
+                creatDetailsContract(request, response);
                 break;
             case "edit":
-                editDetailsContract(request,response);
+                editDetailsContract(request, response);
                 break;
             default:
-                displayDetailsContract(request,response);
+                displayDetailsContract(request, response);
                 break;
         }
     }
@@ -43,7 +43,7 @@ public class DetailsContractServlet extends HttpServlet {
         int numberContract = Integer.parseInt(request.getParameter("numberContract"));
         int contractId = Integer.parseInt(request.getParameter("contract"));
         int attachServiceId = Integer.parseInt(request.getParameter("attachService"));
-        iDetailsContractService.getUpdateDetailsContract(new DetailsContract(id,numberContract,new Contract(contractId),new AttachService(attachServiceId)));
+        iDetailsContractService.getUpdateDetailsContract(new DetailsContract(id, numberContract, new Contract(contractId), new AttachService(attachServiceId)));
         try {
             response.sendRedirect("/details_contract");
         } catch (IOException e) {
@@ -55,7 +55,7 @@ public class DetailsContractServlet extends HttpServlet {
         int numberContract = Integer.parseInt(request.getParameter("numberContract"));
         int contractId = Integer.parseInt(request.getParameter("contract"));
         int attachServiceId = Integer.parseInt(request.getParameter("attachService"));
-        iDetailsContractService.getCreateDetailsContract(new DetailsContract(numberContract,new Contract(contractId),new AttachService(attachServiceId)));
+        iDetailsContractService.getCreateDetailsContract(new DetailsContract(numberContract, new Contract(contractId), new AttachService(attachServiceId)));
         try {
             response.sendRedirect("/details_contract");
         } catch (IOException e) {
@@ -65,9 +65,9 @@ public class DetailsContractServlet extends HttpServlet {
 
     private void displayDetailsContract(HttpServletRequest request, HttpServletResponse response) {
         List<DetailsContract> detailsContractList = iDetailsContractService.getAllDetailsContract();
-        request.setAttribute("detailsContractList",detailsContractList);
+        request.setAttribute("detailsContractList", detailsContractList);
         try {
-            request.getRequestDispatcher("details_contract/display_details_contract.jsp").forward(request,response);
+            request.getRequestDispatcher("details_contract/display_details_contract.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -82,29 +82,29 @@ public class DetailsContractServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                select(request,response);
+                select(request, response);
                 break;
             case "edit":
-                showUpdateDetailsContract(request,response);
+                showUpdateDetailsContract(request, response);
                 break;
             case "delete":
-                delete(request,response);
+                delete(request, response);
                 break;
             case "search":
-                searchById(request,response);
+                searchById(request, response);
                 break;
             default:
-                displayDetailsContract(request,response);
+                displayDetailsContract(request, response);
                 break;
         }
     }
 
     private void searchById(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("nameSearch",id);
+        String id = request.getParameter("id");
+        request.setAttribute("nameSearch", id);
         request.setAttribute("contractList", iDetailsContractService.getAllContract());
         request.setAttribute("attachServiceList", iDetailsContractService.getAllAttachService());
-        request.setAttribute("detailsContractList", iDetailsContractService.findById(id));
+        request.setAttribute("detailsContractList", iDetailsContractService.searchById(id));
         try {
             request.getRequestDispatcher("details_contract/display_details_contract.jsp").forward(request, response);
         } catch (ServletException e) {
@@ -129,26 +129,26 @@ public class DetailsContractServlet extends HttpServlet {
         request.setAttribute("contractList", iDetailsContractService.getAllContract());
         request.setAttribute("attachServiceList", iDetailsContractService.getAllAttachService());
         DetailsContract detailsContract = iDetailsContractService.findById(id);
-        if (detailsContract.getId() == id) {
-            request.setAttribute("id", detailsContract.getId());
-            request.setAttribute("numberContract", detailsContract.getNumberContract());
-            request.setAttribute("contract", detailsContract.getContract().getId());
-            request.setAttribute("attachService", detailsContract.getAttachService().getId());
-            try {
-                request.getRequestDispatcher("details_contract/edit_details_contract.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+        request.setAttribute("id", detailsContract.getId());
+        request.setAttribute("numberContract", detailsContract.getNumberContract());
+        request.setAttribute("contract", detailsContract.getContract().getId());
+        request.setAttribute("attachService", detailsContract.getAttachService().getId());
+        try {
+            request.getRequestDispatcher("details_contract/edit_details_contract.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
     private void select(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("contractList", iDetailsContractService.getAllContract());
         request.setAttribute("attachServiceList", iDetailsContractService.getAllAttachService());
         try {
-            request.getRequestDispatcher("details_contract/create_details_contract.jsp").forward(request,response);
+            request.getRequestDispatcher("details_contract/create_details_contract.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

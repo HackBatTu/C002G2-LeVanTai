@@ -43,7 +43,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark active" href="../index.jsp"><h3>*Home</h3></a>
+                        <a class="nav-link text-white active" href="../index.jsp"><h4>Home</h4></a>
                     </li>
                 </ul>
             </div>
@@ -85,8 +85,8 @@
             <th>ID Contract</th>
             <th>Attach Service</th>
             <th>Status</th>
-            <th></th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
