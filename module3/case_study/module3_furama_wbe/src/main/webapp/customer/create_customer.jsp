@@ -28,6 +28,10 @@
         html{
             font-size: 12px !important;
         }
+        small{
+            font-size: 12px !important;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -63,46 +67,58 @@
                         <option value="${i.id}">${i.name}</option>
                     </c:forEach>
                 </select>
+                <small>${errors.customerType}</small>
+
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example1">Customer Name</label>
-                <input type="text" id="form1Example1" class="form-control" name="name"/>
+                <input type="text" id="form1Example1" class="form-control" name="name" value="${name}"/>
+                <small>${errors.name}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example3">Customer Birthday</label>
-                <input type="date" id="form1Example3" class="form-control" name="birthDay"/>
+                <input type="date" id="form1Example3" class="form-control" name="birthDay" value="${birthDay}"/>
+                <small>${errors.birthDay}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example4">Customer Gender</label>
-                <select class="form-select" aria-label="Default select example" id="form1Example4" name="gender">
+                <select class="form-select" aria-label="Default select example" id="form1Example4" name="gender" value="${gender}">
                     <option selected disabled>Choice Customer Gender</option>
                     <option value="1">Nam</option>
                     <option value="0">nữ</option>
                     <option value="">Other</option>
                 </select>
+                <small>${errors.gender}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example5">Customer ID Card</label>
-                <input type="text" id="form1Example5" class="form-control" name="idCard"/>
+                <input type="text" id="form1Example5" class="form-control" name="idCard" value="${idCard}"/>
+                <small>${errors.idCard}</small>
+
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example6">Customer Phone</label>
-                <input type="text" id="form1Example6" class="form-control" name="phone"/>
+                <input type="text" id="form1Example6" class="form-control" name="phone" value="${phone}"/>
+                <small>${errors.phone}</small>
+
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example7">Customer Email</label>
-                <input type="text" id="form1Example7" class="form-control" name="email"/>
+                <input type="text" id="form1Example7" class="form-control" name="email" value="${email}"/>
+                <small>${errors.email}</small>
+
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example8">Customer Address</label>
-                <input type="text" id="form1Example8" class="form-control" name="address"/>
+                <input type="text" id="form1Example8" class="form-control" name="address" value="${address}"/>
+                <small>${errors.address}</small>
             </div>
 
             <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>

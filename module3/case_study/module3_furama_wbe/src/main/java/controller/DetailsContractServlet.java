@@ -1,9 +1,8 @@
 package controller;
 
-import model.AttachService;
-import model.Contract;
-import model.DetailsContract;
-import model.Service;
+import model.contract.AttachService;
+import model.contract.Contract;
+import model.contract.DetailsContract;
 import service.IDetailsContractService;
 import service.impl.DetailsContractService;
 
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @WebServlet(name = "DetailsContractServlet", urlPatterns = "/details_contract")

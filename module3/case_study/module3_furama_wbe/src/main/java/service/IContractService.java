@@ -1,9 +1,9 @@
 package service;
 
-import model.Contract;
-import model.Customer;
-import model.Employee;
-import model.Service;
+import model.contract.Contract;
+import model.person.Customer;
+import model.person.Employee;
+import model.service.Service;
 
 import java.util.List;
 

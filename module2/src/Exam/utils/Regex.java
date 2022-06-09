@@ -22,9 +22,11 @@ public class Regex {
     }
     public static String inputInt(){
         return Regex.regexInput(sc.nextLine(), REGEX_INT, "định dạng là số dương");}
+
     public static String inputYear(){
         System.out.print("Nhập thời gian bảo hành: ");
         return Regex.regexInput(sc.nextLine(), REGEX_YEAR, "định dạng là số dương nhỏ hơn 730");}
+
     public static int checkParseInt() {
         int choice;
         while (true){

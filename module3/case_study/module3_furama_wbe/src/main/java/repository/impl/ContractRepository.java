@@ -1,6 +1,11 @@
 package repository.impl;
 
-import model.*;
+import model.contract.Contract;
+import model.service.RentType;
+import model.service.ServiceType;
+import model.person.*;
+import model.service.Service;
+import model.user.User;
 import repository.BaseStudentRepository;
 import repository.IContractRepository;
 

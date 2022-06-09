@@ -25,6 +25,7 @@
             padding: 0px;
             border: 0px;
         }
+
         table{
             font-size: 12px;
         }
@@ -59,8 +60,10 @@
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
         <div class="container-fluid">
-            <a href="/customer?action=create"><h5>*Add New Customer</h5></a>
-            <a href="/customer?action=sortByName"><h5>Sort By Name</h5></a>
+            <a href="/customer?action=create" class="text-dark"><b>*Add New Customer</b></a>
+            <a class="nav-link text-dark" href="/customer"><b>Show list Customer</b></a>
+            <a class="nav-link text-dark" href="customer?action=showCustomerService"><b>List customer use service</b></a>
+            <a href="/customer?action=sortByName" class="text-dark"><b>Sort By Name</b></a>
             <form method="get" action="/customer" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search By Name" name="name" aria-label="Search" width="100px" value="${nameSearch}">

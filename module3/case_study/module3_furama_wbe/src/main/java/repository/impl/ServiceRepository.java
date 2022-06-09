@@ -1,10 +1,11 @@
 package repository.impl;
 
-import model.*;
+import model.service.RentType;
+import model.service.ServiceType;
+import model.service.Service;
 import repository.BaseStudentRepository;
 import repository.IServiceRepository;
 
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,7 +1,8 @@
 package repository;
 
-import model.Customer;
-import model.CustomerType;
+import model.CustomerServiceDTO;
+import model.person.Customer;
+import model.person.CustomerType;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface ICustomerRepository {
      List<Customer> sortByName();
 
     List<CustomerType> getAllCustomerType();
+
+    List<CustomerServiceDTO> getAllCustomerServiceDTO();
 }

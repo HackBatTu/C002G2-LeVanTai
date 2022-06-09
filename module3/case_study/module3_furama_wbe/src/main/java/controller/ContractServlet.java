@@ -1,6 +1,9 @@
 package controller;
 
-import model.*;
+import model.contract.Contract;
+import model.person.Customer;
+import model.person.Employee;
+import model.service.Service;
 import service.IContractService;
 import service.impl.ContractService;
 
@@ -10,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ContractServlet", urlPatterns = "/contract")
@@ -144,7 +145,6 @@ public class ContractServlet extends HttpServlet {
         request.setAttribute("customerList", iContractService.getAllCustomer());
         request.setAttribute("serviceList", iContractService.getAllService());
         Contract contractList = iContractService.findById(idEdit);
-
         request.setAttribute("id", contractList.getId());
         request.setAttribute("dateCheckIn", contractList.getDateCheckIn());
         request.setAttribute("dateCheckOut", contractList.getDateCheckOut());

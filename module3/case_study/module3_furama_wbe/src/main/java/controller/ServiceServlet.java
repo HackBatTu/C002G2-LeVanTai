@@ -1,10 +1,9 @@
 package controller;
 
 
-import model.Employee;
-import model.RentType;
-import model.Service;
-import model.ServiceType;
+import model.service.RentType;
+import model.service.Service;
+import model.service.ServiceType;
 import service.IServiceService;
 import service.impl.ServiceService;
 
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ServletHome", urlPatterns = "/service")

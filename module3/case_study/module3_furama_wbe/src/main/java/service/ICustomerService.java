@@ -1,17 +1,19 @@
 package service;
 
-import model.Customer;
-import model.CustomerType;
+import model.CustomerServiceDTO;
+import model.person.Customer;
+import model.person.CustomerType;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICustomerService {
 
     List<Customer> selectAll();
 
-    void add(Customer customerList);
+    Map<String, String> add(Customer customerList);
 
-    void update(Customer customerList);
+    Map<String, String> update(Customer customerList);
 
     void delete(int id);
 
@@ -20,4 +22,6 @@ public interface ICustomerService {
     List<Customer> sortByName();
 
     List<CustomerType> getAllCustomerType();
+
+    List<CustomerServiceDTO> getAllCustomerServiceDTO();
 }

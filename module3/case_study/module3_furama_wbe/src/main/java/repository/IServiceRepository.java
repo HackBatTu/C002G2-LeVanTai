@@ -1,8 +1,8 @@
 package repository;
 
-import model.RentType;
-import model.Service;
-import model.ServiceType;
+import model.service.RentType;
+import model.service.Service;
+import model.service.ServiceType;
 
 import java.util.List;
 

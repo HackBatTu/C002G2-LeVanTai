@@ -70,16 +70,19 @@
                         </c:choose>
                     </c:forEach>
                 </select>
+                <small class="text-primary">${errors.customerType}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example1">Customer Name</label>
                 <input type="text" id="form1Example1" class="form-control" name="name" value="${name}"/>
+                <small class="text-primary">${errors.name}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example3">Customer Birthday</label>
                 <input type="date" id="form1Example3" class="form-control" name="birthDay" value="${birthDay}"/>
+                <small class="text-primary">${errors.birthDay}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
@@ -104,26 +107,32 @@
                         </c:otherwise>
                     </c:choose>
                 </select>
+                <small class="text-primary">${errors.gender}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example5">Customer ID Card</label>
                 <input type="text" id="form1Example5" class="form-control" name="idCard" value="${idCard}"/>
+                <small class="text-primary">${errors.idCard}</small>
             </div>
 
             <div class="form-outline mb-2 w-75">
                 <label class="form-label" for="form1Example6">Customer Phone</label>
                 <input type="text" id="form1Example6" class="form-control" name="phone" value="${phone}"/>
+                <small class="text-primary">${errors.phone}</small>
+
             </div>
 
             <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example7">Customer Email</label>
                 <input type="text" id="form1Example7" class="form-control" name="email" value="${email}"/>
+                <small class="text-primary">${errors.email}</small>
             </div>
 
             <div class="form-outline mb-3 w-75">
                 <label class="form-label" for="form1Example8">Customer Address</label>
                 <input type="text" id="form1Example8" class="form-control" name="address"value="${address}"/>
+                <small class="text-primary">${errors.address}</small>
             </div>
 <%--            <div class="form-outline mb-2 w-75">--%>
 <%--                <label class="form-label" for="form1Example9">Status</label>--%>

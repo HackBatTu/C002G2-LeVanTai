@@ -1,8 +1,8 @@
 package service.impl;
 
-import model.AttachService;
-import model.Contract;
-import model.DetailsContract;
+import model.contract.AttachService;
+import model.contract.Contract;
+import model.contract.DetailsContract;
 import repository.IDetailsContractRepository;
 import repository.impl.DetailsContractRepository;
 import service.IDetailsContractService;

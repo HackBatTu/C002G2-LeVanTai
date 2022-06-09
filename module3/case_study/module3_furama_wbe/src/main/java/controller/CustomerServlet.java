@@ -1,7 +1,7 @@
 package controller;
 
-import model.Customer;
-import model.CustomerType;
+import model.person.Customer;
+import model.person.CustomerType;
 import service.impl.CustomerService;
 import service.ICustomerService;
 
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
@@ -38,41 +39,127 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        int idCustomerType = Integer.parseInt(request.getParameter("customerType"));
+        int id = Integer.parseInt(request.getParameter("gender"));
+        int idCustomerType = 0;
+        String errCustomerType = null;
+        try {
+            idCustomerType = Integer.parseInt(request.getParameter("customerType"));
+        } catch (NumberFormatException e) {
+            errCustomerType = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+        }
+        String nameCustomerType = request.getParameter("nameCustomerType");
         String name = request.getParameter("name");
         String birthDay = request.getParameter("birthDay");
-        int gender = Integer.parseInt(request.getParameter("gender"));
+
+        int gender = 0;
+        String errGender= null;
+        try {
+            gender = Integer.parseInt(request.getParameter("gender"));
+        } catch (NumberFormatException e) {
+            errGender = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+        }
+
         String idCard = request.getParameter("idCard");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customerList = new Customer(id, new CustomerType(idCustomerType), name, birthDay, gender, idCard, phone, email, address);
-        iCustomerService.update(customerList);
-        try {
-            response.sendRedirect("/customer");
-        } catch (IOException e) {
-            e.printStackTrace();
+        Customer customerList = new Customer(id,new CustomerType(idCustomerType,nameCustomerType), name, birthDay, gender, idCard, phone, email, address);
+
+        Map<String, String> errors = iCustomerService.update(customerList);
+        if (errCustomerType != null) {
+            errors.put("customerType", errCustomerType);
+        }
+        if (errGender != null) {
+            errors.put("gender", errGender);
+        }
+        if(errors.isEmpty()){
+            try {
+                response.sendRedirect("/customer");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            request.setAttribute("errors", errors);
+            request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
+            request.setAttribute("customerType", idCustomerType);
+            request.setAttribute("name", name);
+            request.setAttribute("birthDay", birthDay);
+            request.setAttribute("gender", gender);
+            request.setAttribute("idCard", idCard);
+            request.setAttribute("phone", phone);
+            request.setAttribute("email", email);
+            request.setAttribute("address", address);
+            try {
+                request.getRequestDispatcher("customer/edit_customer.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int idCustomerType = Integer.parseInt(request.getParameter("customerType"));
+        int idCustomerType = 0;
+        String errCustomerType = null;
+        try {
+            idCustomerType = Integer.parseInt(request.getParameter("customerType"));
+        } catch (NumberFormatException e) {
+            errCustomerType = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+        }
         String nameCustomerType = request.getParameter("nameCustomerType");
         String name = request.getParameter("name");
         String birthDay = request.getParameter("birthDay");
-        int gender = Integer.parseInt(request.getParameter("gender"));
+
+        int gender = 0;
+        String errGender= null;
+        try {
+            gender = Integer.parseInt(request.getParameter("gender"));
+        } catch (NumberFormatException e) {
+            errGender = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+        }
+
         String idCard = request.getParameter("idCard");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         Customer customerList = new Customer(new CustomerType(idCustomerType,nameCustomerType), name, birthDay, gender, idCard, phone, email, address);
-        iCustomerService.add(customerList);
-        try {
-            response.sendRedirect("/customer");
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        Map<String, String> errors = iCustomerService.add(customerList);
+        if (errCustomerType != null) {
+            errors.put("customerType", errCustomerType);
         }
+        if (errGender != null) {
+            errors.put("gender", errGender);
+        }
+        if(errors.isEmpty()){
+            try {
+                response.sendRedirect("/customer");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            request.setAttribute("errors", errors);
+            request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
+            request.setAttribute("customerType", idCustomerType);
+            request.setAttribute("name", name);
+            request.setAttribute("birthDay", birthDay);
+            request.setAttribute("gender", gender);
+            request.setAttribute("idCard", idCard);
+            request.setAttribute("phone", phone);
+            request.setAttribute("email", email);
+            request.setAttribute("address", address);
+            try {
+                request.getRequestDispatcher("customer/create_customer.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 
 
@@ -97,9 +184,23 @@ public class CustomerServlet extends HttpServlet {
             case "sortByName":
                 sortByName(request, response);
                 break;
+            case "showCustomerService":
+                showListCustomerService(request, response);
+                break;
             default:
                 displayCustomer(request, response);
                 break;
+        }
+    }
+
+    private void showListCustomerService(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("listCustomerService", iCustomerService.getAllCustomerServiceDTO());
+        try {
+            request.getRequestDispatcher("customer/display_customer_service.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

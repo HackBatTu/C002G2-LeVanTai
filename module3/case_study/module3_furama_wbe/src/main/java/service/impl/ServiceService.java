@@ -1,8 +1,8 @@
 package service.impl;
 
-import model.RentType;
-import model.Service;
-import model.ServiceType;
+import model.service.RentType;
+import model.service.Service;
+import model.service.ServiceType;
 import repository.IServiceRepository;
 import repository.impl.ServiceRepository;
 import service.IServiceService;

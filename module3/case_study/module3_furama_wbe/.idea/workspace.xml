@@ -5,68 +5,124 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5123aa3f-a411-4d1f-bd6f-aa52470b5592" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/Validate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/display_customer_service.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/CustomerServiceDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/customer/display_customer_service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module2/src/Exam/utils/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module2/src/Exam/utils/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/common/Validate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/common/Validate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/ContractServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/ContractServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/CustomerServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/DetailsContractServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/DetailsContractServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/EmployeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/EmployeeServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/ServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/ServiceServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/AttachService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Contract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/CustomerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/DetailsContract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/EducationDegree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/EmployeePosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/RentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/ServiceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/ICustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/ICustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IDetailsContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IDetailsContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IEmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IEmployeeRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/ContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/ContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/CustomerRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/DetailsContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/DetailsContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/EmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/EmployeeRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/ServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/impl/ServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/ICustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/ICustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IDetailsContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IDetailsContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IEmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IEmployeeService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IServiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IServiceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/ContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/ContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/CustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/DetailsContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/DetailsContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/EmployeeService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/ServiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/impl/ServiceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/contract/create_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/contract/create_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/contract/display_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/contract/display_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/contract/edit_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/contract/edit_contract.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/create_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/create_customer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/display_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/display_customer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/edit_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/customer/edit_customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/details_contract/create_details_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/details_contract/create_details_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/details_contract/display_details_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/details_contract/display_details_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/details_contract/edit_details_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/details_contract/edit_details_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/employee/display_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/employee/display_employee.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/service/display_service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/service/display_service.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../furama_sql_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../furama_sql_ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/Validate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/Validate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/ContractServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/ContractServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/CustomerServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/DetailsContractServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/DetailsContractServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/EmployeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/EmployeeServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/ServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/ServiceServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/AttachService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Contract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/CustomerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/DetailsContract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/EducationDegree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/EmployeePosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/RentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/ServiceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/ICustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/ICustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IDetailsContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IDetailsContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IEmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IEmployeeRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/impl/ContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/impl/ContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/impl/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/impl/CustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/impl/DetailsContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/impl/DetailsContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/impl/EmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/impl/EmployeeRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/impl/ServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/impl/ServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/IContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/IContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/ICustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/ICustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/IDetailsContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/IDetailsContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/IEmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/IEmployeeService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/IServiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/IServiceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/impl/ContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/impl/ContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/impl/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/impl/CustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/impl/DetailsContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/impl/DetailsContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/impl/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/impl/EmployeeService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/service/impl/ServiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/service/impl/ServiceService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/module3_furama_wbe-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/module3_furama_wbe-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Validate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ContractServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ContractServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CustomerServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DetailsContractServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DetailsContractServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ServiceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ServiceServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AttachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/contract/AttachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/contract/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/person/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/person/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DetailsContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/contract/DetailsContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/person/Division.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EducationDegree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/person/EducationDegree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/person/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EmployeePosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/person/EmployeePosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/RentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/ServiceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/UserRole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IContractRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ICustomerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/IDetailsContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IDetailsContractRepository.java" afterDir="false" />
@@ -87,23 +143,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/DetailsContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/DetailsContractService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/ServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/ServiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/validation/Validate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap-grid.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap413/css/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/contract/create_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/contract/create_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/contract/display_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/contract/display_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/contract/edit_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/contract/edit_contract.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/customer/create_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer/create_customer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/customer/display_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer/display_customer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/customer/edit_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer/edit_customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/details_contract/create_details_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/details_contract/create_details_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/details_contract/display_details_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/details_contract/display_details_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/details_contract/edit_details_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/details_contract/edit_details_contract.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/employee/display_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/employee/display_employee.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/service/display_service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/service/display_service.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,9 +161,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Jsp File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -149,7 +191,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ss6_css/bai_tap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../module2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -290,7 +332,10 @@
       <workItem from="1654581402109" duration="10411000" />
       <workItem from="1654604672265" duration="17788000" />
       <workItem from="1654650293741" duration="23079000" />
-      <workItem from="1654690722442" duration="11236000" />
+      <workItem from="1654690722442" duration="11991000" />
+      <workItem from="1654736926141" duration="14693000" />
+      <workItem from="1654766968235" duration="49000" />
+      <workItem from="1654782338380" duration="11766000" />
     </task>
     <servers />
   </component>

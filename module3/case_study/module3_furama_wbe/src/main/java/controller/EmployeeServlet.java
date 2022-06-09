@@ -1,6 +1,10 @@
 package controller;
 
-import model.*;
+import model.person.Division;
+import model.person.EducationDegree;
+import model.person.Employee;
+import model.person.EmployeePosition;
+import model.user.User;
 import service.IEmployeeService;
 import service.impl.EmployeeService;
 

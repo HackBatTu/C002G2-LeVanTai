@@ -1,6 +1,10 @@
 package repository.impl;
 
-import model.*;
+import model.person.Division;
+import model.person.EducationDegree;
+import model.person.Employee;
+import model.person.EmployeePosition;
+import model.user.User;
 import repository.BaseStudentRepository;
 import repository.IEmployeeRepository;
 
@@ -9,7 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class EmployeeRepository implements IEmployeeRepository {
