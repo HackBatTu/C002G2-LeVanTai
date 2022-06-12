@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.css">
     <style>
         .bg-pink {
-            background-color: red !important;
+            background-color: black !important;
         }
         body{
             box-sizing: border-box;
@@ -31,48 +31,36 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:45px;" class="rounded-pill">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white active" href="../index.jsp">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/employee">Back</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <div class="col-auto row col-12" style="margin: 0 auto;">
     <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px;">
         <form method="post">
+                <div >*Edit Product  : </div>
             <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example1">Employee Name</label>
                 <input type="text" id="form1Example1" class="form-control" name="name" value="${name}"/>
+                <small>${errors.name}</small>
+
             </div>
 
             <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example3">Employee Birthday</label>
                 <input type="text" id="form1Example3" class="form-control" name="price" value="${price}"/>
+                <small>${errors.price}</small>
+
             </div>
 
             <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example5">Employee ID Card</label>
                 <input type="text" id="form1Example4" class="form-control" name="quality" value="${quality}"/>
+                <small>${errors.quality}</small>
+
             </div>
 
             <div class="form-outline mb-1 w-75">
                 <label class="form-label" for="form1Example4">Employee Salary</label>
                 <input type="text" id="form1Example5" class="form-control" name="color"  value="${color}"/>
+                <small>${errors.color}</small>
 
             </div>
             <div class="form-outline mb-2 w-75">
@@ -90,18 +78,16 @@
                         </c:choose>
                     </c:forEach>
                 </select>
+                <small>${errors.category}</small>
+
             </div>
             <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>
+            <button type="submit" class="btn btn-warning btn-block w-25"><a class="text-white" href="/product">Back Product</a>
+            </button>
         </form>
-    </div>
-    <div class="float-sm-left col-7 ">
-        <a><img src="https://kenh14cdn.com/thumb_w/600/2020/4/7/anh-1-dien-canh-an-xin-1585743782738973529613-crop-1586261831765630548258-15862671390121385116029-crop-1586267232082518577707.jpg" height="697px" width="100%"></a>
     </div>
 </div>
 
-<footer class="container-fluid text-center bg-dark p-2 text-light">
-    <p class="text-light" style="height: 8px">Furama Resort - &copy; Copyright by Háck Bất Tử 2022</p>
-</footer>
 </body>
 <script src="../jquery/jquery-3.5.1.min.js"></script>
 <script src="../datatables/js/jquery.dataTables.min.js"></script>

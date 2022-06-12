@@ -39,7 +39,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("gender"));
+        int id = Integer.parseInt(request.getParameter("id"));
         int idCustomerType = 0;
         String errCustomerType = null;
         try {
@@ -50,7 +50,6 @@ public class CustomerServlet extends HttpServlet {
         String nameCustomerType = request.getParameter("nameCustomerType");
         String name = request.getParameter("name");
         String birthDay = request.getParameter("birthDay");
-
         int gender = 0;
         String errGender= null;
         try {

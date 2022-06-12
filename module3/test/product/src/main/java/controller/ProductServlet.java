@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "StudentServlet", urlPatterns = "/product")
 public class ProductServlet extends HttpServlet {
@@ -122,33 +123,116 @@ public class ProductServlet extends HttpServlet {
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
-        Double price = Double.parseDouble(request.getParameter("price"));
-        int quality = Integer.parseInt(request.getParameter("quality"));
-        String color = request.getParameter("color");
-        int category = Integer.parseInt(request.getParameter("category"));
-        String categoryName = request.getParameter("categoryName");
-        Product product = new Product(id, name, price, quality, color, new Category(category, categoryName));
-        iProductService.updateProduct(product);
+        double price = 0;
+        String errPrice = null;
         try {
-            response.sendRedirect("/product");
-        } catch (IOException e) {
-            e.printStackTrace();
+            price = Double.parseDouble(request.getParameter("price"));
+        }catch (NumberFormatException e){
+            errPrice = " định dạng số thực ";
+        }
+        int quality = 0;
+        int category = 0;
+        String errQuality= null;
+        String errCategory = null;
+        try {
+            quality = Integer.parseInt(request.getParameter("quality"));
+            category = Integer.parseInt(request.getParameter("category"));
+        } catch (NumberFormatException e) {
+            errQuality = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+            errCategory = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+        }
+        String color = request.getParameter("color");
+        String categoryName = request.getParameter("categoryName");
+        Product product = new Product(id,name, price, quality, color, new Category(category, categoryName));
+        Map<String, String> errors = iProductService.updateProduct(product);
+        if(errPrice != null){
+            errors.put("price",errPrice);
+        }
+        if(errQuality != null){
+            errors.put("quality",errQuality);
+        }
+        if(errCategory != null){
+            errors.put("category",errCategory);
+        }
+        if(errors.isEmpty()){
+            try {
+                response.sendRedirect("/product");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            request.setAttribute("errors", errors);
+            request.setAttribute("categoryList", iProductService.getAllCategory());
+            request.setAttribute("name", name);
+            request.setAttribute("price", price);
+            request.setAttribute("quality", quality);
+            request.setAttribute("color", color);
+            request.setAttribute("category", category);
+            try {
+                request.getRequestDispatcher("product/edit.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void insertIntoProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
-        int quality = Integer.parseInt(request.getParameter("quality"));
+        double price = 0;
+        String errPrice = null;
+        try {
+            price = Double.parseDouble(request.getParameter("price"));
+        }catch (NumberFormatException e){
+            errPrice = " định dạng số thực ";
+        }
+        int quality = 0;
+        int category = 0;
+        String errQuality= null;
+        String errCategory = null;
+        try {
+             quality = Integer.parseInt(request.getParameter("quality"));
+            category = Integer.parseInt(request.getParameter("category"));
+        } catch (NumberFormatException e) {
+            errQuality = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+            errCategory = "Ôi bạn ơi nhập dữ liệu đi ! ở đó mà f12";
+        }
         String color = request.getParameter("color");
-        int category = Integer.parseInt(request.getParameter("category"));
         String categoryName = request.getParameter("categoryName");
         Product product = new Product(name, price, quality, color, new Category(category, categoryName));
-        iProductService.insert(product);
-        try {
-            response.sendRedirect("/product");
-        } catch (IOException e) {
-            e.printStackTrace();
+        Map<String, String> errors = iProductService.insert(product);
+        if(errPrice != null){
+            errors.put("price",errPrice);
         }
+        if(errQuality != null){
+            errors.put("quality",errQuality);
+        }
+        if(errCategory != null){
+            errors.put("category",errCategory);
+        }
+        if(errors.isEmpty()){
+            try {
+                response.sendRedirect("/product");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            request.setAttribute("errors", errors);
+            request.setAttribute("categoryList", iProductService.getAllCategory());
+            request.setAttribute("name", name);
+            request.setAttribute("price", price);
+            request.setAttribute("quality", quality);
+            request.setAttribute("color", color);
+            request.setAttribute("category", category);
+            try {
+                request.getRequestDispatcher("product/create.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

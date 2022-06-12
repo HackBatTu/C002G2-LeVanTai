@@ -5,7 +5,9 @@ import model.Product;
 import repository.IProductRepository;
 import repository.ProductRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductService implements IProductService{
     IProductRepository iProductRepository = new ProductRepository();
@@ -21,14 +23,55 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void insert(Product product) {
-        iProductRepository.insert(product);
+    public Map<String, String> insert(Product product) {
+        Map<String, String> errors = new HashMap<>();
+        List<Category> categoryList = iProductRepository.getAllCategory();
+        boolean flag = false;
+        for (Category category : categoryList) {
+            if (product.getCategory().getId() == category.getId()) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            errors.put("category", "xl đi b ơi ! đừng f12!");
+        }
+        if(product.getName().equals("")||product.getName()== null){
+            errors.put("name","nhập dữ liệu đi bạn ơi");
+        }
+        if(product.getColor().equals("")||product.getColor()== null){
+            errors.put("color","nhập dữ liệu đi bạn ơi");
+        }
+        if(errors.isEmpty()){
+            iProductRepository.insert(product);
+        }
+        return errors;
     }
 
     @Override
-    public void updateProduct(Product product) {
-        iProductRepository.updateProduct(product);
-
+    public Map<String, String> updateProduct(Product product) {
+        Map<String, String> errors = new HashMap<>();
+        List<Category> categoryList = iProductRepository.getAllCategory();
+        boolean flag = false;
+        for (Category category : categoryList) {
+            if (product.getCategory().getId() == category.getId()) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            errors.put("category", "xl đi b ơi ! đừng f12!");
+        }
+        if(product.getName().equals("")||product.getName()== null){
+            errors.put("name","nhập dữ liệu đi bạn ơi");
+        }
+        if(product.getColor().equals("")||product.getColor()== null){
+            errors.put("color","nhập dữ liệu đi bạn ơi");
+        }
+        if(errors.isEmpty()){
+            iProductRepository.updateProduct(product);
+        }
+        return errors;
     }
 
     @Override

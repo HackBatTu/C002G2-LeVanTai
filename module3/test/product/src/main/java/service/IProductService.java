@@ -3,17 +3,17 @@ package service;
 import model.Category;
 import model.Product;
 
-import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface IProductService {
     List<Product> getAllProduct();
 
     List<Category> getAllCategory();
 
-    void insert(Product product);
+    Map<String, String> insert(Product product);
 
-    void updateProduct(Product product);
+    Map<String, String> updateProduct(Product product);
 
     Product findById(int idEdit);
 

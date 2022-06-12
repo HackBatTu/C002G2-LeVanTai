@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.css">
     <style>
         .bg-pink {
-            background-color: red !important;
+            background-color: black !important;
         }
         body{
             box-sizing: border-box;
@@ -31,28 +31,55 @@
     </style>
 </head>
 <body>
-<form method="post">
-    <h4>name</h4>
-    <input type="text" name="name" id="name">
-    <h4>price</h4>
-    <input type="text" name="price" id="price">
-    <h4>quality</h4>
-    <input type="text" name="quality" id="quality">
-    <h4>color</h4>
-    <input type="text" name="color" id="color">
-    <h4>category</h4>
-    <select class="form-select" name="category">
-        <option selected disabled>Choice Category</option>
-        <c:forEach items="${categoryList}" var="s">
-            <option value="${s.id}">${s.name}</option>
-        </c:forEach>
-    </select>
-    <input type="submit" value="submit">
-</form>
+<div class="col-auto row col-12" style="margin: 0 auto;">
+    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px;">
+        <div class="col-lg-10">*Create Product : </div>
 
-<footer class="container-fluid text-center bg-dark p-2 text-light">
-    <p class="text-light" style="height: 8px">Furama Resort - &copy; Copyright by Háck Bất Tử 2022</p>
-</footer>
+
+        <form method="post">
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example1">Product Name</label>
+                <input type="text" id="form1Example1" class="form-control" name="name" value="${name}"/>
+                <small>${errors.name}</small>
+            </div>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example2">Product price</label>
+                <input type="text" id="form1Example2" class="form-control" name="price" value="${price}"/>
+                <small>${errors.price}</small>
+            </div>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example3">Product Quality</label>
+                <input type="text" id="form1Example3" class="form-control" name="quality" value="${quality}"/>
+                <small>${errors.quality}</small>
+
+            </div>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example4">Product Color</label>
+                <input type="text" id="form1Example4" class="form-control" name="color" value="${color}"/>
+                <small>${errors.color}</small>
+
+            </div>
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example6">Category</label>
+                <select class="form-select" aria-label="Default select example" id="form1Example6" name="category">
+                    <option class="selected disabled">Choice Category</option>
+                    <c:forEach items="${categoryList}" var="i">
+                        <option value="${i.id}">${i.name}</option>
+                    </c:forEach>
+                </select>
+                <small>${errors.category}</small>
+            </div>
+
+
+            <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>
+            <button type="submit" class="btn btn-warning btn-block w-25"><a class="text-white" href="/product">Back Product</a>
+            </button>
+
+        </form>
+
 </body>
 <script src="../jquery/jquery-3.5.1.min.js"></script>
 <script src="../datatables/js/jquery.dataTables.min.js"></script>
