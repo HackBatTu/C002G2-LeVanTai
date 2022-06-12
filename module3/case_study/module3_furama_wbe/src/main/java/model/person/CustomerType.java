@@ -42,4 +42,13 @@ public class CustomerType {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String   toString() {
+        return "CustomerType{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -55,9 +55,13 @@
 <div class="col-auto row col-12" style="margin: 0 auto;">
     <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px;">
         <form method="post">
+<%--            <div class="form-outline mb-1 w-75">--%>
+<%--                <label class="form-label" for="form1Example1">dateCheckIn</label>--%>
+<%--                <input type="date" id="form1Example1" class="form-control" name="dateCheckIn" value="${dateCheckIn}"/>--%>
+<%--            </div>--%>
             <div class="form-outline mb-1 w-75">
-                <label class="form-label" for="form1Example1">dateCheckIn</label>
-                <input type="date" id="form1Example1" class="form-control" name="dateCheckIn" value="${dateCheckIn}"/>
+                <label for="static" class="form-label" >dateCheckIn</label>
+                <input type="text" readonly class="form-control-plaintext" id="static" name="dateCheckIn" value="${dateCheckIn}">
             </div>
 
             <div class="form-outline mb-1 w-75">

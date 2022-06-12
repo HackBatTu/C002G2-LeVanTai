@@ -21,7 +21,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     private static final String INSERT_INTO= "insert into employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,employee.employee_position_id,employee.education_degree_id,employee.division_id,employee.username) value (?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE = "update employee set employee_name=?,employee_birthday=?,employee_id_card=?,employee_salary=?,employee_phone=?,employee_email=?,employee_address=?,employee.employee_position_id=?,employee.education_degree_id=?,employee.division_id=?,employee.username=? where employee_id=? and employee.status=0;";
     private static final String DELETE_EMPLOYEE = " update employee set status = 1 where employee_id = ?; ";
-    private static final String SEARCH_BY_NAME = "select employee.*,employee_position.employee_position_name,education_degree.education_degree_name,division.division_name from employee left join employee_position on employee_position.employee_position_id= employee.employee_position_id left join division on division.division_id=employee.division_id left join education_degree on education_degree.education_degree_id=employee.education_degree_id left join user on user.username= employee.username where employee.employee_name like ?;";
+    private static final String SEARCH_BY_NAME = "select employee.*,employee_position.employee_position_name,education_degree.education_degree_name,division.division_name from employee left join employee_position on employee_position.employee_position_id= employee.employee_position_id left join division on division.division_id=employee.division_id left join education_degree on education_degree.education_degree_id=employee.education_degree_id left join user on user.username= employee.username where employee.employee_name like ? and employee.employee_email like ?;";
     private final String SELECT_ALL_POSITION = " select * from employee_position where status = 0; ";
     private final String SELECT_ALL_EDUCATION = " select * from education_degree where status = 0;  ";
     private final String SELECT_ALL_DIVISION = " select * from division where status = 0;  ";
@@ -140,12 +140,13 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public List<Employee> searchByName(String name) {
+    public List<Employee> searchByName(String name,String email) {
         List<Employee> employeeList = new ArrayList<>();
         Connection connection = baseStudentRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BY_NAME);
             preparedStatement.setString(1, "%" + name + "%");
+            preparedStatement.setString(2, "%" + email + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("employee_id");
@@ -154,7 +155,7 @@ public class EmployeeRepository implements IEmployeeRepository {
                 String idCard = resultSet.getString("employee_id_card");
                 int salary = resultSet.getInt("employee_salary");
                 String phone = resultSet.getString("employee_phone");
-                String email = resultSet.getString("employee_email");
+                String emails = resultSet.getString("employee_email");
                 String address = resultSet.getString("employee_address");
                 int employeePosition = resultSet.getInt("employee_position_id");
                 String nameEmployeePosition = resultSet.getString("employee_position_name");
@@ -163,7 +164,7 @@ public class EmployeeRepository implements IEmployeeRepository {
                 int division = resultSet.getInt("division_id");
                 String divisionName = resultSet.getString("division_name");
                 String username = resultSet.getString("username");
-                employeeList.add(new Employee(id,names,birthDay,idCard,salary,phone,email,address,new EmployeePosition(employeePosition,nameEmployeePosition),new EducationDegree(educationDegree,nameEducationDegree),new Division(division,divisionName),new User(username)));
+                employeeList.add(new Employee(id,names,birthDay,idCard,salary,phone,emails,address,new EmployeePosition(employeePosition,nameEmployeePosition),new EducationDegree(educationDegree,nameEducationDegree),new Division(division,divisionName),new User(username)));
             }
         } catch (SQLException e) {
             e.printStackTrace();

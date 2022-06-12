@@ -15,21 +15,23 @@
 <head>
     <title>Customer Management Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap413/css/bootstrap.min.css">
     <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.css">
 
     <style>
-        body{
+        body {
             box-sizing: border-box;
             padding: 0px;
             border: 0px;
         }
 
-        table{
+        table {
             font-size: 12px;
         }
-        html{
+
+        html {
             font-size: 12px !important;
         }
     </style>
@@ -39,7 +41,8 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
+                <img src="https://i.pinimg.com/736x/29/88/5b/29885bbba1f52e88bfdeb441e46fb454.jpg" alt="Logo"
+                     style="width:40px;" class="rounded-pill">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -59,21 +62,30 @@
 </div>
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
-        <div class="container-fluid">
-            <a href="/customer?action=create" class="text-dark"><b>*Add New Customer</b></a>
-            <a class="nav-link text-dark" href="/customer"><b>Show list Customer</b></a>
-            <a class="nav-link text-dark" href="customer?action=showCustomerService"><b>List customer use service</b></a>
-            <a href="/customer?action=sortByName" class="text-dark"><b>Sort By Name</b></a>
+        <div class="container-fluid d-flex justify-content-between">
+            <form>
+                <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a class="nav-link text-white"
+                                                                                             href="/customer">Show list
+                    Customer</a></button>
+                <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a class="nav-link text-white"
+                                                                                             href="customer?action=showCustomerService">List
+                    customer use service</a></button>
+                <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a
+                        href="/customer?action=create" class="nav-link text-white">Add New Customer</a></button>
+                <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a
+                        href="/customer?action=sortByName" class="nav-link text-white">Sort By Name</a></button>
+            </form>
             <form method="get" action="/customer" class="d-flex">
                 <input type="hidden" name="action" value="search">
-                <input class="form-control me-2" type="search" placeholder="Search By Name" name="name" aria-label="Search" width="100px" value="${nameSearch}">
-<%--                <select name="customerType" id="">--%>
-<%--                    <option value="">Choose customer Type</option>--%>
-<%--                    <c:forEach items="${listCustomerType}" var="s">--%>
-<%--                        <option value="${s.id}">${s.name}</option>--%>
-<%--                    </c:forEach>--%>
-<%--                </select>--%>
-                <input type="submit" name="name" value="search">
+                <input class="form-control me-2" type="search" placeholder="Search By Name" name="name"
+                       aria-label="Search" width="100px" value="${nameSearch}">
+                <select class="form-select" aria-label="Default select example" id="form1Example2" name="customerType">
+                    <option>Choice Customer Type</option>
+                    <c:forEach items="${listCustomerType}" var="i">
+                        <option value="${i.id}" selected>${i.name}</option>
+                    </c:forEach>
+                </select>
+                <input type="submit" name="name" value="search" class="bg-primary text-white">
             </form>
         </div>
     </nav>
@@ -115,7 +127,8 @@
                 <td>${s.email}</td>
                 <td>${s.address}</td>
                 <td>${s.status}</td>
-                <td><button type="submit" class="btn btn-danger">
+                <td>
+                    <button type="submit" class="btn btn-danger">
                         <a href="/customer?action=edit&id=${s.id}">Edit</a>
                     </button>
                 </td>
@@ -161,9 +174,9 @@
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 7
+            "pageLength": 6
         });
-    } );
+    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

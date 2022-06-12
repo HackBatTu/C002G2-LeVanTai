@@ -35,8 +35,8 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public List<Employee> searchByName(String name) {
-        return iEmployeeRepository.searchByName(name);
+    public List<Employee> searchByName(String name,String email) {
+        return iEmployeeRepository.searchByName(name,email);
     }
 
     @Override

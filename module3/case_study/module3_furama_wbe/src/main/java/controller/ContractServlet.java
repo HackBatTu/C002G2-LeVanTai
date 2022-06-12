@@ -141,10 +141,12 @@ public class ContractServlet extends HttpServlet {
 
     private void showUpdate(HttpServletRequest request, HttpServletResponse response) {
         int idEdit = Integer.parseInt(request.getParameter("id"));
+
         request.setAttribute("employeeList", iContractService.getAllEmployee());
         request.setAttribute("customerList", iContractService.getAllCustomer());
         request.setAttribute("serviceList", iContractService.getAllService());
         Contract contractList = iContractService.findById(idEdit);
+
         request.setAttribute("id", contractList.getId());
         request.setAttribute("dateCheckIn", contractList.getDateCheckIn());
         request.setAttribute("dateCheckOut", contractList.getDateCheckOut());

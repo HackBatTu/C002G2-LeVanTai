@@ -28,6 +28,7 @@ public class CustomerService implements ICustomerService {
     @Override
     public Map<String, String> add(Customer customerList) {
         Map<String, String> errors = new HashMap<>();
+
         List<CustomerType> customerTypes = iCustomerRepository.getAllCustomerType();
         boolean flag = false;
         for (CustomerType customerType : customerTypes) {
@@ -42,7 +43,7 @@ public class CustomerService implements ICustomerService {
         if(customerList.getName().equals("")||customerList.getName()== null){
             errors.put("name","name is not null");
         }
-        if (customerList.getBirthDay() == null || customerList.getBirthDay().equals("")) {
+        if (Validate.regexDate(customerList.getBirthDay()) || customerList.getBirthDay().equals("")) {
             errors.put("birthDay", "Nhập dữ liệu đi bạn!");
         } else {
             try {

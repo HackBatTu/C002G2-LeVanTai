@@ -141,8 +141,10 @@ public class EmployeeServlet extends HttpServlet {
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
+        String email = request.getParameter("email");
         request.setAttribute("nameSearch", name);
-        request.setAttribute("employeeList", iEmployeeService.searchByName(name));
+        request.setAttribute("emailSearch", email);
+        request.setAttribute("employeeList", iEmployeeService.searchByName(name,email));
         try {
             request.getRequestDispatcher("employee/display_employee.jsp").forward(request, response);
         } catch (ServletException e) {

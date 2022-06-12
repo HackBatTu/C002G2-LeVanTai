@@ -59,12 +59,15 @@
 
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
-        <div class="container-fluid">
-            <a href="/contract?action=create"><h5>*Add New Contract</h5></a>
+        <div class="container-fluid d-flex justify-content-between">
+            <form>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/contract?action=create" class="text-white nav-link">Add New Contract</a></button>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/contract" class="text-white nav-link">List Contract</a></button>
+            </form>
             <form method="get" action="/contract" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search by id" name="id" aria-label="Search" width="100px" value="${nameSearch}">
-                <input type="submit" name="id" value="search">
+                <input type="submit" name="id" value="search" class="text-white bg-primary">
             </form>
         </div>
     </nav>

@@ -59,12 +59,16 @@
 
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
-        <div class="container-fluid">
-            <a href="/employee?action=create"><h5>*Add New Employee</h5></a>
+        <div class="container-fluid d-flex justify-content-between">
+            <form>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/employee?action=create" class="text-white nav-link">Add New Employee</a></button>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/employee" class="text-white nav-link">Show List Employee</a></button>
+            </form>
             <form method="get" action="/employee" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search By Name" name="name" aria-label="Search" width="100px" value="${nameSearch}">
-                <input type="submit" name="name" value="search">
+                <input class="form-control me-2" type="search" placeholder="Search By Email" name="email" aria-label="Search" width="100px" value="${emailSearch}">
+                <input type="submit" name="name" value="search" class="bg-primary text-white">
             </form>
         </div>
     </nav>

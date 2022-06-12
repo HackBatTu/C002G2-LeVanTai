@@ -17,7 +17,7 @@ public interface IEmployeeRepository {
 
     void delete(int id);
 
-    List<Employee> searchByName(String name);
+    List<Employee> searchByName(String name,String email);
 
     List<EmployeePosition> getAllEmployeePosition();
 

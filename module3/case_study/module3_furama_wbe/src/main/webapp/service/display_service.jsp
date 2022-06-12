@@ -58,12 +58,15 @@
 
 <div class="col-12 row">
     <nav class="navbar navbar-dark bg-warning">
-        <div class="container-fluid">
-            <a href="/service?action=create"><h5>*Add New Service</h5></a>
+        <div class="container-fluid d-flex justify-content-between">
+            <form>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/service?action=create" class="text-white nav-link">Add New Service</a></button>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/service" class="text-white nav-link">List Service</a></button>
+            </form>
             <form method="get" action="/service" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search By Name" name="name" aria-label="Search" width="100px" value="${nameSearch}">
-                <input type="submit" name="name" value="search">
+                <input class="btn btn-sm btn-outline-secondary bg-primary text-white" type="submit" name="name" value="search">
             </form>
         </div>
     </nav>

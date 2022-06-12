@@ -63,13 +63,16 @@
 </div>
 
 <div class="col-12 row">
-    <nav class="navbar navbar-dark bg-warning">
+    <nav class="navbar navbar-dark bg-warning d-flex justify-content-between">
         <div class="container-fluid">
-            <a href="/details_contract?action=create"><h5>*Add New Details Contract</h5></a>
+            <form>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/details_contract?action=create" class="text-white nav-link">Add New Details Contrac</h5></a></button>
+            <button class="btn btn-sm btn-outline-secondary bg-primary" type="button"><a href="/details_contract" class="text-white nav-link">List Details Contract</a></button>
+            </form>
             <form method="get" action="/details_contract" class="d-flex">
                 <input type="hidden" name="action" value="search">
                 <input class="form-control me-2" type="search" placeholder="Search By Name" name="id" aria-label="Search" width="100px" value="${nameSearch}">
-                <input type="submit" name="id" value="search">
+                <input type="submit" name="id" value="search" class="text-white bg-primary">
             </form>
         </div>
     </nav>

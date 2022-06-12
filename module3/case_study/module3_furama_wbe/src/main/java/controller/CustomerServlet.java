@@ -111,7 +111,6 @@ public class CustomerServlet extends HttpServlet {
         String nameCustomerType = request.getParameter("nameCustomerType");
         String name = request.getParameter("name");
         String birthDay = request.getParameter("birthDay");
-
         int gender = 0;
         String errGender= null;
         try {
@@ -157,7 +156,6 @@ public class CustomerServlet extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
 
     }
@@ -226,9 +224,11 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         request.setAttribute("nameSearch",name);
         String customerType = request.getParameter("customerType");
+
         List<Customer> customerList = iCustomerService.searchByName(name,customerType);
         request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
         request.setAttribute("customerList", customerList);
+
         try {
             request.getRequestDispatcher("customer/display_customer.jsp").forward(request, response);
         } catch (ServletException e) {
@@ -285,6 +285,9 @@ public class CustomerServlet extends HttpServlet {
 
     private void displayCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = iCustomerService.selectAll();
+
+        request.setAttribute("listCustomerType", iCustomerService.getAllCustomerType());
+
         request.setAttribute("customerList", customerList);
         try {
             request.getRequestDispatcher("customer/display_customer.jsp").forward(request, response);

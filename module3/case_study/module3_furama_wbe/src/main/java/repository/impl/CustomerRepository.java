@@ -19,7 +19,7 @@ public class CustomerRepository implements ICustomerRepository {
     private static final String INSERT_INTO= " insert into customer(customer_id,customer.customer_type_id,customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address) value (?,?,?,?,?,?,?,?,?);";
     private static final String UPDATE =" update customer set customer.customer_type_id=?,customer_name=?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id=? and customer.status=0;";
     private static final String DELETE_CUSTOMER = " update customer set status = 1 where customer_id = ?; ";
-    private static final String SEARCH_BY_NAME = "select customer.*,customer_type.customer_type_name from customer left join customer_type on customer.customer_type_id = customer_type.customer_type_id where customer_name like ? and customer.customer_type_id like ?;";
+    private static final String SEARCH_BY_NAME = "select customer.*,customer_type.customer_type_name from customer inner join customer_type on customer.customer_type_id = customer_type.customer_type_id where customer_name like ? and customer.customer_type_id like ?;";
     private static final String SORT_BY_NAME = "select * from customer where status=0 order by customer_name;";
     private static final String SELECT_CUSTOMER_TYPE = " select * from customer_type where `status` = 0; ";
     private final String SELECT_ALL_CUSTOMER_SERVICE = " select customer.customer_id, customer_name, customer_phone, customer_email,customer_gender, attach_service.attach_service_name from customer " +
