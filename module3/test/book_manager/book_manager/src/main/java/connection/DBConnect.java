@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnect {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/exam_module_3";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/book_management";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "135233";
+    private String jdbcPassword = "account1496";
 
     public Connection getConnection() {
         Connection connection = null;

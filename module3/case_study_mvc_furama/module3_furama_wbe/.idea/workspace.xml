@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5123aa3f-a411-4d1f-bd6f-aa52470b5592" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/module3_furama_wbe.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/model/LoaiVanPhong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/model/MatBang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/model/TrangThai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/demo-paging-sorting-jsp-servlet/.idea/demo-paging-sorting-jsp-servlet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/hospital_manager/hospital_manager/.idea/hospital_manager.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/src/main/java/com/codegym/controller/GreetingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module4/ss1_spring_mvc/thuc_hanh/spring_greeting/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/config/CharsetFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/controller/ProductServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/DBConnect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/IProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/repository/ProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/IProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/mysql-connector-java-8.0.23.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/protobuf-java-3.11.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/bootstrap413/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.bootstrap4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.bootstrap4.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.foundation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.foundation.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.jqueryui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.jqueryui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.semanticui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/dataTables.semanticui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/jquery.dataTables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.bootstrap4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.bootstrap4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.foundation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.foundation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.jqueryui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.jqueryui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.semanticui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/dataTables.semanticui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/jquery.dataTables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/datatables/js/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/jquery/jquery-3.5.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/product/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/product/display.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../apache-tomcat-9.0.63/webapps/ROOT/product/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_mind_map.mwb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_sql_ddl.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/7.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/webContexts.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/common/Validate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/config/CharsetFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/controller/ContractServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/controller/CustomerServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/controller/DetailsContractServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/controller/EmployeeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/controller/ServiceServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/CustomerServiceDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/contract/AttachService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/contract/Contract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/contract/DetailsContract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/person/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/person/CustomerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/person/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/person/EducationDegree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/person/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/person/EmployeePosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/service/RentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/service/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/service/ServiceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/user/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/user/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/model/user/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/BaseStudentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/IContractRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/ICustomerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/IDetailsContractRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/IEmployeeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/IServiceRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/impl/ContractRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/impl/CustomerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/impl/DetailsContractRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/impl/EmployeeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/repository/impl/ServiceRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/IContractService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/ICustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/IDetailsContractService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/IEmployeeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/IServiceService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/impl/ContractService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/impl/CustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/impl/DetailsContractService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/impl/EmployeeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/classes/java/main/service/impl/ServiceService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/libs/module3_furama_wbe-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/common/Validate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/config/CharsetFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/controller/ContractServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/controller/CustomerServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/controller/DetailsContractServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/controller/EmployeeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/controller/ServiceServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/CustomerServiceDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/contract/AttachService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/contract/Contract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/contract/DetailsContract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/person/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/person/CustomerType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/person/Division.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/person/EducationDegree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/person/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/person/EmployeePosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/service/RentType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/service/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/service/ServiceType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/user/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/model/user/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/BaseStudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/IContractRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/ICustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/IDetailsContractRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/IEmployeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/IServiceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/impl/ContractRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/impl/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/impl/DetailsContractRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/impl/EmployeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/repository/impl/ServiceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/IContractService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/ICustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/IDetailsContractService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/IEmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/IServiceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/impl/ContractService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/impl/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/impl/DetailsContractService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/impl/EmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/java/service/impl/ServiceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/bootstrap413/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/contract/create_contract.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/contract/display_contract.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/contract/edit_contract.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/customer/create_customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/customer/display_customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/customer/display_customer_service.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/customer/edit_customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.bootstrap4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.bootstrap4.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.foundation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.foundation.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.jqueryui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.jqueryui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.semanticui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/dataTables.semanticui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/jquery.dataTables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.bootstrap4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.bootstrap4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.foundation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.foundation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.jqueryui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.jqueryui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.semanticui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/dataTables.semanticui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/jquery.dataTables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/datatables/js/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/details_contract/create_details_contract.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/details_contract/display_details_contract.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/details_contract/edit_details_contract.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/employee/create_employee.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/employee/display_employee.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/employee/edit_employee.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/jquery/jquery-3.5.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/service/create_service.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/service/display_service.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/module3_furama_wbe/src/main/webapp/service/edit_service.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/demo-paging-sorting-jsp-servlet.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/controller/CustomerServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/controller/EmployeeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/controller/ServletHome.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/model/CustomerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/repository/ConnectionSQL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/repository/customer/CustomerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/repository/customerType/CustomerTypeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/classes/java/main/validation/Validate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/libs/demo-paging-sorting-jsp-servlet-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/controller/CustomerServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/controller/EmployeeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/controller/ServletHome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/model/CustomerType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/repository/ConnectionSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/repository/customer/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/repository/customerType/CustomerTypeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/java/validation/Validate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/bootstrap413/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.bootstrap4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.bootstrap4.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.foundation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.foundation.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.jqueryui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.jqueryui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.semanticui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/dataTables.semanticui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/jquery.dataTables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.bootstrap4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.bootstrap4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.foundation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.foundation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.jqueryui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.jqueryui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.semanticui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/dataTables.semanticui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/jquery.dataTables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/datatables/js/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/employee.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/jquery/jquery-3.5.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/test-paging-sorting.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo-paging-sorting-jsp-servlet/src/main/webapp/update.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/common/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/common/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/controller/ExamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/controller/MatBangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/controller/ExamServlet2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/reponsitory/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/reponsitory/IMatBangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/reponsitory/impl/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/reponsitory/impl/MatBangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/service/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/service/IMatBangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/service/impl/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/java/service/impl/MatBangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/exam/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/mat_bang/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/exam/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/mat_bang/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/exam/update.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/exam_project/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam_module/sql_exam_module.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam_module/sql_exam_module.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_mvc_model/bai_tap/untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss11_mvc_model/bai_tap/untitled/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/build/classes/java/main/connection/DBConnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/build/classes/java/main/connection/DBConnect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/build/libs/test-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/build/libs/test-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/src/main/java/connection/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/src/main/java/connection/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/src/main/java/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/src/main/java/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/book_manager/book_manager/src/main/webapp/book-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/book_manager/book_manager/src/main/webapp/book-list.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="2A134D5Zx42ZyxjLyEVBgdoapkD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last.edited.regexp" value="(84)+911234567" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\C002G2-LeVanTai\module3\case_study\module3_furama_wbe\src\main\webapp" />
+      <recent name="E:\C002G2-LeVanTai\module3\case_study\module3_furama_wbe\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\C002G2-LeVanTai\module3\case_study\module3_furama_wbe\src\main\webapp" />
+      <recent name="E:\C002G2-LeVanTai\module3\case_study\module3_furama_wbe\src\main\webapp\customer" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="repository" />
+      <recent name="validation" />
+      <recent name="config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.63" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.63" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : org.example : module3_furama_wbe-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="4b2168f4-fbfb-476e-a744-f915f0fa0f8c" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62839" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : org.example : module3_furama_wbe-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5123aa3f-a411-4d1f-bd6f-aa52470b5592" name="Changes" comment="" />
+      <created>1654163071559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654163071559</updated>
+      <workItem from="1654163073232" duration="1612000" />
+      <workItem from="1654165186465" duration="273000" />
+      <workItem from="1654176273953" duration="23000" />
+      <workItem from="1654279188513" duration="471000" />
+      <workItem from="1654279686838" duration="274000" />
+      <workItem from="1654305290863" duration="945000" />
+      <workItem from="1654321663678" duration="1071000" />
+      <workItem from="1654346491193" duration="8786000" />
+      <workItem from="1654362427394" duration="3391000" />
+      <workItem from="1654390205412" duration="3076000" />
+      <workItem from="1654409560658" duration="7294000" />
+      <workItem from="1654417028900" duration="5826000" />
+      <workItem from="1654431446128" duration="15289000" />
+      <workItem from="1654478799269" duration="694000" />
+      <workItem from="1654489228934" duration="14297000" />
+      <workItem from="1654504968985" duration="3000" />
+      <workItem from="1654517892326" duration="12079000" />
+      <workItem from="1654564283269" duration="9431000" />
+      <workItem from="1654581402109" duration="10411000" />
+      <workItem from="1654604672265" duration="17788000" />
+      <workItem from="1654650293741" duration="23079000" />
+      <workItem from="1654690722442" duration="11991000" />
+      <workItem from="1654736926141" duration="14693000" />
+      <workItem from="1654766968235" duration="49000" />
+      <workItem from="1654782338380" duration="11766000" />
+      <workItem from="1654824026895" duration="1629000" />
+      <workItem from="1654831362829" duration="201000" />
+      <workItem from="1654831669195" duration="5002000" />
+      <workItem from="1654843455999" duration="113000" />
+      <workItem from="1654844075226" duration="191000" />
+      <workItem from="1654879501241" duration="4964000" />
+      <workItem from="1654917370044" duration="8641000" />
+      <workItem from="1654930478812" duration="17000" />
+      <workItem from="1654934794378" duration="8104000" />
+      <workItem from="1655000955372" duration="164000" />
+      <workItem from="1655006903719" duration="935000" />
+      <workItem from="1655008087019" duration="2960000" />
+      <workItem from="1655035805463" duration="957000" />
+      <workItem from="1655036799074" duration="903000" />
+      <workItem from="1655088563516" duration="4542000" />
+      <workItem from="1655259842552" duration="38000" />
+      <workItem from="1655261563694" duration="53000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

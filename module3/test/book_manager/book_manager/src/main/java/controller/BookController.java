@@ -73,8 +73,8 @@ public class BookController extends HttpServlet {
     private void acceptReturn(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int bookId = Integer.parseInt(request.getParameter("bookId"));
         String bookCardId = request.getParameter("bookCardId");
-        Map<String, String> errMap = bookCardService.deleteBookCard(bookCardId);
-        Map<String, String> errMap2 = bookService.increaseAmountBook(bookId);
+         bookCardService.deleteBookCard(bookCardId);
+         bookService.increaseAmountBook(bookId);
         response.sendRedirect("/book?action=return");
     }
 

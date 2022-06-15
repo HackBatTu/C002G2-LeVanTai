@@ -1,0 +1,27 @@
+table {
+    font-size: 14px !important;
+}
+
+.table-scrollable {
+    overflow: auto;
+}
+
+th, td {
+    text-align: center !important;
+}
+
+button {
+    background-color: deeppink !important;
+}
+
+.btn-pink {
+    background-color: deeppink !important;
+}
+
+.nav-item:hover {
+    border: 3px solid deeppink;
+}
+
+.bg-pink {
+    background-color: deeppink !important;
+}

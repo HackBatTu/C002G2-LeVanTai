@@ -61,6 +61,7 @@
                 </c:forEach>
                 <td class="table-warning">${i.amount}</td>
                 <td class="table-warning">${i.description}</td>
+
                 <c:if test="${i.amount == 0}">
                 <td class="table-warning">
                     <a href="" class="btn btn-warning hover-zoom"
@@ -91,6 +92,7 @@
                     </div>
                 </div>
                 </c:if>
+
                 <c:if test="${i.amount > 0}">
                 <td class="table-warning"><a href="book?action=borrow&bookId=${i.bookId}" class="btn btn-warning">Mượn Sách</a></td>
                 </c:if>
