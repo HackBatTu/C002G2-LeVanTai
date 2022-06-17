@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e27400dc-4be8-4306-8f02-2658dedfc2ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.idea/sanwich-management.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/link/controller/MailBoxController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/link/model/MailBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/src/main/java/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical_declaration/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/java/com/link/controller/MusicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/java/com/link/model/Music.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/java/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../upload_music/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/java/com/codegym/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/java/com/codegym/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/views/employee/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/views/employee/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-mvc-form-tutorial/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/java/com/codegym/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/java/com/codegym/model/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/java/com/codegym/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/java/com/codegym/model/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/webapp/WEB-INF/views/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-user-model/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/upload_file.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/model/ProductForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/java/com/codegym/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/resources/upload_file.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/caculator_management/controller/CalculatorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/caculator_management/service/ICalculatorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/caculator_management/service/impl/CalculatorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/build/classes/java/main/sandwich_management/controller/SandwichController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/build/classes/java/main/sandwich_management/controller/SandwichController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/build/libs/sanwich-management-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/build/libs/sanwich-management-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/src/main/java/sandwich_management/controller/SandwichController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/sanwich-management/src/main/java/sandwich_management/controller/SandwichController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="2Ah2xZXw6nadZRZcZpvK90UNgZn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ss2_spring_controllers/bai_tap/caculator-management" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\C002G2-LeVanTai\module4\ss4_databinding_form\bai_tap\mailbox_managament\src\main\webapp\WEB-INF\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\C002G2-LeVanTai\module4\ss4_databinding_form\bai_tap\mailbox_managament\src\main\webapp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.63" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.63" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : org.example : mailbox_managament-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_mailbox_managament" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57636" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : org.example : mailbox_managament-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e27400dc-4be8-4306-8f02-2658dedfc2ba" name="Default Changelist" comment="" />
+      <created>1655447743087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655447743087</updated>
+      <workItem from="1655447745224" duration="7956000" />
+      <workItem from="1655456727976" duration="975000" />
+      <workItem from="1655459955473" duration="526000" />
+      <workItem from="1655461151168" duration="51000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="90" key="#Project_Structure" timestamp="1655449509304">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="440" y="90" key="#Project_Structure/0.0.1920.1032@0.0.1920.1032" timestamp="1655449509304" />
+    <state x="414" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1655449048597">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="414" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1655449048597" />
+    <state x="765" y="232" key="#com.intellij.ide.util.MemberChooser" timestamp="1655453384124">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="765" y="232" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1655453384124" />
+    <state x="524" y="440" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1655449691036">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="524" y="440" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1655449691036" />
+    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1655452249076">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="740" y="271" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1655452249076" />
+    <state width="1280" height="276" key="GridCell.Tab.0.bottom" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.0.center" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.0.left" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.0.right" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.1.bottom" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.1.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.1.center" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.1.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.1.left" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.1.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.1.right" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.1.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.2.bottom" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.2.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.2.center" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.2.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.2.left" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.2.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1280" height="276" key="GridCell.Tab.2.right" timestamp="1655455774670">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1280" height="276" key="GridCell.Tab.2.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655455774670" />
+    <state width="1281" height="276" key="GridCell.Tab.3.bottom" timestamp="1655454313501">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1281" height="276" key="GridCell.Tab.3.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655454313501" />
+    <state width="1281" height="276" key="GridCell.Tab.3.center" timestamp="1655454313501">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1281" height="276" key="GridCell.Tab.3.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655454313501" />
+    <state width="1281" height="276" key="GridCell.Tab.3.left" timestamp="1655454313501">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1281" height="276" key="GridCell.Tab.3.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655454313501" />
+    <state width="1281" height="276" key="GridCell.Tab.3.right" timestamp="1655454313501">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1281" height="276" key="GridCell.Tab.3.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655454313501" />
+    <state x="461" y="161" key="SettingsEditor" timestamp="1655454504428">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="461" y="161" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1655454504428" />
+    <state x="342" y="126" key="new project wizard" timestamp="1655455728669">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="342" y="126" key="new project wizard/0.0.1920.1032@0.0.1920.1032" timestamp="1655455728669" />
+  </component>
+</project>
