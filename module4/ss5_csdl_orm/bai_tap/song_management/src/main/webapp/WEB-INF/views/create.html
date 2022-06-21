@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg-pink {
+            background-color: red !important;
+        }
+        body{
+            box-sizing: border-box;
+            padding: 0px;
+            border: 0px;
+        }
+        html{
+            font-size: 12px !important;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-warning p-2">
+    <div class="container-fluid">
+        <h1>Create Songs</h1>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white active" href="../songs">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="col-auto row col-12" style="margin: 0 auto;">
+    <div class="bg-pink text-white col-5" style="margin: 0 auto !important; padding: 20px;">
+        <form action="songs/create-song" th:object="${song}"  method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example1">Song Name</label>
+                <input type="text" id="form1Example1" class="form-control" th:field="*{name}"/>
+
+            </div>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example3">Singer Song</label>
+                <input type="text" id="form1Example3" class="form-control" th:field="*{singer}"/>
+            </div>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example5">Type Music</label>
+                <input type="text" id="form1Example5" class="form-control" th:field="*{typeMusic}"/>
+            </div>
+
+            <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example6">Link Song</label>
+                <input type="text" id="form1Example6" class="form-control" th:field="*{link}"/>
+
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-block w-25">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

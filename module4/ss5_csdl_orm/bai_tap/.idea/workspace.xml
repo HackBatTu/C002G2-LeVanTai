@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3af1bcfd-5d55-45ac-8524-c21989d7956d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../module3/case_study_mvc_furama/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/case_study_mvc_furama/.idea/case_study_mvc_furama.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/case_study_mvc_furama/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/case_study_mvc_furama/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/case_study_mvc_furama/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/com/link/configuration/AppConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/com/link/configuration/AppInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/com/link/controller/ProductController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/com/link/model/Product.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/com/link/service/IProductService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/com/link/service/ProductService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/classes/java/main/config/CharsetFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/libs/product_management-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/com/link/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/com/link/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/com/link/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/com/link/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/com/link/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/com/link/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/java/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_management/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/AppConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/AppInit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/controller/SongController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/model/Song.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/repository/BaseRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/repository/ISongRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/repository/SongRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/service/ISongService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/com/link/service/SongService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/classes/java/main/config/CharsetFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/libs/song-management-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/resources/main/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/controller/SongController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/model/Song.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/repository/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/repository/ISongRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/repository/SongRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/service/ISongService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/com/link/service/SongService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/java/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/WEB-INF/views/error.404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/WEB-INF/views/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/bootstrap413/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.bootstrap4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.foundation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.foundation.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.jqueryui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.jqueryui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.semanticui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/dataTables.semanticui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/jquery.dataTables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/css/jquery.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/images/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/images/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/images/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/images/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/images/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/dataTables.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/jquery.dataTables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/datatables/js/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/song_management/src/main/webapp/jquery/jquery-3.5.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/META-INF/war-tracker" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/link/configuration/AppConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/link/configuration/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/link/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/link/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/link/service/IProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/link/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/config/CharsetFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/attoparser-2.0.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/groovy-3.0.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/groovy-extensions-1.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/javassist-3.20.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/ognl-3.1.26.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-aop-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-beans-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-context-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-core-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-expression-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-jcl-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-web-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-webmvc-5.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/thymeleaf-3.0.15.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/thymeleaf-expression-processor-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/thymeleaf-layout-dialect-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/thymeleaf-spring5-3.0.15.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module3/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_views_thymeleaf/bai_tap/product_management/src/main/java/com/link/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3_views_thymeleaf/bai_tap/product_management/src/main/java/com/link/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../thuc_hanh/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="song-management" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="2AricxqebdJ81wev9Oas1D0G0DR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/product_management" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\C002G2-LeVanTai\module4\ss5_csdl_orm\bai_tap\src\main\webapp\WEB-INF" />
+      <recent name="E:\C002G2-LeVanTai\module4\ss5_csdl_orm\bai_tap\src\main\webapp" />
+      <recent name="E:\C002G2-LeVanTai\module4\ss5_csdl_orm\bai_tap\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.63" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.63" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : org.example : song-management-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="456a1b33-e6ee-46aa-b71e-a8f7cdb9c1c2" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65088" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : org.example : song-management-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3af1bcfd-5d55-45ac-8524-c21989d7956d" name="Changes" comment="" />
+      <created>1655774188420</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655774188420</updated>
+      <workItem from="1655774191181" duration="7411000" />
+      <workItem from="1655793271793" duration="8838000" />
+      <workItem from="1655818665935" duration="1212000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

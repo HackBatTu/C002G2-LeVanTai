@@ -1,36 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+</head>
 <body>
-<h3>Add Product</h3>
-<p>
-    <a th:href="@{/product}">
-        Back to product list
-    </a>
-</p>
-<div id="form">
-    <form th:action="@{/product/save}" th:object="${products}"
-          method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{id}"/>
-        <div>
-            <label>Name</label>
-            <input type="text" th:field="*{name}"/>
+<div class="container">
+    <form action="/product/create" th:object="${product}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" th:field="*{name}">
         </div>
-        <div>
-            <label>Email</label>
-            <input type="text" th:field="*{prince}"/>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" class="form-control" th:field="*{price}">
         </div>
-        <div>
-            <label>Address</label>
-            <input type="text" th:field="*{describe}"/>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" th:field="*{description}">
         </div>
-        <div>
-            <label>Address</label>
-            <input type="text" th:field="*{manufacture}"/>
+        <div class="mb-3">
+            <label class="form-label">Manufacturer</label>
+            <input type="text" class="form-control" th:field="*{manufacturer}">
         </div>
-        <input type="submit" value="Save"/>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
 </body>
 </html>

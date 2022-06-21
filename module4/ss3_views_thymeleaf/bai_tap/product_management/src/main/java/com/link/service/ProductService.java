@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ProductService implements IProductService {
-    private static final Map<Integer, Product> products = new HashMap<>();;
+    private static final Map<Integer, Product> products = new HashMap<>();
 
     static {
         products.put(1, new Product(1, "Car",100.0, "black , 4s", "Vinfast"));
@@ -33,6 +33,7 @@ public class ProductService implements IProductService {
     public Product findById(int id) {
         return products.get(id);
     }
+
     @Override
     public List<Product> findByName(String name) {
         List<Product> productList = new ArrayList<>();
