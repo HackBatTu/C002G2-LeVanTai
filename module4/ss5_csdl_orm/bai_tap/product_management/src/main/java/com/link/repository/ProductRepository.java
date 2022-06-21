@@ -53,7 +53,6 @@ public class ProductRepository implements IProductRepository {
         entityTransaction.begin();
         try {
             BaseRepository.entityManager.merge(product);
-
             entityTransaction.commit();
         } catch (Exception e) {
             entityTransaction.rollback();

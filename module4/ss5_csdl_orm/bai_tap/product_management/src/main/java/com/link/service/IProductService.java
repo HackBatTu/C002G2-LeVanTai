@@ -1,10 +1,12 @@
 package com.link.service;
 
 import com.link.model.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface IProductService {
+
     List<Product> getAllProduct();
 
     void save(Product product);

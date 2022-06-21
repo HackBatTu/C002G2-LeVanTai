@@ -11,19 +11,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private double prince;
-    private String describe;
-    private String manufacture;
+    private double price;
+    private String description;
+    private String manufacturer;
 
     public Product() {
     }
 
-    public Product(int id, String name, double prince, String describe, String manufacture) {
+    public Product(int id, String name, double price, String description, String manufacture) {
         this.id = id;
         this.name = name;
-        this.prince = prince;
-        this.describe = describe;
-        this.manufacture = manufacture;
+        this.price = price;
+        this.description = description;
+        this.manufacturer = manufacturer;
     }
 
     public int getId() {
@@ -42,27 +42,26 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrince() {
-        return prince;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrince(double prince) {
-        this.prince = prince;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public String getDescription() {
+        return description;
     }
 
-    public String getDescribe() {
-        return describe;
+    public void setDescribe(String description) {
+        this.description = description;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public String getManufacture() {
-        return manufacture;
-    }
-
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 }

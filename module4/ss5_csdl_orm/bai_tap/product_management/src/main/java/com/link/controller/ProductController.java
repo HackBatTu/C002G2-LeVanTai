@@ -12,11 +12,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
+
     @Autowired
-    private IProductService productService;
+    private  IProductService productService;
 
     @GetMapping("")
-    public String goHome(Model model){
+    public String index(Model model){
         List<Product> products = productService.getAllProduct();
         model.addAttribute("products", products);
         return "index";
@@ -33,18 +34,6 @@ public class ProductController {
         productService.save(product);
         return "redirect:/product/";
     }
-
-    @GetMapping("/delete/{id}")
-    public String showFormDelete(@PathVariable int id, Model model){
-        Product product = productService.findById(id);
-        model.addAttribute("product", product);
-        return "delete";
-    }
-    @PostMapping("/delete")
-    public String delete(@ModelAttribute Product product){
-        productService.delete(product.getId());
-        return "redirect:/product/";
-    }
     @GetMapping("/edit/{id}")
     public String showFormEdit(@PathVariable int id, Model model){
         Product product = productService.findById(id);
@@ -56,16 +45,28 @@ public class ProductController {
         productService.edit(product);
         return "redirect:/product/";
     }
-//    @GetMapping("/detail/{id}")
-//    public String showDetail(@PathVariable int id, Model model){
-//        Product product = productService.findById(id);
-//        model.addAttribute("product", product);
-//        return "detail";
-//    }
+    @GetMapping("/delete/{id}")
+    public String showFormDelete(@PathVariable int id, Model model){
+        Product product = productService.findById(id);
+        model.addAttribute("product", product);
+        return "delete";
+    }
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute Product product){
+        productService.delete(product.getId());
+        return "redirect:/product/";
+    }
+
+    @GetMapping("/detail/{id}")
+    public String showDetail(@PathVariable int id, Model model){
+        Product product = productService.findById(id);
+        model.addAttribute("product", product);
+        return "details";
+    }
     @GetMapping("/search")
     public String searchByName(@RequestParam String search, Model model){
         List<Product> products = productService.getProductByName(search);
         model.addAttribute("products", products);
-        return "home";
+        return "index";
     }
 }
