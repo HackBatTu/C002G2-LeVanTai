@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+</head>
+<body>
+<div class="container">
+    <form action="/products/edit" method="post" th:object="${product}">
+        <div class="mb-3 mt-3">
+            <input type="hidden" class="form-control" id="id" placeholder="id" name="id" th:field="*{id}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <textarea name="name" id="name" class="form-control" placeholder="Enter name" th:field="*{name}"></textarea>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="color" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="color" placeholder="Enter color" name="color" th:field="*{color}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="manufacturer" class="form-label">Description:</label>
+            <textarea name="manufacturer" id="manufacturer" class="form-control" placeholder="Enter manufacturer" th:field="*{manufacturer}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+        <a href="/products" class="btn btn-outline-secondary">Back home</a>
+    </form>
+</div>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+</body>
+</html>
