@@ -13,4 +13,5 @@ public interface ISongRepository {
 
     void remove(Integer id);
 
+    void update(Song song);
 }

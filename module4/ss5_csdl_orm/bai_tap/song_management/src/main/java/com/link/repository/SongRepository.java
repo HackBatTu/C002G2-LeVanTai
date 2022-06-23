@@ -36,25 +36,36 @@ public class SongRepository implements ISongRepository{
     @Override
     public void save(Song song) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
-        if(song.getId() != null){
-            entityTransaction.begin();
-            BaseRepository.entityManager.merge(song);
-            entityTransaction.commit();
-        }else {
-            entityTransaction.begin();
+        entityTransaction.begin();
+        try {
             BaseRepository.entityManager.persist(song);
             entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
         }
     }
 
     @Override
     public void remove(Integer id) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
-        Song song = findById(id);
-        if(song!= null){
-            entityTransaction.begin();
-            BaseRepository.entityManager.remove(song);
+        entityTransaction.begin();
+        try {
+            BaseRepository.entityManager.remove(BaseRepository.entityManager.find(Song.class,id));
             entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
+        }
+    }
+
+    @Override
+    public void update(Song song) {
+        EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
+        entityTransaction.begin();
+        try {
+            BaseRepository.entityManager.merge(song);
+            entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
         }
     }
 

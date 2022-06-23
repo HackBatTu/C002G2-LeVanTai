@@ -1,91 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../bootstrap413/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap4.css">
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
 </head>
 <body>
-<h1 class="text-center ">Songs</h1>
-<a href="/create-song">Create new Song</a>
-<div class="notify">
-    <div th:if="${messages}">
-        <span th:text="${messages}"></span>
+<header>
+    <div class="p-5 text-center bg-image"
+         style="height: 200px;">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-success">
+                    <h1 class="mb-3">Music Management</h1>
+                    <a th:href="@{/songs/create-song}" class="btn btn-outline-success btn-lg" role="button">Create Music</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<table class="table table-success table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Singer</th>
-        <th>Type Music</th>
-        <th>Link</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <th:block th:each="s, loop: ${songs}">
+</header>
+<div class="container mt-3">
+    <table class="table table-hover">
+        <thead>
         <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Singer</th>
+            <th>Type Music</th>
+            <th>Link(Path)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item, loop : ${songs}">
             <td th:text="${loop.count}"></td>
-            <td th:text="${s.id}"></td>
-            <td th:text="${s.name}"></td>
-            <td th:text="${s.singer}"></td>
-            <td th:text="${s.typeMusic}"></td>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.singer}"></td>
+            <td th:text="${item.typeMusic}"></td>
             <td>
-                <iframe th:src="${s.link}"
-                        th:title="${s.name}" frameborder="0"
+                <iframe th:src="${item.link}"
+                        th:title="${item.name}" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </td>
-            <td><button type="button" class="btn btn-primary text-white"><a th:href="@{songs/edit-song/{id}(id=${s.id})}">Edit</a></button></td>
             <td>
-                <button type="button" class="btn btn-danger" th:data-bs-toggle="modal"
-                        th:data-bs-target="'#staticBackdrop'+ ${s.id}">Delete
-                </button>
+                <a href="" th:href="@{/songs/edit-song/{id}(id=${item.id})}" class="btn btn-outline-warning">Edit</a>
             </td>
-            <div class="modal fade" th:id="staticBackdrop + ${s.id}" data-bs-backdrop="static"
-                 data-bs-keyboard="false" tabindex="-1"
-                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabelAddNew">Delete</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="alert alert-warning">
-                                Do you want delete Song <span th:text="${s.name}"></span> with id <span th:text="${s.id}"></span>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
-                            <a th:href="@{songs/delete-song/{id}(id=${s.id})}" class="btn btn-success">Summit</a>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                            </button>
+                            <div class="modal-body">
+                                Do you want delete music <span th:text="${item.name}" class="text-warning"></span>
+                                with id = <span th:text="${item.id}" class="text-warning"></span> ?
+                            </div>
+                            <div class="modal-footer">
+                                <a href="" th:href="@{/songs/delete-song/{id}(id=${item.id})}"
+                                   class="btn btn-outline-success">Delete</a>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
+                            </div>
                         </div>
-                        <div class="modal-footer"></div>
                     </div>
                 </div>
-            </div>
+
+            </td>
         </tr>
-    </th:block>
-
-</table>
+        </tbody>
+    </table>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
 </body>
-<script src="../jquery/jquery-3.5.1.min.js"></script>
-<script src="../datatables/js/jquery.dataTables.min.js"></script>
-<script src="../datatables/js/dataTables.bootstrap4.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#myTable').dataTable({
-            "dom": 'lrtip',
-            "lengthChange": false,
-            "pageLength": 5
-        });
-    } );
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
 </html>

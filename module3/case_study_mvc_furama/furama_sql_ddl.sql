@@ -1,6 +1,6 @@
-create database case_study_3;
+create database case_study_servlet;
 -- drop database case_study_3;
-use case_study_3;
+use case_study_servlet;
 create table role(
 role_id int auto_increment primary key,
 role_name varchar(255),
