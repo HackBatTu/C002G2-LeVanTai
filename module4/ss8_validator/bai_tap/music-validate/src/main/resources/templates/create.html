@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+</head>
+<body>
+<div class="p-3 text-center bg-image"
+     style="height: 50px;">
+    <div class="mask">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-success">
+                <h1 class="mb-3">Create My Blog</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form action="/musics/create" method="post" th:object="${music}">
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Name:</label>
+            <input class="form-control" placeholder="Enter name" th:field="*{name}"></input>
+        </div>
+        <div style="color: red" th:errors="*{name}"></div>
+
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Singer:</label>
+            <input class="form-control" placeholder="Enter content" th:field="*{singer}"></input>
+        </div>
+        <div style="color: red" th:errors="*{singer}"></div>
+
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Select list (select one):</label>
+            <select class="form-select" th:field="*{category}">
+                <option th:each="item,loop : ${category}" th:text="${item.name}" th:value="${item.id}"></option>
+            </select>
+        </div>
+        <div style="color: red" th:errors="*{category}"></div>
+
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+        <a href="/musics" class="btn btn-outline-secondary">Back home</a>
+    </form>
+</div>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+</body>
+</html>

@@ -19,13 +19,14 @@
 <div class="container">
     <form action="/bloggers/create" method="post" th:object="${blog}">
         <div class="mb-3 mt-3">
-            <label class="form-label h6">Title:</label>
-            <input type="text" class="form-control" placeholder="Enter title"  th:field="*{title}">
-        </div>
-        <div class="mb-3 mt-3">
             <label class="form-label h6">Name:</label>
             <textarea class="form-control" placeholder="Enter name" th:field="*{name}"></textarea>
         </div>
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Title:</label>
+            <input type="text" class="form-control" placeholder="Enter title"  th:field="*{title}">
+        </div>
+
         <div class="mb-3 mt-3">
             <label class="form-label h6">Content:</label>
             <textarea class="form-control" placeholder="Enter content" th:field="*{content}"></textarea>
@@ -37,7 +38,7 @@
             </select>
         </div>
         <button type="submit" class="btn btn-outline-success">Submit</button>
-        <a href="/bloggers/list" class="btn btn-outline-secondary">Back home</a>
+        <a href="/bloggers" class="btn btn-outline-secondary">Back home</a>
     </form>
 </div>
 </div>

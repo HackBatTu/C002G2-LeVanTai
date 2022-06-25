@@ -4,7 +4,7 @@ import com.link.model.Blogger;
 import com.link.service.IBlogService;
 import com.link.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class BlogController {
     @Autowired
     private ICategoryService categoryService;
 
-    @GetMapping("/list")
+    @GetMapping("")
     public String displayBlog(Model model, @PageableDefault(value = 5)Pageable pageable, @RequestParam Optional<String> search){
         String searchName = search.orElse("");
         model.addAttribute("searchName",searchName);
@@ -39,7 +39,7 @@ public class BlogController {
     @PostMapping("/create")
     public String saveBlog(Blogger blogger){
         this.iBlogService.save(blogger);
-        return "redirect:/bloggers/list";
+        return "redirect:/bloggers";
     }
     @GetMapping("/edit/{id}")
     public String editBlog(@PathVariable Integer id , Model model){
@@ -55,7 +55,7 @@ public class BlogController {
     @GetMapping("/delete/{id}")
     public String deleteBlog(@PathVariable Integer id){
         this.iBlogService.deleteBlog(id);
-        return "redirect:/bloggers/list";
+        return "redirect:/bloggers";
     }
     @GetMapping("/details/{id}")
     public String showDetail(@PathVariable int id, Model model){

@@ -16,7 +16,6 @@ public class Blogger {
     @ManyToOne
     @JoinColumn(name = "category_id",referencedColumnName = "id")
     private Category category;
-
     public Blogger() {
     }
 
