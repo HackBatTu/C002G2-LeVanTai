@@ -13,4 +13,6 @@ public interface IMusicService {
     Music findById(int id);
 
     List<Category> getAllCategory();
+
+    void delete(int id);
 }

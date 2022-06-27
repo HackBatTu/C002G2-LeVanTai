@@ -17,18 +17,23 @@
     </div>
 </div>
 <div class="container">
-    <form action="/musics/edit" method="post" th:object="${music}">
-        <div class="mb-3 mt-3">
-            <input type="hidden" class="form-control" placeholder="id" th:field="*{id}">
-        </div>
+    <form action="/musics/edit" method="post" th:object="${musicDTO}">
         <div class="mb-3 mt-3">
             <label class="form-label h6">Name:</label>
-            <textarea class="form-control" placeholder="Enter name" th:field="*{name}"></textarea>
+            <input class="form-control" placeholder="Enter name" th:field="*{name}">
         </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}">
+            <div th:errors="*{name}"></div>
+        </div>
+
         <div class="mb-3 mt-3">
             <label class="form-label h6">Content:</label>
-            <textarea class="form-control" placeholder="Enter Content" th:field="*{singer}"></textarea>
+            <input class="form-control" placeholder="Enter Content" th:field="*{singer}">
         </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('singer')}">
+            <div th:errors="*{singer}"></div>
+        </div>
+
         <div class="mb-3 mt-3">
             <label class="form-label h6">Select list (select one):</label>
             <select class="form-select" th:field="*{category}">
@@ -37,6 +42,10 @@
                 </div>
             </select>
         </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('category')}">
+            <div th:errors="*{category}"></div>
+        </div>
+
         <button type="submit" class="btn btn-outline-success">Submit</button>
         <a href="/musics" class="btn btn-outline-secondary">Back home</a>
     </form>

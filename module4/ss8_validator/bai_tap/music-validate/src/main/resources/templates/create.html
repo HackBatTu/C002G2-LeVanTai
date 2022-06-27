@@ -17,18 +17,18 @@
     </div>
 </div>
 <div class="container">
-    <form action="/musics/create" method="post" th:object="${music}">
+    <form action="/musics/create" method="post" th:object="${musicDTO}">
         <div class="mb-3 mt-3">
             <label class="form-label h6">Name:</label>
-            <input class="form-control" placeholder="Enter name" th:field="*{name}"></input>
+            <input type="text" class="form-control" placeholder="Enter name" th:field="*{name}">
         </div>
-        <div style="color: red" th:errors="*{name}"></div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
 
         <div class="mb-3 mt-3">
             <label class="form-label h6">Singer:</label>
-            <input class="form-control" placeholder="Enter content" th:field="*{singer}"></input>
+            <input type="text" class="form-control" placeholder="Enter name" th:field="*{singer}">
         </div>
-        <div style="color: red" th:errors="*{singer}"></div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></div>
 
         <div class="mb-3 mt-3">
             <label class="form-label h6">Select list (select one):</label>
@@ -36,7 +36,7 @@
                 <option th:each="item,loop : ${category}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
         </div>
-        <div style="color: red" th:errors="*{category}"></div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
 
         <button type="submit" class="btn btn-outline-success">Submit</button>
         <a href="/musics" class="btn btn-outline-secondary">Back home</a>

@@ -4,36 +4,30 @@ import com.link.musicvalidate.model.Category;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
-public class MusicDTO implements Validator {
+public class MusicDTO {
+    private int id;
+    @NotNull
     @NotBlank
+    @NotEmpty
     @Size(max = 800,message = "cant high 800 char")
-    @Pattern(regexp = "[0-9A-Za-z]")
+    @Pattern(regexp = "[A-Za-z0-9\\s]+", message = "no valid")
     private String name;
+    @NotNull
     @NotBlank
+    @NotEmpty
     @Size(max = 300,message = "cant high 300 char")
-    @Pattern(regexp = "[0-9A-Za-z]")
+    @Pattern(regexp = "[A-Za-z0-9\\s]+", message = "no valid")
     private String singer;
-    @NotBlank
-    @Size(max = 800,message = "cant high 1000 char")
-    @Pattern(regexp = "[0-9A-Za-z,]")
+    @NotNull
     private Category category;
 
     public MusicDTO() {
     }
 
-    public MusicDTO( @NotBlank
-                     @Size(max = 800,message = "cant high 800 char")
-                     @Pattern(regexp = "[0-9A-Za-z]") String name,
-                     @NotBlank
-                     @Size(max = 800,message = "cant high 800 char")
-                     @Pattern(regexp = "[0-9A-Za-z]") String singer,
-                     @NotBlank
-                     @Size(max = 800,message = "cant high 1000 char")
-                     @Pattern(regexp = "[0-9A-Za-z,]") Category category) {
+    public MusicDTO(int id,String name, String singer, Category category) {
+        this.id = id;
         this.name = name;
         this.singer = singer;
         this.category = category;
@@ -61,15 +55,5 @@ public class MusicDTO implements Validator {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
-    }
-
-    @Override
-    public void validate(Object target, Errors errors) {
-        MusicDTO musicDTO = (MusicDTO) target;
     }
 }

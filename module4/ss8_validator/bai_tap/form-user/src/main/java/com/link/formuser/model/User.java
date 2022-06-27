@@ -1,36 +1,39 @@
 package com.link.formuser.model;
 
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class User {
-    @NotEmpty
-    @Size(min = 5,max = 45)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String firstName;
-
-    @NotEmpty
-    @Size(min = 5,max = 45)
     private String lastName;
-
-    @Pattern(regexp = "^(09|\\(84\\)\\+9)[01]\\d{7}$" ,message = "phone valid")
     private int phone;
-
-    @Min(18)
     private int age;
-
-    @Email(message = "email valid")
     private String email;
 
     public User() {
     }
 
-    public User( @NotEmpty @Size(min = 5,max = 45) String firstName,@NotEmpty
-    @Size(min = 5,max = 45) String lastName,@Pattern(regexp = "^(09|\\(84\\)\\+9)[01]\\d{7}$" ,message = "phone valid") int phone,
-                 @Min(18) int age,@Email(message = "email valid") String email) {
+    public User(int id,String firstName, String lastName, int phone, int age, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.age = age;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {

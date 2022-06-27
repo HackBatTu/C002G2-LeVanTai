@@ -36,4 +36,9 @@ public class MusicService implements IMusicService{
     public List<Category> getAllCategory() {
         return iCategoryRepository.findAll();
     }
+
+    @Override
+    public void delete(int id) {
+        iMusicRepository.deleteById(id);
+    }
 }
