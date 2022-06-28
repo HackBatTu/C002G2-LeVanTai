@@ -34,25 +34,20 @@ public class BookController {
         return "list-borrow";
     }
 
-    @GetMapping("/borrow/{idBook}")
-    public String borrowBooks(@PathVariable Integer id,@PathVariable Integer idBook, RedirectAttributes redirectAttributes) {
+    @GetMapping("/borrow/{bookId}")
+    public String borrowBooks(@PathVariable int id,@PathVariable int bookId, RedirectAttributes redirectAttributes) {
         Library library = iLibraryService.findById(id);
-        if (library.getQuantity() <= 0) {
-            return "/error";
-        }
-        iBookService.borrowBook(idBook);
+        iBookService.borrowBook(bookId);
         library.setQuantity(library.getQuantity() - 1);
         redirectAttributes.addFlashAttribute("mess", "đã mươn sách thành công, mã mượn sách của bạn là : " + id);
-
         return "redirect:/library";
     }
 
 
-
-    @GetMapping("/return/{idBook}")
-    public String returnBooks(@RequestParam Integer id,@PathVariable Integer idBook) {
+    @GetMapping("/return/{bookId}")
+    public String returnBooks(@RequestParam int id,@PathVariable int bookId) {
         Library library = iLibraryService.findById(id);
-        iBookService.returnBook(idBook);
+        iBookService.returnBook(bookId);
         library.setQuantity(library.getQuantity() + 1);
         return "redirect:/library";
     }

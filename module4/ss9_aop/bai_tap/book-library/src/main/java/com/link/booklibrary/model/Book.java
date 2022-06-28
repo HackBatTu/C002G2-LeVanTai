@@ -12,7 +12,7 @@ public class Book {
     @JoinColumn(name = "library_id", referencedColumnName = "library_id")
     private Library library;
 
-    @Column(columnDefinition = "default 0")
+    @Column(name = "status",columnDefinition = "default 0")
     private int status;
 
     public Book() {

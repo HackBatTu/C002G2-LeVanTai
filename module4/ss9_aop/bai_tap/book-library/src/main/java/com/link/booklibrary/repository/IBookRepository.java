@@ -21,11 +21,11 @@ public interface IBookRepository extends JpaRepository<Book , String> {
 
     @Modifying
     @Transactional
-    @Query(value = " update from book b set b.status = 1 where b.book_id = :id ", nativeQuery = true)
-    void borrowBook(@Param("idBook") int id);
+    @Query(value = " update book b set b.status = 1 where b.book_id = :id ", nativeQuery = true)
+    void borrowBook(@Param("bookId") int id);
 
     @Modifying
     @Transactional
-    @Query(value = " update from book b set b.status = 0 where b.book_id = :id ", nativeQuery = true)
-    void returnBook(@Param("idBook") int id);
+    @Query(value = " update book b set b.status = 0 where b.book_id = :id ", nativeQuery = true)
+    void returnBook(@Param("bookId") int id);
 }

@@ -10,7 +10,7 @@ public interface IBookService {
 
     List<Book> findAllBorrow();
 
-    void borrowBook(int idBook);
+    void borrowBook(int bookId);
 
-    void returnBook(int idBook);
+    void returnBook(int bookId);
 }

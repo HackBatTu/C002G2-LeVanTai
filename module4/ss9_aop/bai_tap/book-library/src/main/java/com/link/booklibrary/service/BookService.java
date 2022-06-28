@@ -25,13 +25,13 @@ public class BookService implements IBookService{
     }
 
     @Override
-    public void borrowBook(int idBook) {
-        iBookRepository.borrowBook(idBook);
+    public void borrowBook(int bookId) {
+        iBookRepository.borrowBook(bookId);
     }
 
     @Override
-    public void returnBook(int idBook) {
-        iBookRepository.returnBook(idBook);
+    public void returnBook(int bookId) {
+        iBookRepository.returnBook(bookId);
     }
 
 
