@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+</head>
+<body>
+<div class="p-3 text-center bg-image"
+     style="height: 50px;">
+    <div class="mask">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-success">
+                <h1 class="mb-3">Create My Library</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form action="/library/create" method="post" th:object="${library}">
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter name" th:field="*{name}">
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Quantity:</label>
+            <input type="text" class="form-control" placeholder="Enter Quantity" th:field="*{quantity}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Day Check In:</label>
+            <input type="text" class="form-control" placeholder="Enter Day" th:field="*{day}">
+        </div>
+
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+        <a href="/library" class="btn btn-outline-secondary">Back home</a>
+    </form>
+</div>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+</body>
+</html>

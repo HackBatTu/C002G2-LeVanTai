@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+
+</head>
+<body>
+<header>
+    <div class="p-3 text-center bg-image"
+         style="height: 150px;">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-success">
+                    <h1 class="mb-3">My Library</h1>
+                    <a href="" th:href="@{/library/create}" class="btn btn-outline-success btn-lg" role="button">Create My
+                        Book</a>
+                    <a href="" th:href="@{/book/listBook}" class="btn btn-outline-success btn-lg" role="button">List Details Book in Library</a>
+                    <a href="" th:href="@{/book/listBookBorrow}" class="btn btn-outline-success btn-lg" role="button">List Book Borrowing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <nav class="navbar navbar-light bg-info">
+            <div class="container-fluid">
+                <h5 class="navbar-brand">Have Book In Library : </h5>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" name="search"
+                           placeholder="Search By Name" th:value="${searchName}" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" name="name">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container mt-3">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>ID Book Library</th>
+            <th>Name Book</th>
+            <th>Day Check In</th>
+            <th>Quantity</th></tr>
+        </thead>
+        <tbody>
+        <tr th:each="b, loop : ${library}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.name}"></td>
+            <td th:text="${b.day}"></td>
+            <td th:text="${b.quantity}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+
+</body>
+</html>
