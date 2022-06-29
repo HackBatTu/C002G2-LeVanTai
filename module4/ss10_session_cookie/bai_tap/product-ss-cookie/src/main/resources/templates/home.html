@@ -6,7 +6,120 @@
     <th:block th:replace="html-css :: bootstrapCss"></th:block>
 </head>
 <body>
+<section class="page-section" id="home">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6 text-center">
+            <h2 class="mt-0">Product</h2>
+            <div th:if="${msg}">
+                <div class="alert alert-success" role="alert" th:text="${msg}"></div>
+            </div>
 
+            <hr class="divider"/>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Create New Product
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelCreate" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title m-auto" id="staticBackdropLabelCreate">Create new Product</h5>
+                        </div>
+                        <form id="contactForm" action="/product/create" method="post" th:object="${product}">
+                            <div class="modal-body">
+                                <!-- Name input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." th:field="*{name}"/>
+                                    <label for="name">Name</label>
+                                </div>
+                                <!-- Author input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="price" type="text" placeholder="Enter your price..." th:field="*{price}"/>
+                                    <label for="price">Price</label>
+                                </div>
+                                <!-- Quantity input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="quantity" type="text" placeholder="Enter your quantity..." th:field="*{quantity}"/>
+                                    <label for="quantity">Quantity</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="img" type="text" placeholder="Enter your img..." th:field="*{img}"/>
+                                    <label for="quantity">Img link</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="description" type="text" placeholder="Enter your description..." th:field="*{description}"/>
+                                    <label for="quantity">Description</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="card float-start text-center m-3" style="width: 18rem;" th:each="item, loop : ${products}">
+            <img th:src="@{${item.img}}" class="card-img-top" th:alt="${item.name}">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${item.name}"></h5>
+                <p class="card-text" th:text="${#strings.replace(#numbers.formatCurrency(item.price), '.00', '')}"></p>
+                <a th:href="@{/product/add-cart(id=${item.id})}" class="btn btn-primary">Add to cart</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                    Detail
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title m-auto" id="staticBackdropLabel">Product Detail</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card text-center">
+                                    <div class="card-header text-primary fs-3 fw-bold" th:text="${item.name}">
+
+                                    </div>
+                                    <div class="card-body">
+                                        <img th:src="@{${item.img}}" class="img-fluid rounded-start" alt="...">
+                                        <div class="card" style="width: 100%;">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" th:text="'ID: ' + ${item.id}"></li>
+                                                <li class="list-group-item" th:text="'Price: ' + ${item.price}"></li>
+                                                <li class="list-group-item" th:text="'Quantity: ' + ${item.quantity}"></li>
+                                                <li class="list-group-item" th:text="'Description: ' + ${item.description}"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="container-fluid mt-3">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
 </body>
 <th:block th:replace="html-css :: boostrapScript"></th:block>
 </html>

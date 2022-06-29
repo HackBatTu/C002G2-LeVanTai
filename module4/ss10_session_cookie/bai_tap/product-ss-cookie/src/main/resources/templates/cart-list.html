@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="html-css :: bootstrapCss"></th:block>
+
+</head>
+<body>
+<section class="page-section" id="home">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6 text-center">
+            <h2 class="mt-0">Cart</h2>
+            <hr class="divider"/>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <table class="table table-hover">
+            <thead>
+            <tr style="background-color: #f4623a" class="text-light">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Img</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item,loop : ${listProductSession}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${#strings.replace(#numbers.formatCurrency(item.price), '.00', '')}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td>
+                    <img width="50px" th:src="@{ ${item.img} }" alt="">
+                </td>
+                <td th:text="${item.description}"></td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                        Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Borrow Book</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                <div class="modal-footer">
+                                    <a th:href="@{/product/delete(id=${item.id})}" class="btn btn-primary">Borrow</a>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="container-fluid mt-3">
+            <a th:href="@{/product/buy}" class="btn btn-primary">Buy</a>
+            <a th:href="@{/product}" class="btn btn-secondary">Back to home</a>
+        </div>
+    </div>
+</section>
+</body>
+<th:block th:replace="html-css :: boostrapScript"></th:block>
+
+</html>
