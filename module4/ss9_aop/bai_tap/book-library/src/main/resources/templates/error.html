@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+
+</head>
+<body>
+<section class="page-section" id="home">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6 text-center">
+      <h2 class="mt-0">Error</h2>
+      <hr class="divider"/>
+      <a class="btn btn-primary" th:href="@{/library}">Back to Home</a>
+    </div>
+  </div>
+  <div class="container mt-3" style="height: 500px !important;">
+    <img th:src="@{https://upload.motgame.vn/photos/motgame-vn/2022/06/m_one-punch-man.jpg}" class="img-fluid w-100" alt="...">
+  </div>
+</section>
+</body>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+
+</html>

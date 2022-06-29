@@ -6,11 +6,9 @@ import java.util.List;
 
 public interface IBookService {
 
-    List<Book> findAllBook();
+    List<Book> findAll();
 
-    List<Book> findAllBorrow();
+    void setStatus(Integer id);
 
-    void borrowBook(int bookId);
-
-    void returnBook(int bookId);
+    void returnBook(Integer bookCode) throws Exception;
 }

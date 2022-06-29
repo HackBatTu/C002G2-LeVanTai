@@ -13,7 +13,7 @@
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h1 class="mb-3">List Book Borrowing</h1>
+                    <h1 class="mb-3">List Book In Library</h1>
                 </div>
             </div>
         </div>
@@ -31,60 +31,82 @@
         </nav>
     </div>
 </header>
-<div class="container mt-3">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>STT</th>
-            <th>ID Book Library</th>
-            <th>ID Book</th>
-            <th>Name Book</th>
-            <th>Day</th>
-            <th>Return</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="b, loop : ${book}">
-            <td th:text="${loop.count}"></td>
-            <td th:text="${b.library.id}"></td>
-            <td th:text="${b.bookId}"></td>
-            <td th:text="${b.library.name}"></td>
-            <td th:text="${b.library.day}"></td>
-            <td>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                        th:data-bs-target="'#staticBackdrop' + ${b.bookId}">
-                    Borrow
-                </button>
+<section class="page-section" id="home">
+    <div class="container mt-3">
+        <table class="table table-hover">
+            <thead>
+            <tr style="background-color: #f4623a" class="text-light">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Status</th>
+                <th>Borrow</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item,loop : ${bookList}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.library.name}"></td>
+                <td th:text="${item.bookCode}"></td>
+                <td th:if="${item.status == true}">
+                    <span>Used</span>
+                </td>
+                <td th:if="${item.status == false}">
+                    <span>Ready</span>
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <span th:if="${item.status == true}">
+                    <button type="button" class="btn btn-outline-secondary disabled text-decoration-line-through">
+                        Borrow
+                    </button>
+                </span>
+                    <span th:if="${item.status == false}">
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                        Borrow
+                    </button>
+                </span>
 
-                <!-- Modal -->
-                <div class="modal fade" th:id="staticBackdrop + ${b.bookId}" data-bs-backdrop="static"
-                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Do you want Return Book <span th:text="${b.library.name}" class="text-warning"></span>
-                                with id = <span th:text="${b.bookId}" class="text-warning"></span> ?
-                            </div>
-                            <div class="modal-footer">
-                                <a href="" th:href="@{/book/return/{bookId}(bookId=${b.bookId})}"
-                                   class="btn btn-outline-success">Yes Return</a>
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
-                                </button>
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Borrow Book</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want borrow book <span th:text="${item.library.name}"></span> with code = <span
+                                        th:text="${item.bookCode}"></span> ?
+                                </div>
+                                <div class="modal-footer">
+                                    <a th:href="@{/library/borrow(id=${item.id})}" class="btn btn-outline-success">Access</a>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="container-fluid mt-3">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active" ><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
 <th:block th:replace="~{html-css :: boostrapScript}"></th:block>
 
 </body>

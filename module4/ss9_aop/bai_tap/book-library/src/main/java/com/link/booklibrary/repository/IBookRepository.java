@@ -11,21 +11,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface IBookRepository extends JpaRepository<Book , String> {
-
-    @Query(value = " select * from book b where b.status = 0 ", nativeQuery = true)
-    List<Book> findAllBook();
-
-    @Query(value = " select * from book b where b.status = 1 ", nativeQuery = true)
-    List<Book> findAllBorrow();
+public interface IBookRepository extends JpaRepository<Book , Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = " update book b set b.status = 1 where b.book_id = :id ", nativeQuery = true)
-    void borrowBook(@Param("bookId") int id);
+    @Query(value = " UPDATE book SET status = 1 WHERE (id = :bookID); " ,nativeQuery = true)
+    void setStatus(@Param("bookID") int bookID);
+
+    @Query(value = " SELECT * FROM book where (book_code = :bookCode); " ,nativeQuery = true)
+    Book getByBookCode(@Param("bookCode") Integer bookCode);
 
     @Modifying
     @Transactional
-    @Query(value = " update book b set b.status = 0 where b.book_id = :id ", nativeQuery = true)
-    void returnBook(@Param("bookId") int id);
+    @Query(value = " UPDATE book SET status = 0 WHERE (id = :id); " ,nativeQuery = true)
+    void updateStatus(@Param("id") Integer id);
 }

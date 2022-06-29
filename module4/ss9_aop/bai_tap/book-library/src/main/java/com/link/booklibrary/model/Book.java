@@ -1,35 +1,58 @@
 package com.link.booklibrary.model;
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 
 
 @Entity
 public class Book {
     @Id
-    @Column(name = "book_id")
-    private int bookId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private Integer bookCode;
+
+    @Value("false")
+    private Boolean status;
 
     @ManyToOne
-    @JoinColumn(name = "library_id", referencedColumnName = "library_id")
+    @JoinColumn(name = "library_id", referencedColumnName = "id")
     private Library library;
 
-    @Column(name = "status",columnDefinition = "default 0")
-    private int status;
+
 
     public Book() {
     }
 
-    public Book(int bookId, Library library, int status) {
-        this.bookId = bookId;
-        this.library = library;
+    public Book(Integer id, Integer bookCode, Boolean status, Library library) {
+        this.id = id;
+        this.bookCode = bookCode;
         this.status = status;
+        this.library = library;
     }
 
-    public int getBookId() {
-        return bookId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getBookCode() {
+        return bookCode;
+    }
+
+    public void setBookCode(Integer bookCode) {
+        this.bookCode = bookCode;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public Library getLibrary() {
@@ -38,13 +61,5 @@ public class Book {
 
     public void setLibrary(Library library) {
         this.library = library;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 }

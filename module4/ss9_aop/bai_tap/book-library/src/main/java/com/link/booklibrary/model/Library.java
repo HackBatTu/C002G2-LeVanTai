@@ -8,10 +8,9 @@ import java.util.List;
 public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "library_id")
     private Integer id;
     private String name;
-    private String day;
+    private String author;
     private Integer quantity;
 
     @OneToMany(mappedBy = "library")
@@ -20,20 +19,20 @@ public class Library {
     public Library() {
     }
 
-    public Library(Integer id, String name, String day, Integer quantity, List<Book> bookList) {
+    public Library(Integer id, String name, String author, Integer quantity, List<Book> bookList) {
         this.id = id;
         this.name = name;
-        this.day = day;
+        this.author = author;
         this.quantity = quantity;
         this.bookList = bookList;
     }
 
-    public String getDay() {
-        return day;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setDay(String day) {
-        this.day = day;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Integer getId() {

@@ -7,55 +7,108 @@
 
 </head>
 <body>
-<header>
-    <div class="p-3 text-center bg-image"
-         style="height: 150px;">
-        <div class="mask">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-success">
-                    <h1 class="mb-3">My Library</h1>
-                    <a href="" th:href="@{/library/create}" class="btn btn-outline-success btn-lg" role="button">Create My
-                        Book</a>
-                    <a href="" th:href="@{/book/listBook}" class="btn btn-outline-success btn-lg" role="button">List Details Book in Library</a>
-                    <a href="" th:href="@{/book/listBookBorrow}" class="btn btn-outline-success btn-lg" role="button">List Book Borrowing</a>
+<section class="page-section" id="home">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6 text-center">
+            <h2 class="mt-0">Library Management</h2>
+            <hr class="divider"/>
+            <a class="btn btn-primary" th:href="@{/library/create}">Create new book</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Return Book
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelReturn" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabelReturn">Return Book!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form id="contactForm" action="/library/return">
+                            <div class="modal-body">
+                                <!-- Name input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="code" type="text" name="bookCode" placeholder="Enter code for return..."
+                                           data-sb-validations="required"/>
+                                    <label for="code">Book Code</label>
+                                    <div class="invalid-feedback" data-sb-feedback="code:required">book code is required.</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Return</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container mt-3">
-        <nav class="navbar navbar-light bg-info">
-            <div class="container-fluid">
-                <h5 class="navbar-brand">Have Book In Library : </h5>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" name="search"
-                           placeholder="Search By Name" th:value="${searchName}" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" name="name">Search</button>
-                </form>
-            </div>
-        </nav>
+        <table class="table table-hover">
+            <thead>
+            <tr style="background-color: #f4623a" class="text-light">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item,loop : ${library}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                        Detail
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Borrow Book</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card" style="width: 100%;">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item" th:text="'ID: ' + ${item.id}"></li>
+                                            <li class="list-group-item" th:text="'Name: ' + ${item.name}"></li>
+                                            <li class="list-group-item" th:text="'Author: ' + ${item.author}"></li>
+                                            <li class="list-group-item" th:text="'Quantity: ' + ${item.quantity}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a th:href="@{/library/show-detail(id=${item.id})}" class="btn btn-primary">Borrow</a>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="container-fluid mt-3">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item "><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+        <span th:text="${view}"></span>
     </div>
-</header>
-<div class="container mt-3">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>STT</th>
-            <th>ID Book Library</th>
-            <th>Name Book</th>
-            <th>Day Check In</th>
-            <th>Quantity</th></tr>
-        </thead>
-        <tbody>
-        <tr th:each="b, loop : ${library}">
-            <td th:text="${loop.count}"></td>
-            <td th:text="${b.id}"></td>
-            <td th:text="${b.name}"></td>
-            <td th:text="${b.day}"></td>
-            <td th:text="${b.quantity}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+</section>
 <th:block th:replace="~{html-css :: boostrapScript}"></th:block>
 
 </body>

@@ -11,32 +11,47 @@
     <div class="mask">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-success">
-                <h1 class="mb-3">Create My Library</h1>
+                <h1 class="mb-3">Create My Book In Library</h1>
             </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <form action="/library/create" method="post" th:object="${library}">
-        <div class="mb-3 mt-3">
-            <label class="form-label h6">Name:</label>
-            <input type="text" class="form-control" placeholder="Enter name" th:field="*{name}">
+<hr>
+<section class="page-section" id="employee">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form id="contactForm" action="/library/create" method="post" th:object="${library}">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                               data-sb-validations="required" th:field="*{name}"/>
+                        <label for="name">Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <!-- Author input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="author" type="text" placeholder="Enter your author..."
+                               data-sb-validations="required" th:field="*{author}"/>
+                        <label for="author">Author</label>
+                        <div class="invalid-feedback" data-sb-feedback="author:required">A author is required.</div>
+                    </div>
+                    <!-- Quantity input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="quantity" type="text" placeholder="Enter your quantity..."
+                               data-sb-validations="required" th:field="*{quantity}"/>
+                        <label for="quantity">Quantity</label>
+                        <div class="invalid-feedback" data-sb-feedback="quantity:required">A quantity is required.</div>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-xl " id="submitButton" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="mb-3 mt-3">
-            <label class="form-label h6">Quantity:</label>
-            <input type="text" class="form-control" placeholder="Enter Quantity" th:field="*{quantity}">
-        </div>
-        <div class="mb-3 mt-3">
-            <label class="form-label h6">Day Check In:</label>
-            <input type="text" class="form-control" placeholder="Enter Day" th:field="*{day}">
-        </div>
-
-        <button type="submit" class="btn btn-outline-success">Submit</button>
-        <a href="/library" class="btn btn-outline-secondary">Back home</a>
-    </form>
-</div>
-</div>
+    </div>
+</section>
 <th:block th:replace="~{html-css :: boostrapScript}"></th:block>
 </body>
 </html>
