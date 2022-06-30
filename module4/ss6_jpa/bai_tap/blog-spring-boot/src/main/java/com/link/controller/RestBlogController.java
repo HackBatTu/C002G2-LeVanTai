@@ -43,6 +43,18 @@ public class RestBlogController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //
 //    }
+    @PostMapping("/blog/create")
+    public ResponseEntity<Blogger> createBlogger(@RequestBody Blogger blogger) {
+    return new ResponseEntity<>(iBlogService.save(blogger), HttpStatus.CREATED);
+    }
+    @GetMapping("/blog/{id}")
+    public ResponseEntity<Blogger> findByIdBlog(@PathVariable int id) {
+    Optional<Blogger> optionalBlogger = Optional.ofNullable(iBlogService.getBlogger(id));
+    if (!optionalBlogger.isPresent()) {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(optionalBlogger.get(), HttpStatus.OK);
+    }
 
     @GetMapping("/category")
     public ResponseEntity<List<Category>> getListCategory(){
@@ -52,7 +64,7 @@ public class RestBlogController {
         }
         return new ResponseEntity<>( categoryList,HttpStatus.OK);
     }
-    @GetMapping("/{id}")
+    @GetMapping("/category/{id}")
     public ResponseEntity<Category> findByIdCategory(@PathVariable int id) {
         Optional<Category> optionalCategory = Optional.ofNullable(iCategoryService.findById(id));
         if (!optionalCategory.isPresent()) {
@@ -61,7 +73,7 @@ public class RestBlogController {
         return new ResponseEntity<>(optionalCategory.get(), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/category/create")
     public ResponseEntity<Category> createCategory(@RequestBody Category category) {
         return new ResponseEntity<>(iCategoryService.save(category), HttpStatus.CREATED);
     }
