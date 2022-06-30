@@ -1,5 +1,7 @@
 package com.link.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class Category {
     private int id;
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "category")
     private List<Blogger> bloggers;
 

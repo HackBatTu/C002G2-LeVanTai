@@ -7,7 +7,7 @@ import java.util.List;
 public interface ICategoryService {
     List<Category> getAllCategory();
 
-    void save(Category category);
+    Category save(Category category);
 
     Category findById(int id);
 
