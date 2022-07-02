@@ -13,7 +13,7 @@ public interface IBlogService {
 
     void deleteBlog(int id);
 
-    void save(Blogger blogger);
+    Blogger save(Blogger blogger);
 
     Blogger getBlogger(int id);
 }
