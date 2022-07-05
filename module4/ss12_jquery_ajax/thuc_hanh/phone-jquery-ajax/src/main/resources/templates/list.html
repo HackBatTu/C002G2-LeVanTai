@@ -168,6 +168,7 @@
         <td>Model</td>
         <td>Price</td>
         <td>Delete</td>
+        <td>edit</td>
     </tr>
     <th:block th:each="smartphone: ${smartphones}">
         <tr>
@@ -175,11 +176,12 @@
             <td th:text="${smartphone.model}"></td>
             <td th:text="${smartphone.price}"></td>
             <td><a class="deleteSmartphone" th:href="${smartphone.getId()}">Delete</a></td>
-            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEdit${listSmartphone[i].id}">
+            <td>
+            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEdit${smartphone[i].id}">
                 Edit
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalEdit${listSmartphone[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModalEdit${smartphone[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -187,16 +189,16 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <input type="hidden" class="form-control" id="idEdit" value="${listSmartphone[i].id}">
+                            <input type="hidden" class="form-control" id="idEdit" value="${smartphone[i].id}">
                             <label for="model" class="form-label">Model</label>
-                            <input type="text" class="form-control" id="modelEdit" value="${listSmartphone[i].model}">
+                            <input type="text" class="form-control" id="modelEdit" value="${smartphone[i].model}">
                             <label for="price" class="form-label">Price</label>
-                            <input type="text" class="form-control" id="priceEdit" value="${listSmartphone[i].price}">
+                            <input type="text" class="form-control" id="priceEdit" value="${smartphone[i].price}">
                             <label for="producer" class="form-label">Producer</label>
-                            <input type="text" class="form-control" id="producerEdit" value="${listSmartphone[i].producer}">
+                            <input type="text" class="form-control" id="producerEdit" value="${smartphone[i].producer}">
                         </div>
                         <div class="modal-footer">
-                            <a href="${listSmartphone[i].id}" class="btn btn-outline-success" id="btnEdit" data-bs-dismiss="modal">Success</a>
+                            <a href="${smartphone[i].id}" class="btn btn-outline-success" id="btnEdit" data-bs-dismiss="modal">Success</a>
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>

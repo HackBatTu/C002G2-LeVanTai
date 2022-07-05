@@ -69,10 +69,10 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #fff;
+  /*background: #fff;*/
   transition: all 0.5s;
   z-index: 997;
-  padding: 15px 0;
+  padding: 8px 0;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 #header .logo {
@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+
 }
 #header .logo a {
   color: #111;
@@ -91,7 +92,82 @@ h1, h2, h3, h4, h5, h6 {
   color: #1bbd36;
 }
 #header .logo img {
-  max-height: 40px;
+  max-height: 38px;
+}
+
+/*--------------------------------------------------------------
+# Form
+--------------------------------------------------------------*/
+.get-in-touch {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+
+}
+.get-in-touch .title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2.0em;
+  line-height: 40px;
+  padding-bottom: 20px;
+  color: #5543ca;
+  background: #5543ca;
+  background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  background: -webkit-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  background: linear-gradient(to right,#f4524d  0%,#5543ca  100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 20px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #5543ca;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  -webkit-transform: translateY(-24px);
+  transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #5543ca;
+  cursor: text;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out,
+  -webkit-transform .2s ease-in-out;
+}
+.contact-form .submit-btn {
+  display: inline-block;
+  background-color: #000;
+  background-image: linear-gradient(125deg,#a72879,#064497);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  width:200px;
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------
@@ -345,8 +421,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero .carousel-content h2 {
   color: #fff;
-  margin-bottom: 20px;
-  font-size: 28px;
+  margin-bottom: 12px;
+  font-size: 30px;
   font-weight: 700;
 }
 #hero .btn-get-started {
@@ -355,15 +431,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 12px 32px;
-  border-radius: 4px;
+  padding: 12px 50px;
+  border-radius: 10px;
   transition: 0.5s;
   line-height: 1;
   margin: 10px;
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #1bbd36;
+  border: 3px solid #1bbd36;
 }
 #hero .btn-get-started:hover {
   background: #1bbd36;
@@ -429,7 +505,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1024px) {
   #hero .carousel-content {
-    width: 60%;
+    width: 40%;
   }
   #hero .carousel-control-prev, #hero .carousel-control-next {
     width: 5%;
@@ -440,11 +516,11 @@ h1, h2, h3, h4, h5, h6 {
     top: 58px;
   }
   #hero .carousel-content h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
+    margin-bottom: 10px;
+    font-size: 16px;
   }
   #hero .carousel-content p {
-    font-size: 15px;
+    font-size: 10px;
   }
 }
 @media (max-height: 500px) {
@@ -1781,7 +1857,7 @@ section {
   font-family: "Raleway", sans-serif;
 }
 #footer .footer-top {
-  padding: 60px 0 30px 0;
+  padding: 30px 0 20px 0;
   background: #1e1e1e;
 }
 #footer .footer-top .footer-contact {
@@ -1908,4 +1984,8 @@ section {
   background: #1bbd36;
   color: #fff;
   text-decoration: none;
+}
+
+#footer .footer-end{
+  height: 74px;
 }

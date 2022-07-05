@@ -12,6 +12,7 @@ public class Category {
     private int id;
     private String name;
 
+
     @JsonBackReference
     @OneToMany(mappedBy = "category")
     private List<Blogger> bloggers;
