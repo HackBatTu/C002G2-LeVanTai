@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
 
@@ -22,5 +24,8 @@ public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
 
     @Query(value = "select * from facility where status = 0 and name like :searchName" , nativeQuery = true,
     countQuery = " select count(*) from (select * from facility where status = 0 and name like :searchName) temp_table")
-    Page<Facility> getAllFacility(@Param("searchName") String searchName, Pageable pageable);
+    Page<Facility> findAllFacility(@Param("searchName") String searchName, Pageable pageable);
+
+    @Query(value = "select * from facility where status = 0 ", nativeQuery = true)
+    List<Facility> getAllFacility();
 }

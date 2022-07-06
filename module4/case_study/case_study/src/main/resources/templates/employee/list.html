@@ -13,8 +13,107 @@
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
                     <h2 class="mb-3">Employee Management</h2>
-                    <a href="" th:href="@{/employee/create}" class="btn btn-outline-success btn-lg" role="button">Create
-                        Employee</a>
+<!--                    <a href="" th:href="@{/employee/create}" class="btn btn-outline-success btn-lg" role="button">Create-->
+<!--                        Employee</a>-->
+                    <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdropCreate">
+                        Create new Employee
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabelCreate">Create Employee</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="text-danger" id="tableInputName"></div>
+                                        <form id="contactForm" method="post" action="/employee/create">
+                                            <!-- name input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="name" type="text"
+                                                       placeholder="Enter your name..."/>
+                                                <label for="name">Employee name</label>
+                                            </div>
+                                            <!-- birthday input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="birthday" type="date"
+                                                       placeholder="Enter your birthday..."/>
+                                                <label for="birthday">Birthday</label>
+                                            </div>
+                                            <!-- idCard input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="idCard" type="text"
+                                                       placeholder="Enter your id card..."/>
+                                                <label for="idCard">Id Card</label>
+                                            </div>
+                                            <!-- phoneNumber input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="phoneNumber" type="text"
+                                                       placeholder="Enter your phone number..."/>
+                                                <label for="phoneNumber">Phone Number</label>
+                                            </div>
+                                            <!-- email input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="email" type="text"
+                                                       placeholder="Enter your email..."/>
+                                                <label for="email">Email</label>
+                                            </div>
+                                            <!-- salary input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="salary" type="text"
+                                                       placeholder="Enter your salary..."/>
+                                                <label for="salary">Salary</label>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Education Degree</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Position</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Division</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Submit Button-->
+                                            <div class="row">
+                                                <div class="d-grid col-6">
+                                                    <button class="btn btn-outline-primary" id="submitButton" type="submit">
+                                                        Save
+                                                    </button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button type="submit" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +157,91 @@
                 <td th:text="${fa.educationDegree.name}"></td>
                 <td th:text="${fa.division.name}"></td>
                 <td>
-                    <a th:href="@{/employee/edit/{id}(id=${fa.id})}" class="btn btn-outline-success">Edit</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdropEdit">
+                        Edit
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdropEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabelEdit">Edit Employee</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="text-danger" id="tableInputNameEdit"></div>
+                                        <form id="contactFormEdit" method="post" action="/employee/create">
+                                            <!-- name input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="nameEdit" type="text" placeholder="Enter your name..."/>
+                                                <label for="nameEdit">Employee name</label>
+                                            </div>
+                                            <!-- birthday input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="birthdayEdit" type="date" placeholder="Enter your birthday..."/>
+                                                <label for="birthdayEdit">Birthday</label>
+                                            </div>
+                                            <!-- idCard input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="idCardEdit" type="text" placeholder="Enter your id card..."/>
+                                                <label for="idCardEdit">Id Card</label>
+                                            </div>
+                                            <!-- phoneNumber input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="phoneNumberEdit" type="text" placeholder="Enter your phone number..."/>
+                                                <label for="phoneNumberEdit">Phone Number</label>
+                                            </div>
+                                            <!-- email input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="emailEdit" type="text" placeholder="Enter your email..."/>
+                                                <label for="emailEdit">Email</label>
+                                            </div>
+                                            <!-- salary input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="salaryEdit" type="text" placeholder="Enter your salary..."/>
+                                                <label for="salaryEdit">Salary</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Education Degree</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Position</option>
+                                                    <option value="">aaa</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Division</option>
+                                                    <option value="">bbbb</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Submit Button-->
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary">Save Changes</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </td>
                 <td>
                     <!-- Button trigger modal -->

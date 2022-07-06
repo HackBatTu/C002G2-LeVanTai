@@ -7,7 +7,7 @@
 
 
 <section class="get-in-touch">
-    <h1 class="title">Create Facility</h1>
+    <h1 class="title">Create Service</h1>
     <form class="contact-form row" action="/facility/create" method="post" th:object="${facilityList}">
         <div class="form-field col-lg-6">
             <input id="name" class="input-text js-input" type="text" th:field="*{name}" required>
@@ -17,10 +17,7 @@
             <input id="area" class="input-text js-input" type="text" th:field="*{area}" required>
             <label class="label" for="area">Area</label>
         </div>
-        <div class="form-field col-lg-6 ">
-            <input id="poolArea" class="input-text js-input" type="text" th:field="*{poolArea}" required>
-            <label class="label" for="poolArea">PoolArea</label>
-        </div>
+
         <div class="form-field col-lg-6 ">
             <input id="cost" class="input-text js-input" type="text" th:field="*{cost}" required>
             <label class="label" for="cost">cost</label>
@@ -29,34 +26,41 @@
             <input id="maxPerson" class="input-text js-input" type="text" th:field="*{maxPerson}" required>
             <label class="label" for="maxPerson">maxPerson</label>
         </div>
-        <div class="form-field col-lg-6 ">
-            <input id="standardRoom" class="input-text js-input" type="text" th:field="*{standardRoom}" required>
-            <label class="label" for="standardRoom">StandardRoom</label>
-        </div>
-        <div class="form-field col-lg-6 ">
-            <input id="descriptionOther" class="input-text js-input" type="text" th:field="*{descriptionOther}" required>
-            <label class="label" for="descriptionOther">DescriptionOther</label>
-        </div>
+<!--        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+
         <div class="form-field col-lg-6">
-            <input id="numberOfFloors" class="input-text js-input" type="text" th:field="*{numberOfFloors}" required>
-            <label class="label" for="numberOfFloors">NumberOfFloors</label>
-        </div>
-        <div class="form-field col-lg-6">
-            <input id="facilityFree" class="input-text js-input" type="text" th:field="*{facilityFree}" required>
-            <label class="label" for="facilityFree">FacilityFree</label>
-        </div>
-        <div class="form-field col-lg-6">
-            <label class="label" >FacilityType</label>
-            <select class="form-select" th:field="*{facilityType}">
-                <option th:each="item,loop : ${facilityTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
-            </select>
-        </div>
-        <div class="form-field col-lg-6">
-            <label class="label" >RenType</label>
             <select class="form-select" th:field="*{rentType}">
                 <option th:each="item, loop : ${rentTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
         </div>
+        <div class="form-field col-lg-6">
+            <select id="choiceFacilityType" class="form-select" th:field="*{facilityType}" onchange="selectFacility()">
+                <option th:each="item,loop : ${facilityTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
+            </select>
+        </div>
+        <div class="form-field col-lg-6 " id="standardRoom" style="display: none">
+            <input  class="input-text js-input" type="text" th:field="*{standardRoom}" >
+            <label class="label" for="standardRoom">StandardRoom</label>
+        </div>
+
+        <div class="form-field col-lg-6 "  id="poolArea" style="display: none">
+            <input class="input-text js-input" type="text" th:field="*{poolArea}" >
+            <label class="label" for="poolArea">PoolArea</label>
+        </div>
+        <div class="form-field col-lg-6 " id="descriptionOther" style="display: none">
+            <input  class="input-text js-input" type="text" th:field="*{descriptionOther}" >
+            <label class="label" for="descriptionOther">DescriptionOther</label>
+        </div>
+        <div class="form-field col-lg-6" id="numberOfFloors" style="display: none">
+            <input  class="input-text js-input" type="text" th:field="*{numberOfFloors}" >
+            <label class="label" for="numberOfFloors">NumberOfFloors</label>
+        </div>
+        <div class="form-field col-lg-6" id="facilityFree" style="display: none">
+            <input  class="input-text js-input" type="text" th:field="*{facilityFree}" >
+            <label class="label" for="facilityFree">FacilityFree</label>
+        </div>
+
+
         <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">
         </div>
@@ -72,4 +76,33 @@
 
 <th:block th:replace="~{style :: bootstrapFooter}"></th:block>
 </body>
+<script>
+    function selectFacility() {
+        let getValue = $('#choiceFacilityType').val()
+        switch (getValue) {
+            case '1':
+                $('#standardRoom').show()
+                $('#descriptionOther').show()
+                $('#poolArea').show()
+                $('#numberOfFloors').show()
+                $('#facilityFree').hide()
+                break;
+            case '2':
+                $('#standardRoom').show()
+                $('#descriptionOther').show()
+                $('#poolArea').hide()
+                $('#numberOfFloors').show()
+                $('#facilityFree').hide()
+                break;
+            case '3':
+                $('#standardRoom').hide()
+                $('#descriptionOther').hide()
+                $('#poolArea').hide()
+                $('#numberOfFloors').hide()
+                $('#facilityFree').show()
+                break;
+        }
+
+    }
+</script>
 </html>

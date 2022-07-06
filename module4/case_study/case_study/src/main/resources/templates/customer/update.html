@@ -21,7 +21,12 @@
             <label class="label" for="dateOfBird">DateOfBird</label>
         </div>
         <div class="form-field col-lg-6 ">
-            <input id="gender" class="input-text js-input" type="text" th:field="*{gender}" required>
+            <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" required>
+                <option value="">Choice Gender</option>
+                <option value="1">Male</option>
+                <option value="0">FeMale</option>
+                <option value="">Other</option>
+            </select>
             <label class="label" for="gender">Gender</label>
         </div>
         <div class="form-field col-lg-6 ">

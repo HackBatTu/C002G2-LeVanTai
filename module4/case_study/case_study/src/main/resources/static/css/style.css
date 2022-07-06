@@ -811,7 +811,9 @@ section {
   opacity: 1;
   bottom: 20px;
 }
-
+.portfolio .portfolio-item:hover .portfolio-info h4{
+  color: #1bbd36;
+}
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
@@ -865,7 +867,6 @@ section {
 .portfolio-details .portfolio-description p {
   padding: 0;
 }
-
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/

@@ -7,7 +7,7 @@
 
 
 <section class="get-in-touch">
-    <h1 class="title">Create Facility</h1>
+    <h1 class="title">Create Customer</h1>
     <form class="contact-form row" action="/customer/create" method="post" th:object="${customerList}">
         <div class="form-field col-lg-6">
             <input id="name" class="input-text js-input" type="text" th:field="*{name}" required>
@@ -17,10 +17,7 @@
             <input id="dateOfBird" class="input-text js-input" type="date" th:field="*{dateOfBird}" required>
             <label class="label" for="dateOfBird">DateOfBird</label>
         </div>
-        <div class="form-field col-lg-6 ">
-            <input id="gender" class="input-text js-input" type="text" th:field="*{gender}" required>
-            <label class="label" for="gender">Gender</label>
-        </div>
+
         <div class="form-field col-lg-6 ">
             <input id="idCard" class="input-text js-input" type="text" th:field="*{idCard}" required>
             <label class="label" for="idCard">IdCard</label>
@@ -37,12 +34,17 @@
             <input id="address" class="input-text js-input" type="text" th:field="*{address}" required>
             <label class="label" for="address">Address</label>
         </div>
-
+        <div class="form-field col-lg-6 ">
+            <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" required>
+                <option value="1">Male</option>
+                <option value="0">FeMale</option>
+                <option value="">Other</option>
+            </select>
+        </div>
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{customerType}">
                 <option th:each="item, loop : ${customerTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-            <label class="label" >Customer Type</label>
         </div>
         <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">

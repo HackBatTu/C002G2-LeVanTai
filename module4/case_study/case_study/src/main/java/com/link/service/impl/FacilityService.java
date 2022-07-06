@@ -58,6 +58,6 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public Page<Facility> findAllFacility(String searchName, Pageable pageable) {
-        return iFacilityRepository.getAllFacility("%" + searchName + "%", pageable);
+        return iFacilityRepository.findAllFacility("%" + searchName + "%", pageable);
     }
 }
