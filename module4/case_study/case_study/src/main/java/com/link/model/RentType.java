@@ -13,8 +13,8 @@ public class RentType {
     private Integer id;
     private String name;
 
-    @Value("false")
-    private Boolean status;
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @JsonBackReference
     @OneToMany(mappedBy = "rentType")
@@ -23,18 +23,18 @@ public class RentType {
     public RentType() {
     }
 
-    public RentType(Integer id, String name, Boolean status, List<Facility> facilityList) {
+    public RentType(Integer id, String name, Integer status, List<Facility> facilityList) {
         this.id = id;
         this.name = name;
         this.status = status;
         this.facilityList = facilityList;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

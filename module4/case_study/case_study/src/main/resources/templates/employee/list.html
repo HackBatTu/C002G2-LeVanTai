@@ -5,15 +5,16 @@
 <body>
 <header th:replace="~{style :: bootstrapHeaderBody}"></header>
 
+
 <section class="container">
     <div class="p-3 text-center bg-image"
          style="height: 150px;">
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h2 class="mb-3">Facility Management</h2>
-                    <a href="" th:href="@{/facility/create}" class="btn btn-outline-success btn-lg" role="button">Create
-                        Facility</a>
+                    <h2 class="mb-3">Employee Management</h2>
+                    <a href="" th:href="@{/employee/create}" class="btn btn-outline-success btn-lg" role="button">Create
+                        Employee</a>
                 </div>
             </div>
         </div>
@@ -28,33 +29,36 @@
             </form>
         </div>
     </div>
-
     <div>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>STT</th>
                 <th>Name</th>
-                <th>Area</th>
-                <th>Cost</th>
-                <th>MaxPerson</th>
-                <th>FacilityType</th>
-                <th>RentType</th>
-                <th colspan="2">Action</th>
-
+                <th>idCard</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>address</th>
+                <th>Position</th>
+                <th>EducationDegree</th>
+                <th>Division</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="fa, loop : ${facilityList}">
+            <tr th:each="fa, loop : ${employeeList}">
                 <td th:text="${loop.count}"></td>
                 <td th:text="${fa.name}"></td>
-                <td th:text="${fa.area}"></td>
-                <td th:text="${fa.cost}"></td>
-                <td th:text="${fa.maxPerson}"></td>
-                <td th:text="${fa.facilityType.name}"></td>
-                <td th:text="${fa.rentType.name}"></td>
+                <td th:text="${fa.idCard}"></td>
+                <td th:text="${fa.phone}"></td>
+                <td th:text="${fa.email}"></td>
+                <td th:text="${fa.address}"></td>
+                <td th:text="${fa.position.name}"></td>
+                <td th:text="${fa.educationDegree.name}"></td>
+                <td th:text="${fa.division.name}"></td>
                 <td>
-                    <a th:href="@{/facility/edit/{id}(id=${fa.id})}" class="btn btn-outline-success">Edit</a>
+                    <a th:href="@{/employee/edit/{id}(id=${fa.id})}" class="btn btn-outline-success">Edit</a>
                 </td>
                 <td>
                     <!-- Button trigger modal -->
@@ -75,11 +79,11 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want delete Facility <span th:text="${fa.name}" class="text-warning"></span>
+                                    Do you want delete Employee <span th:text="${fa.name}" class="text-warning"></span>
                                     with id = <span th:text="${fa.id}" class="text-warning"></span> ?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="" th:href="@{/facility/delete/{id}(id=${fa.id})}"
+                                    <a href="" th:href="@{/employee/delete/{id}(id=${fa.id})}"
                                        class="btn btn-outline-success">Delete</a>
                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                         Close
@@ -94,31 +98,31 @@
         </table>
         <div class="row">
             <div class="col-10"> </div>
-            <div class="col-2">
-                <ul class="pagination" th:if="${facilityList.totalPages > 0}">
+            <div class="col-2 ">
+                <ul class="pagination" th:if="${employeeList.totalPages > 0}">
                     <li class="page-item">
-                        <a class="page-link" th:if="${facilityList.hasPrevious()}"
-                           th:href="@{'/facility'(page=${facilityList.number - 1}, search=${searchName})}">
+                        <a class="page-link" th:if="${employeeList.hasPrevious()}"
+                           th:href="@{'/employee'(page=${employeeList.number - 1}, search=${searchName})}">
                             Previous
                         </a>
                     </li>
-                    <div th:each="item, loop : ${#numbers.sequence(1, facilityList.totalPages )}">
-                        <div th:if="${(facilityList.number + 1) == item}">
+                    <div th:each="item, loop : ${#numbers.sequence(1, employeeList.totalPages )}">
+                        <div th:if="${(employeeList.number + 1) == item}">
                             <li class="page-item active">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1),
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/employee(page=(${item}-1),
                              search=${searchName})}"></a>
                             </li>
                         </div>
-                        <div th:unless="${((facilityList.number + 1) == item)}">
+                        <div th:unless="${((employeeList.number + 1) == item)}">
                             <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1),
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/employee(page=(${item}-1),
                              search=${searchName} )}"></a>
                             </li>
                         </div>
                     </div>
                     <li class="page-item">
-                        <a class="page-link" th:if="${facilityList.hasNext()}"
-                           th:href="@{'/facility'(page=${facilityList.number + 1}, search=${searchName})}">
+                        <a class="page-link" th:if="${employeeList.hasNext()}"
+                           th:href="@{'/employee'(page=${employeeList.number + 1}, search=${searchName})}">
                             Next
                         </a>
                     </li>
@@ -131,6 +135,7 @@
 
 <footer id="footer">
     <div th:replace="~{style :: bootstrapBodyDiv}"></div>
+
 </footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>

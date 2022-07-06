@@ -19,8 +19,8 @@ public class Employee {
     private String email;
     private String address;
 
-    @Value("false")
-    private Boolean status;
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @ManyToOne
     @JoinColumn(name = "position_id", referencedColumnName = "id")
@@ -46,7 +46,7 @@ public class Employee {
     }
 
     public Employee(Integer id, String name, String dateOfBird, String idCard, Double salary, String phone, String email,
-                    String address, Boolean status, Position position, EducationDegree educationDegree, Division division, AppUser appUser, List<Contract> contractList) {
+                    String address, Integer status, Position position, EducationDegree educationDegree, Division division, AppUser appUser, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.dateOfBird = dateOfBird;
@@ -135,11 +135,11 @@ public class Employee {
         this.address = address;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

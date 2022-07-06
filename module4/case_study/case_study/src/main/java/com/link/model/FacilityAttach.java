@@ -10,6 +10,7 @@ public class FacilityAttach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private Double cost;
     private String unit;
     private String status;
@@ -21,12 +22,21 @@ public class FacilityAttach {
     public FacilityAttach() {
     }
 
-    public FacilityAttach(Integer id, Double cost, String unit, String status, List<DetailsContract> detailsContractList) {
+    public FacilityAttach(Integer id,String name, Double cost, String unit, String status, List<DetailsContract> detailsContractList) {
         this.id = id;
+        this.name = name;
         this.cost = cost;
         this.unit = unit;
         this.status = status;
         this.detailsContractList = detailsContractList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getId() {

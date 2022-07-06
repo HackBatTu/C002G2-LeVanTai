@@ -12,8 +12,8 @@ public class CustomerType {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @Value("false")
-    private Boolean status;
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @JsonBackReference
     @OneToMany(mappedBy = "customerType")
@@ -22,7 +22,7 @@ public class CustomerType {
     public CustomerType() {
     }
 
-    public CustomerType(Integer id, String name, Boolean status, List<Customer> customerList) {
+    public CustomerType(Integer id, String name, Integer status, List<Customer> customerList) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -45,11 +45,11 @@ public class CustomerType {
         this.name = name;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

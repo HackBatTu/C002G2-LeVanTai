@@ -14,8 +14,8 @@ public class Contract {
     private String checkIn;
     private String checkOut;
     private Double deposit;
-    @Value("false")
-    private Boolean status;
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
@@ -36,7 +36,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(Integer id, String checkIn, String checkOut, Double deposit, Boolean status, Employee employee,
+    public Contract(Integer id, String checkIn, String checkOut, Double deposit, Integer status, Employee employee,
                     Customer customer, Facility facility, List<DetailsContract> detailsContractList) {
         this.id = id;
         this.checkIn = checkIn;
@@ -49,11 +49,11 @@ public class Contract {
         this.detailsContractList = detailsContractList;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

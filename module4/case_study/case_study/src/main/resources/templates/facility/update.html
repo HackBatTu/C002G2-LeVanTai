@@ -3,50 +3,15 @@
 <head th:replace="~{style :: bootstrapHeader}">
 </head>
 <body>
-<header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-        <a class="logo"><img src="assets/img/slide/sharingan"/></a>
-        <h1 class="logo me-auto"><a href=""><span>Fu</span>rama</a></h1>
+<header th:replace="~{style :: bootstrapHeaderBody}"></header>
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-                <li><a href="" class="active">Home</a></li>
-                <li><a href="/customer">Customer</a></li>
-                <li><a href="/employee">Employee</a></li>
-                <li><a href="/facility">Service</a></li>
-                <li><a href="/contract">Contract</a></li>
-                <li class="dropdown"><a href="#"><span>Another</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="/details-contract">Detail Contract</a></li>
-                        <li><a href="/booking">Booking</a></li>
-                        <li><a href="/customer-using-service.html">Customer Using Service</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-
-        <div class="header-social-links d-flex">
-            <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
-        </div>
-    </div>
-</header><!-- End Header -->
 
 <section class="get-in-touch">
     <h1 class="title">Create Facility</h1>
     <form class="contact-form row" action="/facility/edit" method="post" th:object="${facilityList}">
+        <div class="form-field col-lg-6">
+            <input  class="input-text js-input" type="text" th:field="*{id}" readonly>
+        </div>
         <div class="form-field col-lg-6">
             <input id="name" class="input-text js-input" type="text" th:field="*{name}" required>
             <label class="label" for="name">Name</label>
@@ -64,12 +29,16 @@
             <label class="label" for="cost">cost</label>
         </div>
         <div class="form-field col-lg-6 ">
+            <input id="maxPerson" class="input-text js-input" type="text" th:field="*{maxPerson}" required>
+            <label class="label" for="maxPerson">MaxPerson</label>
+        </div>
+        <div class="form-field col-lg-6 ">
             <input id="standardRoom" class="input-text js-input" type="text" th:field="*{standardRoom}" required>
             <label class="label" for="standardRoom">StandardRoom</label>
         </div>
         <div class="form-field col-lg-6 ">
-            <input id="descriptionOtherConvenience" class="input-text js-input" type="text" th:field="*{descriptionOtherConvenience}" required>
-            <label class="label" for="descriptionOtherConvenience">DescriptionOtherConvenience</label>
+            <input id="descriptionOtherConvenience" class="input-text js-input" type="text" th:field="*{descriptionOther}" required>
+            <label class="label" for="descriptionOtherConvenience">DescriptionOther</label>
         </div>
         <div class="form-field col-lg-6">
             <input id="numberOfFloors" class="input-text js-input" type="text" th:field="*{numberOfFloors}" required>
@@ -99,23 +68,8 @@
 </section>
 
 <footer id="footer">
-    <div class="container d-md-flex py-4 footer-end">
-        <div class="me-md-auto text-center text-md-start">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Edit Designed by <a href="https://bootstrapmade.com/">Háck Bất Tử</a>
-            </div>
-        </div>
-        <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-    </div>
+    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
+
 </footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>

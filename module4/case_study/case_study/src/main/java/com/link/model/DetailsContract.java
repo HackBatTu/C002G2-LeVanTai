@@ -12,8 +12,8 @@ public class DetailsContract {
     private Integer id;
     private Integer quantity;
 
-    @Value("false")
-    private Boolean status;
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @ManyToOne
     @JoinColumn(name = "contract_id", referencedColumnName = "id")
@@ -26,7 +26,7 @@ public class DetailsContract {
     public DetailsContract() {
     }
 
-    public DetailsContract(Integer id, Integer quantity, Boolean status, Contract contract, FacilityAttach facilityAttach) {
+    public DetailsContract(Integer id, Integer quantity, Integer status, Contract contract, FacilityAttach facilityAttach) {
         this.id = id;
         this.quantity = quantity;
         this.status = status;
@@ -50,11 +50,11 @@ public class DetailsContract {
         this.quantity = quantity;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

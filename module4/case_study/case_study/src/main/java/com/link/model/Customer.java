@@ -18,8 +18,8 @@ public class Customer {
     private String phone;
     private String email;
     private String address;
-    @Value("false")
-    private Boolean status;
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @ManyToOne
     @JoinColumn(name = "customer_type_id" , referencedColumnName = "id")
@@ -33,7 +33,7 @@ public class Customer {
     }
 
     public Customer(Integer id, String name, String dateOfBird, Integer gender, String idCard, String phone, String email,
-                    String address, Boolean status, CustomerType customerType, List<Contract> contractList) {
+                    String address, Integer status, CustomerType customerType, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.dateOfBird = dateOfBird;
@@ -119,11 +119,11 @@ public class Customer {
         this.address = address;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

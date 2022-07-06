@@ -5,13 +5,14 @@
 <body>
 <header th:replace="~{style :: bootstrapHeaderBody}"></header>
 
+
 <section class="container">
     <div class="p-3 text-center bg-image"
          style="height: 150px;">
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h2 class="mb-3">Facility Management</h2>
+                    <h1 class="mb-3">Facility Management</h1>
                     <a href="" th:href="@{/facility/create}" class="btn btn-outline-success btn-lg" role="button">Create
                         Facility</a>
                 </div>
@@ -28,34 +29,29 @@
             </form>
         </div>
     </div>
-
     <div>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>STT</th>
-                <th>Name</th>
-                <th>Area</th>
-                <th>Cost</th>
-                <th>MaxPerson</th>
-                <th>FacilityType</th>
-                <th>RentType</th>
-                <th colspan="2">Action</th>
-
+                <th>Service</th>
+                <th>Customer</th>
+                <th>Date CheckIn</th>
+                <th>Date CheckOut</th>
+                <th>Deposit</th>
+                <th>Total Money</th>
+                <th>Attach Service</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="fa, loop : ${facilityList}">
+            <tr th:each="fa, loop : ${contractList}">
                 <td th:text="${loop.count}"></td>
-                <td th:text="${fa.name}"></td>
-                <td th:text="${fa.area}"></td>
-                <td th:text="${fa.cost}"></td>
-                <td th:text="${fa.maxPerson}"></td>
-                <td th:text="${fa.facilityType.name}"></td>
-                <td th:text="${fa.rentType.name}"></td>
-                <td>
-                    <a th:href="@{/facility/edit/{id}(id=${fa.id})}" class="btn btn-outline-success">Edit</a>
-                </td>
+                <td th:text="${fa.facility.name}"></td>
+                <td th:text="${fa.customer.name}"></td>
+                <td th:text="${fa.checkIn}"></td>
+                <td th:text="${fa.checkOut}"></td>
+                <td th:text="${fa.deposit}"></td>
+                <td th:text="${fa.facilityAttach.name}"></td>
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
@@ -79,7 +75,7 @@
                                     with id = <span th:text="${fa.id}" class="text-warning"></span> ?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="" th:href="@{/facility/delete/{id}(id=${fa.id})}"
+                                    <a href="" th:href="@{/contract/delete/{id}(id=${fa.id})}"
                                        class="btn btn-outline-success">Delete</a>
                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                         Close
@@ -94,31 +90,32 @@
         </table>
         <div class="row">
             <div class="col-10"> </div>
-            <div class="col-2">
-                <ul class="pagination" th:if="${facilityList.totalPages > 0}">
+
+            <div class="col-2 ">
+                <ul class="pagination" th:if="${contractList.totalPages > 0}">
                     <li class="page-item">
-                        <a class="page-link" th:if="${facilityList.hasPrevious()}"
-                           th:href="@{'/facility'(page=${facilityList.number - 1}, search=${searchName})}">
+                        <a class="page-link" th:if="${contractList.hasPrevious()}"
+                           th:href="@{'/contract'(page=${contractList.number - 1}, search=${searchName})}">
                             Previous
                         </a>
                     </li>
-                    <div th:each="item, loop : ${#numbers.sequence(1, facilityList.totalPages )}">
-                        <div th:if="${(facilityList.number + 1) == item}">
+                    <div th:each="item, loop : ${#numbers.sequence(1, contractList.totalPages )}">
+                        <div th:if="${(contractList.number + 1) == item}">
                             <li class="page-item active">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1),
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),
                              search=${searchName})}"></a>
                             </li>
                         </div>
-                        <div th:unless="${((facilityList.number + 1) == item)}">
+                        <div th:unless="${((contractList.number + 1) == item)}">
                             <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1),
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),
                              search=${searchName} )}"></a>
                             </li>
                         </div>
                     </div>
                     <li class="page-item">
-                        <a class="page-link" th:if="${facilityList.hasNext()}"
-                           th:href="@{'/facility'(page=${facilityList.number + 1}, search=${searchName})}">
+                        <a class="page-link" th:if="${contractList.hasNext()}"
+                           th:href="@{'/contract'(page=${contractList.number + 1}, search=${searchName})}">
                             Next
                         </a>
                     </li>

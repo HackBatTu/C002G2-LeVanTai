@@ -1,7 +1,5 @@
 package com.link.model;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import javax.persistence.*;
 
 @Entity
@@ -18,8 +16,9 @@ public class Facility {
     private String descriptionOther;
     private String numberOfFloors;
     private String facilityFree;
-    @Value("false")
-    private Boolean status;
+
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
 
     @ManyToOne
     @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
@@ -33,7 +32,7 @@ public class Facility {
     }
 
     public Facility(Integer id, String name, Double area, Double poolArea, Double cost, Integer maxPerson, String standardRoom,
-                    String descriptionOther, String numberOfFloors, String facilityFree, Boolean status, FacilityType facilityType, RentType rentType) {
+                    String descriptionOther, String numberOfFloors, String facilityFree, Integer status, FacilityType facilityType, RentType rentType) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -49,11 +48,11 @@ public class Facility {
         this.rentType = rentType;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
