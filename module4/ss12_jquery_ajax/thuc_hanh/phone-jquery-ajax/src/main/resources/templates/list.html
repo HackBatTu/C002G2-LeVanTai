@@ -58,33 +58,7 @@
                 }
             });
         }
-        function addNewSmartPhone() {
-            //lay du lieu
-            let producer = $('#producer').val();
-            let model = $('#model').val();
-            let price = $('#price').val();
-            let newSmartphone = {
-                producer: producer,
-                model: model,
-                price: price
-            };
-            // goi ajax
-            $.ajax({
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                type: "POST",
-                data: JSON.stringify(newSmartphone),
-                //tên API
-                url: "/smartphones",
-                //xử lý khi thành công
-                success: successHandler
 
-            });
-            //chặn sự kiện mặc định của thẻ
-            event.preventDefault();
-        }
         $(document).ready(function () {
             //sư kiện nào thực hiện Ajax
             $('.deleteSmartphone').click(function (event) {

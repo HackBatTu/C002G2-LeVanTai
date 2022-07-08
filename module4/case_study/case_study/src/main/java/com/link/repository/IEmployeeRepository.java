@@ -17,7 +17,7 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
 
 
     @Query(value = "select * from employee where status = 0 and name like :searchName", nativeQuery = true,
-    countQuery = "select count(*) form (select * from employee where status = 0 and name like :searchName ) temp_table")
+    countQuery = "select count(*) from (select * from employee where status = 0 and name like :searchName ) temp_table")
     Page<Employee> findAllEmployee(@Param("searchName") String searchName, Pageable pageable);
 
     @Modifying

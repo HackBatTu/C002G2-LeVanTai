@@ -20,11 +20,11 @@
 
         <div class="form-field col-lg-6 ">
             <input id="cost" class="input-text js-input" type="text" th:field="*{cost}" required>
-            <label class="label" for="cost">cost</label>
+            <label class="label" for="cost">Cost</label>
         </div>
         <div class="form-field col-lg-6 ">
             <input id="maxPerson" class="input-text js-input" type="text" th:field="*{maxPerson}" required>
-            <label class="label" for="maxPerson">maxPerson</label>
+            <label class="label" for="maxPerson">Max Person</label>
         </div>
 <!--        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
 
@@ -33,6 +33,7 @@
                 <option th:each="item, loop : ${rentTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
         </div>
+
         <div class="form-field col-lg-6">
             <select id="choiceFacilityType" class="form-select" th:field="*{facilityType}" onchange="selectFacility()">
                 <option th:each="item,loop : ${facilityTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
@@ -40,24 +41,24 @@
         </div>
         <div class="form-field col-lg-6 " id="standardRoom" style="display: none">
             <input  class="input-text js-input" type="text" th:field="*{standardRoom}" >
-            <label class="label" for="standardRoom">StandardRoom</label>
+            <label class="label" for="standardRoom">Standard Room</label>
         </div>
 
         <div class="form-field col-lg-6 "  id="poolArea" style="display: none">
             <input class="input-text js-input" type="text" th:field="*{poolArea}" >
-            <label class="label" for="poolArea">PoolArea</label>
+            <label class="label" for="poolArea">Pool Area</label>
         </div>
         <div class="form-field col-lg-6 " id="descriptionOther" style="display: none">
             <input  class="input-text js-input" type="text" th:field="*{descriptionOther}" >
-            <label class="label" for="descriptionOther">DescriptionOther</label>
+            <label class="label" for="descriptionOther">Description Other</label>
         </div>
         <div class="form-field col-lg-6" id="numberOfFloors" style="display: none">
             <input  class="input-text js-input" type="text" th:field="*{numberOfFloors}" >
-            <label class="label" for="numberOfFloors">NumberOfFloors</label>
+            <label class="label" for="numberOfFloors">Number Of Floors</label>
         </div>
         <div class="form-field col-lg-6" id="facilityFree" style="display: none">
             <input  class="input-text js-input" type="text" th:field="*{facilityFree}" >
-            <label class="label" for="facilityFree">FacilityFree</label>
+            <label class="label" for="facilityFree">Facility Free</label>
         </div>
 
 
@@ -68,14 +69,14 @@
     </form>
 </section>
 
-<footer id="footer">
-    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
-</footer>
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
 <th:block th:replace="~{style :: bootstrapFooter}"></th:block>
 </body>
+
+
 <script>
     function selectFacility() {
         let getValue = $('#choiceFacilityType').val()
@@ -102,7 +103,7 @@
                 $('#facilityFree').show()
                 break;
         }
-
     }
 </script>
+
 </html>

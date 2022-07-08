@@ -11,8 +11,8 @@
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h2 class="mb-3">Service Management</h2>
-                    <a href="" th:href="@{/facility/create}" class="btn btn-outline-success btn-lg" role="button">Create
+                    <h2 class="mb-3 management"  >Service Management</h2>
+                    <a href="" th:href="@{/facility/create}" class="btn btn-outline-success btn-lg buttons" role="button">Create
                         Service</a>
                 </div>
             </div>
@@ -22,9 +22,9 @@
         <div class="col-8"></div>
         <div class="col-4">
             <form class="d-flex">
-                <input class="form-control me-2" type="search" name="search"
-                       placeholder="Search By Name" th:value="${searchName}" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" name="name">Search</button>
+                <input class="form-control me-2 buttons" type="search" name="search"
+                        th:value="${searchName}" aria-label="Search">
+                <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>
             </form>
         </div>
     </div>
@@ -37,9 +37,9 @@
                 <th>Name</th>
                 <th>Area</th>
                 <th>Cost</th>
-                <th>MaxPerson</th>
-                <th>FacilityType</th>
-                <th>RentType</th>
+                <th>Max Person</th>
+                <th>Facility Type</th>
+                <th>Rent Type</th>
                 <th colspan="2">Action</th>
 
             </tr>
@@ -93,8 +93,8 @@
             </tbody>
         </table>
         <div class="row">
-            <div class="col-10"> </div>
-            <div class="col-2">
+            <div class="col-9"> </div>
+            <div class="col-3">
                 <ul class="pagination" th:if="${facilityList.totalPages > 0}">
                     <li class="page-item">
                         <a class="page-link" th:if="${facilityList.hasPrevious()}"
@@ -129,9 +129,8 @@
 </section>
 
 
-<footer id="footer">
-    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
-</footer>
+<footer th:replace="~{style :: bootstrapBodyDiv}"></footer>
+
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 

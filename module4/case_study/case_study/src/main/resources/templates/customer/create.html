@@ -38,7 +38,7 @@
             <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" required>
                 <option value="1">Male</option>
                 <option value="0">FeMale</option>
-                <option value="">Other</option>
+                <option value="3">Other</option>
             </select>
         </div>
         <div class="form-field col-lg-6">
@@ -53,10 +53,8 @@
     </form>
 </section>
 
-<footer id="footer">
-    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
 
-</footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 

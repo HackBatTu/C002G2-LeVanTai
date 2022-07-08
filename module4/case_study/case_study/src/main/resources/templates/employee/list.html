@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{style :: bootstrapHeader}">
 </head>
 <body>
@@ -12,105 +12,82 @@
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h2 class="mb-3">Employee Management</h2>
-<!--                    <a href="" th:href="@{/employee/create}" class="btn btn-outline-success btn-lg" role="button">Create-->
-<!--                        Employee</a>-->
-                    <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdropCreate">
+                    <h2 class="mb-3 management">Employee Management</h2>
+                    <!--                    <a href="" th:href="@{/employee/create}" class="btn btn-outline-success btn-lg" role="button">Create-->
+                    <!--                        Employee</a>-->
+                    <button type="button" class="btn btn-outline-success btn-lg buttons" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdropCreate">
                         Create new Employee
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false"
+                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="modal-content get-in-touch">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabelCreate">Create Employee</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h6 class="modal-title title" id="staticBackdropLabelCreate">Create Employee</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
                                         <div class="text-danger" id="tableInputName"></div>
-                                        <form id="contactForm" method="post" action="/employee/create">
+                                        <form class="contact-form row"  >
                                             <!-- name input-->
-                                            <div class="form-floating mb-2">
-                                                <input class="form-control" id="name" type="text"
-                                                       placeholder="Enter your name..."/>
-                                                <label for="name">Employee name</label>
+                                            <div class="form-field col-lg-6">
+                                                <input id="name" class="input-text js-input" type="text"  required>
+                                                <label class="label" for="name">Name</label>
                                             </div>
                                             <!-- birthday input-->
-                                            <div class="form-floating mb-2">
-                                                <input class="form-control" id="birthday" type="date"
-                                                       placeholder="Enter your birthday..."/>
-                                                <label for="birthday">Birthday</label>
+                                            <div class="form-field col-lg-6">
+                                                <input id="dateOfBird" class="input-text js-input" type="text"  required>
+                                                <label class="label" for="dateOfBird">Date Of Bird</label>
                                             </div>
                                             <!-- idCard input-->
-                                            <div class="form-floating mb-2">
-                                                <input class="form-control" id="idCard" type="text"
-                                                       placeholder="Enter your id card..."/>
-                                                <label for="idCard">Id Card</label>
+                                            <div class="form-field col-lg-6">
+                                                <input id="idCard" class="input-text js-input" type="text"  required>
+                                                <label class="label" for="idCard">Id Card</label>
                                             </div>
                                             <!-- phoneNumber input-->
-                                            <div class="form-floating mb-2">
-                                                <input class="form-control" id="phoneNumber" type="text"
-                                                       placeholder="Enter your phone number..."/>
-                                                <label for="phoneNumber">Phone Number</label>
+                                            <div class="form-field col-lg-6">
+                                                <input id="phone" class="input-text js-input" type="text"  required>
+                                                <label class="label" for="phone">Phone</label>
                                             </div>
                                             <!-- email input-->
-                                            <div class="form-floating mb-2">
-                                                <input class="form-control" id="email" type="text"
-                                                       placeholder="Enter your email..."/>
-                                                <label for="email">Email</label>
+                                            <div class="form-field col-lg-6">
+                                                <input id="email" class="input-text js-input" type="email"  required>
+                                                <label class="label" for="email">Email</label>
                                             </div>
                                             <!-- salary input-->
-                                            <div class="form-floating mb-2">
-                                                <input class="form-control" id="salary" type="text"
-                                                       placeholder="Enter your salary..."/>
-                                                <label for="salary">Salary</label>
+                                            <div class="form-field col-lg-6">
+                                                <input id="salary" class="input-text js-input" type="text"  required>
+                                                <label class="label" for="salary">Salary</label>
                                             </div>
-                                            <div class="form-floating mb-2">
-                                                <select class="form-select" aria-label="Default select example"
-                                                        style="padding-top: 0.625rem !important;">
-                                                    <option value="">Choice Education Degree</option>
-                                                    <option value="">Trung cap</option>
-                                                    <option value="">Cao Đẳng</option>
-                                                    <option value="">đại học</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-floating mb-2">
-                                                <select class="form-select" aria-label="Default select example"
-                                                        style="padding-top: 0.625rem !important;">
-                                                    <option value="">Choice Position</option>
-                                                    <option value="">Trung cap</option>
-                                                    <option value="">Cao Đẳng</option>
-                                                    <option value="">đại học</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-floating mb-2">
-                                                <select class="form-select" aria-label="Default select example"
-                                                        style="padding-top: 0.625rem !important;">
-                                                    <option value="">Choice Division</option>
-                                                    <option value="">Trung cap</option>
-                                                    <option value="">Cao Đẳng</option>
-                                                    <option value="">đại học</option>
+                                            <div class="form-field col-lg-6">
+                                                <select class="form-select" id="educationDegree">
+                                                    <option th:each="item, loop : ${educationDegreeList}" th:text="${item.name}" th:value="${item.id}"></option>
                                                 </select>
                                             </div>
 
-                                            <!-- Submit Button-->
-                                            <div class="row">
-                                                <div class="d-grid col-6">
-                                                    <button class="btn btn-outline-primary" id="submitButton" type="submit">
-                                                        Save
-                                                    </button>
-                                                </div>
-                                                <div class="col-6">
-                                                    <button type="submit" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                                </div>
+                                            <div class="form-field col-lg-6">
+                                                <select class="form-select" id="position">
+                                                    <option th:each="item, loop : ${positionList}" th:text="${item.name}" th:value="${item.id}"></option>
+                                                </select>
                                             </div>
-
-
+                                            <div class="form-field col-lg-6">
+                                                <select class="form-select" id="division">
+                                                    <option th:each="item, loop : ${divisionList}" th:text="${item.name}" th:value="${item.id}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="form-field col-lg-12">
+                                                <input class="submit-btn" type="submit" value="Submit" onclick="addNewEmployee()">
+                                            </div>
+                                            <a href="/employee" class="btn btn-outline-secondary">Back home</a>
                                         </form>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -124,7 +101,7 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" name="search"
                        placeholder="Search By Name" th:value="${searchName}" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" name="name">Search</button>
+                <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>
             </form>
         </div>
     </div>
@@ -134,195 +111,351 @@
             <tr>
                 <th>STT</th>
                 <th>Name</th>
-                <th>idCard</th>
-                <th>phone</th>
-                <th>email</th>
+                <th>Phone</th>
+                <th>Birthday</th>
                 <th>address</th>
                 <th>Position</th>
-                <th>EducationDegree</th>
+                <th>Education Degree</th>
                 <th>Division</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
             </thead>
-            <tbody>
-            <tr th:each="fa, loop : ${employeeList}">
-                <td th:text="${loop.count}"></td>
-                <td th:text="${fa.name}"></td>
-                <td th:text="${fa.idCard}"></td>
-                <td th:text="${fa.phone}"></td>
-                <td th:text="${fa.email}"></td>
-                <td th:text="${fa.address}"></td>
-                <td th:text="${fa.position.name}"></td>
-                <td th:text="${fa.educationDegree.name}"></td>
-                <td th:text="${fa.division.name}"></td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdropEdit">
-                        Edit
-                    </button>
+            <tbody id="employeeBody">
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabelEdit">Edit Employee</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container-fluid">
-                                        <div class="text-danger" id="tableInputNameEdit"></div>
-                                        <form id="contactFormEdit" method="post" action="/employee/create">
-                                            <!-- name input-->
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="nameEdit" type="text" placeholder="Enter your name..."/>
-                                                <label for="nameEdit">Employee name</label>
-                                            </div>
-                                            <!-- birthday input-->
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="birthdayEdit" type="date" placeholder="Enter your birthday..."/>
-                                                <label for="birthdayEdit">Birthday</label>
-                                            </div>
-                                            <!-- idCard input-->
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="idCardEdit" type="text" placeholder="Enter your id card..."/>
-                                                <label for="idCardEdit">Id Card</label>
-                                            </div>
-                                            <!-- phoneNumber input-->
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="phoneNumberEdit" type="text" placeholder="Enter your phone number..."/>
-                                                <label for="phoneNumberEdit">Phone Number</label>
-                                            </div>
-                                            <!-- email input-->
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="emailEdit" type="text" placeholder="Enter your email..."/>
-                                                <label for="emailEdit">Email</label>
-                                            </div>
-                                            <!-- salary input-->
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="salaryEdit" type="text" placeholder="Enter your salary..."/>
-                                                <label for="salaryEdit">Salary</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <select class="form-select" aria-label="Default select example"
-                                                        style="padding-top: 0.625rem !important;">
-                                                    <option value="">Choice Education Degree</option>
-                                                    <option value="">Trung cap</option>
-                                                    <option value="">Cao Đẳng</option>
-                                                    <option value="">đại học</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <select class="form-select" aria-label="Default select example"
-                                                        style="padding-top: 0.625rem !important;">
-                                                    <option value="">Choice Position</option>
-                                                    <option value="">aaa</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <select class="form-select" aria-label="Default select example"
-                                                        style="padding-top: 0.625rem !important;">
-                                                    <option value="">Choice Division</option>
-                                                    <option value="">bbbb</option>
-                                                </select>
-                                            </div>
+            </tbody>
+        </table>
+    </div>
+</section>
+<div class="modal fade" id="staticBackdropEdit" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content get-in-touch">
+            <div class="modal-header">
+                <h6 class="modal-title title" id="staticBackdropLabelEdit">Edit Employee</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="text-danger" id="tableInput"></div>
+                    <form class="contact-form row" action="/employee/edit" method="post" >
+                        <div class="form-field col-lg-6">
+                            <input id="idEdit" class="input-text js-input" type="text"  readonly>
+                            <label class="label" for="idEdit">Id</label>
+                        </div>
+                        <!-- name input-->
+                        <div class="form-field col-lg-6">
+                            <input id="nameEdit" class="input-text js-input" type="text"  required>
+                            <label class="label" for="nameEdit">Name</label>
+                        </div>
+                        <!-- birthday input-->
+                        <div class="form-field col-lg-6">
+                            <input id="dateOfBirdEdit" class="input-text js-input" type="text"  required>
+                            <label class="label" for="dateOfBirdEdit">Date Of Bird</label>
+                        </div>
+                        <!-- idCard input-->
+                        <div class="form-field col-lg-6">
+                            <input id="idCardEdit" class="input-text js-input" type="text"  required>
+                            <label class="label" for="idCardEdit">Id Card</label>
+                        </div>
+                        <!-- phoneNumber input-->
+                        <div class="form-field col-lg-6">
+                            <input id="phoneEdit" class="input-text js-input" type="text"  required>
+                            <label class="label" for="phoneEdit">Phone</label>
+                        </div>
+                        <!-- email input-->
+                        <div class="form-field col-lg-6">
+                            <input id="emailEdit" class="input-text js-input" type="email"  required>
+                            <label class="label" for="emailEdit">Email</label>
+                        </div>
+                        <!-- salary input-->
+                        <div class="form-field col-lg-6">
+                            <input id="salaryEdit" class="input-text js-input" type="text"  required>
+                            <label class="label" for="salaryEdit">Salary</label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <select class="form-select" id="educationDegreeEdit">
+                                <option th:each="item, loop : ${educationDegreeList}" th:text="${item.name}" th:value="${item.id}" th:id="'educationDegreeEdit'+${item.id}"></option>
+                            </select>
+                        </div>
 
-                                            <!-- Submit Button-->
-                                            <div class="d-grid">
-                                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
-                                            </div>
-                                        </form>
+                        <div class="form-field col-lg-6">
+                            <select class="form-select" id="positionEdit">
+                                <option th:each="item, loop : ${positionList}" th:text="${item.name}" th:value="${item.id}" th:id="'positionEdit'+${item.id}"></option>
+                            </select>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <select class="form-select" id="divisionEdit">
+                                <option th:each="item, loop : ${divisionList}" th:text="${item.name}" th:value="${item.id}" th:id="'divisionEdit'+${item.id}"></option>
+                            </select>
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input class="submit-btn" type="submit" value="Save Changes" id="btnSaveEdit">
+                        </div>
+                        <a id="" class="btn btn-outline-secondary">Back home</a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function getPageEmployee(searchName,pageNumber) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/restEmployee?search=" + searchName+ "&page="+ pageNumber,
+            success: function (employeePage) {
+                let employeeHTML = "";
+                for (let i = 0; i < employeePage.content.length; i++) {
+                    employeeHTML += `<tr>
+                     <td>${i + 1}</td>
+                      <td>${employeePage.content[i].name}</td>
+                      <td>${employeePage.content[i].phone}</td>
+                      <td>${employeePage.content[i].dateOfBird}</td>
+                      <td>${employeePage.content[i].address}</td>
+                      <td>${employeePage.content[i].position.name}</td>
+                      <td>${employeePage.content[i].educationDegree.name}</td>
+                      <td>${employeePage.content[i].division.name}</td>
+
+                        <td>
+                        <!-- Button trigger modal -->
+                        <a href="${employeePage.content[i].id}" class="btn btn-outline-warning" id="btnEdit">
+                            Edit
+                        </a>
+                        </td>
+                        <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdropDelete${employeePage.content[i].id}">
+                            Delete
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdropDelete${employeePage.content[i].id}" data-bs-backdrop="static"
+                             data-bs-keyboard="false"
+                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">
+                                            Warning!!!</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete employee ${employeePage.content[i].name} with id = ${employeePage.content[i].id} ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="${employeePage.content[i].id}" type="button" class="btn btn-outline-primary" id="btnDelete">Submit</a>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-primary">Save Changes</button>
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            th:data-bs-target="'#staticBackdrop' + ${fa.id}">
-                        Delete
-                    </button>
+                    </td>
+                </tr>;`
+                }
+                $('#employeeBody').html(employeeHTML);
+            },
+            error: function (resultError) {
+                console.log('error')
+            }
+        })
+    };
+    getPageEmployee("",0);
+    function addNewEmployee() {
+        let name = $('#name').val();
+        let dateOfBird = $('#dateOfBird').val();
+        let idCard = $('#idCard').val();
+        let salary = $('#salary').val();
+        let phone = $('#phone').val();
+        let email = $('#email').val();
+        let address = $('#address').val();
+        let position = $('#position').val();
+        let educationDegree = $('#educationDegree').val();
+        let division = $('#division').val();
+        let appUser = $('#appUser').val();
 
-                    <!-- Modal -->
-                    <div class="modal fade" th:id="staticBackdrop + ${fa.id}" data-bs-backdrop="static"
-                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Do you want delete Employee <span th:text="${fa.name}" class="text-warning"></span>
-                                    with id = <span th:text="${fa.id}" class="text-warning"></span> ?
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="" th:href="@{/employee/delete/{id}(id=${fa.id})}"
-                                       class="btn btn-outline-success">Delete</a>
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-10"> </div>
-            <div class="col-2 ">
-                <ul class="pagination" th:if="${employeeList.totalPages > 0}">
-                    <li class="page-item">
-                        <a class="page-link" th:if="${employeeList.hasPrevious()}"
-                           th:href="@{'/employee'(page=${employeeList.number - 1}, search=${searchName})}">
-                            Previous
-                        </a>
-                    </li>
-                    <div th:each="item, loop : ${#numbers.sequence(1, employeeList.totalPages )}">
-                        <div th:if="${(employeeList.number + 1) == item}">
-                            <li class="page-item active">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/employee(page=(${item}-1),
-                             search=${searchName})}"></a>
-                            </li>
-                        </div>
-                        <div th:unless="${((employeeList.number + 1) == item)}">
-                            <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/employee(page=(${item}-1),
-                             search=${searchName} )}"></a>
-                            </li>
-                        </div>
-                    </div>
-                    <li class="page-item">
-                        <a class="page-link" th:if="${employeeList.hasNext()}"
-                           th:href="@{'/employee'(page=${employeeList.number + 1}, search=${searchName})}">
-                            Next
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+        let newEmployee = {
+            name: name,
+            dateOfBird: dateOfBird,
+            idCard: idCard,
+            salary: salary,
+            phone: phone,
+            email: email,
+            address: address,
+            position: {
+                "id": position
+            },
+            educationDegree: {
+                "id": educationDegree
+            },
+            division: {
+                "id": division
+            },
+            appUser: {
+                "id": appUser
+            },
+        };
+        $.ajax({
+            headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+            },
+            type: "POST",
+            data: JSON.stringify(newEmployee),
+            url: "http://localhost:8080/restEmployee/create",
+            success: function (employeePage) {
+                $("#name").val("");
+                $("#dateOfBird").val("");
+                $("#idCard").val("");
+                $("#phone").val("");
+                $("#email").val("");
+                $("#salary").val("");
+                $("#staticBackdropCreate").modal("hide");
+                getPageEmployee(0);
+            },
+            error: function (resultError) {
+                console.log('Co loi xay ra');
+            }
+        });
+    }
+    $(document).ready(function () {
+        $("#employeeBody").on("click", "#btnDelete", function (event) {
+            let id = $(this).attr("href");
+            event.preventDefault();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "DELETE", //GET, DELETE, PUT...
+                url: "http://localhost:8080/restEmployee/delete/" + id,
+                success: function (resultSuccess) {
+                    $("#staticBackdropDelete" + id).modal("hide");
+                    getPageEmployee("", 0);
+                },
+                error: function (resultError) {
+                    console.log('Co loi xay ra');
+                }
+            });
+        })
+    });
+        $(document).ready(function () {
+            $("#employeeBody").on("click", "#btnEdit", function (event) {
+                let id = $(this).attr("href");
+                event.preventDefault();
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "GET", //GET, DELETE, PUT...
+                    url: "http://localhost:8080/rest/employee/edit/" + id,
+                    success: function (employee) {
+                        $("#idEdit").val(employee.id);
+                        $("#nameEdit").val(employee.name);
+                        $("#birthdayEdit").val(employee.birthday);
+                        $("#idCardEdit").val(employee.idCard);
+                        $("#phoneNumberEdit").val(employee.phone);
+                        $("#emailEdit").val(employee.email);
+                        $("#salaryEdit").val(employee.salary);
+                        let educationDegreeEditId = "educationDegreeEdit" + employee.educationDegree.id;
+                        let positionEditId = "positionEdit" + employee.position.id;
+                        let divisionEditId = "divisionEdit" + employee.division.id;
+                        document.getElementById(educationDegreeEditId).setAttribute("selected", "");
+                        document.getElementById(positionEditId).setAttribute("selected", "");
+                        document.getElementById(divisionEditId).setAttribute("selected", "");
+                        $(".btnCloseEdit").click(function (event) {
+                            document.getElementById(educationDegreeEditId).removeAttribute("selected");
+                            document.getElementById(positionEditId).removeAttribute("selected");
+                            document.getElementById(divisionEditId).removeAttribute("selected");
+                        })
+                        $("#staticBackdropEdit").modal("show");
+                    },
+                    error: function (resultError) {
+                        console.log('Co loi xay ra');
+                    }
+                });
+            })
+        })
+        $("#btnSaveEdit").click(function () {
+            let eId = $("#idEdit").val();
+            let eName = $("#nameEdit").val();
+            let eBirthday = $("#birthdayEdit").val();
+            let eIdCard = $("#idCardEdit").val();
+            let ePhoneNumber = $("#phoneEdit").val();
+            let eEmail = $("#emailEdit").val();
+            let eSalary = $("#salaryEdit").val();
+            let eEducationDegree = $("#educationDegreeEdit").val();
+            let eDivision = $("#divisionEdit").val();
+            let ePosition = $("#positionEdit").val();
+            let employeeEdit = {
+                "id": eId,
+                "name": eName,
+                "birthday": eBirthday,
+                "idCard": eIdCard,
+                "phoneNumber": ePhoneNumber,
+                "email": eEmail,
+                "salary": eSalary,
+                "educationDegree": {
+                    "id": eEducationDegree
+                },
+                "division": {
+                    "id": eDivision
+                },
+                "position": {
+                    "id": ePosition
+                },
+            }
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "PUT", //GET, DELETE, PUT...
+                url: "http://localhost:8080/restEmployee/edit",
+                data: JSON.stringify(employeeEdit),
+                success: function (employeePage) {
+                    getPageEmployee("",0);
+                    $("#staticBackdropEdit").modal("hide");
+                },
+                error: function (resultError) {
+                    console.log('Co loi xay ra');
+                }
+            });
+        })
+
+        // getPageEmployee(0);
+        // let pageCur = 0;
+        // $('#aPrevious').click(function () {
+        //     if (pageCur > 0) {
+        //         pageCur--;
+        //         getPageBlog(pageCur)
+        //     } else {
+        //         alert(" no page")
+        //     }
+        // });
+        // $("#aNext").click(function () {
+        //     pageCur++;
+        //     getPageStudent(pageCur);
+        // });
+</script>
 
 
-<footer id="footer">
-    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
 
-</footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
 <th:block th:replace="~{/style :: bootstrapFooter}"></th:block>
 </body>
+
 </html>

@@ -27,6 +27,40 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
 }
 
+table{
+  font-size: 13px;
+}
+table th {
+  color: #5543ca;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 520;
+}
+
+.management{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2.5em;
+  color: #5543ca;
+  background: #5543ca;
+  background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  background: -webkit-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  background: linear-gradient(to right,#f4524d  0%,#5543ca  100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.buttons{
+  display: inline-block;
+  background-color: white;
+  color: #5543ca;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 2px 12px;
+  border-color: #5543ca;
+  cursor: pointer;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -69,6 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
+
   /*background: #fff;*/
   transition: all 0.5s;
   z-index: 997;
@@ -99,8 +134,8 @@ h1, h2, h3, h4, h5, h6 {
 # Form
 --------------------------------------------------------------*/
 .get-in-touch {
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 700px;
+  margin: 40px auto;
   position: relative;
 
 }
@@ -108,9 +143,9 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 2.0em;
+  font-size: 2.5em;
   line-height: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   color: #5543ca;
   background: #5543ca;
   background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
@@ -122,16 +157,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-form .form-field {
   position: relative;
-  margin: 20px 0;
+  margin: 18px 0;
 }
+.contact-form .form-select {
+  display: inline-block;
+  background-color: white;
+  background-image: linear-gradient(125deg,#a72879,#064497);
+  color: #5543ca;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 2px 12px;
+  border-color: #5543ca;
+  width:100%;
+  cursor: pointer;
+}
+
 .contact-form .input-text {
   display: block;
   width: 100%;
-  height: 36px;
+  height: 35px;
   border-width: 0 0 2px 0;
   border-color: #5543ca;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 24px;
   font-weight: 400;
 }
 .contact-form .input-text:focus {
@@ -139,22 +188,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 .contact-form .input-text:focus + .label,
 .contact-form .input-text.not-empty + .label {
-  -webkit-transform: translateY(-24px);
-  transform: translateY(-24px);
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 .contact-form .label {
   position: absolute;
-  left: 20px;
-  bottom: 11px;
+  left: 13px;
+  bottom: 30px;
   font-size: 18px;
   line-height: 26px;
-  font-weight: 400;
+  font-weight: 520;
   color: #5543ca;
   cursor: text;
-  transition: -webkit-transform .2s ease-in-out;
-  transition: transform .2s ease-in-out;
-  transition: transform .2s ease-in-out,
-  -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .1s ease-in-out;
+  transition: transform .1s ease-in-out;
+  transition: transform .1s ease-in-out, -webkit-transform .1s ease-in-out;
 }
 .contact-form .submit-btn {
   display: inline-block;
@@ -166,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
   padding: 8px 16px;
   border: none;
-  width:200px;
+  width:175px;
   cursor: pointer;
 }
 
@@ -178,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 1px solid #c4c4c4;
 }
 .header-social-links a {
-  color: #a0a0a0;
+  color: #1bbd36;
   display: inline-block;
   line-height: 0px;
   transition: 0.3s;
@@ -188,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
 }
 .header-social-links a:hover {
-  color: #1bbd36;
+  color: #ffc107;
 }
 @media (max-width: 768px) {
   .header-social-links {

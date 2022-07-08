@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
-    @Query(value = "select * from contract where status = 0 and name like :searchName", nativeQuery = true,
-    countQuery = "select count(*) from (select * from contract where status = 0 and name like :searchName)")
-    Page<Contract> findAllContract(@Param("searchName") String searchName, Pageable pageable);
+    @Query(value = "select * from contract where status = 0", nativeQuery = true,
+    countQuery = "select count(*) from (select * from contract where status = 0)")
+    Page<Contract> findAllContract(Pageable pageable);
 }

@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "App_User", //
+@Table(name = "app_user", //
         uniqueConstraints = { //
-                @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name") })
+                @UniqueConstraint(name = "APP_USER_UK", columnNames = "user_name") })
 public class AppUser {
 
     @Id
@@ -16,18 +16,18 @@ public class AppUser {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "User_Name", length = 36, nullable = false)
+    @Column(name = "user_name", length = 36, nullable = false)
     private String userName;
 
-    @Column(name = "Encryted_Password", length = 128, nullable = false)
+    @Column(name = "encryted_password", length = 128, nullable = false)
     private String encrytedPassword;
 
-    @Column(name = "Enabled", length = 1, nullable = false)
+    @Column(name = "enabled", length = 1, nullable = false)
     private boolean enabled;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "appUser")
-    List<Employee> employeeList;
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "appUser")
+//    List<Employee> employeeList;
 
     public Integer getUserId() {
         return id;

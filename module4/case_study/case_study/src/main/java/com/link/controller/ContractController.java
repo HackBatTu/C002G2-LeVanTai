@@ -20,9 +20,8 @@ public class ContractController {
     private IContractService iContractService;
 
     @GetMapping("")
-    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable, Optional<String> search){
-        String searchName = search.orElse("");
-        model.addAttribute("contractList", iContractService.getAllContract(searchName,pageable));
+    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable){
+        model.addAttribute("contractList", iContractService.getAllContract(pageable));
         return "contract/list";
     }
 

@@ -10,7 +10,7 @@
     <h1 class="title">Update Facility</h1>
     <form class="contact-form row" action="/customer/edit" method="post" th:object="${customerList}">
         <div class="form-field col-lg-6">
-            <input  class="input-text js-input" type="hidden" th:field="*{id}">
+            <input  class="input-text js-input" type="text" th:field="*{id}" readonly >
         </div>
         <div class="form-field col-lg-6">
             <input id="name" class="input-text js-input" type="text" th:field="*{name}" required>
@@ -18,24 +18,16 @@
         </div>
         <div class="form-field col-lg-6 ">
             <input id="dateOfBird" class="input-text js-input" type="date" th:field="*{dateOfBird}" required>
-            <label class="label" for="dateOfBird">DateOfBird</label>
+            <label class="label" for="dateOfBird">Date Of Bird</label>
         </div>
-        <div class="form-field col-lg-6 ">
-            <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" required>
-                <option value="">Choice Gender</option>
-                <option value="1">Male</option>
-                <option value="0">FeMale</option>
-                <option value="">Other</option>
-            </select>
-            <label class="label" for="gender">Gender</label>
-        </div>
+
         <div class="form-field col-lg-6 ">
             <input id="idCard" class="input-text js-input" type="text" th:field="*{idCard}" required>
-            <label class="label" for="idCard">IdCard</label>
+            <label class="label" for="idCard">Id Card</label>
         </div>
         <div class="form-field col-lg-6 ">
             <input id="phone" class="input-text js-input" type="text" th:field="*{phone}" required>
-            <label class="label" for="phone">phone</label>
+            <label class="label" for="phone">Phone</label>
         </div>
         <div class="form-field col-lg-6 ">
             <input id="email" class="input-text js-input" type="email" th:field="*{email}" required>
@@ -45,12 +37,17 @@
             <input id="address" class="input-text js-input" type="text" th:field="*{address}" required>
             <label class="label" for="address">Address</label>
         </div>
-
+        <div class="form-field col-lg-6 ">
+            <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" required>
+                <option value="1">Male</option>
+                <option value="0">FeMale</option>
+                <option value="">Other</option>
+            </select>
+        </div>
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{customerType}">
                 <option th:each="item, loop : ${customerTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-            <label class="label" >Customer Type</label>
         </div>
         <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">
@@ -59,10 +56,8 @@
     </form>
 </section>
 
-<footer id="footer">
-    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
 
-</footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 <th:block th:replace="~{style :: bootstrapFooter}"></th:block>

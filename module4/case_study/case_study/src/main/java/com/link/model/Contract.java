@@ -11,8 +11,8 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String checkIn;
-    private String checkOut;
+    private String dateCheckIn;
+    private String dateCheckOut;
     private Double deposit;
     @Column(columnDefinition = "bit(1) default 0")
     private int status;
@@ -36,11 +36,11 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(Integer id, String checkIn, String checkOut, Double deposit, Integer status, Employee employee,
+    public Contract(Integer id, String dateCheckIn, String dateCheckOut, Double deposit, Integer status, Employee employee,
                     Customer customer, Facility facility, List<DetailsContract> detailsContractList) {
         this.id = id;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
+        this.dateCheckIn = dateCheckIn;
+        this.dateCheckOut = dateCheckOut;
         this.deposit = deposit;
         this.status = status;
         this.employee = employee;
@@ -65,20 +65,20 @@ public class Contract {
         this.id = id;
     }
 
-    public String getCheckIn() {
-        return checkIn;
+    public String getDateCheckIn() {
+        return dateCheckIn;
     }
 
-    public void setCheckIn(String checkIn) {
-        this.checkIn = checkIn;
+    public void setDateCheckIn(String dateCheckIn) {
+        this.dateCheckIn = dateCheckIn;
     }
 
-    public String getCheckOut() {
-        return checkOut;
+    public String getDateCheckOut() {
+        return dateCheckOut;
     }
 
-    public void setCheckOut(String checkOut) {
-        this.checkOut = checkOut;
+    public void setDateCheckOut(String dateCheckOut) {
+        this.dateCheckOut = dateCheckOut;
     }
 
     public Double getDeposit() {

@@ -12,9 +12,96 @@
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h1 class="mb-3">Facility Management</h1>
-                    <a href="" th:href="@{/facility/create}" class="btn btn-outline-success btn-lg" role="button">Create
-                        Facility</a>
+                    <h1 class="mb-3 management">Contract Management</h1>
+                    <button type="button" class="btn btn-outline-success btn-lg buttons" data-bs-toggle="modal" data-bs-target="#staticBackdropCreate">
+                        Create new Contrat
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabelCreate">Create Contract</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="text-danger" id="tableInputName"></div>
+                                        <form id="contactForm" method="post" action="/contract/create">
+                                            <!-- name input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="name" type="date"
+                                                       placeholder="Enter your name..."/>
+                                                <label for="name">Date Check In</label>
+                                            </div>
+                                            <!-- birthday input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="birthday" type="date"
+                                                       placeholder="Enter your birthday..."/>
+                                                <label for="birthday">Date Check Out</label>
+                                            </div>
+                                            <!-- idCard input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="idCard" type="text"
+                                                       placeholder="Enter your id card..."/>
+                                                <label for="idCard">Deponsit</label>
+                                            </div>
+
+
+                                            <!-- salary input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="salary" type="text"
+                                                       placeholder="Enter your salary..." readonly>
+                                                <label for="salary">Tổng tiền</label>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Customer</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Employee</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Service</option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Submit Button-->
+                                            <div class="row">
+                                                <div class="d-grid col-6">
+                                                    <button class="btn btn-outline-primary" id="submitButton" type="submit">
+                                                        Save
+                                                    </button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button type="submit" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,7 +112,7 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" name="search"
                        placeholder="Search By Name" th:value="${searchName}" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" name="name">Search</button>
+                <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>
             </form>
         </div>
     </div>
@@ -40,56 +127,87 @@
                 <th>Date CheckOut</th>
                 <th>Deposit</th>
                 <th>Total Money</th>
+                <th colspan="2">Attach Service</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="fa, loop : ${contractList}">
-                <td th:text="${loop.count}"></td>
-                <td th:text="${fa.facility.name}"></td>
-                <td th:text="${fa.customer.name}"></td>
-                <td th:text="${fa.checkIn}"></td>
-                <td th:text="${fa.checkOut}"></td>
-                <td th:text="${fa.deposit}"></td>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
                 <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            th:data-bs-target="'#staticBackdrop' + ${fa.id}">
-                        Delete
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropCreate">
+                        +
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" th:id="staticBackdrop + ${fa.id}" data-bs-backdrop="static"
-                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                         aria-hidden="true">
+                    <div class="modal fade" id="staticBackdropCreate1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                    <h5 class="modal-title" id="staticBackdropLabelCreate1">Create details Contract</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want delete Facility <span th:text="${fa.name}" class="text-warning"></span>
-                                    with id = <span th:text="${fa.id}" class="text-warning"></span> ?
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="" th:href="@{/contract/delete/{id}(id=${fa.id})}"
-                                       class="btn btn-outline-success">Delete</a>
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
+                                    <div class="container-fluid">
+                                        <div class="text-danger" id="tableInputName1"></div>
+                                        <form id="contactForm1" method="post" action="/details-contract/create">
+                                            <!-- name input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="quality" type="date"
+                                                       placeholder="Enter your name..."/>
+                                                <label for="name">Quantity</label>
+                                            </div>
+                                            <!-- birthday input-->
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="id" type="date" value="1"
+                                                       placeholder="Enter your name..." readonly>
+                                                <label for="name">ID contract</label>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        style="padding-top: 0.625rem !important;">
+                                                    <option value="">Choice Attach </option>
+                                                    <option value="">Trung cap</option>
+                                                    <option value="">Cao Đẳng</option>
+                                                    <option value="">đại học</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Submit Button-->
+                                            <div class="row">
+                                                <div class="d-grid col-6">
+                                                    <button class="btn btn-outline-primary" id="submitButton" type="submit">
+                                                        Save
+                                                    </button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button type="submit" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </td>
+                <td>
+                    <button class="btn btn-primary">Các dịch vụ đi kèm</button>
+                </td>
+
+
             </tr>
             </tbody>
         </table>
         <div class="row">
-            <div class="col-10"> </div>
+            <div class="col-9"> </div>
 
-            <div class="col-2 ">
+            <div class="col-3">
                 <ul class="pagination" th:if="${contractList.totalPages > 0}">
                     <li class="page-item">
                         <a class="page-link" th:if="${contractList.hasPrevious()}"
@@ -124,9 +242,8 @@
 </section>
 
 
-<footer id="footer">
-    <div th:replace="~{style :: bootstrapBodyDiv}"></div>
-</footer>
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
+
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 

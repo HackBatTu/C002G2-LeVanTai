@@ -33,8 +33,8 @@ public class ContractService implements IContractService {
     private IFacilityRepository iFacilityRepository;
 
     @Override
-    public Page<Contract> getAllContract(String searchName, Pageable pageable) {
-        return iContractRepository.findAllContract("%"+searchName+"%", pageable);
+    public Page<Contract> getAllContract(Pageable pageable) {
+        return iContractRepository.findAllContract( pageable);
     }
 
     @Override

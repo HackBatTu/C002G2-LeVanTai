@@ -9,7 +9,7 @@ import java.util.List;
 public interface IEmployeeService {
     Page<Employee> findAllEmployee(String nameSearch, Pageable pageable);
 
-    void save(Employee employee);
+    Employee save(Employee employee);
 
     List<Position> findAllPosition();
 

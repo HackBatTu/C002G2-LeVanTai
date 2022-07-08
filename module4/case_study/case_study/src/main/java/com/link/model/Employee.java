@@ -12,6 +12,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
     private String dateOfBird;
     private String idCard;
     private Double salary;
@@ -34,9 +35,9 @@ public class Employee {
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private AppUser appUser;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private AppUser appUser;
 
     @JsonBackReference
     @OneToMany(mappedBy = "employee")
@@ -46,7 +47,7 @@ public class Employee {
     }
 
     public Employee(Integer id, String name, String dateOfBird, String idCard, Double salary, String phone, String email,
-                    String address, Integer status, Position position, EducationDegree educationDegree, Division division, AppUser appUser, List<Contract> contractList) {
+                    String address, int status, Position position, EducationDegree educationDegree, Division division, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.dateOfBird = dateOfBird;
@@ -59,15 +60,6 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.appUser = appUser;
-        this.contractList = contractList;
-    }
-
-    public List<Contract> getContractList() {
-        return contractList;
-    }
-
-    public void setContractList(List<Contract> contractList) {
         this.contractList = contractList;
     }
 
@@ -135,11 +127,11 @@ public class Employee {
         this.address = address;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -167,11 +159,11 @@ public class Employee {
         this.division = division;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
+    public List<Contract> getContractList() {
+        return contractList;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }
