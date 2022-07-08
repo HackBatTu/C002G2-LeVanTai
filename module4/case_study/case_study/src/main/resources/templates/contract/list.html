@@ -204,40 +204,40 @@
             </tr>
             </tbody>
         </table>
-        <div class="row">
-            <div class="col-9"> </div>
+<!--        <div class="row">-->
+<!--            <div class="col-9"> </div>-->
 
-            <div class="col-3">
-                <ul class="pagination" th:if="${contractList.totalPages > 0}">
-                    <li class="page-item">
-                        <a class="page-link" th:if="${contractList.hasPrevious()}"
-                           th:href="@{'/contract'(page=${contractList.number - 1}, search=${searchName})}">
-                            Previous
-                        </a>
-                    </li>
-                    <div th:each="item, loop : ${#numbers.sequence(1, contractList.totalPages )}">
-                        <div th:if="${(contractList.number + 1) == item}">
-                            <li class="page-item active">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),
-                             search=${searchName})}"></a>
-                            </li>
-                        </div>
-                        <div th:unless="${((contractList.number + 1) == item)}">
-                            <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),
-                             search=${searchName} )}"></a>
-                            </li>
-                        </div>
-                    </div>
-                    <li class="page-item">
-                        <a class="page-link" th:if="${contractList.hasNext()}"
-                           th:href="@{'/contract'(page=${contractList.number + 1}, search=${searchName})}">
-                            Next
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!--            <div class="col-3">-->
+<!--                <ul class="pagination" th:if="${contractList.totalPages > 0}">-->
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link" th:if="${contractList.hasPrevious()}"-->
+<!--                           th:href="@{'/contract'(page=${contractList.number - 1}, search=${searchName})}">-->
+<!--                            Previous-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <div th:each="item, loop : ${#numbers.sequence(1, contractList.totalPages )}">-->
+<!--                        <div th:if="${(contractList.number + 1) == item}">-->
+<!--                            <li class="page-item active">-->
+<!--                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),-->
+<!--                             search=${searchName})}"></a>-->
+<!--                            </li>-->
+<!--                        </div>-->
+<!--                        <div th:unless="${((contractList.number + 1) == item)}">-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),-->
+<!--                             search=${searchName} )}"></a>-->
+<!--                            </li>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link" th:if="${contractList.hasNext()}"-->
+<!--                           th:href="@{'/contract'(page=${contractList.number + 1}, search=${searchName})}">-->
+<!--                            Next-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </section>
 

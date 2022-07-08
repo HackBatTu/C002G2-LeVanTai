@@ -1,7 +1,7 @@
 package com.link.controller;
 
 
-import com.link.model.Facility;
+import com.link.model.service.Facility;
 import com.link.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

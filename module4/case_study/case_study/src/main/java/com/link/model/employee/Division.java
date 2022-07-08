@@ -1,13 +1,12 @@
-package com.link.model;
+package com.link.model.employee;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class EducationDegree {
+public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -17,13 +16,13 @@ public class EducationDegree {
     private int status;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "educationDegree")
+    @OneToMany(mappedBy = "division")
     private List<Employee> employeeList;
 
-    public EducationDegree() {
+    public Division() {
     }
 
-    public EducationDegree(Integer id, String name, Integer status, List<Employee> employeeList) {
+    public Division(Integer id, String name, Integer status, List<Employee> employeeList) {
         this.id = id;
         this.name = name;
         this.status = status;

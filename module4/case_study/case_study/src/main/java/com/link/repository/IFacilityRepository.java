@@ -1,6 +1,6 @@
 package com.link.repository;
 
-import com.link.model.Facility;
+import com.link.model.service.Facility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

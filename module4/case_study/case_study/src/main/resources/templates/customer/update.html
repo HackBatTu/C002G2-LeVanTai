@@ -7,9 +7,10 @@
 
 
 <section class="get-in-touch">
-    <h1 class="title">Update Facility</h1>
+    <h1 class="title">Update Customer</h1>
     <form class="contact-form row" action="/customer/edit" method="post" th:object="${customerList}">
         <div class="form-field col-lg-6">
+            <label class="label" >ID</label>
             <input  class="input-text js-input" type="text" th:field="*{id}" readonly >
         </div>
         <div class="form-field col-lg-6">

@@ -1,4 +1,4 @@
-package com.link.model;
+package com.link.model.contract;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

@@ -1,6 +1,6 @@
 package com.link.service;
 
-import com.link.model.*;
+import com.link.model.employee.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

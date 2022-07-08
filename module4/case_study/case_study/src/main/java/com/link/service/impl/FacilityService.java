@@ -1,8 +1,8 @@
 package com.link.service.impl;
 
-import com.link.model.Facility;
-import com.link.model.FacilityType;
-import com.link.model.RentType;
+import com.link.model.service.Facility;
+import com.link.model.service.FacilityType;
+import com.link.model.service.RentType;
 import com.link.repository.IFacilityRepository;
 import com.link.repository.IFacilityTypeRepository;
 import com.link.repository.IRentTypeRepository;

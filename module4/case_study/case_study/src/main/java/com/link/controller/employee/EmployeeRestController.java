@@ -1,6 +1,6 @@
 package com.link.controller.employee;
 
-import com.link.model.Employee;
+import com.link.model.employee.Employee;
 import com.link.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Optional;
 
 @RestController
@@ -34,11 +33,13 @@ public class EmployeeRestController {
         return new ResponseEntity<>(iEmployeeService.save(employee), HttpStatus.CREATED);
     }
 
-    @PutMapping("/edit/{id}")
-    public ResponseEntity<Employee> editEmployee(@PathVariable Integer id, @RequestBody Employee employee){
-        Optional<Employee> employeeOptional =Optional.ofNullable(iEmployeeService.findById(id));
-        employee.setId(employeeOptional.get().getId());
-        return new ResponseEntity<>(iEmployeeService.save(employee), HttpStatus.OK);
+    @GetMapping("/edit/{id}")
+    public ResponseEntity<Employee> editEmployee(@PathVariable Integer id){
+        return new ResponseEntity<>(iEmployeeService.findById(id), HttpStatus.OK);
+    }
+    @PutMapping("/edit")
+    public ResponseEntity<Employee> saveEdit(@RequestBody Employee employee){
+        return new ResponseEntity<>(iEmployeeService.save(employee),HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete/{id}")

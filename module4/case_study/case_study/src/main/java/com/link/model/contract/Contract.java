@@ -1,7 +1,9 @@
-package com.link.model;
+package com.link.model.contract;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.springframework.beans.factory.annotation.Value;
+import com.link.model.Customer;
+import com.link.model.employee.Employee;
+import com.link.model.service.Facility;
 
 import javax.persistence.*;
 import java.util.List;

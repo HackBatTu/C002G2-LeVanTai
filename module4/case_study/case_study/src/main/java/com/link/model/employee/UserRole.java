@@ -1,4 +1,7 @@
-package com.link.model;
+package com.link.model.employee;
+
+import com.link.model.employee.AppRole;
+import com.link.model.employee.AppUser;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

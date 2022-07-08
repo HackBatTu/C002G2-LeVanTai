@@ -1,13 +1,13 @@
-package com.link.model;
+package com.link.model.service;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.springframework.beans.factory.annotation.Value;
+import com.link.model.service.Facility;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Position {
+public class RentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -17,17 +17,25 @@ public class Position {
     private int status;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "position")
-    private List<Employee> employeeList;
+    @OneToMany(mappedBy = "rentType")
+    private List<Facility> facilityList;
 
-    public Position() {
+    public RentType() {
     }
 
-    public Position(Integer id, String name, Integer status, List<Employee> employeeList) {
+    public RentType(Integer id, String name, Integer status, List<Facility> facilityList) {
         this.id = id;
         this.name = name;
         this.status = status;
-        this.employeeList = employeeList;
+        this.facilityList = facilityList;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getId() {
@@ -46,19 +54,11 @@ public class Position {
         this.name = name;
     }
 
-    public Integer getStatus() {
-        return status;
+    public List<Facility> getFacilityList() {
+        return facilityList;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public List<Employee> getEmployeeList() {
-        return employeeList;
-    }
-
-    public void setEmployeeList(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public void setFacilityList(List<Facility> facilityList) {
+        this.facilityList = facilityList;
     }
 }

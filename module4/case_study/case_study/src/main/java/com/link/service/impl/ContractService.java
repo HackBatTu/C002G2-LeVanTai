@@ -1,15 +1,14 @@
 package com.link.service.impl;
 
-import com.link.model.Contract;
+import com.link.model.contract.Contract;
 import com.link.model.Customer;
-import com.link.model.Employee;
-import com.link.model.Facility;
+import com.link.model.employee.Employee;
+import com.link.model.service.Facility;
 import com.link.repository.IContractRepository;
 import com.link.repository.ICustomerRepository;
 import com.link.repository.IEmployeeRepository;
 import com.link.repository.IFacilityRepository;
 import com.link.service.IContractService;
-import com.link.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,13 +32,13 @@ public class ContractService implements IContractService {
     private IFacilityRepository iFacilityRepository;
 
     @Override
-    public Page<Contract> getAllContract(Pageable pageable) {
-        return iContractRepository.findAllContract( pageable);
+    public Page<Contract> getAllContract(String searchDate, Pageable pageable) {
+        return iContractRepository.findAllContract(searchDate, pageable);
     }
 
     @Override
-    public void save(Contract contract) {
-        iContractRepository.save(contract);
+    public Contract save(Contract contract) {
+       return iContractRepository.save(contract);
     }
 
     @Override
@@ -55,5 +54,15 @@ public class ContractService implements IContractService {
     @Override
     public List<Facility> findAllFacility() {
         return iFacilityRepository.getAllFacility();
+    }
+
+    @Override
+    public Contract findById(Integer id) {
+        return iContractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void deleteContract(Integer id) {
+        iContractRepository.deleteContract(id);
     }
 }

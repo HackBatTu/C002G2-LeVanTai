@@ -1,17 +1,15 @@
 package com.link.controller.employee;
 
-import com.link.model.*;
-import com.link.service.ICustomerService;
+import com.link.model.employee.AppUser;
+import com.link.model.employee.Division;
+import com.link.model.employee.EducationDegree;
+import com.link.model.employee.Position;
 import com.link.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/employee")
@@ -65,6 +63,7 @@ public class EmployeeController {
     public String goEmployee() {
     return "employee/list";
     }
+
     @ModelAttribute("divisionList")
     public List<Division> getAllDivision() {
         return this.iEmployeeService.findAllDivisionList();

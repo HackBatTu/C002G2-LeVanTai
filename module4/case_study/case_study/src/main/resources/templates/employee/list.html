@@ -44,6 +44,11 @@
                                                 <input id="dateOfBird" class="input-text js-input" type="text"  required>
                                                 <label class="label" for="dateOfBird">Date Of Bird</label>
                                             </div>
+                                            <!-- address input-->
+                                            <div class="form-field col-lg-6">
+                                                <input id="address" class="input-text js-input" type="text"  required>
+                                                <label class="label" for="address">Address</label>
+                                            </div>
                                             <!-- idCard input-->
                                             <div class="form-field col-lg-6">
                                                 <input id="idCard" class="input-text js-input" type="text"  required>
@@ -81,7 +86,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-field col-lg-12">
-                                                <input class="submit-btn" type="submit" value="Submit" onclick="addNewEmployee()">
+                                                <input class="submit-btn" type="submit" value="Submit" id="bthSaveCreate">
                                             </div>
                                             <a href="/employee" class="btn btn-outline-secondary">Back home</a>
                                         </form>
@@ -99,8 +104,8 @@
         <div class="col-8"></div>
         <div class="col-4">
             <form class="d-flex">
-                <input class="form-control me-2" type="search" name="search"
-                       placeholder="Search By Name" th:value="${searchName}" aria-label="Search">
+                <input class="form-control me-2 buttons" type="search" name="search"
+                       th:value="${searchName}" aria-label="Search">
                 <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>
             </form>
         </div>
@@ -139,7 +144,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="text-danger" id="tableInput"></div>
-                    <form class="contact-form row" action="/employee/edit" method="post" >
+                    <form class="contact-form row" >
                         <div class="form-field col-lg-6">
                             <input id="idEdit" class="input-text js-input" type="text"  readonly>
                             <label class="label" for="idEdit">Id</label>
@@ -153,6 +158,11 @@
                         <div class="form-field col-lg-6">
                             <input id="dateOfBirdEdit" class="input-text js-input" type="text"  required>
                             <label class="label" for="dateOfBirdEdit">Date Of Bird</label>
+                        </div>
+                        <!-- address input-->
+                        <div class="form-field col-lg-6">
+                            <input id="addressEdit" class="input-text js-input" type="text"  required>
+                            <label class="label" for="addressEdit">Address</label>
                         </div>
                         <!-- idCard input-->
                         <div class="form-field col-lg-6">
@@ -223,13 +233,12 @@
                       <td>${employeePage.content[i].educationDegree.name}</td>
                       <td>${employeePage.content[i].division.name}</td>
 
-                        <td>
-                        <!-- Button trigger modal -->
+                      <td>
                         <a href="${employeePage.content[i].id}" class="btn btn-outline-warning" id="btnEdit">
                             Edit
                         </a>
-                        </td>
-                        <td>
+                      </td>
+                      <td>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdropDelete${employeePage.content[i].id}">
@@ -270,7 +279,8 @@
         })
     };
     getPageEmployee("",0);
-    function addNewEmployee() {
+
+    $("#bthSaveCreate").click(function () {
         let name = $('#name').val();
         let dateOfBird = $('#dateOfBird').val();
         let idCard = $('#idCard').val();
@@ -317,16 +327,17 @@
                 $("#dateOfBird").val("");
                 $("#idCard").val("");
                 $("#phone").val("");
+                $("#address").val("");
                 $("#email").val("");
                 $("#salary").val("");
                 $("#staticBackdropCreate").modal("hide");
-                getPageEmployee(0);
+                getPageEmployee("",0);
             },
             error: function (resultError) {
                 console.log('Co loi xay ra');
             }
         });
-    }
+    })
     $(document).ready(function () {
         $("#employeeBody").on("click", "#btnDelete", function (event) {
             let id = $(this).attr("href");
@@ -348,7 +359,8 @@
             });
         })
     });
-        $(document).ready(function () {
+
+    $(document).ready(function () {
             $("#employeeBody").on("click", "#btnEdit", function (event) {
                 let id = $(this).attr("href");
                 event.preventDefault();
@@ -358,13 +370,14 @@
                         'Content-Type': 'application/json'
                     },
                     type: "GET", //GET, DELETE, PUT...
-                    url: "http://localhost:8080/rest/employee/edit/" + id,
+                    url: "http://localhost:8080/restEmployee/edit/" + id,
                     success: function (employee) {
                         $("#idEdit").val(employee.id);
                         $("#nameEdit").val(employee.name);
-                        $("#birthdayEdit").val(employee.birthday);
+                        $("#dateOfBirdEdit").val(employee.dateOfBird);
+                        $("#addressEdit").val(employee.address);
                         $("#idCardEdit").val(employee.idCard);
-                        $("#phoneNumberEdit").val(employee.phone);
+                        $("#phoneEdit").val(employee.phone);
                         $("#emailEdit").val(employee.email);
                         $("#salaryEdit").val(employee.salary);
                         let educationDegreeEditId = "educationDegreeEdit" + employee.educationDegree.id;
@@ -385,33 +398,35 @@
                     }
                 });
             })
-        })
-        $("#btnSaveEdit").click(function () {
+    })
+    $("#btnSaveEdit").click(function () {
             let eId = $("#idEdit").val();
             let eName = $("#nameEdit").val();
-            let eBirthday = $("#birthdayEdit").val();
+            let eDateOfBird = $("#dateOfBirdEdit").val();
+            let eAddress = $("#addressEdit").val();
             let eIdCard = $("#idCardEdit").val();
-            let ePhoneNumber = $("#phoneEdit").val();
+            let ePhone = $("#phoneEdit").val();
             let eEmail = $("#emailEdit").val();
             let eSalary = $("#salaryEdit").val();
             let eEducationDegree = $("#educationDegreeEdit").val();
             let eDivision = $("#divisionEdit").val();
             let ePosition = $("#positionEdit").val();
             let employeeEdit = {
-                "id": eId,
-                "name": eName,
-                "birthday": eBirthday,
-                "idCard": eIdCard,
-                "phoneNumber": ePhoneNumber,
-                "email": eEmail,
-                "salary": eSalary,
-                "educationDegree": {
+                id: eId,
+                name: eName,
+                dateOfBird: eDateOfBird,
+                address: eAddress,
+                idCard: eIdCard,
+                phone: ePhone,
+                email: eEmail,
+                salary: eSalary,
+                educationDegree: {
                     "id": eEducationDegree
                 },
-                "division": {
+                division: {
                     "id": eDivision
                 },
-                "position": {
+                position: {
                     "id": ePosition
                 },
             }
@@ -431,7 +446,7 @@
                     console.log('Co loi xay ra');
                 }
             });
-        })
+    })
 
         // getPageEmployee(0);
         // let pageCur = 0;

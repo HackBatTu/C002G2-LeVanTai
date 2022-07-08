@@ -1,9 +1,6 @@
-package com.link.model;
-
-import org.springframework.beans.factory.annotation.Value;
+package com.link.model.contract;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class DetailsContract {
