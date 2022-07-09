@@ -64,12 +64,12 @@ public class EmployeeController {
     return "employee/list";
     }
 
+
+
     @ModelAttribute("divisionList")
     public List<Division> getAllDivision() {
         return this.iEmployeeService.findAllDivisionList();
     }
-
-
 
     @ModelAttribute("educationDegreeList")
     public List<EducationDegree> getAllEducationDegree() {

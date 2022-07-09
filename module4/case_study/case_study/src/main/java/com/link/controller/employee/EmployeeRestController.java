@@ -22,7 +22,7 @@ public class EmployeeRestController {
     private IEmployeeService iEmployeeService;
 
     @GetMapping("")
-    public ResponseEntity<Page<Employee>> listEmployee(Model model , @PageableDefault(value = 20) Pageable pageable, Optional<String> search){
+    public ResponseEntity<Page<Employee>> listEmployee(Model model , @PageableDefault(value = 5) Pageable pageable, Optional<String> search){
         String searchName = search.orElse("");
         Page<Employee> employeePage =iEmployeeService.findAllEmployee(searchName,pageable);
         return new ResponseEntity<>(employeePage, HttpStatus.OK);
