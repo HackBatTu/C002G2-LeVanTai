@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
-    @Query(value = "select * from contract where status = 0 and between date_check_in and date_check_out ", nativeQuery = true,
-    countQuery = "select count(*) from (select * from contract where status = 0)")
+    @Query(value = "select * from contract where status = 0 and ( :searchDate between date_check_in and date_check_out )", nativeQuery = true,
+    countQuery = "select count(*) from (select * from contract where status = 0 and ( :searchDate between date_check_in and date_check_out))")
     Page<Contract> findAllContract(@Param("searchDate") String searchDate, Pageable pageable);
 
     @Modifying

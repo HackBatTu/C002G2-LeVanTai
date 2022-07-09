@@ -2,12 +2,11 @@ package com.link.service.impl;
 
 import com.link.model.contract.Contract;
 import com.link.model.Customer;
+import com.link.model.contract.DetailsContract;
+import com.link.model.contract.FacilityAttach;
 import com.link.model.employee.Employee;
 import com.link.model.service.Facility;
-import com.link.repository.IContractRepository;
-import com.link.repository.ICustomerRepository;
-import com.link.repository.IEmployeeRepository;
-import com.link.repository.IFacilityRepository;
+import com.link.repository.*;
 import com.link.service.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +29,10 @@ public class ContractService implements IContractService {
 
     @Autowired
     private IFacilityRepository iFacilityRepository;
+    @Autowired
+    private IFacilityAttachRepository iFacilityAttachRepository;
+    @Autowired
+    private IDetailsContractRepository iDetailsContractRepository;
 
     @Override
     public Page<Contract> getAllContract(String searchDate, Pageable pageable) {
@@ -64,5 +67,20 @@ public class ContractService implements IContractService {
     @Override
     public void deleteContract(Integer id) {
         iContractRepository.deleteContract(id);
+    }
+
+    @Override
+    public List<FacilityAttach> getAllFacilityAttach() {
+        return iFacilityAttachRepository.findAll();
+    }
+
+    @Override
+    public List<DetailsContract> getAllDetailsContract() {
+        return iDetailsContractRepository.findAll();
+    }
+
+    @Override
+    public void saveDetailsContract(DetailsContract detailsContract) {
+        iDetailsContractRepository.save(detailsContract);
     }
 }
