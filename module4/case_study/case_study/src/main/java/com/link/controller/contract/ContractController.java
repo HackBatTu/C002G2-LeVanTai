@@ -39,7 +39,7 @@ public class ContractController {
     @PostMapping("/create")
     public String saveContract(Contract contract){
         iContractService.save(contract);
-        return "redirect:/list";
+        return "redirect:/contract";
     }
     @GetMapping("/createDetailsContract")
     public String createDetailsContract(Model model){
@@ -50,7 +50,7 @@ public class ContractController {
     @PostMapping("/createDetailsContract")
     public String saveDetailsContract(DetailsContract detailsContract){
         iContractService.saveDetailsContract(detailsContract);
-        return "redirect:/list";
+        return "redirect:/contract";
     }
 
 

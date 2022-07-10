@@ -28,10 +28,10 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select * from customer where status = 0", nativeQuery = true)
     List<Customer> getAllCustomer();
 
-    @Query(value = "select c.id,c.name,c.phone,c.address,c.email,fa.id,fa.name,afa.name from customer c " +
+    @Query(value = "select c.id,c.name,c.phone,c.address,c.email,fa.id,fa.name,afa.id,afa.name from customer c " +
             " join contract ct on ct.customer_id = c.id " +
             " join facility fa on ct.facility_id = fa.id " +
             " join details_contract dct on dct.contract_id = ct.id " +
-            " join facility_attach afa on afa.id = dct.facility_attach_id ",nativeQuery = true)
+            " join facility_attach afa on dct.facility_attach_id = afa.id ",nativeQuery = true)
     List<CustomerUsingServiceDTO> findAllCustomerUsingServiceDTO(Pageable pageable);
 }

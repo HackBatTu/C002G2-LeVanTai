@@ -36,7 +36,7 @@
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Address</th>
-                <th>Service</th>
+                <th>Service Name</th>
                 <th>Attach Service</th>
                 <th>Edit Facility</th>
             </tr>
@@ -44,23 +44,23 @@
             <tbody>
             <tr th:each="fa, loop : ${customerUsingServiceList}">
                 <td th:text="${loop.count}"></td>
-                <td th:text="${fa.customerName.name}"></td>
-                <td th:text="${fa.customerPhone.phone}"></td>
-                <td th:text="${fa.customerAddress.address}"></td>
-                <td th:text="${fa.customerEmail.email}"></td>
-                <td th:text="${fa.facilityName.name}"></td>
-                <td th:text="${fa.attachServiceName.name}"></td>
-                <td> <a th:href="@{/facility/edit/{id}(id=${fa.facilityID.id})}"></a></td>
+                <td th:text="${fa.customer.name}"></td>
+                <td th:text="${fa.customer.phone}"></td>
+                <td th:text="${fa.customer.address}"></td>
+                <td th:text="${fa.customer.email}"></td>
+                <td th:text="${fa.facility.name}"></td>
+                <td th:text="${fa.facilityAttach.name}"></td>
+                <td> <a th:href="@{/facility/edit/{id}(id=${fa.facility.id})}"></a></td>
                 <td>
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            th:data-bs-target="'#staticBackdrop' + ${fa.facilityID.id}">
+                            th:data-bs-target="'#staticBackdrop' + ${fa.facility.id}">
                         Delete
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" th:id="staticBackdrop + ${fa.facilityID.id}" data-bs-backdrop="static"
+                    <div class="modal fade" th:id="staticBackdrop + ${fa.facility.id}" data-bs-backdrop="static"
                          data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                          aria-hidden="true">
                         <div class="modal-dialog">
@@ -71,11 +71,11 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want delete Facility <span th:text="${fa.facilityName.name}" class="text-warning"></span>
-                                    with id = <span th:text="${fa.facilityID.id}" class="text-warning"></span> ?
+                                    Do you want delete Facility <span th:text="${fa.facility.name}" class="text-warning"></span>
+                                    with id = <span th:text="${fa.facility.id}" class="text-warning"></span> ?
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="" th:href="@{/facility/delete/{id}(id=${fa.facilityID.id})}"
+                                    <a href="" th:href="@{/facility/delete/{id}(id=${fa.facility.id})}"
                                        class="btn btn-outline-success">Delete</a>
                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                         Close

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{style :: bootstrapHeader}">
+</head>
+<body>
+<header th:replace="~{style :: bootstrapHeaderBody}"></header>
+
+<section>
+    <div class="row gx-4 gx-lg-5 justify-content-center" style="padding: 19px 0px 2px">
+        <div class="col-lg-10 col-xl-8 text-center">
+            <h2 class="mt-0 text-danger">Error(Non)-->Chicken back home page <a class="btn btn-outline-danger"
+                                                                                th:href="@{/}">Click</a></h2>
+            <hr class="divider"/>
+            <img th:src="@{/assets/img/error.png}" class="img-fluid w-100"
+                 style="height: 484px !important; width: 50% !important;" alt="...">
+        </div>
+    </div>
+</section>
+
+<footer th:replace="~{style :: bootstrapBodyDiv}"></footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<th:block th:replace="~{/style :: bootstrapFooter}"></th:block>
+</body>
+</html>

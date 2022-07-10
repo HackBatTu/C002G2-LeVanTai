@@ -5,92 +5,50 @@ import com.link.model.service.Facility;
 
 
 public class CustomerUsingServiceDTO {
-
-    private Customer customerId;
-    private Customer customerName;
-    private Customer customerPhone;
-    private Customer customerAddress;
-    private Customer customerEmail;
-    private Facility facilityID;
-    private Facility facilityName;
-    private FacilityAttach attachServiceName;
+    private Integer id;
+    private Customer customer;
+    private Facility facility;
+    private FacilityAttach facilityAttach;
 
     public CustomerUsingServiceDTO() {
     }
 
-    public CustomerUsingServiceDTO( Customer customerId, Customer customerName, Customer customerPhone,
-                                   Customer customerAddress, Customer customerEmail, Facility facilityID, Facility facilityName, FacilityAttach attachServiceName) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.customerPhone = customerPhone;
-        this.customerAddress = customerAddress;
-        this.customerEmail = customerEmail;
-        this.facilityID = facilityID;
-        this.facilityName = facilityName;
-        this.attachServiceName = attachServiceName;
+    public CustomerUsingServiceDTO(Integer id, Customer customer, Facility facility, FacilityAttach facilityAttach) {
+        this.id = id;
+        this.customer = customer;
+        this.facility = facility;
+        this.facilityAttach = facilityAttach;
     }
 
-    public Customer getCustomerId() {
-        return customerId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Customer getCustomerName() {
-        return customerName;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerName(Customer customerName) {
-        this.customerName = customerName;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Customer getCustomerPhone() {
-        return customerPhone;
+    public Facility getFacility() {
+        return facility;
     }
 
-    public void setCustomerPhone(Customer customerPhone) {
-        this.customerPhone = customerPhone;
+    public void setFacility(Facility facility) {
+        this.facility = facility;
     }
 
-    public Customer getCustomerAddress() {
-        return customerAddress;
+    public FacilityAttach getFacilityAttach() {
+        return facilityAttach;
     }
 
-    public void setCustomerAddress(Customer customerAddress) {
-        this.customerAddress = customerAddress;
-    }
-
-    public Customer getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(Customer customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public Facility getFacilityID() {
-        return facilityID;
-    }
-
-    public void setFacilityID(Facility facilityID) {
-        this.facilityID = facilityID;
-    }
-
-    public Facility getFacilityName() {
-        return facilityName;
-    }
-
-    public void setFacilityName(Facility facilityName) {
-        this.facilityName = facilityName;
-    }
-
-    public FacilityAttach getAttachServiceName() {
-        return attachServiceName;
-    }
-
-    public void setAttachServiceName(FacilityAttach attachServiceName) {
-        this.attachServiceName = attachServiceName;
+    public void setFacilityAttach(FacilityAttach facilityAttach) {
+        this.facilityAttach = facilityAttach;
     }
 }
