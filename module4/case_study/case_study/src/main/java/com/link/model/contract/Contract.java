@@ -13,7 +13,9 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(columnDefinition = "date")
     private String dateCheckIn;
+    @Column(columnDefinition = "date")
     private String dateCheckOut;
     private Double deposit;
     @Column(columnDefinition = "bit(1) default 0")

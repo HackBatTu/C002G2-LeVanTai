@@ -56,4 +56,10 @@ public class CustomerController {
        this.iCustomerService.deleteCustomer(id);
         return "redirect:/customer";
     }
+
+//    @GetMapping("/customer-using-service")
+//    public String listCustomerUsingService(Model model){
+//        model.addAttribute("listCustomerUsingService",iCustomerService.findAllCustomerUsingService());
+//        return "customer/customer-using-service";
+//    }
 }

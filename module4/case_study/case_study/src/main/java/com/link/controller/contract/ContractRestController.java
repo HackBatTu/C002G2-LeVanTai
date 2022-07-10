@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -21,24 +23,27 @@ public class ContractRestController {
     @Autowired
     private IContractService iContractService;
 
-    @GetMapping("")
-    public ResponseEntity<Page<Contract>> ListContract(@PageableDefault(value = 5)Pageable pageable, Optional<String> search){
-        String searchDate = search.orElse("");
-        Page<Contract> contractPage = iContractService.getAllContract(searchDate,pageable);
-        return new ResponseEntity<>(contractPage, HttpStatus.OK);
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<Contract> createContract(@RequestBody Contract contract){
-        return new ResponseEntity<>(iContractService.save(contract),HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/delete")
-    public ResponseEntity<Contract> deleteContract(@PathVariable Integer id){
-        Optional<Contract> contractOptional = Optional.ofNullable(iContractService.findById(id));
-        iContractService.deleteContract(id);
-        return new ResponseEntity<>(contractOptional.get(), HttpStatus.NO_CONTENT);
-    }
+//    @GetMapping("/contract")
+//    public ResponseEntity<Page<Contract>> getAllContract(@PageableDefault(5) Pageable pageable,
+//                                                         Optional<String> searchDateIn, Optional<String> searchDateOut) {
+//        String dateIn = searchDateIn.orElse("1970-01-01");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        String dateOut = searchDateOut.orElse(simpleDateFormat.format(new Date()));
+//        Page<Contract> contractPage = this.iContractService.getAllContract(pageable, dateIn, dateOut);
+//        return new ResponseEntity<>(contractPage, HttpStatus.OK);
+//    }
+//
+//    @PostMapping("/create")
+//    public ResponseEntity<Contract> createContract(@RequestBody Contract contract){
+//        return new ResponseEntity<>(iContractService.save(contract),HttpStatus.CREATED);
+//    }
+//
+//    @DeleteMapping("/delete")
+//    public ResponseEntity<Contract> deleteContract(@PathVariable Integer id){
+//        Optional<Contract> contractOptional = Optional.ofNullable(iContractService.findById(id));
+//        iContractService.deleteContract(id);
+//        return new ResponseEntity<>(contractOptional.get(), HttpStatus.NO_CONTENT);
+//    }
 
 
 }

@@ -24,9 +24,11 @@
         <div class="col-8"></div>
         <div class="col-4">
             <form class="d-flex">
-                <input class="form-control me-2 buttons" type="search" name="search"
-                       th:value="${searchDate}" aria-label="Search">
-                <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>
+                <input class="form-control me-2 buttons" type="search" name="dateCheckIn"
+                       th:value="${dateIn}" aria-label="Search">
+                <input class="form-control me-2 buttons" type="search" name="dateCheckOut"
+                       th:value="${dateOut}" aria-label="Search">
+                <button class="btn btn-outline-success buttons" type="submit">Search</button>
             </form>
         </div>
     </div>
@@ -53,7 +55,7 @@
                 <td th:text="${fa.dateCheckOut}"></td>
                 <td th:text="${fa.deposit}"></td>
                 <td>
-                    <button class="btn btn-success" data-toggle="modal"
+                    <button class="btn btn-success-primary" data-toggle="modal"
                             th:data-target="'#modalDetailsContract'+${fa.id}"
                             th:onclick="'getIdContract('+${fa.id}+')'">
                         +
@@ -165,7 +167,7 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want delete Contract <span th:text="${fa.name}" class="text-warning"></span>
+                                    Do you want delete Contract <span th:text="${fa.customer.name}" class="text-warning"></span>
                                     with id = <span th:text="${fa.id}" class="text-warning"></span> ?
                                 </div>
                                 <div class="modal-footer">
@@ -190,7 +192,7 @@
                 <ul class="pagination" th:if="${contractList.totalPages > 0}">
                     <li class="page-item">
                         <a class="page-link" th:if="${contractList.hasPrevious()}"
-                           th:href="@{'/contract'(page=${contractList.number - 1}, search=${searchDate})}">
+                           th:href="@{'/contract'(page=${contractList.number - 1}, searchDateIn=${dateIn},searchDateOut=${dateOut})}">
                             Previous
                         </a>
                     </li>
@@ -198,19 +200,19 @@
                         <div th:if="${(contractList.number + 1) == item}">
                             <li class="page-item active">
                                 <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),
-                             search=${searchDate})}"></a>
+                             searchDateIn=${dateIn},searchDateOut=${dateOut})}"></a>
                             </li>
                         </div>
                         <div th:unless="${((contractList.number + 1) == item)}">
                             <li class="page-item">
                                 <a class="page-link" href="#" th:text="${item}" th:href="@{/contract(page=(${item}-1),
-                             search=${searchDate} )}"></a>
+                             searchDateIn=${dateIn},searchDateOut=${dateOut} )}"></a>
                             </li>
                         </div>
                     </div>
                     <li class="page-item">
                         <a class="page-link" th:if="${contractList.hasNext()}"
-                           th:href="@{'/contract'(page=${contractList.number + 1}, search=${searchDate})}">
+                           th:href="@{'/contract'(page=${contractList.number + 1}, searchDateIn=${dateIn},searchDateOut=${dateOut})}">
                             Next
                         </a>
                     </li>
@@ -228,4 +230,10 @@
 
 <th:block th:replace="~{/style :: bootstrapFooter}"></th:block>
 </body>
+<script>
+    function getIdContract(id) {
+        console.log(id);
+        $("#contractId" + `${id}`).val(id);
+    }
+</script>
 </html>

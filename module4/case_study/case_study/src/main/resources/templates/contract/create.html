@@ -7,17 +7,21 @@
 
 
 <section class="get-in-touch">
-    <h1 class="title">Create Customer</h1>
+    <h1 class="title">Create Contract</h1>
     <form class="contact-form row" action="/contract/create" method="post" th:object="${contractList}">
 
         <div class="form-field col-lg-6 ">
             <input id="dateCheckIn" class="input-text js-input" type="date" th:field="*{dateCheckIn}" required>
-            <label class="label" for="dateCheckIn">dateCheckIn</label>
+            <label class="label" for="dateCheckIn">Date Check In</label>
         </div>
 
         <div class="form-field col-lg-6 ">
-            <input id="dateCheckOut" class="input-text js-input" type="text" th:field="*{dateCheckOut}" required>
-            <label class="label" for="dateCheckOut">dateCheckOut</label>
+            <input id="dateCheckOut" class="input-text js-input" type="date" th:field="*{dateCheckOut}" required>
+            <label class="label" for="dateCheckOut">Date Check Out</label>
+        </div>
+        <div class="form-field col-lg-6 ">
+            <input id="deposit" class="input-text js-input" type="text" th:field="*{deposit}" required>
+            <label class="label" for="deposit">deposit</label>
         </div>
          <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{employee}">

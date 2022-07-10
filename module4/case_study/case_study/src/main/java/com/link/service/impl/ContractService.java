@@ -34,10 +34,10 @@ public class ContractService implements IContractService {
     @Autowired
     private IDetailsContractRepository iDetailsContractRepository;
 
-    @Override
-    public Page<Contract> getAllContract(String searchDate, Pageable pageable) {
-        return iContractRepository.findAllContract(searchDate, pageable);
-    }
+//    @Override
+//    public Page<Contract> getAllContract(String searchDate, Pageable pageable) {
+//        return iContractRepository.findAllContract(searchDate, pageable);
+//    }
 
     @Override
     public Contract save(Contract contract) {
@@ -82,5 +82,10 @@ public class ContractService implements IContractService {
     @Override
     public void saveDetailsContract(DetailsContract detailsContract) {
         iDetailsContractRepository.save(detailsContract);
+    }
+
+    @Override
+    public Page<Contract> getAllContract(Pageable pageable, String dateIn, String dateOut) {
+        return iContractRepository.getAllContract(pageable,dateIn,dateOut);
     }
 }

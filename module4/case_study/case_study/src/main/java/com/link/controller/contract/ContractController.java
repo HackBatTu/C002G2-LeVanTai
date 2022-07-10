@@ -1,10 +1,8 @@
 package com.link.controller.contract;
 
-import com.link.model.Customer;
+
 import com.link.model.contract.Contract;
 import com.link.model.contract.DetailsContract;
-import com.link.model.employee.Employee;
-import com.link.model.service.Facility;
 import com.link.service.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,25 +23,27 @@ public class ContractController {
     private IContractService iContractService;
 
     @GetMapping("")
-    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable, Optional<String> search){
-        String searchDate = search.orElse("");
-        model.addAttribute("contractList", iContractService.getAllContract(searchDate,pageable));
+    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable,  Optional<String> searchDateIn, Optional<String> searchDateOut){
+        String dateIn = searchDateIn.orElse("1970-01-01");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String dateOut = searchDateOut.orElse(simpleDateFormat.format(new Date()));
+
+        model.addAttribute("contractList", iContractService.getAllContract(pageable, dateIn, dateOut));
         model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
         model.addAttribute("detailsContractList", iContractService.getAllDetailsContract());
         model.addAttribute("detailsContractList", new DetailsContract());
-        model.addAttribute("contractList", new Contract());
-
         return "contract/list";
     }
 
-//    @GetMapping("/create")
-//    public String formCreate(Model model){
-//        model.addAttribute("contractList", new Contract());
-//        model.addAttribute("employeeList", iContractService.findAllEmployee());
-//        model.addAttribute("customerList", iContractService.findAllCustomer());
-//        model.addAttribute("facilityList", iContractService.findAllFacility());
-//        return "contract/create";
-//    }
+    @GetMapping("/create")
+    public String formCreate(Model model){
+        model.addAttribute("contractList", new Contract());
+        model.addAttribute("employeeList", iContractService.findAllEmployee());
+        model.addAttribute("customerList", iContractService.findAllCustomer());
+        model.addAttribute("facilityList", iContractService.findAllFacility());
+        return "contract/create";
+    }
+
     @PostMapping("/create")
     public String saveContract(Contract contract){
         iContractService.save(contract);
