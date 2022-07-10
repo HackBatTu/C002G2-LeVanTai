@@ -1,7 +1,7 @@
 package com.link.service.impl;
 
 import com.link.model.contract.Contract;
-import com.link.model.Customer;
+import com.link.model.customer.Customer;
 import com.link.model.contract.DetailsContract;
 import com.link.model.contract.FacilityAttach;
 import com.link.model.employee.Employee;
@@ -34,9 +34,13 @@ public class ContractService implements IContractService {
     @Autowired
     private IDetailsContractRepository iDetailsContractRepository;
 
-//    @Override
-//    public Page<Contract> getAllContract(String searchDate, Pageable pageable) {
-//        return iContractRepository.findAllContract(searchDate, pageable);
+    @Override
+    public Page<Contract> getAllContract( Pageable pageable) {
+        return iContractRepository.findAllContract( pageable);
+    }
+    //    @Override
+//    public Page<Contract> getAllContract(Pageable pageable) {
+//        return iContractRepository.getAllContract(pageable,dateIn,dateOut);
 //    }
 
     @Override
@@ -84,8 +88,5 @@ public class ContractService implements IContractService {
         iDetailsContractRepository.save(detailsContract);
     }
 
-    @Override
-    public Page<Contract> getAllContract(Pageable pageable, String dateIn, String dateOut) {
-        return iContractRepository.getAllContract(pageable,dateIn,dateOut);
-    }
+
 }

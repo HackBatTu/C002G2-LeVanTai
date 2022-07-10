@@ -11,10 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/contract")
@@ -23,12 +19,8 @@ public class ContractController {
     private IContractService iContractService;
 
     @GetMapping("")
-    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable,  Optional<String> searchDateIn, Optional<String> searchDateOut){
-        String dateIn = searchDateIn.orElse("1970-01-01");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String dateOut = searchDateOut.orElse(simpleDateFormat.format(new Date()));
-
-        model.addAttribute("contractList", iContractService.getAllContract(pageable, dateIn, dateOut));
+    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable){
+        model.addAttribute("contractList", iContractService.getAllContract(pageable));
         model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
         model.addAttribute("detailsContractList", iContractService.getAllDetailsContract());
         model.addAttribute("detailsContractList", new DetailsContract());
@@ -49,12 +41,12 @@ public class ContractController {
         iContractService.save(contract);
         return "redirect:/list";
     }
-//    @GetMapping("/createDetailsContract")
-//    public String createDetailsContract(Model model){
-//        model.addAttribute("detailsContractList", new DetailsContract());
-//        model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
-//        return "contract/list";
-//    }
+    @GetMapping("/createDetailsContract")
+    public String createDetailsContract(Model model){
+        model.addAttribute("detailsContractList", new DetailsContract());
+        model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
+        return "contract/list";
+    }
     @PostMapping("/createDetailsContract")
     public String saveDetailsContract(DetailsContract detailsContract){
         iContractService.saveDetailsContract(detailsContract);
@@ -69,7 +61,18 @@ public class ContractController {
     }
 
 
-
+//    @GetMapping("")
+//    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable,  Optional<String> searchDateIn, Optional<String> searchDateOut){
+//        String dateIn = searchDateIn.orElse("1970-01-01");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        String dateOut = searchDateOut.orElse(simpleDateFormat.format(new Date()));
+//
+//        model.addAttribute("contractList", iContractService.getAllContract(pageable, dateIn, dateOut));
+//        model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
+//        model.addAttribute("detailsContractList", iContractService.getAllDetailsContract());
+//        model.addAttribute("detailsContractList", new DetailsContract());
+//        return "contract/list";
+//    }
 //    @GetMapping("")
 //    public String goHome(){
 //        return "contract/list";

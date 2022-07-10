@@ -42,7 +42,7 @@
                 <th>Date Check In</th>
                 <th>Date Out</th>
                 <th>Deposit</th>
-                <th colspan="2">Action</th>
+                <th colspan="2" class="text-center">Action</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -55,7 +55,7 @@
                 <td th:text="${fa.dateCheckOut}"></td>
                 <td th:text="${fa.deposit}"></td>
                 <td>
-                    <button class="btn btn-success-primary" data-toggle="modal"
+                    <button class="btn btn-success" data-toggle="modal"
                             th:data-target="'#modalDetailsContract'+${fa.id}"
                             th:onclick="'getIdContract('+${fa.id}+')'">
                         +
@@ -75,7 +75,7 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <input type="hidden" th:field="*{fa.id}" th:id="'contractId'+${fa.id}">
+<!--                                        <input type="hidden" th:field="*{fa.id}" th:id="'contractId'+${fa.id}">-->
                                         <table class="table table-bordered">
                                             <tr>
                                                 <th>Select Attach Service</th>

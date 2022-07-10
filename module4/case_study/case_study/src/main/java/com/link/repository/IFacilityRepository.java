@@ -1,5 +1,6 @@
 package com.link.repository;
 
+import com.link.model.customer.CustomerUsingServiceDTO;
 import com.link.model.service.Facility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,4 +29,6 @@ public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
 
     @Query(value = "select * from facility where status = 0 ", nativeQuery = true)
     List<Facility> getAllFacility();
+
+
 }

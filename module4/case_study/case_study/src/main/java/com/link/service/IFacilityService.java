@@ -1,5 +1,6 @@
 package com.link.service;
 
+import com.link.model.customer.CustomerUsingServiceDTO;
 import com.link.model.service.Facility;
 import com.link.model.service.FacilityType;
 import com.link.model.service.RentType;
@@ -22,4 +23,5 @@ public interface IFacilityService {
     void delete(Integer id);
 
     Page<Facility> findAllFacility(String searchName, Pageable pageable);
+
 }

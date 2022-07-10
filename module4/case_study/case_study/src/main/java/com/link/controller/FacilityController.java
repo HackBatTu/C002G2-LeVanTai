@@ -60,4 +60,5 @@ public class FacilityController {
         iFacilityService.delete(id);
         return "redirect:/facility";
     }
+
 }

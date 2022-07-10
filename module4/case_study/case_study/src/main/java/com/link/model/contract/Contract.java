@@ -1,7 +1,7 @@
 package com.link.model.contract;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.link.model.Customer;
+import com.link.model.customer.Customer;
 import com.link.model.employee.Employee;
 import com.link.model.service.Facility;
 
@@ -40,7 +40,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(Integer id, String dateCheckIn, String dateCheckOut, Double deposit, Integer status, Employee employee,
+    public Contract(Integer id, String dateCheckIn, String dateCheckOut, Double deposit, int status, Employee employee,
                     Customer customer, Facility facility, List<DetailsContract> detailsContractList) {
         this.id = id;
         this.dateCheckIn = dateCheckIn;
@@ -51,14 +51,6 @@ public class Contract {
         this.customer = customer;
         this.facility = facility;
         this.detailsContractList = detailsContractList;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 
     public Integer getId() {
@@ -91,6 +83,14 @@ public class Contract {
 
     public void setDeposit(Double deposit) {
         this.deposit = deposit;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public Employee getEmployee() {

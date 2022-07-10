@@ -1,5 +1,6 @@
 package com.link.service.impl;
 
+import com.link.model.customer.CustomerUsingServiceDTO;
 import com.link.model.service.Facility;
 import com.link.model.service.FacilityType;
 import com.link.model.service.RentType;
@@ -60,4 +61,5 @@ public class FacilityService implements IFacilityService {
     public Page<Facility> findAllFacility(String searchName, Pageable pageable) {
         return iFacilityRepository.findAllFacility("%" + searchName + "%", pageable);
     }
+
 }

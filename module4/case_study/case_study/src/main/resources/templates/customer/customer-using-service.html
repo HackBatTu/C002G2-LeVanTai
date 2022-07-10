@@ -1,138 +1,134 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="~{style :: bootstrapHeader}">-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:replace="~{style :: bootstrapHeaderBody}"></header>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{style :: bootstrapHeader}">
+</head>
+<body>
+<header th:replace="~{style :: bootstrapHeaderBody}"></header>
 
 
-<!--<section class="container">-->
-<!--    <div class="p-3 text-center bg-image"-->
-<!--         style="height: 150px;">-->
-<!--        <div class="mask">-->
-<!--            <div class="d-flex justify-content-center align-items-center h-100">-->
-<!--                <div class="text-success">-->
-<!--                    <h2 class="mb-3 management">Customer Using Service</h2>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--        <div class="col-8"></div>-->
-<!--        <div class="col-4">-->
-<!--            <form class="d-flex">-->
-<!--                <input class="form-control me-2 buttons" type="search" name="search"-->
-<!--                       th:value="${searchName}" aria-label="Search">-->
-<!--                <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <table class="table table-hover">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>STT</th>-->
-<!--                <th>Name</th>-->
-<!--                <th>IdCard</th>-->
-<!--                <th>Phone</th>-->
-<!--                <th>Email</th>-->
-<!--                <th>Address</th>-->
-<!--                <th>CustomerType</th>-->
-<!--                <th>Edit</th>-->
-<!--                <th>Delete</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr th:each="fa, loop : ${customerList}">-->
-<!--                <td th:text="${loop.count}"></td>-->
-<!--                <td th:text="${fa.name}"></td>-->
-<!--                <td th:text="${fa.idCard}"></td>-->
-<!--                <td th:text="${fa.phone}"></td>-->
-<!--                <td th:text="${fa.email}"></td>-->
-<!--                <td th:text="${fa.address}"></td>-->
-<!--                <td th:text="${fa.customerType.name}"></td>-->
-<!--                <td>-->
-<!--                    <a th:href="@{/customer/edit/{id}(id=${fa.id})}" class="btn btn-outline-success">Edit</a>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    &lt;!&ndash; Button trigger modal &ndash;&gt;-->
-<!--                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"-->
-<!--                            th:data-bs-target="'#staticBackdrop' + ${fa.id}">-->
-<!--                        Delete-->
-<!--                    </button>-->
+<section class="container">
+    <div class="p-3 text-center bg-image"
+         style="height: 150px;">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-success">
+                    <h2 class="mb-3 management">Customer Using Service</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <form class="d-flex">
+                <input class="form-control me-2 buttons" type="search" name="search"
+                       th:value="${searchName}" aria-label="Search">
+                <button class="btn btn-outline-success buttons" type="submit" name="name">Search</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Customer Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Service</th>
+                <th>Attach Service</th>
+                <th>Edit Facility</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="fa, loop : ${customerUsingServiceList}">
+                <td th:text="${loop.count}"></td>
+                <td th:text="${fa.customerName.name}"></td>
+                <td th:text="${fa.customerPhone.phone}"></td>
+                <td th:text="${fa.customerAddress.address}"></td>
+                <td th:text="${fa.customerEmail.email}"></td>
+                <td th:text="${fa.facilityName.name}"></td>
+                <td th:text="${fa.attachServiceName.name}"></td>
+                <td> <a th:href="@{/facility/edit/{id}(id=${fa.facilityID.id})}"></a></td>
+                <td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            th:data-bs-target="'#staticBackdrop' + ${fa.facilityID.id}">
+                        Delete
+                    </button>
 
-<!--                    &lt;!&ndash; Modal &ndash;&gt;-->
-<!--                    <div class="modal fade" th:id="staticBackdrop + ${fa.id}" data-bs-backdrop="static"-->
-<!--                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"-->
-<!--                         aria-hidden="true">-->
-<!--                        <div class="modal-dialog">-->
-<!--                            <div class="modal-content">-->
-<!--                                <div class="modal-header">-->
-<!--                                    <h4 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h4>-->
-<!--                                    <button type="button" class="btn-close" data-bs-dismiss="modal"-->
-<!--                                            aria-label="Close"></button>-->
-<!--                                </div>-->
-<!--                                <div class="modal-body">-->
-<!--                                    Do you want delete Customer <span th:text="${fa.name}" class="text-warning"></span>-->
-<!--                                    with id = <span th:text="${fa.id}" class="text-warning"></span> ?-->
-<!--                                </div>-->
-<!--                                <div class="modal-footer">-->
-<!--                                    <a href="" th:href="@{/customer/delete/{id}(id=${fa.id})}"-->
-<!--                                       class="btn btn-outline-success">Delete</a>-->
-<!--                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">-->
-<!--                                        Close-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
-<!--        <div class="row">-->
-<!--            <div class="col-9"> </div>-->
-
-<!--            <div class="col-3 ">-->
-<!--                <ul class="pagination" th:if="${customerList.totalPages > 0}">-->
-<!--                    <li class="page-item">-->
-<!--                        <a class="page-link" th:if="${customerList.hasPrevious()}"-->
-<!--                           th:href="@{'/customer'(page=${customerList.number - 1}, search=${searchName})}">-->
-<!--                            Previous-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <div th:each="item, loop : ${#numbers.sequence(1, customerList.totalPages )}">-->
-<!--                        <div th:if="${(customerList.number + 1) == item}">-->
-<!--                            <li class="page-item active">-->
-<!--                                <a class="page-link" href="#" th:text="${item}" th:href="@{/customer(page=(${item}-1),-->
-<!--                             search=${searchName})}"></a>-->
-<!--                            </li>-->
-<!--                        </div>-->
-<!--                        <div th:unless="${((customerList.number + 1) == item)}">-->
-<!--                            <li class="page-item">-->
-<!--                                <a class="page-link" href="#" th:text="${item}" th:href="@{/customer(page=(${item}-1),-->
-<!--                             search=${searchName} )}"></a>-->
-<!--                            </li>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <li class="page-item">-->
-<!--                        <a class="page-link" th:if="${customerList.hasNext()}"-->
-<!--                           th:href="@{'/customer'(page=${customerList.number + 1}, search=${searchName})}">-->
-<!--                            Next-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${fa.facilityID.id}" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want delete Facility <span th:text="${fa.facilityName.name}" class="text-warning"></span>
+                                    with id = <span th:text="${fa.facilityID.id}" class="text-warning"></span> ?
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="" th:href="@{/facility/delete/{id}(id=${fa.facilityID.id})}"
+                                       class="btn btn-outline-success">Delete</a>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-9"> </div>
+            <div class="col-3">
+                <ul class="pagination" th:if="${customerUsingServiceList.totalPages > 0}">
+                    <li class="page-item">
+                        <a class="page-link" th:if="${customerUsingServiceList.hasPrevious()}"
+                           th:href="@{'/customer/customer-using-service'(page=${customerUsingServiceList.number - 1})}">
+                            Previous
+                        </a>
+                    </li>
+                    <div th:each="item, loop : ${#numbers.sequence(1, customerUsingServiceList.totalPages )}">
+                        <div th:if="${(customerUsingServiceList.number + 1) == item}">
+                            <li class="page-item active">
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/customer/customer-using-service(page=(${item}-1))}"></a>
+                            </li>
+                        </div>
+                        <div th:unless="${((customerUsingServiceList.number + 1) == item)}">
+                            <li class="page-item">
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/customer/customer-using-service(page=(${item}-1))}"></a>
+                            </li>
+                        </div>
+                    </div>
+                    <li class="page-item">
+                        <a class="page-link" th:if="${customerUsingServiceList.hasNext()}"
+                           th:href="@{'/customer/customer-using-service'(page=${customerUsingServiceList.number + 1})}">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-<!--<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>-->
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
 
-<!--<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i-->
-<!--        class="bi bi-arrow-up-short"></i></a>-->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
-<!--<th:block th:replace="~{/style :: bootstrapFooter}"></th:block>-->
-<!--</body>-->
-<!--</html>-->
+<th:block th:replace="~{/style :: bootstrapFooter}"></th:block>
+</body>
+</html>

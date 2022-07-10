@@ -1,7 +1,8 @@
 package com.link.service.impl;
 
-import com.link.model.Customer;
-import com.link.model.CustomerType;
+import com.link.model.customer.Customer;
+import com.link.model.customer.CustomerType;
+import com.link.model.customer.CustomerUsingServiceDTO;
 import com.link.repository.ICustomerRepository;
 import com.link.repository.ICustomerTypeRepository;
 import com.link.service.ICustomerService;
@@ -21,7 +22,8 @@ public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerTypeRepository iCustomerTypeRepository;
 
-
+//    @Autowired
+//    private ICustomerServiceDTO iCustomerServiceDTO;
     @Override
     public Page<Customer> findAllCustomer(String searchName, Pageable pageable) {
         return iCustomerRepository.findAllCustomer("%" + searchName +"%",pageable);
@@ -46,4 +48,11 @@ public class CustomerService implements ICustomerService {
     public void deleteCustomer(Integer id) {
         iCustomerRepository.deleteCustomer(id);
     }
+
+    @Override
+    public Page<CustomerUsingServiceDTO> findAllCustomerUsingServiceDTO(Pageable pageable) {
+        return (Page<CustomerUsingServiceDTO>) iCustomerRepository.findAllCustomerUsingServiceDTO(pageable);
+    }
+
+
 }

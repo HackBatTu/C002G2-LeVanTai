@@ -13,12 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
-    @Query(value = " select * from contract where status = 0 and (date_check_out between :dateIn and :dateOut)", nativeQuery = true,
-    countQuery = "select count(*) from (select * from contract where status = 0 and (date_check_out between :dateIn and :dateOut ))")
-    Page<Contract> getAllContract(Pageable pageable, @Param("dateIn") String dateIn, @Param("dateOut") String dateOut);
+//    @Query(value = " select * from contract where status = 0 and (date_check_out between :dateIn and :dateOut)", nativeQuery = true,
+//    countQuery = "select count(*) from (select * from contract where status = 0 and (date_check_out between :dateIn and :dateOut ))")
+//    Page<Contract> getAllContract(Pageable pageable, @Param("dateIn") String dateIn, @Param("dateOut") String dateOut);
 
     @Modifying
     @Transactional
     @Query(value = "update contract c set status = 1 where c.id = :id ",nativeQuery = true)
     void deleteContract(Integer id);
+
+    @Query(value = "select * from contract where status = 0 ",nativeQuery = true)
+    Page<Contract> findAllContract(Pageable pageable);
 }

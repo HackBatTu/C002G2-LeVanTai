@@ -1,6 +1,6 @@
 package com.link.controller;
 
-import com.link.model.Customer;
+import com.link.model.customer.Customer;
 import com.link.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -56,10 +56,9 @@ public class CustomerController {
        this.iCustomerService.deleteCustomer(id);
         return "redirect:/customer";
     }
-
-//    @GetMapping("/customer-using-service")
-//    public String listCustomerUsingService(Model model){
-//        model.addAttribute("listCustomerUsingService",iCustomerService.findAllCustomerUsingService());
-//        return "customer/customer-using-service";
-//    }
+    @GetMapping("/customer-using-service")
+    public String listCustomerUsingService(Model model,@PageableDefault(value = 5)Pageable pageable){
+        model.addAttribute("customerUsingServiceList",iCustomerService.findAllCustomerUsingServiceDTO(pageable));
+        return "customer/customer-using-service";
+    }
 }
