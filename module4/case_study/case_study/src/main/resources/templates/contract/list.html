@@ -44,7 +44,6 @@
                 <th>Deposit</th>
                 <th>Total Money</th>
                 <th colspan="2" class="text-center">Action</th>
-                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -163,40 +162,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            th:data-bs-target="'#staticBackdrop' + ${fa.id}">
-                        Delete
-                    </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" th:id="staticBackdrop + ${fa.id}" data-bs-backdrop="static"
-                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Do you want delete Contract <span th:text="${fa.customer.name}"
-                                                                      class="text-warning"></span>
-                                    with id = <span th:text="${fa.id}" class="text-warning"></span> ?
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="" th:href="@{/contract/delete/{id}(id=${fa.id})}"
-                                       class="btn btn-outline-success">Delete</a>
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
             </tr>
             </tbody>
         </table>
