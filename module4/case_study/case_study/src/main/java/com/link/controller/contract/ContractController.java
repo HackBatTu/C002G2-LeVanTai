@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/contract")
@@ -19,12 +22,23 @@ public class ContractController {
     private IContractService iContractService;
 
     @GetMapping("")
-    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable){
-        model.addAttribute("contractList", iContractService.getAllContract(pageable));
+    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable, Optional<String> searchDateIn, Optional<String> searchDateOut){
+        String dateIn = searchDateIn.orElse("1000-01-01");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String dateOut = searchDateOut.orElse("3000-01-01");
+
+        model.addAttribute("contractList", iContractService.getAllContract(pageable, dateIn, dateOut));
+
         model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
         model.addAttribute("detailsContractList", iContractService.getAllDetailsContract());
-        model.addAttribute("detailsContractList", new DetailsContract());
+        model.addAttribute("detailsContract", new DetailsContract());
         return "contract/list";
+    }
+
+    @GetMapping("/customer-using-service")
+    public String listCustomerUsingService(Model model,@PageableDefault(value = 5)Pageable pageable){
+        model.addAttribute("customerUsingServiceList",iContractService.findAllCustomerUsingService(pageable));
+        return "contract/customer-using-service";
     }
 
     @GetMapping("/create")
@@ -33,6 +47,9 @@ public class ContractController {
         model.addAttribute("employeeList", iContractService.findAllEmployee());
         model.addAttribute("customerList", iContractService.findAllCustomer());
         model.addAttribute("facilityList", iContractService.findAllFacility());
+        model.addAttribute("detailsContractList", iContractService.getAllDetailsContract());
+        model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
+
         return "contract/create";
     }
 
@@ -41,14 +58,9 @@ public class ContractController {
         iContractService.save(contract);
         return "redirect:/contract";
     }
-    @GetMapping("/createDetailsContract")
-    public String createDetailsContract(Model model){
-        model.addAttribute("detailsContractList", new DetailsContract());
-        model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
-        return "contract/list";
-    }
+
     @PostMapping("/createDetailsContract")
-    public String saveDetailsContract(DetailsContract detailsContract){
+    public String saveDetailsContract(@ModelAttribute DetailsContract detailsContract){
         iContractService.saveDetailsContract(detailsContract);
         return "redirect:/contract";
     }
@@ -59,35 +71,4 @@ public class ContractController {
         iContractService.deleteContract(id);
         return "redirect:/contract";
     }
-
-
-//    @GetMapping("")
-//    public String listContract(Model model, @PageableDefault(value = 5)Pageable pageable,  Optional<String> searchDateIn, Optional<String> searchDateOut){
-//        String dateIn = searchDateIn.orElse("1970-01-01");
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        String dateOut = searchDateOut.orElse(simpleDateFormat.format(new Date()));
-//
-//        model.addAttribute("contractList", iContractService.getAllContract(pageable, dateIn, dateOut));
-//        model.addAttribute("facilityAttachList", iContractService.getAllFacilityAttach());
-//        model.addAttribute("detailsContractList", iContractService.getAllDetailsContract());
-//        model.addAttribute("detailsContractList", new DetailsContract());
-//        return "contract/list";
-//    }
-//    @GetMapping("")
-//    public String goHome(){
-//        return "contract/list";
-//    }
-//
-//    @ModelAttribute("employeeList")
-//    public List<Employee> getAllEmployee(){
-//        return iContractService.findAllEmployee();
-//    }
-//    @ModelAttribute("customerList")
-//    public List<Customer> getAllCustomer(){
-//        return iContractService.findAllCustomer();
-//    }
-//    @ModelAttribute("facilityList")
-//    public List<Facility> getAllFacility(){
-//        return iContractService.findAllFacility();
-//    }
 }

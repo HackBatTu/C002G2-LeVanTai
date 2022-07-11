@@ -24,20 +24,26 @@
             <label class="label" for="deposit">deposit</label>
         </div>
          <div class="form-field col-lg-6">
+
             <select class="form-select" th:field="*{employee}">
                 <option th:each="item, loop : ${employeeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-        </div>
+             <label class="label">Select employee :</label>
+         </div>
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{customer}">
                 <option th:each="item, loop : ${customerList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
+            <label class="label">Select customer :</label>
+
         </div>
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{facility}">
                 <option th:each="item, loop : ${facilityList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
+            <label class="label">Select facility :</label>
         </div>
+
         <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">
         </div>

@@ -276,14 +276,13 @@ table th {
   margin: 18px 0;
 }
 .contact-form .form-select {
-  display: inline-block;
+  display: block;
   background-color: white;
   background-image: linear-gradient(125deg,#a72879,#064497);
   color: #5543ca;
   letter-spacing: 2px;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 2px 12px;
+  font-size: 15px;
+  padding: 2px 8px;
   border-color: #5543ca;
   width:100%;
   cursor: pointer;
@@ -311,7 +310,7 @@ table th {
   position: absolute;
   left: 13px;
   bottom: 30px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 26px;
   font-weight: 520;
   color: #5543ca;

@@ -34,11 +34,11 @@
                 <th>STT</th>
                 <th>Customer Name</th>
                 <th>Phone</th>
-                <th>Email</th>
                 <th>Address</th>
                 <th>Service Name</th>
                 <th>Attach Service</th>
                 <th>Edit Facility</th>
+                <th>Delete Facility</th>
             </tr>
             </thead>
             <tbody>
@@ -47,11 +47,57 @@
                 <td th:text="${fa.customer.name}"></td>
                 <td th:text="${fa.customer.phone}"></td>
                 <td th:text="${fa.customer.address}"></td>
-                <td th:text="${fa.customer.email}"></td>
-                <td th:text="${fa.facility.name}"></td>
-                <td th:text="${fa.facilityAttach.name}"></td>
-                <td> <a th:href="@{/facility/edit/{id}(id=${fa.facility.id})}"></a></td>
+                <td th:text="${fa.facility.name}" th:value="${fa.facility.id}"></td>
                 <td>
+                    <!-- danh sách các dịch vụ đi kèm-->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            th:data-bs-target="'#attachFacility'  + ${fa.id}">
+                        Facility Attach List
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="attachFacility + ${fa.id}" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content get-in-touch">
+                                <div class="modal-header">
+                                    <h5 class="modal-title titleModal" id="staticBackdropLabel2">List Service
+                                        Attach</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" style="color: black">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">STT</th>
+                                            <th scope="col">Name Attach Service</th>
+                                            <th scope="col">quantity</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="details,loop : ${fa.detailsContractList}">
+                                                <td th:text="${loop.count}"></td>
+                                                <td th:text="${details.facilityAttach.name}" th:value="${details.facilityAttach.id}"></td>
+                                                <td th:text="${details.quantity}"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary"
+                                            data-bs-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a th:href="@{/facility/edit/{id}(id=${fa.facility.id})}" class="btn btn-outline-warning"> Edit</a>
+                </td>
+
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
@@ -85,7 +131,6 @@
                         </div>
                     </div>
                 </td>
-                </td>
             </tr>
             </tbody>
         </table>
@@ -102,12 +147,12 @@
                     <div th:each="item, loop : ${#numbers.sequence(1, customerUsingServiceList.totalPages )}">
                         <div th:if="${(customerUsingServiceList.number + 1) == item}">
                             <li class="page-item active">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/customer/customer-using-service(page=(${item}-1))}"></a>
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract/customer-using-service(page=(${item}-1))}"></a>
                             </li>
                         </div>
                         <div th:unless="${((customerUsingServiceList.number + 1) == item)}">
                             <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/customer/customer-using-service(page=(${item}-1))}"></a>
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract/customer-using-service(page=(${item}-1))}"></a>
                             </li>
                         </div>
                     </div>

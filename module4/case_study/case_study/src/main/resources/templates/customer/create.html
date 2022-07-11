@@ -40,11 +40,15 @@
                 <option value="0">FeMale</option>
                 <option value="3">Other</option>
             </select>
+            <label class="label">Select gender :</label>
+
         </div>
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{customerType}">
                 <option th:each="item, loop : ${customerTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
+            <label class="label">Select Customer type :</label>
+
         </div>
         <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">

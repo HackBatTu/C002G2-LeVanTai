@@ -1,5 +1,6 @@
 package com.link.model.customer;
 
+import com.link.model.contract.DetailsContract;
 import com.link.model.contract.FacilityAttach;
 import com.link.model.service.Facility;
 
@@ -9,15 +10,17 @@ public class CustomerUsingServiceDTO {
     private Customer customer;
     private Facility facility;
     private FacilityAttach facilityAttach;
+    private DetailsContract detailsContract;
 
     public CustomerUsingServiceDTO() {
     }
 
-    public CustomerUsingServiceDTO(Integer id, Customer customer, Facility facility, FacilityAttach facilityAttach) {
+    public CustomerUsingServiceDTO(Integer id, Customer customer, Facility facility, FacilityAttach facilityAttach,DetailsContract detailsContract) {
         this.id = id;
         this.customer = customer;
         this.facility = facility;
         this.facilityAttach = facilityAttach;
+        this.detailsContract= detailsContract;
     }
 
     public Integer getId() {
@@ -50,5 +53,13 @@ public class CustomerUsingServiceDTO {
 
     public void setFacilityAttach(FacilityAttach facilityAttach) {
         this.facilityAttach = facilityAttach;
+    }
+
+    public DetailsContract getDetailsContract() {
+        return detailsContract;
+    }
+
+    public void setDetailsContract(DetailsContract detailsContract) {
+        this.detailsContract = detailsContract;
     }
 }

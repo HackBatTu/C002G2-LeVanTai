@@ -24,9 +24,9 @@
         <div class="col-7"></div>
         <div class="col-5">
             <form class="d-flex">
-                <input class="form-control me-2 buttons1" type="date" name="dateCheckIn"
+                <input class="form-control me-2 buttons1" type="date" name="searchDateIn"
                        th:value="${dateIn}" aria-label="Search">
-                <input class="form-control me-2 buttons1" type="date" name="dateCheckOut"
+                <input class="form-control me-2 buttons1" type="date" name="searchDateOut"
                        th:value="${dateOut}" aria-label="Search">
                 <button class="btn btn-outline-success buttons1" type="submit">Search</button>
             </form>
@@ -42,6 +42,7 @@
                 <th>Date Check In</th>
                 <th>Date Out</th>
                 <th>Deposit</th>
+                <th>Total Money</th>
                 <th colspan="2" class="text-center">Action</th>
                 <th>Delete</th>
             </tr>
@@ -54,10 +55,11 @@
                 <td th:text="${fa.dateCheckIn}"></td>
                 <td th:text="${fa.dateCheckOut}"></td>
                 <td th:text="${fa.deposit}"></td>
+                <td th:text="${#numbers.formatDecimal(fa.totalMoney, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            th:attr="data-bs-target='#staticBackdrop' +${fa.id}">
+                        th:data-bs-target="'#staticBackdrop'  + ${fa.id}">
                         +
                     </button>
 
@@ -75,13 +77,12 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
-
-                                        <form class="contact-form row" th:action="@{/contract/createDetailsContract}"
+                                        <form class="contact-form row" action="contract/createDetailsContract"
                                               method="post"
-                                              th:object="${detailsContractList}">
+                                              th:object="${detailsContract}">
 
                                             <div class="form-field col-lg-6">
-                                                <select class="form-select" id="facilityAttach">
+                                                <select class="form-select" th:field="*{facilityAttach}">
                                                     <option value="">Attach Service</option>
                                                     <option th:each="item, loop : ${facilityAttachList}"
                                                             th:text="${item.name}" th:value="${item.id}"></option>
@@ -89,13 +90,14 @@
                                             </div>
 
                                             <div class="form-field col-lg-6">
-                                                <input id="quantity" class="input-text js-input" type="text" required>
-                                                <label class="label" for="quantity">Quantity</label>
+                                                <input th:field="*{quantity}" class="input-text js-input" type="text" required>
+                                                <label class="label" >Quantity</label>
                                             </div>
 
-                                            <div class="form-field col-lg-12">
-                                                <input id="contract" class="input-text js-input" type="hidden"
-                                                       th:text="${fa.id}"/>
+                                            <div class="form-field col-lg-12" type="hidden">
+                                                <select th:field="*{contract}"  class="input-text js-input" >
+                                                    <option th:value="${fa.id}"></option>
+                                                </select>
                                             </div>
                                             <div class="row">
                                                 <div class="col-4"></div>
@@ -107,9 +109,7 @@
                                                             data-bs-dismiss="modal">clone
                                                     </button>
                                                 </div>
-
                                             </div>
-
                                         </form>
                                     </div>
                                 </div>
@@ -141,17 +141,15 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">STT</th>
-                                            <th scope="col">Name Service</th>
-                                            <th scope="col">Cost</th>
-                                            <th scope="col">Unit</th>
+                                            <th scope="col">Name Attach Service</th>
+                                            <th scope="col">quantity</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="c,loop : ${facilityAttachList}">
+                                        <tr th:each="c,loop : ${fa.contractDetailList}">
                                             <td th:text="${loop.count}"></td>
-                                            <td th:text="${c.name}"></td>
-                                            <td th:text="${c.cost}"></td>
-                                            <td th:text="${c.unit}"></td>
+                                            <td th:text="${c.facilityAttach.name}" th:value="${c.facilityAttach.id}"></td>
+                                            <td th:text="${c.quantity}"></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -199,7 +197,6 @@
                         </div>
                     </div>
                 </td>
-
             </tr>
             </tbody>
         </table>

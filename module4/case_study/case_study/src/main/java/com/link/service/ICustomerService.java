@@ -19,5 +19,4 @@ public interface ICustomerService {
 
     void deleteCustomer(Integer id);
 
-    Page<CustomerUsingServiceDTO> findAllCustomerUsingServiceDTO(Pageable pageable);
 }

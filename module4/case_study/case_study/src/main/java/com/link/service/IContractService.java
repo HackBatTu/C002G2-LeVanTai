@@ -1,6 +1,7 @@
 package com.link.service;
 
 import com.link.model.contract.Contract;
+import com.link.model.contract.ContractDTO;
 import com.link.model.customer.Customer;
 import com.link.model.contract.DetailsContract;
 import com.link.model.contract.FacilityAttach;
@@ -12,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface IContractService {
-    Page<Contract> getAllContract( Pageable pageable);
+//    Page<ContractDTO> getAllContract( Pageable pageable);
 
     Contract save(Contract contract);
 
@@ -32,5 +33,7 @@ public interface IContractService {
 
     void saveDetailsContract(DetailsContract detailsContract);
 
-//    Page<Contract> getAllContract(Pageable pageable, String dateIn, String dateOut);
+    Page<ContractDTO> getAllContract(Pageable pageable, String dateIn, String dateOut);
+
+    Page<Contract> findAllCustomerUsingService(Pageable pageable);
 }

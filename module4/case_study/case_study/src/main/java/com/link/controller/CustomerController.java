@@ -28,11 +28,7 @@ public class CustomerController {
         model.addAttribute("customerList", iCustomerService.findAllCustomer(searchName, pageable));
         return "customer/list";
     }
-    @GetMapping("/customer-using-service")
-    public String listCustomerUsingService(Model model,@PageableDefault(value = 5)Pageable pageable){
-        model.addAttribute("customerUsingServiceList",iCustomerService.findAllCustomerUsingServiceDTO(pageable));
-        return "customer/customer-using-service";
-    }
+
     @GetMapping("/create")
     public String formCreate(Model model){
         model.addAttribute("customerList", new Customer());
