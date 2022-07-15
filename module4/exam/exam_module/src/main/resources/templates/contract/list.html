@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{style :: bootstrapHeader}">
+</head>
+<body>
+<header th:replace="~{style :: bootstrapHeaderBody}"></header>
+
+<section class="container">
+    <div class="p-3 text-center bg-image"
+         style="height: 150px;">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-success">
+                    <h2 class="mb-3 management"  >Contract Management</h2>
+                    <a href="" th:href="@{/contract/create}" class="btn btn-outline-success btn-lg buttons" role="button">Create
+                        Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>ID Contract</th>
+                <th>ID Room</th>
+                <th>Name Person</th>
+                <th>Date Contract</th>
+                <th>Time Unit(Month) </th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="fa, loop : ${contractList}">
+                <td th:text="${loop.count}"></td>
+                <td th:text="${fa.id}"></td>
+                <td th:text="${fa.room.id}"></td>
+                <td th:text="${fa.personName}"></td>
+                <td th:text="${fa.date}"></td>
+                <td th:text="${fa.timeUnit}"></td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            th:data-bs-target="'#staticBackdrop' + ${fa.id}">
+                        Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${fa.id}" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want delete Contract <span th:text="${fa.id}" class="text-warning"></span>
+                                    with Name Room  <span th:text="${fa.room.id}" class="text-warning"></span> ?
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="" th:href="@{/contract/delete/{id}(id=${fa.id})}"
+                                       class="btn btn-outline-success">Delete</a>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<footer th:replace="~{style :: bootstrapBodyDiv}"></footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<th:block th:replace="~{/style :: bootstrapFooter}"></th:block>
+</body>
+</html>

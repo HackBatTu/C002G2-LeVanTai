@@ -29,15 +29,17 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
             "  join facility fa on ct.facility_id = fa.id " +
             "  join details_contract dct on dct.contract_id = ct.id " +
             "  join facility_attach afa on dct.facility_attach_id = afa.id " +
+            " where c.name like :searchName " +
             " group by c.id , fa.id ",nativeQuery = true,
             countQuery = " select count(*) from (select c.* from customer c " +
                     "           join contract ct on ct.customer_id = c.id " +
                     "           join facility fa on ct.facility_id = fa.id " +
                     "           join details_contract dct on dct.contract_id = ct.id " +
                     "           join facility_attach afa on dct.facility_attach_id = afa.id " +
+                    " where  c.name like :searchName " +
                     " group  by c.id, fa.id ) temp_table"
     )
-    Page<Contract> findAllCustomerUsingService(Pageable pageable);
+    Page<Contract> findAllCustomerUsingService(Pageable pageable,@Param("searchName") String searchName);
 
 
 }

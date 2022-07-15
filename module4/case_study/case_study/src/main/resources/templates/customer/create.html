@@ -8,52 +8,66 @@
 
 <section class="get-in-touch">
     <h1 class="title">Create Customer</h1>
-    <form class="contact-form row" action="/customer/create" method="post" th:object="${customerList}">
-        <div class="form-field col-lg-6">
-            <input id="name" class="input-text js-input" type="text" th:field="*{name}" required>
+    <form class="contact-form row" action="/customer/create" method="post" th:object="${customerDTO}">
+
+        <div class="form-field col-lg-6 ">
+            <input id="name" class="input-text js-input" type="text" th:field="*{name}" >
             <label class="label" for="name">Name</label>
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
         <div class="form-field col-lg-6 ">
-            <input id="dateOfBird" class="input-text js-input" type="date" th:field="*{dateOfBird}" required>
+            <input id="dateOfBird" class="input-text js-input" type="date" th:field="*{dateOfBird}" >
             <label class="label" for="dateOfBird">DateOfBird</label>
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('dateOfBird')}" th:errors="*{dateOfBird}"></div>
 
         <div class="form-field col-lg-6 ">
-            <input id="idCard" class="input-text js-input" type="text" th:field="*{idCard}" required>
+            <input id="idCard" class="input-text js-input" type="text" th:field="*{idCard}" >
             <label class="label" for="idCard">IdCard</label>
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></div>
+
+
         <div class="form-field col-lg-6 ">
-            <input id="phone" class="input-text js-input" type="text" th:field="*{phone}" required>
+            <input id="phone" class="input-text js-input" type="text" th:field="*{phone}" >
             <label class="label" for="phone">phone</label>
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+
         <div class="form-field col-lg-6 ">
-            <input id="email" class="input-text js-input" type="email" th:field="*{email}" required>
+            <input id="email" class="input-text js-input" type="email" th:field="*{email}" >
             <label class="label" for="email">Email</label>
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
         <div class="form-field col-lg-6 ">
-            <input id="address" class="input-text js-input" type="text" th:field="*{address}" required>
+            <input id="address" class="input-text js-input" type="text" th:field="*{address}" >
             <label class="label" for="address">Address</label>
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+
         <div class="form-field col-lg-6 ">
-            <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" required>
+            <select id="gender" class="form-select js-input" type="text" th:field="*{gender}" >
+                <option value="" >Choice Gender</option>
                 <option value="1">Male</option>
                 <option value="0">FeMale</option>
-                <option value="3">Other</option>
+                <option value="2">Other</option>
             </select>
-            <label class="label">Select gender :</label>
-
         </div>
+        <div class="error text-danger col-6" role="alert" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{customerType}">
+                <option value="" >Customer Type List</option>
                 <option th:each="item, loop : ${customerTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-            <label class="label">Select Customer type :</label>
-
         </div>
+
         <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">
         </div>
-        <a href="/facility" class="btn btn-outline-secondary">Back home</a>
+        <a href="/customer" class="btn btn-outline-secondary">Back home</a>
     </form>
 </section>
 

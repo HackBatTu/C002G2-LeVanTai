@@ -1,7 +1,7 @@
 package com.link.service;
 
 import com.link.model.contract.Contract;
-import com.link.model.contract.ContractDTO;
+import com.link.model.contract.ContractCheckTotal;
 import com.link.model.customer.Customer;
 import com.link.model.contract.DetailsContract;
 import com.link.model.contract.FacilityAttach;
@@ -33,7 +33,7 @@ public interface IContractService {
 
     void saveDetailsContract(DetailsContract detailsContract);
 
-    Page<ContractDTO> getAllContract(Pageable pageable, String dateIn, String dateOut);
+    Page<ContractCheckTotal> getAllContract(Pageable pageable, String dateIn, String dateOut);
 
-    Page<Contract> findAllCustomerUsingService(Pageable pageable);
+    Page<Contract> findAllCustomerUsingService(Pageable pageable, String searchName);
 }

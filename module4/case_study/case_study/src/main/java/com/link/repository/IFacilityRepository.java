@@ -1,6 +1,5 @@
 package com.link.repository;
 
-import com.link.model.customer.CustomerUsingServiceDTO;
 import com.link.model.service.Facility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

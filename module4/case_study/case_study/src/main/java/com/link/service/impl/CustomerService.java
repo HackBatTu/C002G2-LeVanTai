@@ -2,7 +2,6 @@ package com.link.service.impl;
 
 import com.link.model.customer.Customer;
 import com.link.model.customer.CustomerType;
-import com.link.model.customer.CustomerUsingServiceDTO;
 import com.link.repository.ICustomerRepository;
 import com.link.repository.ICustomerTypeRepository;
 import com.link.service.ICustomerService;

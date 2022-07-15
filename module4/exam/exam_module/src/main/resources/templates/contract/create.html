@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{style :: bootstrapHeader}">
+</head>
+<body>
+<header th:replace="~{style :: bootstrapHeaderBody}"></header>
+
+
+<section class="get-in-touch">
+    <h1 class="title">Create Contract</h1>
+    <form class="contact-form row" action="/contract/create" method="post" th:object="${contract}">
+        <div class="form-field col-lg-6 ">
+            <input id="id" class="input-text js-input" type="text" th:field="*{id}" required>
+            <label class="label" for="id">ID Contract</label>
+        </div>
+
+        <div class="form-field col-lg-6">
+            <select class="form-select" th:field="*{room}">
+                <option value="" >Room List</option>
+                <option th:each="item : ${roomList}" th:text="${item.id}" th:value="${item.id}"></option>
+            </select>
+        </div>
+        <div class="form-field col-lg-6 ">
+            <input id="personName" class="input-text js-input" type="text" th:field="*{personName}" required>
+            <label class="label" for="personName">Name Person</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input id="idCard" class="input-text js-input" type="text" th:field="*{idCard}" required >
+            <label class="label" for="idCard">Id Card</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <input id="date" class="input-text js-input" type="date" th:field="*{date}" required>
+            <label class="label" for="date">Date Contract</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+            <select id="timeUnit" class="form-select js-input" type="text" th:field="*{timeUnit}" required>
+                <option value="1" >Choice timeUnit</option>
+                <option value="3">3 Month</option>
+                <option value="6">6 Month</option>
+                <option value="12">12 Month</option>
+            </select>
+        </div>
+        <div class="form-field col-lg-12">
+            <input class="submit-btn" type="submit" value="Yes Save">
+        </div>
+        <a href="/contract" class="btn btn-outline-secondary">No, back home</a>
+    </form>
+</section>
+
+<footer id="footer" th:replace="~{style :: bootstrapBodyDiv}"></footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<th:block th:replace="~{style :: bootstrapFooter}"></th:block>
+</body>
+</html>

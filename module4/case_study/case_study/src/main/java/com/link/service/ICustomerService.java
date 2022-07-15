@@ -2,7 +2,6 @@ package com.link.service;
 
 import com.link.model.customer.Customer;
 import com.link.model.customer.CustomerType;
-import com.link.model.customer.CustomerUsingServiceDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

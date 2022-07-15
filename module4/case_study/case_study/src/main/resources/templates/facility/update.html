@@ -32,16 +32,17 @@
 
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{rentType}">
+                <option value="">Rent Type List</option>
+
                 <option th:each="item, loop : ${rentTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-            <label class="label">Select Ren type :</label>
         </div>
 
         <div class="form-field col-lg-6">
             <select id="choiceFacilityType" class="form-select" th:field="*{facilityType}" onchange="selectFacility()">
+                <option value="">Facility List</option>
                 <option th:each="item,loop : ${facilityTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-            <label class="label">Select type Service :</label>
 
         </div>
         <div class="form-field col-lg-6 " id="standardRoom" style="display: none">

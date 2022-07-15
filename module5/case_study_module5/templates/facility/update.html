@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head id="head">
+
+</head>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+
+</header><!-- End Header -->
+<body>
+
+<section id="portfolio" class="portfolio">
+    <div class="p-3 text-center bg-image"
+         style="height: 100px;">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-success">
+                    <h2 class="mb-3 management">Update Service</h2>
+                    <!--                    <a href="../facility/create" class="btn btn-outline-success btn-lg buttons" role="button">Create-->
+                    <!--                        Service</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="form-label b">Name</label>
+                <input class="form-control" type="text" placeholder="enter the name" id="name" name="name" required>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">Area</label>
+                <input class="form-control" type="text" placeholder="enter the area" id="area" name="area" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="form-label">cost</label>
+                <input class="form-control" type="text" placeholder="enter the cost" id="cost" name="cost" required>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">Name</label>
+                <input class="form-control" type="text" placeholder="enter the maxPerson" id="maxPerson"
+                       name="maxPerson" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="form-label">renType</label>
+                <select class="form-select" name="renType" id="renType">
+                    <option value="1"> 1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">facilityType</label>
+                <select class="form-select" name="facilityType" id="facilityType" onchange="selectFacility()">
+                    <option value="1"> 1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+
+
+        <!--        &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="form-label">StandardRoom</label>
+                <input class="form-control" type="text" placeholder="enter the standardRoom" id="standardRoom"
+                       name="standardRoom" required>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">PoolArea</label>
+                <input class="form-control" type="text" placeholder="enter the poolArea" id="poolArea" name="poolArea"
+                       required>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">DescriptionOther</label>
+                <input class="form-control" type="text" placeholder="enter the descriptionOther" id="descriptionOther"
+                       name="descriptionOther" required>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">NumberOfFloors</label>
+                <input class="form-control" type="text" placeholder="enter the numberOfFloors" id="numberOfFloors"
+                       name="numberOfFloors" required>
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label">FacilityFree</label>
+                <input class="form-control" type="text" placeholder="enter the facilityFree" id="facilityFree"
+                       name="facilityFree" required>
+            </div>
+        </div>
+
+        <div class="text-center" style="padding-top: 10px">
+            <button class="btn btn-primary">Save Update</button>
+            <a href="/facility" class="btn btn-outline-secondary">Back home</a>
+
+        </div>
+
+    </form>
+
+</section>
+
+<div id="footer-div">
+
+</div>
+</body>
+<script src="../../static/assets/vendor/bootstrap/jquery/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('#head').load('/templates/heads.html')
+        $('#header').load('/templates/header.html')
+        $('#footer-div').load('/templates/footer.html')
+    });
+</script>
+
+<script>
+    function selectFacility() {
+        let getValue = $('#facilityType').val()
+        switch (getValue) {
+            case '1':
+                $('#standardRoom').show()
+                $('#descriptionOther').show()
+                $('#poolArea').show()
+                $('#numberOfFloors').show()
+                $('#facilityFree').hide()
+                break;
+            case '2':
+                $('#standardRoom').show()
+                $('#descriptionOther').show()
+                $('#poolArea').hide()
+                $('#numberOfFloors').show()
+                $('#facilityFree').hide()
+                break;
+            case '3':
+                $('#standardRoom').hide()
+                $('#descriptionOther').hide()
+                $('#poolArea').hide()
+                $('#numberOfFloors').hide()
+                $('#facilityFree').show()
+                break;
+        }
+
+    }
+</script>
+</html>

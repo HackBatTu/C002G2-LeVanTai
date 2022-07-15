@@ -1,15 +1,19 @@
 package com.link.controller;
 
 
+import com.link.dto.FacilityDTO;
 import com.link.model.service.Facility;
 import com.link.service.IFacilityService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -36,7 +40,12 @@ public class FacilityController {
     }
 
     @PostMapping("/create")
-    public String save(Facility facility){
+    public String save(@Valid @ModelAttribute FacilityDTO facilityDTO, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "facility/create";
+        }
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(facility,facilityDTO);
         this.iFacilityService.save(facility);
         return "redirect:/facility";
     }
@@ -50,7 +59,12 @@ public class FacilityController {
     }
 
     @PostMapping("/edit")
-    public String update(Facility facility){
+    public String update(@Valid @ModelAttribute FacilityDTO facilityDTO, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "facility/update";
+        }
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(facility,facilityDTO);
         this.iFacilityService.save(facility);
         return "redirect:/facility";
     }

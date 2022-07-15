@@ -69,24 +69,24 @@
                                             </div>
                                             <div class="form-field col-lg-6">
                                                 <select class="form-select" id="educationDegree">
+                                                    <option value="">Education Degree List</option>
                                                     <option th:each="item, loop : ${educationDegreeList}" th:text="${item.name}" th:value="${item.id}"></option>
                                                 </select>
-                                                <label class="label">Select education degree :</label>
 
                                             </div>
 
                                             <div class="form-field col-lg-6">
                                                 <select class="form-select" id="position">
+                                                    <option value="">Position List</option>
                                                     <option th:each="item, loop : ${positionList}" th:text="${item.name}" th:value="${item.id}"></option>
                                                 </select>
-                                                <label class="label">Select position :</label>
 
                                             </div>
                                             <div class="form-field col-lg-6">
                                                 <select class="form-select" id="division">
+                                                    <option value="">Division List</option>
                                                     <option th:each="item, loop : ${divisionList}" th:text="${item.name}" th:value="${item.id}"></option>
                                                 </select>
-                                                <label class="label">Select division :</label>
 
                                             </div>
                                             <div class="form-field col-lg-12">
@@ -196,24 +196,24 @@
                         </div>
                         <div class="form-field col-lg-6">
                             <select class="form-select" id="educationDegreeEdit">
+                                <option value="">Education Degree List</option>
                                 <option th:each="item, loop : ${educationDegreeList}" th:text="${item.name}" th:value="${item.id}" th:id="'educationDegreeEdit'+${item.id}"></option>
                             </select>
-                            <label class="label">Select education degree :</label>
 
                         </div>
 
                         <div class="form-field col-lg-6">
                             <select class="form-select" id="positionEdit">
+                                <option value="">Position List</option>
                                 <option th:each="item, loop : ${positionList}" th:text="${item.name}" th:value="${item.id}" th:id="'positionEdit'+${item.id}"></option>
                             </select>
-                            <label class="label">Select position :</label>
 
                         </div>
                         <div class="form-field col-lg-6">
                             <select class="form-select" id="divisionEdit">
+                                <option value="">Division List</option>
                                 <option th:each="item, loop : ${divisionList}" th:text="${item.name}" th:value="${item.id}" th:id="'divisionEdit'+${item.id}"></option>
                             </select>
-                            <label class="label">Select division :</label>
 
                         </div>
                         <div class="form-field col-lg-12">

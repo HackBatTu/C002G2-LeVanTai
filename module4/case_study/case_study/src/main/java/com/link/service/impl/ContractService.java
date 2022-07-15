@@ -1,7 +1,7 @@
 package com.link.service.impl;
 
 import com.link.model.contract.Contract;
-import com.link.model.contract.ContractDTO;
+import com.link.model.contract.ContractCheckTotal;
 import com.link.model.customer.Customer;
 import com.link.model.contract.DetailsContract;
 import com.link.model.contract.FacilityAttach;
@@ -89,16 +89,16 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public Page<ContractDTO> getAllContract(Pageable pageable,String dateIn,String dateOut) {
+    public Page<ContractCheckTotal> getAllContract(Pageable pageable, String dateIn, String dateOut) {
         Page<Contract> contractPage = iContractRepository.findAllContract(pageable,dateIn,dateOut);
-        List<ContractDTO> contractDTOList = new ArrayList<>();
-        Page<ContractDTO> contractDTOPage ;
+        List<ContractCheckTotal> contractCheckTotalList = new ArrayList<>();
+        Page<ContractCheckTotal> contractCheckTotalPage ;
         for (int i = 0; i < contractPage.getContent().size(); i++) {
             double total = 0;
             for (DetailsContract detailsContract: contractPage.getContent().get(i).getDetailsContractList()) {
                 total +=  detailsContract.getContract().getFacility().getCost()+ detailsContract.getQuantity()*detailsContract.getFacilityAttach().getCost() ;
             }
-            ContractDTO contractDto = new ContractDTO(contractPage.getContent().get(i).getId(),
+            ContractCheckTotal contractCheckTotal = new ContractCheckTotal(contractPage.getContent().get(i).getId(),
                     contractPage.getContent().get(i).getDateCheckIn(),
                     contractPage.getContent().get(i).getDateCheckOut(),
                     contractPage.getContent().get(i).getDeposit(),
@@ -108,15 +108,15 @@ public class ContractService implements IContractService {
                     contractPage.getContent().get(i).getDetailsContractList(),
                     total
             );
-            contractDTOList.add(contractDto);
+            contractCheckTotalList.add(contractCheckTotal);
         }
-        contractDTOPage = new PageImpl<>(contractDTOList,contractPage.getPageable(),contractPage.getTotalElements());
-        return contractDTOPage;
+        contractCheckTotalPage = new PageImpl<>(contractCheckTotalList,contractPage.getPageable(),contractPage.getTotalElements());
+        return contractCheckTotalPage;
     }
 
     @Override
-    public Page<Contract> findAllCustomerUsingService(Pageable pageable) {
-        return iContractRepository.findAllCustomerUsingService(pageable);
+    public Page<Contract> findAllCustomerUsingService(Pageable pageable, String searchName) {
+        return iContractRepository.findAllCustomerUsingService(pageable , "%" + searchName + "%");
     }
 
 

@@ -14,7 +14,7 @@ public class Facility {
     private Integer maxPerson;
     private String standardRoom;
     private String descriptionOther;
-    private String numberOfFloors;
+    private Integer numberOfFloors;
     private String facilityFree;
 
     @Column(columnDefinition = "bit(1) default 0")
@@ -32,7 +32,7 @@ public class Facility {
     }
 
     public Facility(Integer id, String name, Double area, Double poolArea, Double cost, Integer maxPerson, String standardRoom,
-                    String descriptionOther, String numberOfFloors, String facilityFree, Integer status, FacilityType facilityType, RentType rentType) {
+                    String descriptionOther, Integer numberOfFloors, String facilityFree, Integer status, FacilityType facilityType, RentType rentType) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -120,11 +120,11 @@ public class Facility {
         this.descriptionOther = descriptionOther;
     }
 
-    public String getNumberOfFloors() {
+    public Integer getNumberOfFloors() {
         return numberOfFloors;
     }
 
-    public void setNumberOfFloors(String numberOfFloors) {
+    public void setNumberOfFloors(Integer numberOfFloors) {
         this.numberOfFloors = numberOfFloors;
     }
 

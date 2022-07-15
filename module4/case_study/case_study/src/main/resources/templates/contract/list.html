@@ -82,7 +82,7 @@
 
                                             <div class="form-field col-lg-6">
                                                 <select class="form-select" th:field="*{facilityAttach}">
-                                                    <option value="">Attach Service</option>
+                                                    <option value="">Attach Service list</option>
                                                     <option th:each="item, loop : ${facilityAttachList}"
                                                             th:text="${item.name}" th:value="${item.id}"></option>
                                                 </select>
@@ -94,7 +94,7 @@
                                             </div>
 
                                             <div class="form-field col-lg-12" type="hidden">
-                                                <select th:field="*{contract}"  class="input-text js-input" >
+                                                <select th:field="*{contract}"  class="input-text js-input" type="hidden">
                                                     <option th:value="${fa.id}"></option>
                                                 </select>
                                             </div>

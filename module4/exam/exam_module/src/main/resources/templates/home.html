@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{style :: bootstrapHeader}">
+</head>
+
+<body>
+<!-- ======= Header ======= -->
+
+<header th:replace="~{style :: bootstrapHeaderBody}"></header>
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
+                <div class="carousel-container">
+                    <div class="carousel-content animate__animated animate__fadeInUp text-center">
+                        <h3>“Travel is like the wind – always by your side.”</h3>
+<!--                        <p>my heart and soul always  for demacia</p>-->
+                        <div><a href="" class="btn-get-started">FATE</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
+                <div class="carousel-container">
+                    <div class="carousel-content animate__animated animate__fadeInUp text-center">
+                        <h3>“Travel is like the wind – always by your side.”</h3>
+<!--                        <p>my heart and soul always  for demacia</p>-->
+                        <div><a href="" class="btn-get-started">FATE</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
+                <div class="carousel-container">
+                    <div class="carousel-content animate__animated animate__fadeInUp text-center">
+                        <h3>“Travel is like the wind – always by your side.”</h3>
+<!--                        <p>my heart and soul always  for demacia</p>-->
+                        <div><a href="" class="btn-get-started">FATE</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+    </div>
+</section><!-- End Hero -->
+<!-- ======= Our Clients Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+        <div class="row" data-aos="fade-up">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-service">Service</li>
+                    <li data-filter=".filter-event">Event</li>
+                    <li data-filter=".filter-sports">Sports</li>
+                    <li data-filter=".filter-room">Room Service</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up">
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-event">
+                <img src="assets/img/service-img/portfolio-1.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Event & Conference</h4>
+                    <a href="assets/img/service-img/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-service">
+                <img src="assets/img/service-img/portfolio-2.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Massage</h4>
+                    <a href="assets/img/service-img/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-sports">
+                <img src="assets/img/service-img/portfolio-3.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Sports</h4>
+                    <a href="assets/img/service-img/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-service">
+                <img src="assets/img/service-img/portfolio-4.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Buffet </h4>
+                    <a href="assets/img/service-img/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-service filter-event ">
+                <img src="assets/img/service-img/portfolio-5.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4> WEDDING !!!</h4>
+                    <a href="assets/img/service-img/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-service filter-room">
+                <img src="assets/img/service-img/portfolio-6.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Fresh Juices</h4>
+                    <a href="assets/img/service-img/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-room">
+                <img src="assets/img/service-img/portfolio-7.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Room service</h4>
+                    <a href="assets/img/service-img/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-service filter-room">
+                <img src="assets/img/service-img/portfolio-8.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Tea and Drinks</h4>
+                    <a href="assets/img/service-img/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Portfolio Section -->
+
+
+<section id="clients" class="clients">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Clients</h2>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Our Clients Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer th:replace="~{style :: bootstrapBodyDiv}"></footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+
+<!-- Vendor JS Files -->
+
+<th:block th:replace="~{style :: bootstrapFooter}"></th:block>
+
+</body>
+
+</html>

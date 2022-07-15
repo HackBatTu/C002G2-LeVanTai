@@ -140,25 +140,25 @@
                 <ul class="pagination" th:if="${customerUsingServiceList.totalPages > 0}">
                     <li class="page-item">
                         <a class="page-link" th:if="${customerUsingServiceList.hasPrevious()}"
-                           th:href="@{'/customer/customer-using-service'(page=${customerUsingServiceList.number - 1})}">
+                           th:href="@{'/contract/customer-using-service'(page=${customerUsingServiceList.number - 1}, search =${searchName})}">
                             Previous
                         </a>
                     </li>
                     <div th:each="item, loop : ${#numbers.sequence(1, customerUsingServiceList.totalPages )}">
                         <div th:if="${(customerUsingServiceList.number + 1) == item}">
                             <li class="page-item active">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract/customer-using-service(page=(${item}-1))}"></a>
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract/customer-using-service(page=(${item}-1), search =${searchName})}"></a>
                             </li>
                         </div>
                         <div th:unless="${((customerUsingServiceList.number + 1) == item)}">
                             <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract/customer-using-service(page=(${item}-1))}"></a>
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/contract/customer-using-service(page=(${item}-1), search =${searchName})}"></a>
                             </li>
                         </div>
                     </div>
                     <li class="page-item">
                         <a class="page-link" th:if="${customerUsingServiceList.hasNext()}"
-                           th:href="@{'/customer/customer-using-service'(page=${customerUsingServiceList.number + 1})}">
+                           th:href="@{'/contract/customer-using-service'(page=${customerUsingServiceList.number + 1}, search =${searchName})}">
                             Next
                         </a>
                     </li>

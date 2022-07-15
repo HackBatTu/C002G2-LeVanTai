@@ -22,7 +22,7 @@ group by id_customer
 order by count(contract.id_customer);
 
 -- 5.	Hiển thị ma_khach_hang, ho_ten, ten_loai_khach, ma_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, 
--- tong_tien (Với tổng tiền được tính theo công thức như sau: Chi Phí Thuê + Số Lượng * Giá, với Số Lượng và Giá là từ bảng dich_vu_di_kem, hop_dong_chi_tiet)
+-- tong_tien (Với tổng tiền được tính theo công thức như sau: Chi Phí Thuê +( Số Lượng * Giá), với Số Lượng và Giá là từ bảng dich_vu_di_kem, hop_dong_chi_tiet)
 -- cho tất cả các khách hàng đã từng đặt phòng. (những khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra).
 -- task 5
 select customer.id_customer,customer.name_customer,customer_type.name_customer_type,contract.id_contract,service.name_service,contract.date_check_in,contract.date_check_out,
