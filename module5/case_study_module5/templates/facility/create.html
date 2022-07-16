@@ -3,16 +3,16 @@
 <head id="head">
 
 </head>
-
+<body>
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
 
 </header><!-- End Header -->
-<body>
+
 
 <section id="portfolio" class="portfolio">
     <div class="p-3 text-center bg-image"
-         style="height: 100px;">
+         style="height: 80px;">
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
@@ -28,17 +28,15 @@
         <div class="row">
             <div class="col-lg-6">
                 <label class="form-label b">Name</label>
-                <input class="form-control" type="text" placeholder="enter the name" id="name" name="name" required>
+                <input class="form-control " type="text" placeholder="enter the name" id="name" name="name" required>
             </div>
             <div class="col-lg-6">
                 <label class="form-label">Area</label>
                 <input class="form-control" type="text" placeholder="enter the area" id="area" name="area" required>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col-lg-6">
-                <label class="form-label">cost</label>
+                <label class="form-label">Cost</label>
                 <input class="form-control" type="text" placeholder="enter the cost" id="cost" name="cost" required>
             </div>
             <div class="col-lg-6">
@@ -46,10 +44,9 @@
                 <input class="form-control" type="text" placeholder="enter the maxPerson" id="maxPerson"
                        name="maxPerson" required>
             </div>
-        </div>
-        <div class="row">
+
             <div class="col-lg-6">
-                <label class="form-label">renType</label>
+                <label class="form-label">Rent Type</label>
                 <select class="form-select" name="renType" id="renType">
                     <option value="1"> 1</option>
                     <option value="2">2</option>
@@ -57,18 +54,15 @@
                 </select>
             </div>
             <div class="col-lg-6">
-                <label class="form-label">facilityType</label>
+                <label class="form-label">Facility Type</label>
                 <select class="form-select" name="facilityType" id="facilityType" onchange="selectFacility()">
-                    <option value="1"> 1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option value="1">Villa</option>
+                    <option value="2">House</option>
+                    <option value="3">Room</option>
                 </select>
             </div>
-        </div>
-
-
         <!--        &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-        <div class="row">
+
             <div class="col-lg-6" id="standardRoom">
                 <label class="form-label">StandardRoom</label>
                 <input class="form-control" type="text" placeholder="enter the standardRoom"
@@ -86,7 +80,7 @@
             </div>
             <div class="col-lg-6" id="numberOfFloors">
                 <label class="form-label">NumberOfFloors</label>
-                <input class="form-control" type="text" placeholder="enter the numberOfFloors" 
+                <input class="form-control" type="text" placeholder="enter the numberOfFloors"
                        name="numberOfFloors" required>
             </div>
             <div class="col-lg-6" id="facilityFree">

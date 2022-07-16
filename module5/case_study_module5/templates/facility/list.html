@@ -11,19 +11,36 @@
 
 <!-- ======= Our Clients Section ======= -->
 <section id="portfolio" class="portfolio">
-    <div class="p-3 text-center bg-image"
-         style="height: 150px;">
-        <div class="mask">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-success">
-                    <h2 class="mb-3 management"  >Service Management</h2>
-<!--                    <a href="../facility/create" class="btn btn-outline-success btn-lg buttons" role="button">Create-->
-<!--                        Service</a>-->
+
+    <section id="hero" style="height: 200px !important;">
+        <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="background-image: url(../../static/assets/img/clients/client-3.png); size: auto">
+                    <div class="carousel-container">
+                        <div class="text-center">
+                            <h1 class="text-danger">Service Management</h1>
+                            <div><a href="" class="btn-get-started">Create Service</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+            </a>
+
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+            </a>
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
         </div>
-    </div>
-    <div class="container">
+    </section><!-- End Hero -->
+
+    <div class="container" style="padding-top: 10px">
         <div class="row" data-aos="fade-up">
             <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">
@@ -56,7 +73,7 @@
                     <a href="../../static/assets/img/service-img/portfolio-2.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Massage"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -67,7 +84,7 @@
                     <a href="../../static/assets/img/service-img/portfolio-3.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Sports"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -79,7 +96,7 @@
                     <a href="../../static/assets/img/service-img/portfolio-5.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="WEDDING !!!"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -90,7 +107,7 @@
                     <a href="/static/assets/img/service-img/portfolio-6.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Fresh Juices"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -101,7 +118,7 @@
                     <a href="/static/assets/img/service-img/portfolio-4.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Buffet"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -113,7 +130,7 @@
                     <a href="/static/assets/img/service-img/portfolio-7.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Room service"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -124,7 +141,7 @@
                     <a href="/static/assets/img/service-img/p.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Sunbathing"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
 
@@ -135,13 +152,22 @@
                     <a href="/static/assets/img/service-img/portfolio-8.jpg" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="Tea and Drinks"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                            class="bx bx-link"></i></a>
+                            class="bi bi-trash"></i></a>
                 </div>
             </div>
-
-
         </div>
-
+        <div class="row">
+            <div class="clearfix col-9"></div>
+            <div class="container-fluid mt-3 col-3">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item "><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 <!-- End Portfolio Section -->
