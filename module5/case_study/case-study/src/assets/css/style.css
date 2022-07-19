@@ -30,13 +30,18 @@ h1, h2, h3, h4, h5, h6 {
 table{
   font-size: 13px;
 }
+
 table th {
   color: #5543ca;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 26px;
   font-weight: 520;
 }
+label{
+  font-weight: bold;
+  padding: 5px 0px 0px 4px;
 
+}
 .pagination {
   display: flex;
   padding-left: 0;
@@ -125,7 +130,10 @@ table th {
   border-top-right-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
 }
-
+.img-fluids{
+  width: 345px;
+  height: 235px;
+}
 
 .management{
   text-align: center;
@@ -204,8 +212,7 @@ table th {
 # Header
 --------------------------------------------------------------*/
 #header {
-
-  /*background: #fff;*/
+  background: #fff;
   transition: all 0.5s;
   z-index: 997;
   padding: 8px 0;
@@ -219,7 +226,6 @@ table th {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-
 }
 #header .logo a {
   color: #111;
@@ -365,7 +371,7 @@ table th {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -458,7 +464,7 @@ table th {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #111;
@@ -977,6 +983,10 @@ section {
 }
 .portfolio .portfolio-item:hover .portfolio-info h4{
   color: #1bbd36;
+}
+.img-fluids{
+  width: 345px;
+  height: 235px;
 }
 /*--------------------------------------------------------------
 # Portfolio Details
