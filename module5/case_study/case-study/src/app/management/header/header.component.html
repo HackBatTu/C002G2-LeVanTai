@@ -5,15 +5,15 @@
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/customer">Customer</a></li>
-        <li><a href="/employee">Employee</a></li>
-        <li class="dropdown"><a href="#"><span>Another</span> <i class="bi bi-chevron-down"></i></a>
+        <li><a [routerLink]="['/home']" class="active">Home</a></li>
+        <li><a [routerLink]="['/customer']">Customer</a></li>
+        <li><a [routerLink]="['/employee']">Employee</a></li>
+        <li class="dropdown"><a routerLink="/home"><span>Another</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="/facility">Service</a></li>
-            <li><a href="/contract">Contract</a></li>
-            <li><a href="/contract/customer-using-service">Customer Using Service</a></li>
-            <li><a href="/booking">Booking</a></li>
+            <li><a [routerLink]="['/facility']">Service</a></li>
+            <li><a routerLink="/contract">Contract</a></li>
+            <li><a routerLink="/contract/customer-using-service">Customer Using Service</a></li>
+            <li><a routerLink="/booking">Booking</a></li>
           </ul>
         </li>
       </ul>

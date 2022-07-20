@@ -6,6 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home-page/home/home.component';
 import { FooterComponent } from './management/footer/footer.component';
 import { HeaderComponent } from './management/header/header.component';
+import { ListFacilityComponent } from './facility/list-facility/list-facility.component';
+import { CreateFacilityComponent } from './facility/create-facility/create-facility.component';
+import { UpdateFacilityComponent } from './facility/update-facility/update-facility.component';
+import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
+import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
+import { UpdateCustomerComponent } from './customer/update-customer/update-customer.component';
+import { ListContractComponent } from './contract/list-contract/list-contract.component';
+import { CreateContractComponent } from './contract/create-contract/create-contract.component';
 
 
 @NgModule({
@@ -14,6 +22,14 @@ import { HeaderComponent } from './management/header/header.component';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
+    ListFacilityComponent,
+    CreateFacilityComponent,
+    UpdateFacilityComponent,
+    ListCustomerComponent,
+    CreateCustomerComponent,
+    UpdateCustomerComponent,
+    ListContractComponent,
+    CreateContractComponent,
   ],
   imports: [
     BrowserModule,
