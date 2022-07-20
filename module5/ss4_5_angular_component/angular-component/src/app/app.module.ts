@@ -8,6 +8,8 @@ import { LikeComponent } from './ss4-angular/like/like.component';
 import {FormsModule} from "@angular/forms";
 import { NavbarComponent } from './ss4-angular/navbar/navbar.component';
 import { FooterComponent } from './ss4-angular/footer/footer.component';
+import { NameCardComponent } from './ss5-angular-interraction/name-card/name-card.component';
+import { ProgressBarComponent } from './ss5-angular-interraction/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FooterComponent } from './ss4-angular/footer/footer.component';
     ArticleComponent,
     LikeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NameCardComponent,
+    ProgressBarComponent
   ],
     imports: [
         BrowserModule,

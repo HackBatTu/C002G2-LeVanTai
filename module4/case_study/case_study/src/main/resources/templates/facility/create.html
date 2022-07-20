@@ -31,17 +31,13 @@
         <div class="form-field col-lg-6">
             <select class="form-select" th:field="*{rentType}">
                 <option value="">Ren Type List</option>
-
                 <option th:each="item, loop : ${rentTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
-
-
         </div>
 
         <div class="form-field col-lg-6">
             <select id="choiceFacilityType" class="form-select" th:field="*{facilityType}" onchange="selectFacility()">
                 <option value="">Facility List</option>
-
                 <option th:each="item,loop : ${facilityTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
 
@@ -61,7 +57,7 @@
         </div>
         <div class="form-field col-lg-6" id="numberOfFloors" style="display: none">
             <input  class="input-text js-input" type="text" th:field="*{numberOfFloors}" >
-            <label class="label" for="numberOfFloors">Number Of Floors</label>
+                <label class="label" for="numberOfFloors">Number Of Floors</label>
         </div>
         <div class="form-field col-lg-6" id="facilityFree" style="display: none">
             <input  class="input-text js-input" type="text" th:field="*{facilityFree}" >
