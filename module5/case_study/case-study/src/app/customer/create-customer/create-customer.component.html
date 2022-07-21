@@ -1,1 +1,106 @@
-<p>create-customer works!</p>
+<section class="get-in-touch container">
+  <div class="row g-3">
+    <div class="col-md-7 col-lg-9">
+      <h1 class="title">Create Customer</h1>
+      <form class="contact-form row">
+        <div class="form-field col-lg-6 ">
+          <input id="name" class="input-text js-input" type="text">
+          <label class="label" for="name">Name</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+          <input id="dateOfBird" class="input-text js-input" type="date">
+          <label class="label" for="dateOfBird">DateOfBird</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+          <input id="idCard" class="input-text js-input" type="text">
+          <label class="label" for="idCard">IdCard</label>
+        </div>
+
+
+        <div class="form-field col-lg-6 ">
+          <input id="phone" class="input-text js-input" type="text">
+          <label class="label" for="phone">phone</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+          <input id="email" class="input-text js-input" type="email">
+          <label class="label" for="email">Email</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+          <input id="address" class="input-text js-input" type="text">
+          <label class="label" for="address">Address</label>
+        </div>
+
+        <div class="form-field col-lg-6 ">
+          <select id="gender" class="form-select js-input" type="text">
+            <option value="">Choice Gender</option>
+            <option value="1">Male</option>
+            <option value="0">FeMale</option>
+            <option value="2">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field col-lg-6">
+          <select class="form-select" id="customerType">
+            <option value="">Customer Type List</option>
+          </select>
+        </div>
+
+        <div class="form-field col-lg-12">
+          <input class="submit-btn" type="submit" value="Submit">
+        </div>
+        <a [routerLink]="['/customer']" class="btn btn-outline-secondary">Back home</a>
+      </form>
+    </div>
+      <div class="col-md-5 col-lg-3 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">$</span>
+        </h4>
+        <ul class="list-group mb-1">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Luận Trà Xanh</h6>
+              <small class="text-muted">Lê thị luận</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Phương cỏ rác</h6>
+              <small class="text-muted">Lê Thị Phương</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Phúc XO</h6>
+              <small class="text-muted">Lê Thị Phúc</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="search">
+            <button type="submit" class="btn btn-outline-primary">Redeem</button>
+          </div>
+        </form>
+      </div>
+
+  </div>
+</section>

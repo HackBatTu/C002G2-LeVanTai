@@ -1,1 +1,60 @@
-<p>list-customer works!</p>
+
+<section class="container">
+  <div class="p-3 text-center bg-image"
+       style="height: 150px;">
+    <div class="mask">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-success">
+          <h2 class="mb-3 management">Customer Management</h2>
+          <a [routerLink]="'/customer-create'" class="btn btn-outline-success btn-lg buttons" role="button">Create
+            Customer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8"></div>
+    <div class="col-4">
+      <form class="d-flex">
+        <input class="form-control me-2 buttons1" type="search" name="search"
+               aria-label="Search">
+        <button class="btn btn-outline-success buttons1" type="submit" name="name">Search</button>
+      </form>
+    </div>
+  </div>
+  <div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>IdCard</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>CustomerType</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>
+          <a [routerLink]="'/customer-edit'" class="btn btn-outline-warning">Edit</a>
+        </td>
+        <td>
+          <a [routerLink]="'/customer-edit'" class="btn btn-outline-danger">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

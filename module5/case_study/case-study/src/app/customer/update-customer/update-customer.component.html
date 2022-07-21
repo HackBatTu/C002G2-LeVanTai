@@ -1,1 +1,58 @@
-<p>update-customer works!</p>
+
+
+<section class="get-in-touch">
+  <h1 class="title">Update Customer</h1>
+  <form class="contact-form row"  >
+
+    <div class="form-field col-lg-6 ">
+      <input id="name" class="input-text js-input" type="text" >
+      <label class="label" for="name">Name</label>
+    </div>
+
+    <div class="form-field col-lg-6 ">
+      <input id="dateOfBird" class="input-text js-input" type="date"  >
+      <label class="label" for="dateOfBird">DateOfBird</label>
+    </div>
+
+    <div class="form-field col-lg-6 ">
+      <input id="idCard" class="input-text js-input" type="text"  >
+      <label class="label" for="idCard">IdCard</label>
+    </div>
+
+
+    <div class="form-field col-lg-6 ">
+      <input id="phone" class="input-text js-input" type="text" >
+      <label class="label" for="phone">phone</label>
+    </div>
+
+    <div class="form-field col-lg-6 ">
+      <input id="email" class="input-text js-input" type="email"  >
+      <label class="label" for="email">Email</label>
+    </div>
+
+    <div class="form-field col-lg-6 ">
+      <input id="address" class="input-text js-input" type="text"  >
+      <label class="label" for="address">Address</label>
+    </div>
+
+    <div class="form-field col-lg-6 ">
+      <select id="gender" class="form-select js-input" type="text"  >
+        <option value="" >Choice Gender</option>
+        <option value="1">Male</option>
+        <option value="0">FeMale</option>
+        <option value="2">Other</option>
+      </select>
+    </div>
+
+    <div class="form-field col-lg-6">
+      <select class="form-select" id="customerType">
+        <option value="" >Customer Type List</option>
+      </select>
+    </div>
+
+    <div class="form-field col-lg-12">
+      <input class="submit-btn" type="submit" value="Submit">
+    </div>
+    <a [routerLink]="['/customer']" class="btn btn-outline-secondary">Back home</a>
+  </form>
+</section>

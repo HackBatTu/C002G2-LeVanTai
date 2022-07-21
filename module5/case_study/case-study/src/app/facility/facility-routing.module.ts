@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {ListFacilityComponent} from './list-facility/list-facility.component';
 import {UpdateFacilityComponent} from './update-facility/update-facility.component';
