@@ -1,0 +1,19 @@
+
+<div class="container">
+
+  <h1 class="text-center"> Login </h1>
+  <form #loginForm = "ngForm" (ngSubmit)="loginFormWithTemplates(loginForm)">
+    <div>
+      <label>Email</label>
+      <input ngModel name="email" type="email"  class="form-control">
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input  ngModel name="password" type="password" required min="6" class="form-control">
+    </div>
+
+    <button type="submit"> LOGIN </button>
+  </form>
+
+</div>

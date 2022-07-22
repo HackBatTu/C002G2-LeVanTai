@@ -24,7 +24,6 @@
             <label class="label" for="deposit">deposit</label>
         </div>
          <div class="form-field col-lg-6">
-
             <select class="form-select" th:field="*{employee}">
                 <option value="">Employee List</option>
                 <option th:each="item, loop : ${employeeList}" th:text="${item.name}" th:value="${item.id}"></option>

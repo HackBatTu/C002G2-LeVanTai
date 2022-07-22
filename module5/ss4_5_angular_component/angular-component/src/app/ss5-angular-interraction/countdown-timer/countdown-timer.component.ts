@@ -8,10 +8,8 @@ import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, Si
 export class CountdownTimerComponent implements OnInit, OnChanges, OnDestroy {
   message = '';
   remainingTime: number;
-  @Input()
-  seconds = 11;
-  @Output()
-  finish = new EventEmitter<boolean>();
+  @Input() seconds = 11;
+  @Output() finish = new EventEmitter<boolean>();
   private intervalId = 0;
 
   ngOnChanges(changes: SimpleChanges) {

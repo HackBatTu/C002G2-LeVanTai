@@ -1,1 +1,69 @@
-<p>list-contract works!</p>
+<div class="bg-light">
+  <section class="container">
+    <div class="p-3 text-center bg-image"
+         style="height: 200px;">
+      <div class="mask">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-success">
+            <h1 class="mb-3 management">Contract Management</h1>
+            <a [routerLink]="'/contract-create'" class="btn btn-outline-success btn-lg buttons"
+               role="button">Create
+              Contract</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7"></div>
+      <div class="col-5">
+        <form class="d-flex">
+          <input class="form-control me-2 buttons1" type="date" name="searchDateIn"
+                 aria-label="Search">
+          <input class="form-control me-2 buttons1" type="date" name="searchDateOut"
+                 aria-label="Search">
+          <button class="btn btn-outline-success buttons1" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>STT</th>
+          <th>Customer</th>
+          <th>Service</th>
+          <th>Date Check In</th>
+          <th>Date Out</th>
+          <th>Deposit</th>
+          <th>Total Money</th>
+          <th colspan="2" class="text-center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of contract, index as loop">
+          <td>{{loop+1}}</td>
+          <td>{{c.customer.name}}</td>
+          <td>{{c.facility.name}}</td>
+          <td>{{c.startDate | date: 'dd-MM-yyyy'}}</td>
+          <td>{{c.endDate | date: 'dd-MM-yyyy'}}</td>
+          <td>{{c.deposit | currency}}</td>
+          <td>{{c.total | currency}}</td>
+          <td>
+            <a [routerLink]="''" class="btn btn-primary">+</a>
+          </td>
+          <td>
+            <a [routerLink]="''" class="btn btn-primary">List Attach Service</a>
+          </td>
+          <td>
+            <a [routerLink]="'/contract-edit'" class="btn btn-outline-danger">Delete</a>
+          </td>
+
+
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+</div>
+

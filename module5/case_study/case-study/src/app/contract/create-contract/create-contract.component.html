@@ -1,1 +1,99 @@
-<p>create-contract works!</p>
+<div class="bg-light">
+  <section class="get-in-touch container">
+    <div class="row g-3">
+      <div class="col-md-7 col-lg-9">
+        <h1 class="title">Create Contract</h1>
+        <form class="contact-form row">
+
+          <div class="form-field col-lg-6 ">
+            <input id="dateCheckIn" class="input-text js-input" type="date">
+            <label class="label" for="dateCheckIn">Date Check In</label>
+          </div>
+
+          <div class="form-field col-lg-6 ">
+            <input id="dateCheckOut" class="input-text js-input" type="date">
+            <label class="label" for="dateCheckOut">Date Check Out</label>
+          </div>
+
+          <div class="form-field col-lg-6 ">
+            <input id="deposit" class="input-text js-input" type="text">
+            <label class="label" for="deposit">Deposit</label>
+          </div>
+
+
+          <div class="form-field col-lg-6">
+            <select class="form-select" id="customer">
+              <option value="">Customer List</option>
+            </select>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <select class="form-select" id="facility">
+              <option value="">Facility List</option>
+            </select>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <select class="form-select" id="employee">
+              <option value="">Employee List</option>
+            </select>
+          </div>
+
+          <div class="form-field col-lg-12">
+            <input class="submit-btn" type="submit" value="Submit">
+          </div>
+          <a [routerLink]="'/contract'" class="btn btn-outline-secondary">Back home</a>
+        </form>
+      </div>
+
+      <div class="col-md-5 col-lg-3 order-md-last">
+        <h6 class="title1">
+          <span class="">Your cart</span>
+          <span class="badge rounded-pill text-white">($)</span>
+        </h6>
+        <ul class="list-group mb-1">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Luận Trà Xanh</h6>
+              <small class="text-muted">Lê thị luận</small>
+            </div>
+            <b class="text-muted">$12</b>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Phương cỏ rác</h6>
+              <small class="text-muted">Lê Thị Phương</small>
+            </div>
+            <b class="text-muted">$8</b>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Phúc XO</h6>
+              <small class="text-muted">Lê Thị Phúc</small>
+            </div>
+            <b class="text-muted">$5</b>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">CO222 G2</h6>
+              <small>Codegym DN</small>
+            </div>
+            <b class="text-success">−$5</b>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter sell class C02">
+            <button type="submit" class="btn btn-outline-primary my-0">Redeem</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</div>

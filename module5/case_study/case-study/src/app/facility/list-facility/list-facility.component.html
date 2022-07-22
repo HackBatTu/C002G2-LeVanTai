@@ -1,132 +1,41 @@
-
-  <div id="hero" style="height: 250px !important;">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-      <div class="carousel-inner" role="listbox">
-
+<body>
+  <div id="hero" style="height: 300px !important;">
+      <div class="carousel-inner get-in-touch" role="listbox">
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(/assets/img/clients/client-3.png); size: auto">
+        <div class="carousel-item active" style="background-image: url(/assets/img/service-img/portfolio-1.jpg); size: auto">
           <div class="carousel-container">
             <div class="text-center">
-              <h1 class="text-danger">Service Management</h1>
+              <h1 class="title">Service Management</h1>
               <div><a [routerLink]="['/facility-create']"  class="btn-get-started">Create Service</a></div>
             </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
-
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-    </div>
   </div><!-- End Hero -->
-
-  <section id="portfolio" class="portfolio">
+  <!------ Include the above in your HEAD tag ---------->
+  <div class="box" >
     <div class="container">
 
-      <div class="row" data-aos="fade-up">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-service">Service</li>
-            <li data-filter=".filter-event">Event</li>
-            <li data-filter=".filter-sports">Sports</li>
-            <li data-filter=".filter-room">Room Service</li>
-          </ul>
-        </div>
-      </div>
+      <div class="row">
 
-      <div class="row portfolio-container" data-aos="fade-up">
+        <div class="col-md-4 s" *ngFor="let f of facility">
+          <figure class="text-center">
+            <img src="{{f.img}}" alt="img1">
+            <figcaption>
+              <h5>{{f.name}}</h5>
+              <i>{{f.standardRoom}}</i>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-event">
-          <img src="assets/img/service-img/portfolio-1.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Event & Conference</h4>
-            <a href="assets/img/service-img/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-service">
-          <img src="assets/img/service-img/portfolio-2.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Massage</h4>
-            <a href="assets/img/service-img/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sports">
-          <img src="assets/img/service-img/portfolio-3.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Sports</h4>
-            <a href="assets/img/service-img/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item filter-service">
-          <img src="assets/img/service-img/portfolio-4.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Buffet </h4>
-            <a href="assets/img/service-img/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item filter-service filter-room">
-          <img src="assets/img/service-img/portfolio-6.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Fresh Juices</h4>
-            <a href="assets/img/service-img/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-service filter-event ">
-          <img src="assets/img/service-img/portfolio-5.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4> WEDDING !!!</h4>
-            <a href="assets/img/service-img/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-room">
-          <img src="assets/img/service-img/portfolio-7.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Room service</h4>
-            <a href="assets/img/service-img/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item filter-sports">
-          <img src="/assets/img/service-img/p.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Sunbathing</h4>
-            <a href="/assets/img/service-img/p.jpg" data-gallery="portfolioGallery"
-               class="portfolio-lightbox preview-link" title="Sunbathing"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-              class="bx bx-link"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item filter-service filter-room">
-          <img src="assets/img/service-img/portfolio-8.jpg" class="img-fluids" alt="">
-          <div class="portfolio-info">
-            <h4>Tea and Drinks</h4>
-            <a href="assets/img/service-img/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
+              <div style="margin-left: 70%">
+                <a class="btn btn-success" [routerLink]="['/facility-edit']"><i class="fa-solid fa-pen"></i></a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                  <i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </figcaption>
+          </figure>
         </div>
 
       </div>
-
     </div>
-  </section>
+  </div>
+</body>

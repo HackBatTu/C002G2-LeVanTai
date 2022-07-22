@@ -295,7 +295,7 @@ label{
   letter-spacing: 3px;
   font-size: 2.3em;
   line-height: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   color: #5543ca;
   background: #5543ca;
   background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
@@ -304,7 +304,22 @@ label{
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
-
+.title1 {
+  letter-spacing: 3px;
+  font-size: 2.3em;
+  line-height: 40px;
+  padding-bottom: 10px;
+  color: #5543ca;
+  background: #5543ca;
+  background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  background: -webkit-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  background: linear-gradient(to right,#f4524d  0%,#5543ca  100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.my-0{
+  color: #5543ca;
+}
 .contact-form .form-field {
   position: relative;
   margin: 18px 0;

@@ -1,102 +1,115 @@
 <div class="bg-light">
-  <div class="container" style="padding: 100px 0px 50px; font-size: 14px">
+  <section class="get-in-touch container">
     <div class="row g-3">
       <div class="col-md-7 col-lg-9">
-        <h1 class="mb-3 text-primary text-center">Create Facility</h1>
-        <form class="row g-3">
-          <div class="col-md-6">
-            <label for="name" class="form-label">Name</label>
-            <input type="email" class="form-control" id="name">
+        <h1 class="title">Update Facility</h1>
+        <form class="contact-form row">
+
+          <div class="form-field col-lg-6 ">
+            <input id="id" class="input-text js-input" type="text" readonly>
+            <label class="label" for="id">ID</label>
           </div>
-          <div class="col-md-6">
-            <label for="area" class="form-label">Area</label>
-            <input type="password" class="form-control" id="area">
-          </div>
-          <div class="col-6">
-            <label for="cost" class="form-label">Cost</label>
-            <input type="text" class="form-control" id="cost" >
-          </div>
-          <div class="col-6">
-            <label for="maxPerson" class="form-label">Max Person</label>
-            <input type="text" class="form-control" id="maxPerson" >
+          <div class="form-field col-lg-6 ">
+            <input id="name" class="input-text js-input" type="text">
+            <label class="label" for="name">Name</label>
           </div>
 
-          <div class="col-md-6">
-            <label for="rentType" class="form-label">Ren Type List</label>
-            <select id="rentType" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
+          <div class="form-field col-lg-6 ">
+            <input id="area" class="input-text js-input" type="text">
+            <label class="label" for="area">Area</label>
+          </div>
+
+          <div class="form-field col-lg-6 ">
+            <input id="cost" class="input-text js-input" type="text">
+            <label class="label" for="cost">Cost</label>
+          </div>
+
+          <div class="form-field col-lg-6 ">
+            <input id="maxPerson" class="input-text js-input" type="text">
+            <label class="label" for="maxPerson">Max Person</label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <select class="form-select" id="rentType">
+              <option value="">Ren Type List</option>
             </select>
           </div>
-          <div class="col-md-6">
-            <label for="facilityType" class="form-label">Facility List</label>
-            <select id="facilityType" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
+
+          <div class="form-field col-lg-6 ">
+            <input id="img" class="input-text js-input" type="text">
+            <label class="label" for="img">Link Img</label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <select class="form-select" id="facilityType">
+              <option value="">Facility Type List</option>
             </select>
           </div>
-          <div class="col-md-3">
-            <label for="standardRoom" class="form-label">Standard Room</label>
-            <input type="text" class="form-control" id="standardRoom">
+
+          <div class="form-field col-lg-6 ">
+            <input id="standardRoom" class="input-text js-input" type="text">
+            <label class="label" for="standardRoom">Standard Room</label>
           </div>
-          <div class="col-md-3">
-            <label for="poolArea" class="form-label">Pool Area</label>
-            <input type="text" class="form-control" id="poolArea">
+
+          <div class="form-field col-lg-6 ">
+            <input id="poolArea" class="input-text js-input" type="text">
+            <label class="label" for="poolArea">Pool Area</label>
           </div>
-          <div class="col-md-3">
-            <label for="descriptionOther" class="form-label">Description Other</label>
-            <input type="text" class="form-control" id="descriptionOther">
+          <div class="form-field col-lg-6 ">
+            <input id="descriptionOther" class="input-text js-input" type="text">
+            <label class="label" for="descriptionOther">Description Other</label>
           </div>
-          <div class="col-md-3">
-            <label for="numberOfFloors" class="form-label">Number Of Floors</label>
-            <input type="text" class="form-control" id="numberOfFloors">
+          <div class="form-field col-lg-6 ">
+            <input id="numberOfFloors" class="input-text js-input" type="text">
+            <label class="label" for="poolArea">Number Of Floors</label>
           </div>
-          <div class="col-md-6">
-            <label for="facilityFree" class="form-label">Facility Free</label>
-            <input type="text" class="form-control" id="facilityFree">
+
+          <div class="form-field col-lg-6 ">
+            <input id="facilityFree" class="input-text js-input" type="text">
+            <label class="label" for="facilityFree">Facility Free</label>
           </div>
-          <div class="col-12 row">
-            <div class="col-10"></div>
-            <div class="col-2">
-              <button class="btn btn-outline-primary w-100">Sign in</button>
-            </div>
+
+
+          <div class="form-field col-lg-12">
+            <input class="submit-btn" type="submit" value="Submit">
           </div>
+          <a [routerLink]="['/facility']" class="btn btn-outline-secondary">Back home</a>
         </form>
       </div>
 
       <div class="col-md-5 col-lg-3 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">$</span>
-        </h4>
+        <h6 class="title1">
+          <span class="">Your cart</span>
+          <span class="badge rounded-pill text-white">($)</span>
+        </h6>
         <ul class="list-group mb-1">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Luận Trà Xanh</h6>
               <small class="text-muted">Lê thị luận</small>
             </div>
-            <span class="text-muted">$12</span>
+            <b class="text-muted">$12</b>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Phương cỏ rác</h6>
               <small class="text-muted">Lê Thị Phương</small>
             </div>
-            <span class="text-muted">$8</span>
+            <b class="text-muted">$8</b>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Phúc XO</h6>
               <small class="text-muted">Lê Thị Phúc</small>
             </div>
-            <span class="text-muted">$5</span>
+            <b class="text-muted">$5</b>
           </li>
           <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
+              <h6 class="my-0">CO222 G2</h6>
+              <small>Codegym DN</small>
             </div>
-            <span class="text-success">−$5</span>
+            <b class="text-success">−$5</b>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
@@ -105,15 +118,12 @@
         </ul>
         <form class="card p-2">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="search">
-            <button type="submit" class="btn btn-outline-primary">Redeem</button>
+            <input type="text" class="form-control" placeholder="Enter sell class C02">
+            <button type="submit" class="btn btn-outline-primary my-0">Redeem</button>
           </div>
         </form>
       </div>
     </div>
-  </div>
+  </section>
+
 </div>
-
-
-
-

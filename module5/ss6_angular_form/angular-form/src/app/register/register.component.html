@@ -1,0 +1,59 @@
+
+<h1 class="text-center">Register</h1>
+
+<form [formGroup]="registerFormReactive" (ngSubmit)="registerWithReactive()" class="container">
+  <div>
+    <label class="form-label">Email</label>
+    <input type="text" class="form-control" formControlName="email" name="email" >
+    <p style="color: red" *ngIf="registerFormReactive.controls.email.hasError('required')">Không dc rỗng</p>
+  </div>
+
+  <div>
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password"  name="password" >
+    <p style="color: red" *ngIf="registerFormReactive.controls.password.hasError('required')">Không dc rỗng</p>
+    <p style="color: red" *ngIf="registerFormReactive.controls.password.hasError('minlength') &&
+      registerFormReactive.controls.email.touched">nhiều hơn 6 kí tự</p>
+  </div>
+
+  <div>
+    <label class="form-label">confirm password</label>
+    <input type="password" class="form-control" formControlName="confirmPassword" name="confirmPassword">
+    <p style="color: red" *ngIf="registerFormReactive.controls.confirmPassword.hasError('required')">Không dc rỗng</p>
+    <p style="color: red" *ngIf="registerFormReactive.controls.confirmPassword.hasError('minlength') &&
+      registerFormReactive.controls.email.touched">nhiều hơn 6 kí tự</p>
+  </div>
+
+  <div>
+    <select formControlName="country" name="country" class="form-label">
+      <option> Choice Country</option>
+      <option value="Viet Nam">Việt Nam</option>
+      <option value="Dong Lao">Đông Lào</option>
+      <option value="Bien Dong">Tây Biển Đông</option>
+    </select>
+    <p style="color: red" *ngIf="registerFormReactive.controls.country.hasError('required') && registerFormReactive.controls.country.touched">Không dc rỗng</p>
+  </div>
+
+  <div>
+    <label class="form-label">Age</label>
+    <input type="text" class="form-control" formControlName="age" name="age">
+    <p style="color: red" *ngIf="registerFormReactive.controls.age.hasError('min') && registerFormReactive.controls.age.touched">lớn hơn 18 tuổi</p>
+  </div>
+
+  <div>
+    <label class="form-label">Gender</label>
+    <br>
+    <input type="radio"  formControlName="gender" name="gender" value="Male" ><span>Male</span>
+    <input type="radio" formControlName="gender" name="gender" value="Female" ><span>FeMale</span>
+  </div>
+  <div>
+    <label class="form-label">Phone</label>
+    <input type="text" class="form-control" formControlName="phone" name="phone">
+    <p style="color: red" *ngIf="registerFormReactive.controls.email.hasError('pattern')">định dạng +84 </p>
+  </div>
+
+
+
+  <button type="submit">Save</button>
+</form>
+
