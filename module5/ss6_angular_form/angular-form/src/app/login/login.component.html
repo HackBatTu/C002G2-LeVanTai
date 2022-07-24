@@ -2,18 +2,24 @@
 <div class="container">
 
   <h1 class="text-center"> Login </h1>
-  <form #loginForm = "ngForm" (ngSubmit)="loginFormWithTemplates(loginForm)">
+  <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
     <div>
       <label>Email</label>
       <input ngModel name="email" type="email"  class="form-control">
+      <small style="color: red" *ngIf="loginForm.controls.email.hasError('email') && loginForm.controls.email.dirty ">
+        Email is not correct type
+      </small>
     </div>
 
     <div>
       <label>Password</label>
       <input  ngModel name="password" type="password" required min="6" class="form-control">
+      <small style="color: red" *ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.dirty ">
+        Password need more than 6 letter
+      </small>
     </div>
 
     <button type="submit"> LOGIN </button>
   </form>
-
+  <h3>{{message}}</h3>
 </div>
