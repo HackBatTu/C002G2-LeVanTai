@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class RegisterComponent implements OnInit {
 
   registerFormReactive: FormGroup;
+
   // @Output() submitRegister = new EventEmitter()
 
   constructor() {
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
       country: new FormControl('', [Validators.required]),
       age: new FormControl('', [Validators.min(18)]),
       gender: new FormControl(),
-      phone: new FormControl('', [Validators.pattern("^\\+84\\d{9,10}$")])
+      phone: new FormControl('', [Validators.pattern('^\\+84\\d{9,10}$')])
     });
   }
 
@@ -30,45 +31,53 @@ export class RegisterComponent implements OnInit {
   }
 
   get password() {
-    return this.registerFormReactive.get("pass").get('password')
+    return this.registerFormReactive.get('pass').get('password');
   }
 
   get confirmPassword() {
-    return this.registerFormReactive.get("pass").get('confirmPassword')
+    return this.registerFormReactive.get('pass').get('confirmPassword');
   }
-  get age(){
-    return this.registerFormReactive.get('age')
+
+  get age() {
+    return this.registerFormReactive.get('age');
   }
-  get gender(){
-    return this.registerFormReactive.get('gender')
+
+  get gender() {
+    return this.registerFormReactive.get('gender');
 
   }
-  get phone(){
-    return this.registerFormReactive.get('phone')
+
+  get phone() {
+    return this.registerFormReactive.get('phone');
 
   }
-  get country(){
-    return this.registerFormReactive.get('gender')
+
+  get country() {
+    return this.registerFormReactive.get('gender');
 
   }
 
   countryList: country[] = [
-    new country("1", "Việt Nam"),
-    new country("2", "Đông Lào"),
-    new country("3", "Nam việt Nam"),
+    new country('1', 'Việt Nam'),
+    new country('2', 'Đông Lào'),
+    new country('3', 'Nam việt Nam'),
   ];
 
 
-ngOnInit(): void {
+  ngOnInit(): void {
   }
 
+  message: string = '';
+
   registerWithReactive() {
-    console.log(this.registerFormReactive.value)
-    // if (this.registerFormReactive.valid) {
-    //   this.submitRegister.emit(this.registerFormReactive.value)
-    // }
+    if (this.registerFormReactive.valid) {
+      this.message = 'Success';
+    } else {
+      this.message = 'Fail';
+    }
   }
 }
+
 export class country {
   id: string;
   name: string;

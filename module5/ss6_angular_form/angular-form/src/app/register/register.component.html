@@ -2,6 +2,7 @@
 <h1 class="text-center">Register</h1>
 
 <form [formGroup]="registerFormReactive" (ngSubmit)="registerWithReactive()" class="container" novalidate>
+
   <div>
     <label class="form-label">Email</label>
     <input type="text" class="form-control" formControlName="email" name="email" >
@@ -9,7 +10,6 @@
   <div *ngIf="!email.valid && (email.dirty || email.touched)">
     <div [hidden]="!email.errors.required"> Email not required</div>
     <div [hidden]="!email.errors.minlength"> Email min length = 6</div>
-
   </div>
 
 
@@ -74,5 +74,7 @@
   </div>
 
   <button type="submit" [disabled]="!registerFormReactive.valid">Save</button>
+  <h3>{{message}}</h3>
+
 </form>
 

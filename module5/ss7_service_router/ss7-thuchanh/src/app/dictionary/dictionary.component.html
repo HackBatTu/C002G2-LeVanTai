@@ -1,0 +1,9 @@
+<div class="container text-center">
+  <h1>Dictionary</h1>
+</div>
+<div class="container">
+  <label for="word" class="form-label"></label>
+  <input type="text" id="word" class="form-control" (input)="translate($event.target.value)">
+  result: {{dictionary.english}}
+</div>
+

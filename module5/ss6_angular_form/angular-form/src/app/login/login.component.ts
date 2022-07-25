@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor() {
     this.loginForm = new FormGroup({
-      email: new FormControl('',[Validators.email]),
+      email: new FormControl('',[Validators.required, Validators.minLength(6)]),
       password: new FormControl('',[Validators.minLength(6)]),
     });
   }
