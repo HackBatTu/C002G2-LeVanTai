@@ -15,13 +15,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let p of products, index as i">
+      <tr *ngFor="let product of products, index as i">
         <td>{{i+1}}</td>
-        <td>{{p.name}}</td>
-        <td>{{p.price}}</td>
-        <td>{{p.description}}</td>
-        <td><a [routerLink]="['/product-edit',p.id]">Edit</a></td>
-        <td><a [routerLink]="['/product-delete',p.id]">Delete</a></td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td><a [routerLink]="['/product-edit',product.id]">Edit</a></td>
+        <td><a [routerLink]="['/product-delete',product.id]">Delete</a></td>
       </tr>
       </tbody>
     </table>

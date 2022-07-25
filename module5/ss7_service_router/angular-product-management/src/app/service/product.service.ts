@@ -24,21 +24,20 @@ export class ProductService {
     this.products.push(product)
   }
 
-  updateProduct(id: number, product: Product) {
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === id) {
-        this.products[i] = product;
+  findById(id: number) {
+    return this.products.filter(product => product.id === id);
+  }
+
+  updateProduct(productEdit) {
+    for (let i = 0; i < this.products.length ; i++) {
+      if(this.products[i].id === productEdit.id){
+        this.products[i] = productEdit;
       }
     }
   }
 
-  findById(id: number) {
-    return this.products.find(product => product.id === id);
+  deleteProduct(id) {
+    this.products = this.products.filter(product => product.id !== id);
   }
 
-  deleteProduct(id: number) {
-    this.products = this.products.filter(product => {
-      return product.id !== id;
-    });
-  }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../service/product.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Product} from "../../model/product";
 
 @Component({
   selector: 'app-product-edit',
@@ -9,40 +10,33 @@ import {Router} from "@angular/router";
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
+  productForm: FormGroup;
+  product: Product = {};
 
-  constructor(private productService: ProductService,private router: Router) { }
+  constructor(private productService: ProductService, private activeRoute: ActivatedRoute, private router: Router) {
+    activeRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = paramMap.get('id');
+      this.product = this.productService.findById(parseInt(id))[0];
+    }, error => {
+      console.log(error);
+    });
+    this.productForm = new FormGroup( {
+      id: new FormControl(this.product.id),
+      name: new FormControl(this.product.name),
+      price: new FormControl(this.product.price),
+      description: new FormControl(this.product.description)
+    })
+  }
 
   ngOnInit(): void {
   }
-  productForm: FormGroup = new FormGroup({
-    id: new FormControl('',[Validators.required]),
-    name: new FormControl('',[Validators.required,Validators.minLength(6)]),
-    price: new FormControl('',[Validators.required]),
-    description: new FormControl('', [Validators.required])
-  })
 
-  get id() {
-    return this.productForm.get('id')
-  }
 
-  get name() {
-    return this.productForm.get('name')
-  }
 
-  get price() {
-    return this.productForm.get('price')
-  }
 
-  get description() {
-    return this.productForm.get('description')
-  }
-
-  getProduct(id: number) {
-    return this.productService.findById(id);
-  }
-  updateProduct(id: number) {
-    const product = this.productForm.value;
-    this.productService.updateProduct(id,product)
-    this.router.navigate(['/product-list'])
+  updateProduct() {
+    const productEdit =  this.productForm.value;
+    this.productService.updateProduct(productEdit);
+    this.router.navigateByUrl("/product-list");
   }
 }

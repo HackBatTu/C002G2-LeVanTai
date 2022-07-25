@@ -1,38 +1,25 @@
-<h1 class="text-center">Create Product</h1>
+<h1 class="text-center">Update Product</h1>
 <div class="container">
-  <form [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
+  <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
     <div>
       <label>ID</label>
-      <input type="text" class="form-control" formControlName="id" name="id">
+      <input type="text" class="form-control" formControlName="id" name="id" readonly>
     </div>
-    <div *ngIf="!id.valid && (id.dirty || id.touched)">
-      <div class="text-danger" [hidden]="!id.errors.required">id not required</div>
-    </div>
-
     <div>
       <label>Name</label>
       <input type="text" class="form-control" formControlName="name" name="name">
-    </div>
-    <div *ngIf="!name.valid && (name.dirty || name.touched)">
-      <div class="text-danger"  [hidden]="!name.errors.required">Name not required</div>
-      <div class="text-danger"  [hidden]="!name.errors.minlength">name minlength = 6</div>
     </div>
 
     <div>
       <label>Price</label>
       <input type="text" class="form-control" formControlName="price" name="price">
     </div>
-    <div *ngIf="!price.valid && (price.dirty || price.touched)">
-      <div class="text-danger"  [hidden]="!price.errors.required">id not required</div>
-    </div>
 
     <div>
       <label>Description</label>
       <input type="text" class="form-control" formControlName="description" name="description">
     </div>
-    <div *ngIf="!description.valid && (description.dirty || description.touched)">
-      <div class="text-danger"  [hidden]="!description.errors.required">id not required</div>
-    </div>
+
     <button>SAVE</button>
   </form>
 </div>
