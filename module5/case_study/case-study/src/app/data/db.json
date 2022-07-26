@@ -1,0 +1,60 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "name": "1",
+      "birthday": "12-12-2012",
+      "gender": "1",
+      "idCard": "123456789",
+      "phoneNumber": "0909121212",
+      "email": "json@gmail.com",
+      "address": "vietnamese"
+    },
+    {
+      "id": 2,
+      "customerType": {
+        "id": 2,
+        "name": "gold"
+      },
+      "name": "2",
+      "birthday": "12-12-2012",
+      "gender": "0",
+      "idCard": "123456789",
+      "phoneNumber": "0909121212",
+      "email": "json@gmail.com",
+      "address": "vietnamese"
+    },
+    {
+      "id": 3,
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "name": "3",
+      "birthday": "12-12-2012",
+      "gender": "1",
+      "idCard": "123456789",
+      "phoneNumber": "0909121212",
+      "email": "json@gmail.com",
+      "address": "vietnamese"
+    },
+    {
+      "id": 4,
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "name": "4",
+      "birthday": "12-12-2012",
+      "gender": "1",
+      "idCard": "123456789",
+      "phoneNumber": "0909121212",
+      "email": "json@gmail.com",
+      "address": "vietnamese"
+    }
+  ]
+}

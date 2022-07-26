@@ -14,16 +14,16 @@
       <input type="text" class="form-control" formControlName="name" name="name">
     </div>
     <div *ngIf="!name.valid && (name.dirty || name.touched)">
-      <div class="text-danger"  [hidden]="!name.errors.required">Name not required</div>
-      <div class="text-danger"  [hidden]="!name.errors.minlength">name minlength = 6</div>
+      <div class="text-danger" [hidden]="!name.errors.required">Name not required</div>
+      <div class="text-danger" [hidden]="!name.errors.minlength">name minlength = 6</div>
     </div>
 
     <div>
       <label>Price</label>
-        <input type="text" class="form-control" formControlName="price" name="price">
+      <input type="text" class="form-control" formControlName="price" name="price">
     </div>
     <div *ngIf="!price.valid && (price.dirty || price.touched)">
-      <div class="text-danger"  [hidden]="!price.errors.required">id not required</div>
+      <div class="text-danger" [hidden]="!price.errors.required">id not required</div>
     </div>
 
     <div>
@@ -31,9 +31,15 @@
       <input type="text" class="form-control" formControlName="description" name="description">
     </div>
     <div *ngIf="!description.valid && (description.dirty || description.touched)">
-      <div class="text-danger"  [hidden]="!description.errors.required">id not required</div>
+      <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
     </div>
-
+    <div>
+      <label>Category</label>
+      <select formControlName="category" name="category" class="form-control"
+              [compareWith]="compareCategory" [(ngModel)]="product.category">
+        <option *ngFor="let item of categories" [ngValue]="item">{{item.name}}</option>
+      </select>
+    </div>
     <button [disabled]="!productForm.valid">SAVE</button>
   </form>
 </div>

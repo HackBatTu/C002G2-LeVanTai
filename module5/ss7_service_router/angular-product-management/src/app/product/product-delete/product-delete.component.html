@@ -2,8 +2,9 @@
 <h2>Are you sure for delete?</h2>
 <hr>
 <div> Id : {{product.id}}</div>
-<div> name : {{product.name}}</div>
-<div> price : {{product.price}}</div>
-<div> description : {{product.description}}</div>
+<div> Name : {{product.name}}</div>
+<div> Price : {{product.price}}</div>
+<div> Description : {{product.description}}</div>
+<div> Category : {{product.category.name}}</div>
 <hr>
 <button class="btn btn-primary" (click)="deleteProduct(product.id)">Yes</button>

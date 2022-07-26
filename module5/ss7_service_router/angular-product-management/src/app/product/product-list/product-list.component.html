@@ -12,6 +12,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
+        <th>Category</th>
       </tr>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>
         <td>{{product.description}}</td>
+        <td>{{product.category.name}}</td>
         <td>
           <button class="btn btn-outline-warning">
             <a [routerLink]="['/product-edit',product.id]">Edit</a>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-create-facility',
@@ -7,7 +6,6 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./create-facility.component.css']
 })
 export class CreateFacilityComponent implements OnInit {
-  facilityForm: FormGroup;
 
   constructor() { }
 

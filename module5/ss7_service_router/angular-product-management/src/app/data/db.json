@@ -4,25 +4,35 @@
       "id": 1,
       "name": "Ludo",
       "price": 10,
-      "description": "cm"
+      "description": "cm",
+      "category": {
+        "id": 1,
+        "name": "Vietnamese"
+      }
+    },
+    {
+      "name": "111212",
+      "price": "121212",
+      "description": "1212",
+      "category": {
+        "id": 2,
+        "name": "Laos"
+      },
+      "id": 2
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Vietnamese"
     },
     {
       "id": 2,
-      "name": "Lux 2.0",
-      "price": 10,
-      "description": "cm"
+      "name": "Laos"
     },
     {
       "id": 3,
-      "name": "Phương Ngu",
-      "price": "10.0",
-      "description": "1"
-    },
-    {
-      "name": "Fate12345",
-      "price": "1212121",
-      "description": "121212",
-      "id": 4
+      "name": "Đông Lào"
     }
   ]
 }

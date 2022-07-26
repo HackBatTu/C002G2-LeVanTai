@@ -38,7 +38,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let c of customer, index as loop" >
+        <tr *ngFor="let c of customers, index as loop" >
           <td>{{loop+1}}</td>
           <td>{{c.name}}</td>
           <td>{{c.birthday | date: 'dd-MM-yyyy'}}</td>

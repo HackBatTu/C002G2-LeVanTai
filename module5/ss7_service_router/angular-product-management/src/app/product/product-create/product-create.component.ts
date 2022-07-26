@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../service/product.service";
 import {Route, Router} from "@angular/router";
 import {Product} from "../../model/product";
+import {Category} from "../../model/category";
 
 @Component({
   selector: 'app-product-create',
@@ -12,16 +13,23 @@ import {Product} from "../../model/product";
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   product: Product = {};
-
+  categories: Category[] = [];
   constructor(private productService: ProductService,private router: Router) {
-    this.productForm = new FormGroup({
-      name: new FormControl('',[Validators.required,Validators.minLength(6)]),
-      price: new FormControl('',[Validators.required]),
-      description: new FormControl('', [Validators.required])
-    })
+
   }
 
   ngOnInit(): void {
+    this.productService.getAllCategories().subscribe(value => {
+      this.categories = value;
+    }, error => {}, () => {
+      this.productForm = new FormGroup({
+        name: new FormControl('',[Validators.required,Validators.minLength(6)]),
+        price: new FormControl('',[Validators.required]),
+        description: new FormControl('', [Validators.required]),
+        category: new FormControl()
+      });
+    })
+
   }
 
   get name() {
