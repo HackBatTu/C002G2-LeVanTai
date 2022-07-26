@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Ludo",
+      "price": 10,
+      "description": "cm"
+    },
+    {
+      "id": 2,
+      "name": "Lux 2.0",
+      "price": 10,
+      "description": "cm"
+    },
+    {
+      "id": 3,
+      "name": "Phương Ngu",
+      "price": "10.0",
+      "description": "1"
+    },
+    {
+      "name": "Fate12345",
+      "price": "1212121",
+      "description": "121212",
+      "id": 4
+    }
+  ]
+}

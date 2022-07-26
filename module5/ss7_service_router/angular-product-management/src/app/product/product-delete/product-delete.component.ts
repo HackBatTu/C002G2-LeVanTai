@@ -13,20 +13,22 @@ export class ProductDeleteComponent implements OnInit {
   product: Product = {};
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private router: Router) {
-    activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
-      const id = paramMap.get('id');
-      this.product = this.productService.findById(parseInt(id))[0];
-    }, error => {
-      console.log(error)
-    })
+
   }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
+    const id = paramMap.get('id');
+    this.productService.findById(parseInt(id)).subscribe(data => {
+      this.product = data;});
+
+  }, error => {
+    console.log(error)
+  })
   }
 
   deleteProduct(id: number) {
-    this.productService.deleteProduct(id);
-    this.router.navigateByUrl("/product-list");
+    this.productService.deleteProduct(id).subscribe(data => {}, error => {} , () => { this.router.navigateByUrl("/product-list");});
   }
 
 }

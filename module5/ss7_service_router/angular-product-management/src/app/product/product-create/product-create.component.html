@@ -1,13 +1,13 @@
 <h1 class="text-center">Create Product</h1>
 <div class="container">
-  <form [formGroup]="productForm" (ngSubmit)="submit()">
-    <div>
-      <label>ID</label>
-      <input type="text" class="form-control" formControlName="id" name="id">
-    </div>
-    <div *ngIf="!id.valid && (id.dirty || id.touched)">
-      <div class="text-danger" [hidden]="!id.errors.required">id not required</div>
-    </div>
+  <form [formGroup]="productForm" (ngSubmit)="CreateProduct()">
+<!--    <div>-->
+<!--      <label>ID</label>-->
+<!--      <input type="text" class="form-control" formControlName="id" name="id">-->
+<!--    </div>-->
+<!--    <div *ngIf="!id.valid && (id.dirty || id.touched)">-->
+<!--      <div class="text-danger" [hidden]="!id.errors.required">id not required</div>-->
+<!--    </div>-->
 
     <div>
       <label>Name</label>
@@ -33,7 +33,7 @@
     <div *ngIf="!description.valid && (description.dirty || description.touched)">
       <div class="text-danger"  [hidden]="!description.errors.required">id not required</div>
     </div>
-    <button>SAVE</button>
+    <button [disabled]="!productForm.valid">SAVE</button>
   </form>
 </div>
 

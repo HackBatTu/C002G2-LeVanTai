@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {Todo} from "./todo";
-import {FormControl} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {Todo} from './todo';
+import {FormControl} from '@angular/forms';
+import {TodoService} from '../service/todo.service';
+import {Router} from '@angular/router';
 
+// tslint:disable-next-line:variable-name
 let _id = 1;
 
 @Component({
@@ -12,7 +15,9 @@ let _id = 1;
 export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   content = new FormControl();
-  constructor() { }
+
+  constructor(private todoService: TodoService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -25,7 +30,11 @@ export class TodoComponent implements OnInit {
         content: value,
         complete: false
       };
-      this.todos.push(todo);
+      this.todoService.create(todo).subscribe(data => {
+      }, error => {
+      }, () => {
+        this.router.navigate(['/product-list']);
+      });
       this.content.reset();
     }
   }

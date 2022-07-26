@@ -3,11 +3,22 @@
 </h2>
 <div class="col-md-8 offset-md-2">
   <input type="text" class="form-control" [formControl]="content" (change)="change()">
-  <ul>
-    <li (click)="toggleTodo(i)"
+  <table>
+    <tr (click)="toggleTodo(i)"
         [class.complete]="todo.complete"
         *ngFor="let todo of todos; index as i">
-      {{todo.content}}
-    </li>
-  </ul>
+      <td>id = {{i+1}} </td>
+      <td>content = {{todo.content}}</td>
+      <td>
+        <button class="btn btn-outline-warning">
+          <a [routerLink]="['/todo-edit',todo.id]">Edit</a>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-outline-danger">
+          <a [routerLink]="['/todo-delete',todo.id]">Delete</a>
+        </button>
+      </td>
+    </tr>
+  </table>
 </div>

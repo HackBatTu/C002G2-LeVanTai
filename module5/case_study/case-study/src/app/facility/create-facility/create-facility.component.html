@@ -3,24 +3,24 @@
     <div class="row g-3">
       <div class="col-md-7 col-lg-9">
         <h1 class="title">Create Facility</h1>
-        <form class="contact-form row">
+        <form class="contact-form row" [formGroup]="facilityForm" (ngSubmit)="submit()">
           <div class="form-field col-lg-6 ">
-            <input id="name" class="input-text js-input" type="text">
+            <input id="name" class="input-text js-input" type="text" formControlName="name">
             <label class="label" for="name">Name</label>
           </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="area" class="input-text js-input" type="text">
+            <input id="area" class="input-text js-input" type="text" formControlName="area">
             <label class="label" for="area">Area</label>
           </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="cost" class="input-text js-input" type="text">
+            <input id="cost" class="input-text js-input" type="text" formControlName="cost">
             <label class="label" for="cost">Cost</label>
           </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="maxPerson" class="input-text js-input" type="text">
+            <input id="maxPerson" class="input-text js-input" type="text" formControlName="maxPerson">
             <label class="label" for="maxPerson">maxPerson</label>
           </div>
 
@@ -31,7 +31,7 @@
           </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="img" class="input-text js-input" type="text">
+            <input id="img" class="input-text js-input" type="text" formControlName="img">
             <label class="label" for="img">Link Img</label>
           </div>
 
@@ -67,7 +67,7 @@
 
 
           <div class="form-field col-lg-12">
-            <input class="submit-btn" type="submit" value="Submit">
+            <input class="submit-btn" type="submit" value="Submit" [disabled]="!facilityForm.valid">
           </div>
           <a [routerLink]="['/facility']" class="btn btn-outline-secondary">Back home</a>
         </form>

@@ -3,16 +3,16 @@
     <div class="row g-3">
       <div class="col-md-7 col-lg-9">
         <h1 class="title">Create Contract</h1>
-        <form class="contact-form row">
+        <form class="contact-form row" [formGroup]="contractForm">
 
           <div class="form-field col-lg-6 ">
-            <input id="dateCheckIn" class="input-text js-input" type="date">
-            <label class="label" for="dateCheckIn">Date Check In</label>
+            <input id="startDate" class="input-text js-input" type="date">
+            <label class="label" for="startDate">Date Check In</label>
           </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="dateCheckOut" class="input-text js-input" type="date">
-            <label class="label" for="dateCheckOut">Date Check Out</label>
+            <input id="endDate" class="input-text js-input" type="date">
+            <label class="label" for="endDate">Date Check Out</label>
           </div>
 
           <div class="form-field col-lg-6 ">
@@ -33,11 +33,7 @@
             </select>
           </div>
 
-          <div class="form-field col-lg-6">
-            <select class="form-select" id="employee">
-              <option value="">Employee List</option>
-            </select>
-          </div>
+
 
           <div class="form-field col-lg-12">
             <input class="submit-btn" type="submit" value="Submit">

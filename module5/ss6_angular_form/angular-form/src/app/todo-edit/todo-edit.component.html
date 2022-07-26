@@ -1,0 +1,14 @@
+<h1 class="text-center">Update Product</h1>
+<div class="container">
+  <form [formGroup]="todoForm" *ngIf="todoForm" (ngSubmit)="updateTodo()">
+    <div>
+      <label>ID</label>
+      <input type="text" class="form-control" formControlName="id" name="id">
+    </div>
+    <div>
+      <label>content</label>
+      <input type="text" class="form-control" formControlName="content" name="content">
+    </div>
+    <button>SAVE</button>
+  </form>
+</div>

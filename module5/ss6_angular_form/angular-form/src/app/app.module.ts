@@ -4,22 +4,27 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { TodoDeleteComponent } from './todo-delete/todo-delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TodoEditComponent,
+    TodoDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

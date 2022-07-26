@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../service/product.service";
 import {Route, Router} from "@angular/router";
+import {Product} from "../../model/product";
 
 @Component({
   selector: 'app-product-create',
@@ -9,20 +10,18 @@ import {Route, Router} from "@angular/router";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
+  productForm: FormGroup;
+  product: Product = {};
 
-  constructor(private productService: ProductService,private router: Router) { }
+  constructor(private productService: ProductService,private router: Router) {
+    this.productForm = new FormGroup({
+      name: new FormControl('',[Validators.required,Validators.minLength(6)]),
+      price: new FormControl('',[Validators.required]),
+      description: new FormControl('', [Validators.required])
+    })
+  }
 
   ngOnInit(): void {
-  }
-  productForm: FormGroup = new FormGroup({
-    id: new FormControl('',[Validators.required]),
-    name: new FormControl('',[Validators.required,Validators.minLength(6)]),
-    price: new FormControl('',[Validators.required]),
-    description: new FormControl('', [Validators.required])
-  })
-
-  get id() {
-    return this.productForm.get('id')
   }
 
   get name() {
@@ -37,10 +36,13 @@ export class ProductCreateComponent implements OnInit {
     return this.productForm.get('description')
   }
 
-  submit(){
+  CreateProduct(){
     const product = this.productForm.value;
-    this.productService.saveProduct(product)
-    this.productForm.reset();
-    this.router.navigate(['/product-list']);
+    if(this.productForm.valid){
+      product.id = parseInt(product.id)
+      this.productService.saveProduct(product).subscribe(data => {}, error => {}, () =>{this.router.navigate(['/product-list']);})
+      this.productForm.reset();
+    }
+
   }
 }
