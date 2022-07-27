@@ -13,12 +13,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-8"></div>
-      <div class="col-4">
+      <div class="col-6"></div>
+      <div class="col-6">
         <div class="d-flex">
-          <input class="form-control me-2 buttons1" type="search" name="search"
-                 aria-label="Search">
-          <button class="btn btn-outline-success buttons1" type="submit" name="name">Search</button>
+          <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getFormSearch()">
+            <input class="form-control me-2 buttons1" type="search" placeholder="Search By Name"
+                   formControlName="searchName">
+            <input class="form-control me-2 buttons1" type="search" placeholder="Search By Card"
+                   formControlName="searchIdCard">
+            <button type="submit" class="btn btn-outline-success buttons1">Search</button>
+          </form>
         </div>
       </div>
     </div>

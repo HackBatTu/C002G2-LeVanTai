@@ -8,8 +8,8 @@ import {CustomerType} from "../model/customer-type";
   providedIn: 'root'
 })
 export class CustomerService {
-  private URL_CUSTOMER = "http://localhost:3000/customer";
-  private URL_CUSTOMER_TYPE = "http://localhost:3000/customerType";
+  private URL_CUSTOMER = "http://localhost:3000/customer/";
+  private URL_CUSTOMER_TYPE = "http://localhost:3000/customerType/";
   constructor(private httpClient: HttpClient) { }
 
 
@@ -37,4 +37,7 @@ export class CustomerService {
     return this.httpClient.delete(this.URL_CUSTOMER + '/' + id)
   }
 
+  customerListBySearch(searchName: string, searchIdCard: string): Observable<Customer[]>{
+    return this.httpClient.get<Customer[]>("http://localhost:3000/customer?name_like=" + searchName + "&idCard_like=" + searchIdCard);
+  }
 }

@@ -83,6 +83,62 @@
       "email": "2121212",
       "address": "121211",
       "id": 23
+    },
+    {
+      "name": "Toastr",
+      "customerType": {
+        "id": 2,
+        "name": "silver"
+      },
+      "dateOfBird": "2022-07-14",
+      "gender": "1",
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "levantai1496@gmail.com",
+      "address": "12121",
+      "id": 24
+    },
+    {
+      "name": "ngu toastr",
+      "customerType": {
+        "id": 2,
+        "name": "silver"
+      },
+      "dateOfBird": "2022-07-09",
+      "gender": "1",
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "levantai1496@gmail.com",
+      "address": "12121",
+      "id": 25
+    },
+    {
+      "name": "111",
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "dateOfBird": "2022-07-06",
+      "gender": "1",
+      "idCard": "111",
+      "phoneNumber": "111",
+      "email": "11",
+      "address": "111",
+      "id": 26
+    },
+    {
+      "name": "Non nớt",
+      "customerType": {
+        "id": 2,
+        "name": "silver"
+      },
+      "dateOfBird": "2022-07-19",
+      "gender": "1",
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "levantai1496@gmail.com",
+      "address": "12121",
+      "id": 27
     }
   ],
   "customerType": [

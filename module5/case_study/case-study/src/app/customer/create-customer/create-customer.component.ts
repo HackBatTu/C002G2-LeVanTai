@@ -4,6 +4,7 @@ import {CustomerService} from "../../service/customer.service";
 import {Router} from "@angular/router";
 import {Customer} from "../../model/customer";
 import {CustomerType} from "../../model/customer-type";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create-customer',
@@ -16,7 +17,11 @@ export class CreateCustomerComponent implements OnInit {
   customerTypes: CustomerType[] = [];
 
 
-  constructor(private customerService: CustomerService, private router: Router) {
+  constructor(private customerService: CustomerService, private router: Router,private toastr: ToastrService) {
+  }
+
+  showToastr() {
+    this.toastr.success('Some messages','tittle',{timeOut: 500, progressBar: false})
   }
 
   ngOnInit(): void {
@@ -70,11 +75,15 @@ export class CreateCustomerComponent implements OnInit {
     if (this.customerForm.valid) {
       this.customerForm.value.id = parseInt(this.customerForm.value.id)
       this.customerService.saveCustomer(this.customerForm.value).subscribe(data => {
+        this.showToastr()
       }, error => {
       }, () => {
+
         this.router.navigate(['/customer']);
       })
       this.customerForm.reset()
     }
   }
+
+
 }

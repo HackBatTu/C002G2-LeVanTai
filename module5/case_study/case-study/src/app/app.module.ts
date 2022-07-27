@@ -14,9 +14,11 @@ import {CreateCustomerComponent} from './customer/create-customer/create-custome
 import {UpdateCustomerComponent} from './customer/update-customer/update-customer.component';
 import {ListContractComponent} from './contract/list-contract/list-contract.component';
 import {CreateContractComponent} from './contract/create-contract/create-contract.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from "ngx-pagination";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -39,7 +41,15 @@ import {NgxPaginationModule} from "ngx-pagination";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true
+    }),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

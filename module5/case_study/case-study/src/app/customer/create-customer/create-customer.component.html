@@ -73,9 +73,9 @@
           </div>
 
           <div class="form-field col-lg-12">
-            <input class="submit-btn" type="submit" [disabled]="!customerForm.valid" value="Submit">
+            <input class="submit-btn" type="submit" [disabled]="!customerForm.valid" value="Submit" (click)="showToastr()">
           </div>
-          <a [routerLink]="['/customer']" class="btn btn-outline-secondary">Back home</a>
+          <a [routerLink]="['/customer']" class="btn btn-outline-secondary" >Back home</a>
         </form>
       </div>
 
