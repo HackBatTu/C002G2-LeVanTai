@@ -26,7 +26,7 @@ const routes: Routes = [
     component: ListFacilityComponent
   },
   {
-    path: 'facility-edit',
+    path: 'facility-edit/:id',
     component: UpdateFacilityComponent
   },
   {
@@ -38,7 +38,7 @@ const routes: Routes = [
     component: ListCustomerComponent
   },
   {
-    path: 'customer-edit',
+    path: 'customer-edit/:id',
     component: UpdateCustomerComponent
   },
   {

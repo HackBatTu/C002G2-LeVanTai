@@ -1,60 +1,60 @@
 {
   "customer": [
     {
-      "id": 1,
+      "name": "Fate1",
+      "customerType": {
+        "id": 2,
+        "name": "silver"
+      },
+      "dateOfBird": "2022-07-08",
+      "gender": "0",
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "levantai1496@gmail.com",
+      "address": "12121",
+      "id": 6
+    },
+    {
+      "name": "Phương Ngu",
       "customerType": {
         "id": 1,
         "name": "diamond"
       },
-      "name": "1",
-      "birthday": "12-12-2012",
+      "dateOfBird": "2022-07-05",
       "gender": "1",
-      "idCard": "123456789",
-      "phoneNumber": "0909121212",
-      "email": "json@gmail.com",
-      "address": "vietnamese"
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "levantai1496@gmail.com",
+      "address": "12121",
+      "id": 7
+    },
+    {
+      "name": "diep",
+      "customerType": {
+        "id": 2,
+        "name": "silver"
+      },
+      "dateOfBird": "2022-07-13",
+      "gender": "1",
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "levantai1496@gmail.com",
+      "address": "12121",
+      "id": 8
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "diamond"
     },
     {
       "id": 2,
-      "customerType": {
-        "id": 2,
-        "name": "gold"
-      },
-      "name": "2",
-      "birthday": "12-12-2012",
-      "gender": "0",
-      "idCard": "123456789",
-      "phoneNumber": "0909121212",
-      "email": "json@gmail.com",
-      "address": "vietnamese"
+      "name": "silver"
     },
     {
       "id": 3,
-      "customerType": {
-        "id": 1,
-        "name": "diamond"
-      },
-      "name": "3",
-      "birthday": "12-12-2012",
-      "gender": "1",
-      "idCard": "123456789",
-      "phoneNumber": "0909121212",
-      "email": "json@gmail.com",
-      "address": "vietnamese"
-    },
-    {
-      "id": 4,
-      "customerType": {
-        "id": 1,
-        "name": "diamond"
-      },
-      "name": "4",
-      "birthday": "12-12-2012",
-      "gender": "1",
-      "idCard": "123456789",
-      "phoneNumber": "0909121212",
-      "email": "json@gmail.com",
-      "address": "vietnamese"
+      "name": "gold"
     }
   ]
 }

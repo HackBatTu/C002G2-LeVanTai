@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../service/product.service";
 import {Product} from "../../model/product";
-import {Category} from "../../model/category";
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +9,6 @@ import {Category} from "../../model/category";
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  categories: Category[] = [];
 
   constructor(private productService: ProductService) {
   }
@@ -20,11 +18,5 @@ export class ProductListComponent implements OnInit {
       this.products = data;
     },error => {});
   }
-
-
-  getAllCategories() {
-    this.productService.getAllCategories();
-  }
-
 
 }

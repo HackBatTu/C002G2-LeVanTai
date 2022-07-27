@@ -3,7 +3,7 @@
   <form [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="updateProduct()">
     <div>
       <label>ID</label>
-      <input type="text" class="form-control" formControlName="id" name="id">
+      <input type="text" class="form-control" formControlName="id" name="id" readonly>
     </div>
     <div *ngIf="!id.valid && (id.dirty || id.touched)">
       <div class="text-danger" [hidden]="!id.errors.required">id not required</div>

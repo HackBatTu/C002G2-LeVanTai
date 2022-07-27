@@ -15,11 +15,11 @@
     <div class="row">
       <div class="col-8"></div>
       <div class="col-4">
-        <form class="d-flex">
-          <input class="form-control me-2 buttons1" type="search" name="search"
-                 aria-label="Search">
-          <button class="btn btn-outline-success buttons1" type="submit" name="name">Search</button>
-        </form>
+        <!--        <form class="d-flex">-->
+        <!--          <input class="form-control me-2 buttons1" type="search" name="search"-->
+        <!--                 aria-label="Search">-->
+        <!--          <button class="btn btn-outline-success buttons1" type="submit" name="name">Search</button>-->
+        <!--        </form>-->
       </div>
     </div>
     <div>
@@ -28,20 +28,20 @@
         <tr>
           <th>STT</th>
           <th>Name</th>
+          <th>BirthDay</th>
           <th>Gender</th>
           <th>IdCard</th>
           <th>Email</th>
           <th>Address</th>
           <th>CustomerType</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th colspan="2">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let c of customers, index as loop" >
-          <td>{{loop+1}}</td>
+        <tr *ngFor="let c of customers, index as loop">
+          <td>{{loop + 1}}</td>
           <td>{{c.name}}</td>
-          <td>{{c.birthday | date: 'dd-MM-yyyy'}}</td>
+          <td>{{c.dateOfBird | date: 'dd-MM-yyyy'}}</td>
           <td>
           <span [ngSwitch]="c.gender">
               <span *ngSwitchCase="1"> Nam</span>
@@ -52,12 +52,36 @@
           <td>{{c.idCard}}</td>
           <td>{{c.email}}</td>
           <td>{{c.address}}</td>
-          <td>{{c.customerType.id}}</td>
+          <td>{{c.customerType.name}}</td>
           <td>
-            <a [routerLink]="'/customer-edit'" class="btn btn-outline-warning">Edit</a>
+            <a [routerLink]="['/customer-edit',c.id]" class="btn btn-outline-warning">Edit</a>
           </td>
-          <td>
-            <a [routerLink]="'/customer-edit'" class="btn btn-outline-danger">Delete</a>
+          <td style="text-align: center">
+            <button class="btn btn-outline-danger" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal">Delete
+            </button>
+            <!-- delete Modal -->
+            <div class="modal fade" id="deleteModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title text-danger"> SOS SOS !!!</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Are You Sure Delete Customer {{c.name}} ?? :) ??
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteCustomer(c.id)">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end delete Modal -->
           </td>
         </tr>
         </tbody>

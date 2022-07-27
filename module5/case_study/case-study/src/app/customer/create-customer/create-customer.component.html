@@ -3,55 +3,76 @@
     <div class="row g-3">
       <div class="col-md-7 col-lg-9">
         <h1 class="title">Create Customer</h1>
-        <form class="contact-form row">
+        <form class="contact-form row" [formGroup]="customerForm" *ngIf="customerForm" (ngSubmit)="createCustomer()">
           <div class="form-field col-lg-6 ">
-            <input id="name" class="input-text js-input" type="text">
+            <input id="name" class="input-text js-input" type="text" formControlName="name">
             <label class="label" for="name">Name</label>
           </div>
+          <div *ngIf="!name.valid && (name.dirty || name.touched)">
+            <div class="text-danger" [hidden]="!name.errors.required">id not required</div>
+          </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="dateOfBird" class="input-text js-input" type="date">
+            <input id="dateOfBird" class="input-text js-input" type="date" formControlName="dateOfBird">
             <label class="label" for="dateOfBird">DateOfBird</label>
           </div>
+          <div *ngIf="!dateOfBird.valid && (dateOfBird.dirty || dateOfBird.touched)">
+            <div class="text-danger" [hidden]="!dateOfBird.errors.required">id not required</div>
+          </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="idCard" class="input-text js-input" type="text">
+            <input id="idCard" class="input-text js-input" type="text" formControlName="idCard">
             <label class="label" for="idCard">IdCard</label>
           </div>
-
-
-          <div class="form-field col-lg-6 ">
-            <input id="phone" class="input-text js-input" type="text">
-            <label class="label" for="phone">phone</label>
+          <div *ngIf="!idCard.valid && (idCard.dirty || idCard.touched)">
+            <div class="text-danger" [hidden]="!idCard.errors.required">id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
-            <input id="email" class="input-text js-input" type="email">
+            <input id="phoneNumber" class="input-text js-input" type="text" formControlName="phoneNumber">
+            <label class="label" for="phoneNumber">phone</label>
+          </div>
+          <div *ngIf="!phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)">
+            <div class="text-danger" [hidden]="!phoneNumber.errors.required">id not required</div>
+          </div>
+
+          <div class="form-field col-lg-6 ">
+            <input id="email" class="input-text js-input" type="email" formControlName="email">
             <label class="label" for="email">Email</label>
           </div>
-
-          <div class="form-field col-lg-6 ">
-            <input id="address" class="input-text js-input" type="text">
-            <label class="label" for="address">Address</label>
+          <div *ngIf="!email.valid && (email.dirty || email.touched)">
+            <div class="text-danger" [hidden]="!email.errors.required">id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
-            <select id="gender" class="form-select js-input" type="text">
+            <input id="address" class="input-text js-input" type="text" formControlName="address">
+            <label class="label" for="address">Address</label>
+          </div>
+          <div *ngIf="!address.valid && (address.dirty || address.touched)">
+            <div class="text-danger" [hidden]="!address.errors.required">id not required</div>
+          </div>
+
+          <div class="form-field col-lg-6 ">
+            <select id="gender" class="form-select js-input" type="text" formControlName="gender">
               <option value="">Choice Gender</option>
               <option value="1">Male</option>
               <option value="0">FeMale</option>
               <option value="2">Other</option>
             </select>
           </div>
+          <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
+            <div class="text-danger" [hidden]="!gender.errors.required">id not required</div>
+          </div>
 
           <div class="form-field col-lg-6">
-            <select class="form-select" id="customerType">
-              <option value="">Customer Type List</option>
+            <select class="form-select" name="customerType" formControlName="customerType" >
+              <option value="" [selected]="true" [disabled]="true">choice customer Type</option>
+              <option *ngFor="let c of customerTypes" [ngValue]="c">{{c.name}}</option>
             </select>
           </div>
 
           <div class="form-field col-lg-12">
-            <input class="submit-btn" type="submit" value="Submit">
+            <input class="submit-btn" type="submit" [disabled]="!customerForm.valid" value="Submit">
           </div>
           <a [routerLink]="['/customer']" class="btn btn-outline-secondary">Back home</a>
         </form>
@@ -96,12 +117,12 @@
             <strong>$20</strong>
           </li>
         </ul>
-        <form class="card p-2">
+<!--        <form class="card p-2">-->
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Enter sell class C02">
             <button type="submit" class="btn btn-outline-primary my-0">Redeem</button>
           </div>
-        </form>
+<!--        </form>-->
       </div>
 
     </div>
