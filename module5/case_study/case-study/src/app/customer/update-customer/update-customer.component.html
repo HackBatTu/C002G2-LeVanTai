@@ -14,7 +14,7 @@
             <label class="label" for="name">Name</label>
           </div>
           <div *ngIf="!name.valid && (name.dirty || name.touched)">
-            <div class="text-danger" [hidden]="!name.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!name.errors.required"> Name id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
@@ -22,24 +22,24 @@
             <label class="label" for="dateOfBird">DateOfBird</label>
           </div>
           <div *ngIf="!dateOfBird.valid && (dateOfBird.dirty || dateOfBird.touched)">
-            <div class="text-danger" [hidden]="!dateOfBird.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!dateOfBird.errors.required">DateOfBird id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
             <input id="idCard" class="input-text js-input" type="text" name="idCard" formControlName="idCard">
-            <label class="label" for="idCard">IdCard</label>
+            <label class="label" for="idCard">Id Card</label>
           </div>
           <div *ngIf="!idCard.valid && (idCard.dirty || idCard.touched)">
-            <div class="text-danger" [hidden]="!idCard.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!idCard.errors.required">Id Card id not required</div>
           </div>
 
 
           <div class="form-field col-lg-6 ">
             <input id="phoneNumber" class="input-text js-input" type="text" name="phoneNumber" formControlName="phoneNumber">
-            <label class="label" for="phoneNumber">phone</label>
+            <label class="label" for="phoneNumber">Phone</label>
           </div>
           <div *ngIf="!phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)">
-            <div class="text-danger" [hidden]="!phoneNumber.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!phoneNumber.errors.required">Phone id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
@@ -47,7 +47,7 @@
             <label class="label" for="email">Email</label>
           </div>
           <div *ngIf="!email.valid && (email.dirty || email.touched)">
-            <div class="text-danger" [hidden]="!email.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!email.errors.required">Email id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
@@ -55,7 +55,7 @@
             <label class="label" for="address">Address</label>
           </div>
           <div *ngIf="!address.valid && (address.dirty || address.touched)">
-            <div class="text-danger" [hidden]="!address.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!address.errors.required">Address id not required</div>
           </div>
 
           <div class="form-field col-lg-6 ">
@@ -67,7 +67,7 @@
             </select>
           </div>
           <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
-            <div class="text-danger" [hidden]="!gender.errors.required">id not required</div>
+            <div class="text-danger" [hidden]="!gender.errors.required">Gender id not required</div>
           </div>
 
           <div class="form-field col-lg-6">

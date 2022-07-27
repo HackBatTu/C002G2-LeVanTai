@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class ListCustomerComponent implements OnInit {
   customers: Customer[] = [];
+  p: number = 1;
 
   constructor(private customerService: CustomerService, private router: Router) {
   }
@@ -26,6 +27,7 @@ export class ListCustomerComponent implements OnInit {
       console.log(id)
     }, error => {
     }, () => {
+      this.ngOnInit()
       this.router.navigateByUrl('/customer').then()
     })
   }

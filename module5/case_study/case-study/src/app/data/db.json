@@ -1,18 +1,32 @@
 {
   "customer": [
     {
-      "name": "Fate1",
+      "name": "Phương Ngu",
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "dateOfBird": "2022-07-15",
+      "gender": "1",
+      "idCard": "14654689",
+      "phoneNumber": "1111111",
+      "email": "phuong@gmail.com",
+      "address": "12121",
+      "id": 17
+    },
+    {
+      "name": "thông non",
       "customerType": {
         "id": 2,
         "name": "silver"
       },
       "dateOfBird": "2022-07-08",
-      "gender": "0",
-      "idCard": "14654689",
-      "phoneNumber": "0901234567",
-      "email": "levantai1496@gmail.com",
-      "address": "12121",
-      "id": 6
+      "gender": "1",
+      "idCard": "1",
+      "phoneNumber": "1",
+      "email": "11",
+      "address": "111",
+      "id": 19
     },
     {
       "name": "Phương Ngu",
@@ -20,27 +34,55 @@
         "id": 1,
         "name": "diamond"
       },
-      "dateOfBird": "2022-07-05",
-      "gender": "1",
-      "idCard": "14654689",
+      "dateOfBird": "2022-07-02",
+      "gender": "0",
+      "idCard": "01123313123",
       "phoneNumber": "0901234567",
       "email": "levantai1496@gmail.com",
-      "address": "12121",
-      "id": 7
+      "address": "11",
+      "id": 20
     },
     {
-      "name": "diep",
+      "name": "Luận",
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "dateOfBird": "2022-07-13",
+      "gender": "0",
+      "idCard": "14654689",
+      "phoneNumber": "0901234567",
+      "email": "luanngu@gmail.com",
+      "address": "1212",
+      "id": 21
+    },
+    {
+      "name": "Fate",
       "customerType": {
         "id": 2,
         "name": "silver"
       },
-      "dateOfBird": "2022-07-13",
+      "dateOfBird": "2022-07-15",
       "gender": "1",
-      "idCard": "14654689",
+      "idCard": "1",
       "phoneNumber": "0901234567",
       "email": "levantai1496@gmail.com",
-      "address": "12121",
-      "id": 8
+      "address": "11",
+      "id": 22
+    },
+    {
+      "name": "1212",
+      "customerType": {
+        "id": 1,
+        "name": "diamond"
+      },
+      "dateOfBird": "2022-07-14",
+      "gender": "2",
+      "idCard": "121212",
+      "phoneNumber": "121221",
+      "email": "2121212",
+      "address": "121211",
+      "id": 23
     }
   ],
   "customerType": [

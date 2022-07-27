@@ -15,11 +15,11 @@
     <div class="row">
       <div class="col-8"></div>
       <div class="col-4">
-        <!--        <form class="d-flex">-->
-        <!--          <input class="form-control me-2 buttons1" type="search" name="search"-->
-        <!--                 aria-label="Search">-->
-        <!--          <button class="btn btn-outline-success buttons1" type="submit" name="name">Search</button>-->
-        <!--        </form>-->
+        <div class="d-flex">
+          <input class="form-control me-2 buttons1" type="search" name="search"
+                 aria-label="Search">
+          <button class="btn btn-outline-success buttons1" type="submit" name="name">Search</button>
+        </div>
       </div>
     </div>
     <div>
@@ -38,7 +38,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let c of customers, index as loop">
+        <tr *ngFor="let c of customers | paginate: { itemsPerPage: 5, currentPage: p }, index as loop ">
           <td>{{loop + 1}}</td>
           <td>{{c.name}}</td>
           <td>{{c.dateOfBird | date: 'dd-MM-yyyy'}}</td>
@@ -56,12 +56,13 @@
           <td>
             <a [routerLink]="['/customer-edit',c.id]" class="btn btn-outline-warning">Edit</a>
           </td>
+
           <td style="text-align: center">
             <button class="btn btn-outline-danger" data-bs-toggle="modal"
-                    data-bs-target="#deleteModal">Delete
+                    [attr.data-bs-target]="'#deleteModal' + c.id">Delete
             </button>
             <!-- delete Modal -->
-            <div class="modal fade" id="deleteModal">
+            <div class="modal fade" id="deleteModal{{c.id}}">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <!-- Modal Header -->
@@ -76,7 +77,9 @@
                   <!-- Modal footer -->
                   <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" (click)="deleteCustomer(c.id)">Delete</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer(c.id)">
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>
@@ -86,16 +89,11 @@
         </tr>
         </tbody>
       </table>
-      <div class="container-fluid mt-3">
-        <div>
-          <ul class="pagination float-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </div>
+    </div>
+    <div class="row col-12">
+      <div class="col-9"></div>
+      <div class="col-3">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </section>
