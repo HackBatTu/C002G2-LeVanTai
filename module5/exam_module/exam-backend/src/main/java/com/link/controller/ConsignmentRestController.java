@@ -49,6 +49,13 @@ public class ConsignmentRestController {
     public ResponseEntity<Consignment> createConsignment(@RequestBody Consignment consignment) {
         return new ResponseEntity<>(iConsignmentService.save(consignment),HttpStatus.CREATED);
     }
+
+    @GetMapping("/findId/{id}")
+    public ResponseEntity<Consignment> findByID(@PathVariable Integer id) {
+        Consignment consignment = this.iConsignmentService.findById(id);
+        return new ResponseEntity<>(consignment, HttpStatus.OK);
+    }
+
     @PatchMapping("/update/{id}")
     public ResponseEntity<Consignment> updateConsignment(@RequestBody Consignment consignment,@PathVariable Integer id) {
         Optional<Consignment> consignmentOptional = Optional.ofNullable(iConsignmentService.findById(id));

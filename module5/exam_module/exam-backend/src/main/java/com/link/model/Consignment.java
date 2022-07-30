@@ -10,8 +10,11 @@ public class Consignment {
     private Integer id;
     private String codeProduct;
     private Integer quantity;
+    @Column(columnDefinition = "date")
     private Date dateIn;
+    @Column(columnDefinition = "date")
     private Date dateCheckIn;
+    @Column(columnDefinition = "date")
     private Date dateCheckOut;
 
     @ManyToOne

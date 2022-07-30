@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ConsignmentService} from '../service/consignment.service';
 import {Router} from '@angular/router';
@@ -16,7 +16,9 @@ export class ConsignmentCreateComponent implements OnInit {
   consignment: Consignment = {};
   product: Product[] = [];
 
-  constructor(private consignmentService: ConsignmentService, private router: Router, private toastr: ToastrService) { }
+  constructor(private consignmentService: ConsignmentService, private router: Router, private toastr: ToastrService) {
+  }
+
   showToastr() {
     this.toastr.success('Create success', 'tittle', {timeOut: 800, progressBar: false});
   }
@@ -27,15 +29,16 @@ export class ConsignmentCreateComponent implements OnInit {
     }, error => {
     }, () => {
       this.consignmentForm = new FormGroup({
-        codeProduct: new FormControl('', [Validators.required, Validators.pattern("^(LH-)([0-9]{4})$")]),
+        codeProduct: new FormControl('', [Validators.required, Validators.pattern('^(LH-)([0-9]{4})$')]),
         product: new FormControl(''),
-        quantity: new FormControl('', [Validators.required, Validators.pattern("^[0-9]{1,}")]),
+        quantity: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{1,}')]),
         dateIn: new FormControl('', [Validators.required]),
         dateCheckIn: new FormControl('', [Validators.required]),
         dateCheckOut: new FormControl('', [Validators.required]),
       });
     });
   }
+
   get codeProduct() {
     return this.consignmentForm.get('codeProduct');
   }
@@ -62,7 +65,7 @@ export class ConsignmentCreateComponent implements OnInit {
       this.consignmentService.createConsignment(this.consignmentForm.value).subscribe(data => {
       }, error => {
       }, () => {
-      })
+      });
       this.router.navigateByUrl('list');
     }
   }

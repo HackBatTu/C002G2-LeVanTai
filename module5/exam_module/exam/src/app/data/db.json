@@ -1,12 +1,27 @@
 {
   "consignment": [
     {
+      "id": 1,
+      "codeProduct": "LH-0001",
+      "product": {
+        "id": 1,
+        "name": "String",
+        "country": "Hà Nội",
+        "price": "250000",
+        "unit": "thùng"
+      },
+      "quantity": 10,
+      "dateIn": "01-01-2001",
+      "dateCheckIn": "01-01-2001",
+      "dateCheckOut": "01-01-2004"
+    },
+    {
       "id": 2,
       "codeProduct": "LH-0002",
       "product": {
-        "id": 1,
-        "name": "tiger",
-        "country": "string",
+        "id": 2,
+        "name": "Tiger",
+        "country": "Đông Lào",
         "price": "220000",
         "unit": "thùng"
       },
@@ -19,9 +34,9 @@
       "id": 3,
       "codeProduct": "LH-0003",
       "product": {
-        "id": 1,
-        "name": "Osi",
-        "country": "string",
+        "id": 3,
+        "name": "Oshi",
+        "country": "Đông Lào",
         "price": "100000",
         "unit": "thùng"
       },
@@ -34,9 +49,9 @@
       "id": 4,
       "codeProduct": "LH-0004",
       "product": {
-        "id": 1,
-        "name": "Dầu gội",
-        "country": "string",
+        "id": 4,
+        "name": "Dầu Gội",
+        "country": "Đông Lào",
         "price": "300000",
         "unit": "thung"
       },
@@ -49,9 +64,9 @@
       "id": 5,
       "codeProduct": "LH-0005",
       "product": {
-        "id": 1,
+        "id": 5,
         "name": "Larue",
-        "country": "string",
+        "country": "Đông Lào",
         "price": 2100000,
         "unit": "thùng"
       },
@@ -59,56 +74,41 @@
       "dateIn": "01-01-2001",
       "dateCheckIn": "01-01-2001",
       "dateCheckOut": "01-01-2006"
-    },
-    {
-      "codeProduct": "LH-1235",
-      "product": {
-        "id": 1,
-        "name": "Sting",
-        "country": "hà nội",
-        "price": 250000,
-        "unit": "thùng"
-      },
-      "quantity": "10",
-      "dateIn": "2022-07-02",
-      "dateCheckIn": "2022-07-01",
-      "dateCheckOut": "2022-07-01",
-      "id": 7
     }
   ],
   "product": [
     {
       "id": 1,
       "name": "Sting",
-      "country": "hà nội",
+      "country": "Hà Nội",
       "price": 250000,
       "unit": "thùng"
     },
     {
       "id": 2,
       "name": "Tiger",
-      "country": "hà nội",
+      "country": "Đông Lào",
       "price": 220000,
       "unit": "thùng"
     },
     {
       "id": 3,
       "name": "Oshi",
-      "country": "hà nội",
+      "country": "Đông Lào",
       "price": 100000,
       "unit": "thùng"
     },
     {
       "id": 4,
       "name": "Dầu gội",
-      "country": "hà nội",
+      "country": "Đông Lào",
       "price": 300000,
       "unit": "thùng"
     },
     {
       "id": 5,
       "name": "Larue",
-      "country": "hà nội",
+      "country": "Đông Lào",
       "price": 210000,
       "unit": "thùng"
     }
