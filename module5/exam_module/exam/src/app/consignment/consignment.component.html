@@ -1,0 +1,102 @@
+<div class="bg-light">
+  <section class="container">
+    <div class="p-3 text-center bg-image"
+         style="height: 200px;">
+      <div class="mask">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-success">
+            <h2 class="mb-3 management">Consignment Management</h2>
+            <a [routerLink]="'/create'" class="btn btn-outline-success btn-lg buttons" role="button">Create
+              Consignment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7"></div>
+      <div class="col-5">
+        <div class="d-flex">
+          <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getSearch()">
+            <input class="form-control me-2 buttons1" type="search" placeholder="Search By Name Product"
+                   formControlName="searchName">
+            <input class="form-control me-2 buttons1" type="date" placeholder="Search By Date Check Out"
+                   formControlName="searchDateCheckOut">
+            <button type="submit" class="btn btn-outline-success buttons1">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>STT</th>
+          <th>Code Product</th>
+          <th>Name Product</th>
+          <th>Price</th>
+          <th>Unit</th>
+          <th>Quantity</th>
+          <th>DateIn</th>
+          <th>Date Check In</th>
+          <th>Date Check Out</th>
+          <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of consigment | paginate: { itemsPerPage: 5, currentPage: p }, index as loop ">
+          <td>{{loop + 1}}</td>
+          <td>{{c.codeProduct}}</td>
+          <td>{{c.product.name}}</td>
+          <td>{{c.product.price}}</td>
+          <td>{{c.product.unit}}</td>
+          <td>{{c.quantity}}</td>
+          <td>{{c.dateIn | date: 'dd-MM-yyyy'}}</td>
+          <td>{{c.dateCheckIn | date: 'dd-MM-yyyy'}}</td>
+          <td>{{c.dateCheckOut | date: 'dd-MM-yyyy'}}</td>
+          <td>
+            <a class="btn btn-outline-warning" [routerLink]="['/edit', c.id]"> Edit</a>
+          </td>
+          <td style="text-align: center">
+            <button class="btn btn-outline-danger" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#deleteModal' + c.id">Delete
+            </button>
+            <!-- delete Modal -->
+            <div class="modal fade" id="deleteModal{{c.id}}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title text-danger"> SOS SOS !!!</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Are You Sure Delete Code Consignment product {{c.product.name}} In Day {{c.dateIn}}
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                            (click)="deleteConsignment(c.id)">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end delete Modal -->
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row col-12">
+      <div class="col-8"></div>
+      <div class="col-4">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </section>
+
+</div>

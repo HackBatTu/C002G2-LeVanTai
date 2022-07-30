@@ -1,0 +1,122 @@
+<div class="bg-light" style="padding: 120px 0px">
+  <div class="container form">
+    <div class="row col-lg-12">
+      <div class="col-lg-9">
+        <h1 class="mb-3 text-primary text-center">Create Consignment</h1>
+        <form class="row g-3" [formGroup]="consignmentForm" *ngIf="consignmentForm" (ngSubmit)="createConsignment()">
+          <div class="row g-3">
+            <div class="col-6">
+              <label for="codeProduct" class="form-label">Code Product</label>
+              <input type="text" class="form-control" id="codeProduct" formControlName="codeProduct">
+            </div>
+            <div *ngIf="!codeProduct.valid && (codeProduct.dirty || codeProduct.touched)">
+              <div class="text-danger" [hidden]="!codeProduct.errors.required">Code product id not required</div>
+              <div class="text-danger" [hidden]="!codeProduct.errors.pattern">error : LH-XXXX(0-9)</div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="product" class="form-label">Product List</label>
+              <select id="product" class="form-select" formControlName="product">
+                <option value="">choice product</option>
+                <option *ngFor="let c of product" [ngValue]="c">{{c.name}}</option>
+              </select>
+            </div>
+
+            <div class="col-6">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="text" class="form-control" id="quantity" formControlName="quantity">
+            </div>
+            <div *ngIf="!quantity.valid && (quantity.dirty || quantity.touched)">
+              <div class="text-danger" [hidden]="!quantity.errors.required">Quantity id not required</div>
+              <div class="text-danger" [hidden]="!quantity.errors.pattern">error : số nguyên dương</div>
+            </div>
+
+            <div class="col-6">
+              <label for="dateIn" class="form-label">Date In</label>
+              <input type="date" class="form-control" id="dateIn" formControlName="dateIn">
+            </div>
+            <div *ngIf="!dateIn.valid && (dateIn.dirty || dateIn.touched)">
+              <div class="text-danger" [hidden]="!dateIn.errors.required">Date In id not required</div>
+            </div>
+
+            <div class="col-6">
+              <label for="dateCheckIn" class="form-label">Date Check In</label>
+              <input type="date" class="form-control" id="dateCheckIn" formControlName="dateCheckIn">
+            </div>
+            <div *ngIf="!dateCheckIn.valid && (dateCheckIn.dirty || dateCheckIn.touched)">
+              <div class="text-danger" [hidden]="!dateCheckIn.errors.required">Date Check In id not required</div>
+            </div>
+            <div class="col-6">
+              <label for="dateCheckOut" class="form-label">Date Check Out</label>
+              <input type="date" class="form-control" id="dateCheckOut" formControlName="dateCheckOut">
+            </div>
+            <div *ngIf="!dateCheckOut.valid && (dateCheckOut.dirty || dateCheckOut.touched)">
+              <div class="text-danger" [hidden]="!dateCheckOut.errors.required">Date Check Out id not required</div>
+            </div>
+            <hr>
+            <div class="col-12 row">
+              <div class="col-8">
+              </div>
+              <div class="col-2">
+                <button class="btn btn-outline-primary w-100" [disabled]="!consigmentForm.valid" value="Submit"
+                        (click)="showToastr()">Sign in
+                </button>
+              </div>
+              <div class="col-2">
+                <a [routerLink]="['/list']" class="btn btn-outline-secondary">Back home</a>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-3 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">$</span>
+        </h4>
+        <ul class="list-group mb-1">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Luận Trà Xanh</h6>
+              <small class="text-muted">Lê thị luận</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Phương cỏ rác</h6>
+              <small class="text-muted">Lê Thị Phương</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Phúc XO</h6>
+              <small class="text-muted">Lê Thị Phúc</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+        <div class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="search">
+            <button type="submit" class="btn btn-outline-primary">Redeem</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

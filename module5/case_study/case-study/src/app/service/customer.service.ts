@@ -26,7 +26,7 @@ export class CustomerService {
   }
 
   findById(id): Observable<Customer> {
-    return this.httpClient.get<Customer>(this.URL_CUSTOMER +'/'+id)
+    return this.httpClient.get<Customer>(this.URL_CUSTOMER +'/'+ id)
   }
 
   updateCustomer(customer){
@@ -38,6 +38,6 @@ export class CustomerService {
   }
 
   customerListBySearch(searchName: string, searchIdCard: string): Observable<Customer[]>{
-    return this.httpClient.get<Customer[]>("http://localhost:3000/customer?name_like=" + searchName + "&idCard_like=" + searchIdCard);
+    return this.httpClient.get<Customer[]>(this.URL_CUSTOMER + "?name_like=" + searchName + "&idCard_like=" + searchIdCard);
   }
 }

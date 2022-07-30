@@ -13,7 +13,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class CreateCustomerComponent implements OnInit {
   customerForm: FormGroup;
-  customer: Customer = {};
+  customer: Customer[] = [];
   customerTypes: CustomerType[] = [];
 
 
@@ -21,7 +21,7 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   showToastr() {
-    this.toastr.success('Some messages','tittle',{timeOut: 500, progressBar: false})
+    this.toastr.success('Create success','tittle',{timeOut: 500, progressBar: false})
   }
 
   ngOnInit(): void {
@@ -31,14 +31,13 @@ export class CreateCustomerComponent implements OnInit {
     }, () => {
       this.customerForm = new FormGroup({
         name: new FormControl('', [Validators.required]),
-        customerType: new FormControl(),
+        customerType: new FormControl(''),
         dateOfBird: new FormControl('', [Validators.required]),
         gender: new FormControl('', [Validators.required]),
         idCard: new FormControl('', [Validators.required]),
         phoneNumber: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required]),
         address: new FormControl('', [Validators.required]),
-
       });
     })
   }
@@ -75,13 +74,10 @@ export class CreateCustomerComponent implements OnInit {
     if (this.customerForm.valid) {
       this.customerForm.value.id = parseInt(this.customerForm.value.id)
       this.customerService.saveCustomer(this.customerForm.value).subscribe(data => {
-        this.showToastr()
       }, error => {
       }, () => {
-
-        this.router.navigate(['/customer']);
       })
-      this.customerForm.reset()
+      this.router.navigateByUrl('customer');
     }
   }
 

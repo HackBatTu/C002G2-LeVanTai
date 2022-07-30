@@ -13,10 +13,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6"></div>
-      <div class="col-6">
+      <div class="col-7"></div>
+      <div class="col-5">
         <div class="d-flex">
-          <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getFormSearch()">
+          <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getSearch()">
             <input class="form-control me-2 buttons1" type="search" placeholder="Search By Name"
                    formControlName="searchName">
             <input class="form-control me-2 buttons1" type="search" placeholder="Search By Card"
@@ -42,7 +42,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let c of customers | paginate: { itemsPerPage: 5, currentPage: p }, index as loop ">
+        <tr *ngFor="let c of customers | paginate: { itemsPerPage: 4, currentPage: p }, index as loop ">
           <td>{{loop + 1}}</td>
           <td>{{c.name}}</td>
           <td>{{c.dateOfBird | date: 'dd-MM-yyyy'}}</td>
@@ -95,8 +95,8 @@
       </table>
     </div>
     <div class="row col-12">
-      <div class="col-9"></div>
-      <div class="col-3">
+      <div class="col-8"></div>
+      <div class="col-4">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>

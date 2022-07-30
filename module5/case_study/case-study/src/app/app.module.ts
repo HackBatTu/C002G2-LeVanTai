@@ -1,4 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -17,8 +19,7 @@ import {CreateContractComponent} from './contract/create-contract/create-contrac
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from "ngx-pagination";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ToastrModule} from "ngx-toastr";
+
 
 
 @NgModule({
@@ -38,17 +39,16 @@ import {ToastrModule} from "ngx-toastr";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgxPaginationModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 1000,
+    ToastrModule.forRoot({ timeOut: 1000,
       progressBar: true,
       progressAnimation: 'increasing',
       preventDuplicates: true
     }),
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
     FormsModule
   ],
   providers: [],
