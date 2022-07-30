@@ -19,9 +19,13 @@
         <div class="d-flex">
           <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getSearch()">
             <input class="form-control me-2 buttons1" type="search" placeholder="Search By Name Product"
-                   formControlName="searchName">
+                   formControlName="searchName" name="searchName">
             <input class="form-control me-2 buttons1" type="date" placeholder="Search By Date Check Out"
-                   formControlName="searchDateCheckOut">
+                   formControlName="searchDateCheckOut" name="searchDateCheckOut">
+            <input class="form-control me-2 buttons1" type="date" placeholder="Search By Start Date"
+                   formControlName="searchStartDate" name="searchStartDate">
+            <input class="form-control me-2 buttons1" type="date" placeholder="Search By End Date"
+                   formControlName="searchEndDate" name="searchEndDate">
             <button type="submit" class="btn btn-outline-success buttons1">Search</button>
           </form>
         </div>
@@ -44,7 +48,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let c of consigment | paginate: { itemsPerPage: 5, currentPage: p }, index as loop ">
+        <tr *ngFor="let c of consignment | paginate: { itemsPerPage: 5, currentPage: p }, index as loop ">
           <td>{{loop + 1}}</td>
           <td>{{c.codeProduct}}</td>
           <td>{{c.product.name}}</td>

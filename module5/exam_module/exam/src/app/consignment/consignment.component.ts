@@ -11,37 +11,39 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./consignment.component.css']
 })
 export class ConsignmentComponent implements OnInit {
-  consigment: Consignment[] = [];
+  consignment: Consignment[] = [];
   p: number = 1;
   searchForm: FormGroup;
 
 
-  constructor(private consigmentService: ConsignmentService, private router: Router, private toastr: ToastrService) {
+  constructor(private consignmentService: ConsignmentService, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
-    this.consigmentService.getAll().subscribe(data => {
-      this.consigment = data;
+    this.consignmentService.getAll().subscribe(data => {
+      this.consignment = data;
     }, error => {
     });
     this.searchForm = new FormGroup({
-      searchName: new FormControl(''),
-      searchDateCheckOut: new FormControl('')
+      searchName: new FormControl(),
+      searchDateCheckOut: new FormControl(),
+      searchStartDate: new FormControl(),
+      searchEndDate: new FormControl()
     });
   }
 
 
   getSearch() {
-    this.consigmentService.consignmentListBySearch(this.searchForm.value.searchName, this.searchForm.value.searchDateCheckOut).subscribe(data => {
-      this.consigment = data;
-      console.log(data);
+    // @ts-ignore
+    this.consignmentService.consignmentListBySearch(this.searchForm.value).subscribe(value => {
+      this.consignment = value.content;
     }, error => {
     }, () => {
     });
   }
 
   deleteConsignment(id: number) {
-    this.consigmentService.deleteConsignment(id).subscribe(data => {
+    this.consignmentService.deleteConsignment(id).subscribe(data => {
     }, error => {
     }, () => {
 

@@ -30,8 +30,13 @@ export class ConsignmentService {
     return this.httpClient.delete(this.URL_CONSIGMENT + '/' + id);
   }
 
-  consignmentListBySearch(searchName: string, searchDateCheckOut: string): Observable<Consignment[]> {
-    return this.httpClient.get<Consignment[]>(this.URL_CONSIGMENT + '?product.name_like=' + searchName + 'dateCheckOut_like=' + searchDateCheckOut);
+  consignmentListBySearch(consignment: any): Observable<Consignment[]> {
+    let searchName = consignment.searchName;
+    let searchDateCheckOut = consignment.searchDateCheckOut;
+    let searchStartDate = consignment.searchStartDate;
+    let searchEndDate = consignment.searchEndDate;
+    return this.httpClient.get<Consignment[]>(this.URL_CONSIGMENT + '?product.name_like=' + searchName + '&dateCheckOut_like=' + searchDateCheckOut +
+    '&searchStartDate=' + searchStartDate + '&searchEndDate' + searchEndDate);
   }
 
   createConsignment(consignment) {
