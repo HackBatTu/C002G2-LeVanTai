@@ -12,18 +12,17 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class ConsignmentComponent implements OnInit {
   consignment: Consignment[] = [];
-  p: number = 1;
+  p = 1;
   searchForm: FormGroup;
-
+  totalPages: number;
+  number: number;
+  countTotalPages: number[];
 
   constructor(private consignmentService: ConsignmentService, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
-    this.consignmentService.getAll().subscribe(data => {
-      this.consignment = data;
-    }, error => {
-    });
+    this.getAll(0);
     this.searchForm = new FormGroup({
       searchName: new FormControl(),
       searchDateCheckOut: new FormControl(),
@@ -31,12 +30,23 @@ export class ConsignmentComponent implements OnInit {
       searchEndDate: new FormControl()
     });
   }
-
+  getAll(page: number) {
+    this.consignmentService.getAll(page).subscribe((data: Consignment[]) => {
+      // @ts-ignore
+      this.totalPages = data.totalPages;
+      // @ts-ignore
+      this.countTotalPages = new Array(data.totalPages);
+      // @ts-ignore
+      this.number = data.number;
+      // @ts-ignore
+      this.consignments = data.content;
+    });
+  }
 
   getSearch() {
     // @ts-ignore
-    this.consignmentService.consignmentListBySearch(this.searchForm.value).subscribe(value => {
-      this.consignment = value.content;
+    this.consignmentService.consignmentListBySearch(this.searchForm.value).subscribe((value: Consignment[]) => {
+      this.consignment = value;
     }, error => {
     }, () => {
     });
@@ -52,5 +62,24 @@ export class ConsignmentComponent implements OnInit {
         this.toastr.error('deleted', 'SOS!!!');
       });
     });
+  }
+  goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getAll(numberPage);
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getAll(numberPage);
+    }
+  }
+
+  goItem(i: number) {
+    this.getAll(i);
   }
 }

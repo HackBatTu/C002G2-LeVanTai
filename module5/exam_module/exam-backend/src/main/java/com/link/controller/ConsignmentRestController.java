@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin()
 @RequestMapping("/rest")
 public class ConsignmentRestController {
 
@@ -33,7 +33,7 @@ public class ConsignmentRestController {
         String endDate = searchEndDate.orElse("01-01-1000");
 
         Page<Consignment> consignmentPage = iConsignmentService.findAll(pageable,productName,dateCheckOut,startDate,endDate);
-        if(consignmentPage.isEmpty()){
+        if(!consignmentPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
             return new ResponseEntity<>(consignmentPage,HttpStatus.OK);

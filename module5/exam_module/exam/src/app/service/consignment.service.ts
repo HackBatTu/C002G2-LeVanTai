@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import  {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Consignment} from '../model/consignment';
 import {Product} from '../model/product';
@@ -13,8 +13,8 @@ export class ConsignmentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll() {
-    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment');
+  getAll(page: number) {
+    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment?page=' + page);
   }
 
   getAllProduct() {
@@ -34,8 +34,8 @@ export class ConsignmentService {
     let searchDateCheckOut = consignment.searchDateCheckOut;
     let searchStartDate = consignment.searchStartDate;
     let searchEndDate = consignment.searchEndDate;
-    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '?product.name_like=' + searchName + '&dateCheckOut_like=' + searchDateCheckOut +
-      '&searchStartDate=' + searchStartDate + '&searchEndDate' + searchEndDate);
+    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment' + '?product.name_like=' + searchName +
+      '&dateCheckOut_like=' + searchDateCheckOut + '&searchStartDate=' + searchStartDate + '&searchEndDate=' + searchEndDate);
   }
 
   createConsignment(consignment) {

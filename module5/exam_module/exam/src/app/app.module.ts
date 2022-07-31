@@ -13,6 +13,8 @@ import { HeaderComponent } from './management/header/header.component';
 import { ConsignmentComponent } from './consignment/consignment.component';
 import { ConsignmentCreateComponent } from './consignment-create/consignment-create.component';
 import { ConsignmentEditComponent } from './consignment-edit/consignment-edit.component';
+import { FireBaseComponent } from './fire-base/fire-base.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ConsignmentEditComponent } from './consignment-edit/consignment-edit.co
     HeaderComponent,
     ConsignmentComponent,
     ConsignmentCreateComponent,
-    ConsignmentEditComponent
+    ConsignmentEditComponent,
+    FireBaseComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { ConsignmentEditComponent } from './consignment-edit/consignment-edit.co
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

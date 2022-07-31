@@ -13,9 +13,9 @@ import {Product} from '../model/product';
 })
 export class ConsignmentCreateComponent implements OnInit {
   consignmentForm: FormGroup;
+  // @ts-ignore
   consignment: Consignment = {};
   product: Product[] = [];
-
   constructor(private consignmentService: ConsignmentService, private router: Router, private toastr: ToastrService) {
   }
 

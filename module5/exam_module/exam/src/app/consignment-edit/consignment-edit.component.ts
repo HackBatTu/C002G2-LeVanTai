@@ -14,14 +14,17 @@ import {ToastrService} from 'ngx-toastr';
 export class ConsignmentEditComponent implements OnInit {
   consignmentForm: FormGroup;
   product: Product[] = [];
+  // @ts-ignore
   consignment: Consignment = {};
-
-  constructor(private consignmentService: ConsignmentService, private router: Router, private activatedRouter: ActivatedRoute, private toastr: ToastrService) {
+  constructor(private consignmentService: ConsignmentService,
+              private router: Router,
+              private activatedRouter: ActivatedRoute,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
-    this.activatedRouter.paramMap.subscribe((paraMap: ParamMap) => {
-      const id = paraMap.get('id');
+    this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = paramMap.get('id');
       this.consignmentService.findById(parseInt(id)).subscribe(data => {
         console.log(data);
         this.consignmentService.getAllProduct().subscribe(value => {
