@@ -1,3 +1,4 @@
+// tslint:disable-next-line:import-spacing
 import  {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Consignment} from '../model/consignment';
@@ -13,8 +14,35 @@ export class ConsignmentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll(page: number) {
-    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment?page=' + page);
+  getAll(page: number, searchName, searchDateCheckOut, searchStartDate, searchEndDate) {
+    let productName;
+    let dateCheckOut;
+    let startDate;
+    let endDate;
+    if (searchName == null) {
+      productName = '';
+    } else {
+      productName = searchName;
+    }
+    if (searchDateCheckOut == null) {
+      dateCheckOut = '';
+    } else {
+      dateCheckOut = searchDateCheckOut;
+    }
+
+    if (searchStartDate == null) {
+      startDate = '0001-01-01';
+    } else {
+      startDate = searchStartDate;
+    }
+
+    if (searchEndDate == null) {
+      endDate = '8000-01-01';
+    } else {
+      endDate = searchEndDate;
+    }
+    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment?page=' + page + '&searchName=' + productName +
+      '&searchDateCheckOut=' + dateCheckOut + '&searchStartDate=' + startDate + '&searchEndDate=' + endDate);
   }
 
   getAllProduct() {
@@ -29,20 +57,11 @@ export class ConsignmentService {
     return this.httpClient.delete(this.URL_CONNECT + '/delete/' + id);
   }
 
-  consignmentListBySearch(consignment: any): Observable<Consignment[]> {
-    let searchName = consignment.searchName;
-    let searchDateCheckOut = consignment.searchDateCheckOut;
-    let searchStartDate = consignment.searchStartDate;
-    let searchEndDate = consignment.searchEndDate;
-    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment' + '?product.name_like=' + searchName +
-      '&dateCheckOut_like=' + searchDateCheckOut + '&searchStartDate=' + searchStartDate + '&searchEndDate=' + searchEndDate);
-  }
-
   createConsignment(consignment) {
     return this.httpClient.post(this.URL_CONNECT + '/create', consignment);
   }
 
   updateConsignment(consignment) {
-    return this.httpClient.patch(this.URL_CONNECT + '/edit/' + consignment.id, consignment);
+    return this.httpClient.patch(this.URL_CONNECT + '/update/' + consignment.id , consignment);
   }
 }

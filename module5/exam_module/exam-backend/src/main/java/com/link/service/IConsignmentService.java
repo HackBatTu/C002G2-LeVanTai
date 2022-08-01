@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface IConsignmentService {
-    Page<Consignment> findAll(Pageable pageable, String productName, String dateCheckOut, String startDate, String endDate);
+    Page<Consignment> findAllConsignment(Pageable pageable, String productName, String dateCheckOut, String startDate, String endDate);
 
     Consignment save(Consignment consignment);
 
@@ -17,4 +17,6 @@ public interface IConsignmentService {
     Consignment findById(Integer id);
 
     List<Product> findAllProduct();
+
+    Page<Consignment> findAllConsignment(Pageable pageable);
 }

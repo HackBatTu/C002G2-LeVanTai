@@ -109,7 +109,7 @@
         <ul class="pagination float-end">
           <div *ngIf="number == 0">
             <li class="page-item disabled">
-              <button class="page-link" (click)="goPrevious()">Previous</button>
+              <button class="page-link" (click)="goPrevious()" hidden>Previous</button>
             </li>
           </div>
           <div *ngIf="number != 0">

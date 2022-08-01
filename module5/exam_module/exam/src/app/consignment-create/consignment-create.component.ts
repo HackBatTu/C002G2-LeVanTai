@@ -7,7 +7,7 @@ import {Consignment} from '../model/consignment';
 import {Product} from '../model/product';
 
 @Component({
-  selector: 'app-consigment-create',
+  selector: 'app-consignment-create',
   templateUrl: './consignment-create.component.html',
   styleUrls: ['./consignment-create.component.css']
 })
@@ -24,8 +24,10 @@ export class ConsignmentCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.consignmentService.getAllProduct().subscribe(value => {
-      this.product = value;
+    this.consignmentService.getAllProduct().subscribe(data => {
+      // @ts-ignore
+      this.product = data;
+      console.log(data);
     }, error => {
     }, () => {
       this.consignmentForm = new FormGroup({
@@ -61,6 +63,7 @@ export class ConsignmentCreateComponent implements OnInit {
 
   createConsignment() {
     if (this.consignmentForm.valid) {
+      // tslint:disable-next-line:radix
       this.consignmentForm.value.id = parseInt(this.consignmentForm.value.id);
       this.consignmentService.createConsignment(this.consignmentForm.value).subscribe(data => {
       }, error => {

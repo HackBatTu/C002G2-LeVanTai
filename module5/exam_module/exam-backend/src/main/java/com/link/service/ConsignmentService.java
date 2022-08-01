@@ -21,12 +21,17 @@ public class ConsignmentService implements IConsignmentService{
     private IProductRepository iProductRepository;
 
     @Override
-    public Page<Consignment> findAll(Pageable pageable, String productName, String dateCheckOut, String startDate, String endDate) {
-        return iConsignmentRepository.findAll(pageable, "%" + productName + "%", "%" + dateCheckOut + "%", startDate, endDate);
+    public Page<Consignment> findAllConsignment(Pageable pageable, String productName, String dateCheckOut, String startDate, String endDate) {
+        return iConsignmentRepository.findAllConsignment(pageable, "%" + productName + "%", "%" + dateCheckOut + "%", startDate, endDate);
     }
     @Override
     public List<Product> findAllProduct() {
         return iProductRepository.findAll();
+    }
+
+    @Override
+    public Page<Consignment> findAllConsignment(Pageable pageable) {
+        return this.iConsignmentRepository.findAll(pageable);
     }
 
     @Override

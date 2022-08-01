@@ -1,7 +1,6 @@
 package com.link.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Consignment {
@@ -10,12 +9,15 @@ public class Consignment {
     private Integer id;
     private String codeProduct;
     private Integer quantity;
+
     @Column(columnDefinition = "date")
-    private Date dateIn;
+    private String dateIn;
+
     @Column(columnDefinition = "date")
-    private Date dateCheckIn;
+    private String dateCheckIn;
+
     @Column(columnDefinition = "date")
-    private Date dateCheckOut;
+    private String dateCheckOut;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
@@ -24,7 +26,7 @@ public class Consignment {
     public Consignment() {
     }
 
-    public Consignment(Integer id, String codeProduct, Integer quantity, Date dateIn, Date dateCheckIn, Date dateCheckOut, Product product) {
+    public Consignment(Integer id, String codeProduct, Integer quantity, String dateIn, String dateCheckIn, String dateCheckOut, Product product) {
         this.id = id;
         this.codeProduct = codeProduct;
         this.quantity = quantity;
@@ -58,27 +60,27 @@ public class Consignment {
         this.quantity = quantity;
     }
 
-    public Date getDateIn() {
+    public String getDateIn() {
         return dateIn;
     }
 
-    public void setDateIn(Date dateIn) {
+    public void setDateIn(String dateIn) {
         this.dateIn = dateIn;
     }
 
-    public Date getDateCheckIn() {
+    public String getDateCheckIn() {
         return dateCheckIn;
     }
 
-    public void setDateCheckIn(Date dateCheckIn) {
+    public void setDateCheckIn(String dateCheckIn) {
         this.dateCheckIn = dateCheckIn;
     }
 
-    public Date getDateCheckOut() {
+    public String getDateCheckOut() {
         return dateCheckOut;
     }
 
-    public void setDateCheckOut(Date dateCheckOut) {
+    public void setDateCheckOut(String dateCheckOut) {
         this.dateCheckOut = dateCheckOut;
     }
 

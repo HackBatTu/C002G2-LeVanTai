@@ -8,11 +8,12 @@
             <div class="col-6">
               <label for="codeProduct" class="form-label">Code Product</label>
               <input type="text" class="form-control" id="codeProduct" formControlName="codeProduct">
+              <div *ngIf="!codeProduct.valid && (codeProduct.dirty || codeProduct.touched)">
+                <div class="text-danger" [hidden]="!codeProduct.errors.required">Code product id not required</div>
+                <div class="text-danger" [hidden]="!codeProduct.errors.pattern">error : LH-XXXX(0-9)</div>
+              </div>
             </div>
-            <div *ngIf="!codeProduct.valid && (codeProduct.dirty || codeProduct.touched)">
-              <div class="text-danger" [hidden]="!codeProduct.errors.required">Code product id not required</div>
-              <div class="text-danger" [hidden]="!codeProduct.errors.pattern">error : LH-XXXX(0-9)</div>
-            </div>
+
 
             <div class="col-md-6">
               <label for="product" class="form-label">Product List</label>
@@ -25,47 +26,50 @@
             <div class="col-6">
               <label for="quantity" class="form-label">Quantity</label>
               <input type="text" class="form-control" id="quantity" formControlName="quantity">
+              <div *ngIf="!quantity.valid && (quantity.dirty || quantity.touched)">
+                <div class="text-danger" [hidden]="!quantity.errors.required">Quantity id not required</div>
+                <div class="text-danger" [hidden]="!quantity.errors.pattern">error : số nguyên dương</div>
+              </div>
             </div>
-            <div *ngIf="!quantity.valid && (quantity.dirty || quantity.touched)">
-              <div class="text-danger" [hidden]="!quantity.errors.required">Quantity id not required</div>
-              <div class="text-danger" [hidden]="!quantity.errors.pattern">error : số nguyên dương</div>
-            </div>
+
 
             <div class="col-6">
               <label for="dateIn" class="form-label">Date In</label>
               <input type="date" class="form-control" id="dateIn" formControlName="dateIn">
+              <div *ngIf="!dateIn.valid && (dateIn.dirty || dateIn.touched)">
+                <div class="text-danger" [hidden]="!dateIn.errors.required">Date In id not required</div>
+              </div>
             </div>
-            <div *ngIf="!dateIn.valid && (dateIn.dirty || dateIn.touched)">
-              <div class="text-danger" [hidden]="!dateIn.errors.required">Date In id not required</div>
-            </div>
+
 
             <div class="col-6">
               <label for="dateCheckIn" class="form-label">Date Check In</label>
               <input type="date" class="form-control" id="dateCheckIn" formControlName="dateCheckIn">
+              <div *ngIf="!dateCheckIn.valid && (dateCheckIn.dirty || dateCheckIn.touched)">
+                <div class="text-danger" [hidden]="!dateCheckIn.errors.required">Date Check In id not required</div>
+              </div>
             </div>
-            <div *ngIf="!dateCheckIn.valid && (dateCheckIn.dirty || dateCheckIn.touched)">
-              <div class="text-danger" [hidden]="!dateCheckIn.errors.required">Date Check In id not required</div>
-            </div>
+
             <div class="col-6">
               <label for="dateCheckOut" class="form-label">Date Check Out</label>
               <input type="date" class="form-control" id="dateCheckOut" formControlName="dateCheckOut">
+              <div *ngIf="!dateCheckOut.valid && (dateCheckOut.dirty || dateCheckOut.touched)">
+                <div class="text-danger" [hidden]="!dateCheckOut.errors.required">Date Check Out id not required</div>
+              </div>
             </div>
-            <div *ngIf="!dateCheckOut.valid && (dateCheckOut.dirty || dateCheckOut.touched)">
-              <div class="text-danger" [hidden]="!dateCheckOut.errors.required">Date Check Out id not required</div>
-            </div>
+
             <hr>
             <div class="col-12 row">
               <div class="col-8">
               </div>
               <div class="col-2">
                 <button class="btn btn-outline-primary w-100" [disabled]="!consignmentForm.valid" value="Submit"
-                        (click)="showToastr()">Sign in
+                        (click)="showToastr()">Save
                 </button>
               </div>
               <div class="col-2">
                 <a [routerLink]="['/list']" class="btn btn-outline-secondary">Back home</a>
               </div>
-
             </div>
           </div>
         </form>

@@ -16,6 +16,7 @@ export class ConsignmentEditComponent implements OnInit {
   product: Product[] = [];
   // @ts-ignore
   consignment: Consignment = {};
+
   constructor(private consignmentService: ConsignmentService,
               private router: Router,
               private activatedRouter: ActivatedRoute,
@@ -25,22 +26,24 @@ export class ConsignmentEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
+      // tslint:disable-next-line:radix
       this.consignmentService.findById(parseInt(id)).subscribe(data => {
         console.log(data);
+        this.consignment = data;
         this.consignmentService.getAllProduct().subscribe(value => {
           this.product = value;
         }, error => {
         }, () => {
-          this.consignment = data,
-            this.consignmentForm = new FormGroup({
-              id: new FormControl(this.consignment.id, [Validators.required]),
-              codeProduct: new FormControl(this.consignment.codeProduct, [Validators.required, Validators.pattern('^(LH-)([0-9]{4})$')]),
-              product: new FormControl(this.consignment.product),
-              quantity: new FormControl(this.consignment.quantity, [Validators.required, Validators.pattern('^[0-9]{1,}')]),
-              dateIn: new FormControl(this.consignment.dateIn, [Validators.required]),
-              dateCheckIn: new FormControl(this.consignment.dateCheckIn, [Validators.required]),
-              dateCheckOut: new FormControl(this.consignment.dateCheckOut, [Validators.required]),
-            });
+          console.log(this.consignment);
+          this.consignmentForm = new FormGroup({
+            id: new FormControl(this.consignment.id, [Validators.required]),
+            codeProduct: new FormControl(this.consignment.codeProduct, [Validators.required, Validators.pattern('^(LH-)([0-9]{4})$')]),
+            product: new FormControl(this.consignment.product),
+            quantity: new FormControl(this.consignment.quantity, [Validators.required, Validators.pattern('^[0-9]{1,}')]),
+            dateIn: new FormControl(this.consignment.dateIn, [Validators.required]),
+            dateCheckIn: new FormControl(this.consignment.dateCheckIn, [Validators.required]),
+            dateCheckOut: new FormControl(this.consignment.dateCheckOut, [Validators.required]),
+          });
         });
       });
     });
@@ -67,8 +70,11 @@ export class ConsignmentEditComponent implements OnInit {
   }
 
   updateConsignment() {
-    const edit = this.consignmentForm.value;
-    this.consignmentService.updateConsignment(edit).subscribe(data => {
+    const consignment = this.consignmentForm.value;
+    this.consignmentService.updateConsignment(consignment).subscribe(data => {
+      // @ts-ignore
+      this.consignment = data;
+      this.showToastr();
     }, error => {
     }, () => {
       this.router.navigateByUrl('/list');
@@ -80,7 +86,6 @@ export class ConsignmentEditComponent implements OnInit {
   }
 
   showToastr() {
-    this.toastr.success('Create success', 'tittle', {timeOut: 800, progressBar: false});
-
+    this.toastr.success('Update success', 'tittle', {timeOut: 800, progressBar: false});
   }
 }
