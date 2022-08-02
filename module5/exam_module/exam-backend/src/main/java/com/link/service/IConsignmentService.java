@@ -1,5 +1,6 @@
 package com.link.service;
 
+import com.link.dto.ConsignmentDTO;
 import com.link.model.Consignment;
 import com.link.model.Product;
 import org.springframework.data.domain.Page;

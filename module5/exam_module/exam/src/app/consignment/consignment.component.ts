@@ -47,7 +47,7 @@ export class ConsignmentComponent implements OnInit {
           // @ts-ignore
           this.number = data.number;
         }
-    });
+      });
   }
 
   getSearch() {
@@ -70,23 +70,23 @@ export class ConsignmentComponent implements OnInit {
     });
   }
 
-  // goPrevious() {
-  //   let numberPage: number = this.number;
-  //   if (numberPage > 0) {
-  //     numberPage--;
-  //     this.getAll(numberPage);
-  //   }
-  // }
-  //
-  // goNext() {
-  //   let numberPage: number = this.number;
-  //   if (numberPage < this.totalPages - 1) {
-  //     numberPage++;
-  //     this.getAll(numberPage);
-  //   }
-  // }
-  //
-  // goItem(i: number) {
-  //   this.getAll(i);
-  // }
+  goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getAll(numberPage, '', '', '0001-01-01', '3000-01-01');
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getAll(numberPage, '', '', '0001-01-01', '3000-01-01');
+    }
+  }
+
+  goItem(i: number) {
+    this.getAll(i, '', '', '0001-01-01', '3000-01-01');
+  }
 }

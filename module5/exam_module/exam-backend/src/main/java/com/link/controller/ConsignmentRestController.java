@@ -1,8 +1,10 @@
 package com.link.controller;
 
+import com.link.dto.ConsignmentDTO;
 import com.link.model.Consignment;
 import com.link.model.Product;
 import com.link.service.IConsignmentService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,14 +28,15 @@ public class ConsignmentRestController {
 
     @GetMapping("/consignment")
     public ResponseEntity<Page<Consignment>> getAllConsignment(@PageableDefault(5)Pageable pageable,
-                                                               @RequestParam Optional<String> searchName,
-                                                               @RequestParam Optional<String> searchDateCheckOut,
-                                                               @RequestParam Optional<String> searchStartDate,
-                                                               @RequestParam Optional<String> searchEndDate){
+                                                               Optional<String> searchName,
+                                                               Optional<String> searchDateCheckOut,
+                                                               Optional<String> searchStartDate,
+                                                               Optional<String> searchEndDate){
         String productName = searchName.orElse("");
         String dateCheckOut = searchDateCheckOut.orElse("");
         String startDate = searchStartDate.orElse("1000-01-01");
-        String endDate = searchEndDate.orElse("1000-01-01");
+        String endDate = searchEndDate.orElse("3000-01-01");
+
         Page<Consignment> consignmentPage = iConsignmentService.findAllConsignment(pageable,productName,dateCheckOut,startDate,endDate);
         if(consignmentPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -49,7 +53,9 @@ public class ConsignmentRestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Consignment> createConsignment(@RequestBody Consignment consignment) {
+    public ResponseEntity<Consignment> createConsignment(@Valid @RequestBody ConsignmentDTO consignmentDTO) {
+        Consignment consignment = new Consignment();
+        BeanUtils.copyProperties(consignmentDTO,consignment);
         return new ResponseEntity<>(iConsignmentService.save(consignment),HttpStatus.CREATED);
     }
 
@@ -63,8 +69,10 @@ public class ConsignmentRestController {
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<Consignment> updateConsignment(@RequestBody Consignment consignment,@PathVariable Integer id) {
+    public ResponseEntity<Consignment> updateConsignment(@Valid @RequestBody ConsignmentDTO consignmentDTO,@PathVariable Integer id) {
         Optional<Consignment> consignmentOptional = Optional.ofNullable(iConsignmentService.findById(id));
+        Consignment consignment = new Consignment();
+        BeanUtils.copyProperties(consignmentDTO,consignment);
         consignment.setId(consignmentOptional.get().getId());
         return new ResponseEntity<>(iConsignmentService.save(consignment),HttpStatus.OK);
     }

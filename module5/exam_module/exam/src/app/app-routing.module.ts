@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {ConsignmentComponent} from './consignment/consignment.component';
 import {ConsignmentCreateComponent} from './consignment-create/consignment-create.component';
 import {ConsignmentEditComponent} from './consignment-edit/consignment-edit.component';
-// import {FireBaseComponent} from './fire-base/fire-base.component';
 
 
 const routes: Routes = [
@@ -23,11 +22,7 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: ConsignmentEditComponent
-  },
-  // {
-  //   path: 'upload-file',
-  //   component: FireBaseComponent
-  // },
+  }
 ];
 
 @NgModule({

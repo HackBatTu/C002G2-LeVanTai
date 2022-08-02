@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="text-center" style="height: 150px !important;">
+    <h1 class="text-primary">List Product</h1>
+    <button class="btn btn-outline-primary" [routerLink]="'/product-create'">Create Product</button>
+  </div>
+  <div class="row col-12" >
+    <form [formGroup]="searchForm" (ngSubmit)="searchProduct()">
+      <div class="col-8"></div>
+      <div class="col-3">
+        <label for="name">Product Name</label>
+        <input id="name" class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
+               name="nameSearch" formControlName="nameSearch"></div>
+      <div class="col-1">
+        <label for="search">Search</label>
+        <button id="search" class="btn btn-outline-primary" type="submit">Search</button>
+      </div>
+    </form>
+
+  </div>
+  <div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products, index as i">
+        <td>{{i + 1}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.category.name}}</td>
+        <td>
+          <a class="btn btn-outline-warning" [routerLink]="['/product-edit', product.id]"> Edit</a>
+        </td>
+        <td style="text-align: center">
+          <button class="btn btn-outline-danger" data-bs-toggle="modal"
+                  [attr.data-bs-target]="'#deleteModal' + product.id">Delete
+          </button>
+          <!-- delete Modal -->
+          <div class="modal fade" id="deleteModal{{product.id}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title text-danger"> SOS SOS !!!</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                  Are You Sure Delete Code Consignment product {{product.name}}
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                          (click)="deleteProduct(product.id)">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end delete Modal -->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="container-fluid mt-3">
+      <ul class="pagination float-end">
+        <div *ngIf="number == 0">
+          <li class="page-item disabled">
+            <button class="page-link" (click)="goPrevious()" hidden>Previous</button>
+          </li>
+        </div>
+        <div *ngIf="number != 0">
+          <li class="page-item">
+            <button class="page-link" (click)="goPrevious()">Previous</button>
+          </li>
+        </div>
+        <div *ngFor="let count of countTotalPages; index as i">
+          <div *ngIf="i == number">
+            <li class="page-item active">
+              <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+            </li>
+          </div>
+          <div *ngIf="i != number">
+            <li class="page-item">
+              <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+            </li>
+          </div>
+        </div>
+        <div *ngIf="number == totalPages - 1">
+          <li class="page-item disabled">
+            <button class="page-link" (click)="goNext()">Next</button>
+          </li>
+        </div>
+        <div *ngIf="number != totalPages - 1">
+          <li class="page-item">
+            <button class="page-link" (click)="goNext()">Next</button>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+
+</div>

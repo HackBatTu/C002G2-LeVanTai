@@ -13,8 +13,6 @@ import { HeaderComponent } from './management/header/header.component';
 import { ConsignmentComponent } from './consignment/consignment.component';
 import { ConsignmentCreateComponent } from './consignment-create/consignment-create.component';
 import { ConsignmentEditComponent } from './consignment-edit/consignment-edit.component';
-import { FireBaseComponent } from './fire-base/fire-base.component';
-
 
 @NgModule({
   declarations: [
@@ -24,7 +22,6 @@ import { FireBaseComponent } from './fire-base/fire-base.component';
     ConsignmentComponent,
     ConsignmentCreateComponent,
     ConsignmentEditComponent,
-    FireBaseComponent
   ],
   imports: [
     BrowserModule,

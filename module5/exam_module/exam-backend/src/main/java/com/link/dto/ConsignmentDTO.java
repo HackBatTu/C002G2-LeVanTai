@@ -3,36 +3,25 @@ package com.link.dto;
 import com.link.model.Product;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
-import java.util.Date;
+import javax.validation.constraints.PositiveOrZero;
 
 public class ConsignmentDTO {
     private Integer id;
     @NotBlank
     @Pattern(regexp = "^(LH-)([0-9]{4})$")
     private String codeProduct;
-    @PastOrPresent
+    @PositiveOrZero
     private Integer quantity;
     @NotBlank
-    private Date dateIn;
+    private String dateIn;
     @NotBlank
-    private Date dateCheckIn;
+    private String dateCheckIn;
     @NotBlank
-    private Date dateCheckOut;
+    private String dateCheckOut;
     private Product product;
 
     public ConsignmentDTO() {
-    }
-
-    public ConsignmentDTO(Integer id, String codeProduct, Integer quantity, Date dateIn, Date dateCheckIn, Date dateCheckOut, Product product) {
-        this.id = id;
-        this.codeProduct = codeProduct;
-        this.quantity = quantity;
-        this.dateIn = dateIn;
-        this.dateCheckIn = dateCheckIn;
-        this.dateCheckOut = dateCheckOut;
-        this.product = product;
     }
 
     public Integer getId() {
@@ -59,27 +48,27 @@ public class ConsignmentDTO {
         this.quantity = quantity;
     }
 
-    public Date getDateIn() {
+    public String getDateIn() {
         return dateIn;
     }
 
-    public void setDateIn(Date dateIn) {
+    public void setDateIn(String dateIn) {
         this.dateIn = dateIn;
     }
 
-    public Date getDateCheckIn() {
+    public String getDateCheckIn() {
         return dateCheckIn;
     }
 
-    public void setDateCheckIn(Date dateCheckIn) {
+    public void setDateCheckIn(String dateCheckIn) {
         this.dateCheckIn = dateCheckIn;
     }
 
-    public Date getDateCheckOut() {
+    public String getDateCheckOut() {
         return dateCheckOut;
     }
 
-    public void setDateCheckOut(Date dateCheckOut) {
+    public void setDateCheckOut(String dateCheckOut) {
         this.dateCheckOut = dateCheckOut;
     }
 
@@ -88,6 +77,16 @@ public class ConsignmentDTO {
     }
 
     public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public ConsignmentDTO(Integer id, String codeProduct, Integer quantity, String dateIn, String dateCheckIn, String dateCheckOut, Product product) {
+        this.id = id;
+        this.codeProduct = codeProduct;
+        this.quantity = quantity;
+        this.dateIn = dateIn;
+        this.dateCheckIn = dateCheckIn;
+        this.dateCheckOut = dateCheckOut;
         this.product = product;
     }
 }

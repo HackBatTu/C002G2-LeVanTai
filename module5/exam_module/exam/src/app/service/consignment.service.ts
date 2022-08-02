@@ -37,7 +37,7 @@ export class ConsignmentService {
     }
 
     if (searchEndDate == null) {
-      endDate = '8000-01-01';
+      endDate = '3000-01-01';
     } else {
       endDate = searchEndDate;
     }
