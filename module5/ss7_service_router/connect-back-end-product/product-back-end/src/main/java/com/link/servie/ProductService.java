@@ -3,7 +3,6 @@ package com.link.servie;
 import com.link.model.Product;
 import com.link.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

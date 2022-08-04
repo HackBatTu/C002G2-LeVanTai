@@ -1,47 +1,52 @@
 <h1 class="text-center">Create Product</h1>
 <div class="container">
-  <form [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="CreateProduct()">
-    <div class="row form-group mt-5">
-      <div class="col-2" style="font-weight: bold; font-size: 17px">
+  <form class="row col-md-12" [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="CreateProduct()">
+    <div class="col-12 form-group mt-5">
+      <div class="col-2">
         <label for="img" class="mr-3"> Img Product <span style="color: red"> *</span></label>
       </div>
       <div class="col-8">
         <input id="img" type="file" class="form-control-file" (change)="showPreview($event)">
       </div>
     </div>
-    <div>
+
+    <div class="col-6">
       <label>Name</label>
       <input type="text" class="form-control" formControlName="name" name="name">
-    </div>
-    <div *ngIf="!name.valid && (name.dirty || name.touched)">
-      <div class="text-danger" [hidden]="!name.errors.required">Name not required</div>
-      <div class="text-danger" [hidden]="!name.errors.minlength">name minlength = 6</div>
+      <div *ngIf="!name.valid && (name.dirty || name.touched)">
+        <div class="text-danger" [hidden]="!name.errors.required">Name not required</div>
+        <div class="text-danger" [hidden]="!name.errors.minlength">name minlength = 6</div>
+      </div>
     </div>
 
-    <div>
+
+    <div class="col-6">
       <label>Price</label>
       <input type="text" class="form-control" formControlName="price" name="price">
-    </div>
-    <div *ngIf="!price.valid && (price.dirty || price.touched)">
-      <div class="text-danger" [hidden]="!price.errors.required">id not required</div>
+      <div *ngIf="!price.valid && (price.dirty || price.touched)">
+        <div class="text-danger" [hidden]="!price.errors.required">id not required</div>
+      </div>
     </div>
 
-    <div>
+
+    <div class="col-6">
       <label>Description</label>
       <input type="text" class="form-control" formControlName="description" name="description">
-    </div>
-    <div *ngIf="!description.valid && (description.dirty || description.touched)">
-      <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
+      <div *ngIf="!description.valid && (description.dirty || description.touched)">
+        <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
+      </div>
     </div>
 
-    <div>
+
+    <div class="col-6">
       <label>Category</label>
       <select formControlName="category" name="category" id="" style="width: 100%">
         <option value="">choice Category</option>
         <option *ngFor="let item of categories" [ngValue]="item">{{item.name}}</option>
       </select>
     </div>
-    <button [disabled]="!productForm.valid">SAVE</button>
+    <hr>
+    <button>SAVE</button>
   </form>
 </div>
 

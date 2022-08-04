@@ -27,7 +27,7 @@ public class ProductRestController {
     private ICategoryService iCategoryService;
 
     @GetMapping("/product")
-    public ResponseEntity<Page<Product>> getAllProduct(@PageableDefault(5) Pageable pageable,
+    public ResponseEntity<Page<Product>> getAllProduct(@PageableDefault(3) Pageable pageable,
                                                        Optional<String> search) {
         String searchName = search.orElse("");
         Page<Product> productPage = iProductService.findAllProduct(pageable, searchName);

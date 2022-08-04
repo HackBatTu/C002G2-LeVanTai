@@ -5,9 +5,6 @@
       <label>ID</label>
       <input type="text" class="form-control" formControlName="id" name="id" readonly>
     </div>
-    <div *ngIf="!id.valid && (id.dirty || id.touched)">
-      <div class="text-danger" [hidden]="!id.errors.required">id not required</div>
-    </div>
 
     <div>
       <label>Name</label>
@@ -33,12 +30,18 @@
     <div *ngIf="!description.valid && (description.dirty || description.touched)">
       <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
     </div>
+
     <div>
       <label>Category</label>
       <select formControlName="category" name="category" class="form-control"
               [compareWith]="compareCategory" [(ngModel)]="product.category">
         <option *ngFor="let item of categories" [ngValue]="item">{{item.name}}</option>
       </select>
+    </div>
+
+    <div>
+      <label>img</label>
+      <input type="img" class="form-control" formControlName="img" name="img">
     </div>
     <button [disabled]="!productForm.valid">SAVE</button>
   </form>

@@ -73,8 +73,7 @@ export class ProductListComponent implements OnInit {
     }, error => {
     }, () => {
       this.ngOnInit();
-      this.router.navigateByUrl('/product-list').then(() => {
-      });
+      this.router.navigateByUrl('/product-list').then();
     })
   }
 

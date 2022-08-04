@@ -3,20 +3,19 @@
     <h1 class="text-primary">List Product</h1>
     <button class="btn btn-outline-primary" [routerLink]="'/product-create'">Create Product</button>
   </div>
-  <div class="row col-12" >
-    <form [formGroup]="searchForm" (ngSubmit)="searchProduct()">
-      <div class="col-8"></div>
-      <div class="col-3">
-        <label for="name">Product Name</label>
-        <input id="name" class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
-               name="nameSearch" formControlName="nameSearch"></div>
-      <div class="col-1">
-        <label for="search">Search</label>
-        <button id="search" class="btn btn-outline-primary" type="submit">Search</button>
-      </div>
-    </form>
 
-  </div>
+  <form class="row col-12" [formGroup]="searchForm" (ngSubmit)="searchProduct()">
+    <div class="col-8">.</div>
+    <div class="col-3 ">
+      <input id="name" class="form-control me-2" type="text" placeholder="Search Product Name" aria-label="Search"
+             name="nameSearch" formControlName="nameSearch">
+    </div>
+    <div class="col-1">
+      <button id="search" class="btn btn-outline-primary" type="submit">Search</button>
+    </div>
+  </form>
+
+
   <div>
     <table class="table table-hover">
       <thead>
@@ -26,6 +25,7 @@
         <th>Price</th>
         <th>Description</th>
         <th>Category</th>
+        <th colspan="2" class="text-center">Action</th>
       </tr>
       </thead>
       <tbody>
@@ -35,7 +35,7 @@
         <td>{{product.price}}</td>
         <td>{{product.description}}</td>
         <td>{{product.category.name}}</td>
-        <td>
+        <td class="text-center" >
           <a class="btn btn-outline-warning" [routerLink]="['/product-edit', product.id]"> Edit</a>
         </td>
         <td style="text-align: center">
