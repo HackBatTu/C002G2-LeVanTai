@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employee-Update</title>
+    <title>Chỉnh sửa thông tin nhân viên</title>
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/style.css">
     <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
@@ -16,11 +16,11 @@
                 <form>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label class="form-label">Tên Tài Khoản<span class="complain">(*)</span></label>
+                            <label class="form-label">Tên tài khoản<span class="complain">(*)</span></label>
                             <input type="text" class="form-control" value="Admin" readonly>
                         </div>
                         <div class="col-sm-6">
-                            <label class="form-label">Tên Nhân viên<span class="complain">(*)</span></label>
+                            <label class="form-label">Tên nhân viên<span class="complain">(*)</span></label>
                             <input type="text" class="form-control" value="Fate">
                         </div>
                         <div class="col-md-6">
@@ -28,7 +28,7 @@
                             <input type="file" class="form-control" value="rip.png">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Ngày Sinh<span class="complain">(*)</span> </label>
+                            <label class="form-label">Ngày sinh </label>
                             <input type="text" class="form-control" value="14/09/2000">
                         </div>
                         <div class="col-sm-6">
@@ -36,7 +36,7 @@
                             <input type="text" class="form-control" value="Việt Nam">
                         </div>
                         <div class="col-sm-6">
-                            <label class="form-label">Giới tính<span class="complain">(*)</span></label>
+                            <label class="form-label">Giới tính</label>
                             <select class="form-select">
                                 <option value="Male">Nam</option>
                                 <option value="Female">Nữ</option>
@@ -52,46 +52,51 @@
                             <input type="text" class="form-control" value="100.000.000">
                         </div>
                         <div class="col-sm-6">
-                            <label class="form-label">Vị Trí<span class="complain">(*)</span></label>
+                            <label class="form-label">Vị trí<span class="complain">(*)</span></label>
                             <select class="form-select">
                                 <option value="Quản lí">Quản lí</option>
                                 <option value="Nhân Viên">Nhân Viên</option>
                             </select>
                         </div>
                         <hr class="my-4">
-                        <button type="submit" class="w-30 btn btn-success col-sm-5">Nhập hàng</button>
-                        <p class="col-sm-1"></p>
-                        <button type="button" class="w-30 btn btn-secondary col-sm-5">Quay lại</a></button>
+                        <div class="row col-12">
+                            <div class="col-6 text-center">
+                                <button type="submit" class=" w-75 btn btn-success">Lưu</button>
+                            </div>
+                            <div class="col-6 text-center">
+                                <button type="button" class=" w-75 btn btn-secondary">Quay lại</a></button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
 
             <div class=" col-lg-4 order-md-last form">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-success">Thị Trường Coffee</span>
+                    <span class="text-success">Coffee Market</span>
                     <span class="badge bg-success rounded-pill">$</span>
                 </h4>
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Việt Nam</h6>
+                            <h6 class="my-0">Vietnamese</h6>
                             <small class="text-muted">Smart Coffee</small>
                         </div>
-                        <span class="text-muted">$12</span>
+                        <span class="text-muted">$1200</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
                             <h6 class="my-0">US-UK</h6>
                             <small class="text-muted">Smart Coffee</small>
                         </div>
-                        <span class="text-muted">$16</span>
+                        <span class="text-muted">$1600</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
                             <h6 class="my-0">America</h6>
                             <small class="text-muted">Smart Coffee</small>
                         </div>
-                        <span class="text-muted">$16</span>
+                        <span class="text-muted">$1600</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
@@ -109,13 +114,13 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (USD)</span>
-                        <strong>$20</strong>
+                        <strong>$2000</strong>
                     </li>
                 </ul>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <button type="submit" class="btn btn-outline-secondary">Redeem</button>
+                    <input type="text" class="form-control" placeholder="Search market">
+                    <button type="submit" class="btn btn-outline-success">Search</button>
                 </div>
             </div>
         </div>

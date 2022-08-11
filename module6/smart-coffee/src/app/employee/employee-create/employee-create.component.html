@@ -1,81 +1,77 @@
-<div class="bg-light" style="padding: 120px 0px">
-  <div class="container form">
-    <div class="row col-lg-12">
-      <div class="col-lg-9">
-        <h1 class="mb-3 text-primary text-center">Create Employee</h1>
-        <form class="row g-3" [formGroup]="employeeForm" *ngIf="employeeForm" (ngSubmit)="createEmployee()">
+<div id="fate">
+  <div class="container bg-light">
+    <div class="row col-lg-12 management">
+      <div class=" col-lg-8 ">
+        <h1 class="mb-5 text-success text-center title">Tạo Mới Nhân Viên</h1>
+        <form  [formGroup]="employeeForm" *ngIf="employeeForm" (ngSubmit)="createEmployee()">
           <div class="row g-3">
 
-            <div class="col-6">
-              <div class="col-2" style="font-weight: bold; font-size: 17px">
-                <label for="img" class="mr-3"> Img Product <span style="color: red"> *</span></label>
-              </div>
-              <div class="col-4">
-                <input id="img" type="file" class="form-control-file" (change)="showPreview($event)">
-                <div *ngIf="!img.valid && (img.dirty || img.touched)">
-                  <div class="text-danger" [hidden]="!img.errors.required">img not required</div>
-                </div>
+            <div class="col-md-6">
+              <label for="username" class="form-label">Tên tài khoản<span style="color: red"> *</span></label>
+              <select id="username" class="form-select" formControlName="position">
+                <option value="">choice tài khoản</option>
+                <option *ngFor="let c of users" [ngValue]="c">{{c.username}}</option>
+              </select>
+              <div *ngIf="!user.valid && (user.dirty || user.touched)">
+                <div class="text-danger" [hidden]="!user.errors.gte1">tên tài khoản không được là admin hoặc root</div>
+                <div class="text-danger" [hidden]="!user.errors.minlength">tên tài khoản trên 6 kí tự</div>
               </div>
             </div>
 
             <div class="col-6">
-              <label for="name" class="form-label">Name<span style="color: red"> *</span></label>
+              <label for="name" class="form-label">Tên nhân viên<span style="color: red"> *</span></label>
               <input type="text" class="form-control" id="name" formControlName="name">
               <div *ngIf="!name.valid && (name.dirty || name.touched)">
                 <div class="text-danger" [hidden]="!name.errors.required">Quantity id not required</div>
               </div>
             </div>
 
-            <div class="col-6">
-              <label for="address" class="form-label">Address<span style="color: red"> *</span></label>
+            <div class="col-md-6">
+              <label class="form-label">Hình ảnh<span class="complain">(*)</span> </label>
+              <input id="image" type="file" class="form-control" (change)="showPreview($event)">
+              <div *ngIf="!image.valid && (image.dirty || image.touched)">
+                <div class="text-danger" [hidden]="!image.errors.required">img not required</div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="birthDay" class="form-label">Ngày sinh</label>
+              <input type="date" class="form-control" id="birthday" formControlName="birthDay">
+            </div>
+
+            <div class="col-md-6">
+              <label for="address" class="form-label">địa chỉ<span style="color: red"> *</span></label>
               <input type="text" class="form-control" id="address" formControlName="address">
               <div *ngIf="!address.valid && (address.dirty || address.touched)">
                 <div class="text-danger" [hidden]="!address.errors.required">Date In id not required</div>
               </div>
             </div>
-            <!--            <div class="col-6">-->
-            <!--              <label for="email" class="form-label">email<span style="color: red"> *</span></label>-->
-            <!--              <input type="text" class="form-control" id="email" formControlName="email">-->
-            <!--              <div *ngIf="!email.valid && (email.dirty || email.touched)">-->
-            <!--                <div class="text-danger" [hidden]="!email.errors.required">Email id not required</div>-->
-            <!--              </div>-->
-            <!--            </div>-->
-            <div class="col-6">
-              <label >Gender<span style="color: red"> *</span> </label>
-              <input type="radio" value="male" id="male" name="gender" formControlName="gender"> Male
-              <input type="radio" value="female" id="female" name="gender" formControlName="gender"> Female
-              <div *ngIf="!gender.valid && (gender.dirty ||gender.touched)">
-                <div [hidden]="!gender.errors.required">gender is required</div>
-              </div>
+
+            <div class="col-md-6">
+              <label> Giới tính </label>
+              <input type="radio" value="male" id="male" name="gender" formControlName="gender"> Nam
+              <input type="radio" value="female" id="female" name="gender" formControlName="gender"> Nữ
+              <input type="radio" value="other" id="other" name="gender" formControlName="gender"> Giới tính khác
             </div>
 
             <div class="col-6">
-              <label for="phone" class="form-label">Phone<span style="color: red"> *</span></label>
+              <label for="phone" class="form-label">Số điện thoại<span style="color: red"> *</span></label>
               <input type="text" class="form-control" id="phone" formControlName="phone">
               <div *ngIf="!phone.valid && (phone.dirty || phone.touched)">
                 <div class="text-danger" [hidden]="!phone.errors.required">Phone id not required</div>
               </div>
             </div>
-
             <div class="col-6">
-              <label for="birthDay" class="form-label">Birth Day<span style="color: red"> *</span></label>
-              <input type="date" class="form-control" id="birthday" formControlName="birthDay">
-              <div *ngIf="!birthDay.valid && (birthDay.dirty || birthDay.touched)">
-                <div class="text-danger" [hidden]="!birthDay.errors.required">Birth Day id not required</div>
-              </div>
-            </div>
-            <div class="col-6">
-              <label for="salary" class="form-label">salary<span style="color: red"> *</span></label>
+              <label for="salary" class="form-label">Lương (VND)<span style="color: red"> *</span></label>
               <input type="text" class="form-control" id="salary" formControlName="salary">
               <div *ngIf="!salary.valid && (salary.dirty || salary.touched)">
                 <div class="text-danger" [hidden]="!salary.errors.required">Salary not required</div>
               </div>
             </div>
-
             <div class="col-md-6">
-              <label for="position" class="form-label">Position List<span style="color: red"> *</span></label>
+              <label for="position" class="form-label">Vị trí<span style="color: red"> *</span></label>
               <select id="position" class="form-select" formControlName="position">
-                <option value="">choice position</option>
+                <option value="">Chọn vị trí</option>
                 <option *ngFor="let c of position" [ngValue]="c">{{c.name}}</option>
               </select>
             </div>
@@ -90,58 +86,64 @@
                 <a [routerLink]="['/employee-list']" class="btn btn-outline-secondary">Back home</a>
               </div>
             </div>
+
           </div>
         </form>
       </div>
 
-      <div class="col-md-5 col-lg-4 order-md-last">
+      <div class=" col-lg-4 order-md-last form">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
+          <span class="text-success">Coffee Market</span>
+          <span class="badge bg-success rounded-pill">$</span>
         </h4>
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-muted">Brief description</small>
+              <h6 class="my-0">Vietnamese</h6>
+              <small class="text-muted">Smart Coffee</small>
             </div>
-            <span class="text-muted">$12</span>
+            <span class="text-muted">$1200</span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-muted">Brief description</small>
+              <h6 class="my-0">US-UK</h6>
+              <small class="text-muted">Smart Coffee</small>
             </div>
-            <span class="text-muted">$8</span>
+            <span class="text-muted">$1600</span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-muted">Brief description</small>
+              <h6 class="my-0">America</h6>
+              <small class="text-muted">Smart Coffee</small>
             </div>
-            <span class="text-muted">$5</span>
+            <span class="text-muted">$1600</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">China</h6>
+              <small class="text-muted">Smart Coffee</small>
+            </div>
+            <span class="text-muted">$1</span>
           </li>
           <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
+              <h6 class="my-0">C0222G2</h6>
+              <small>Smart Coffee</small>
             </div>
             <span class="text-success">−$5</span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
-            <strong>$20</strong>
+            <strong>$2000</strong>
           </li>
         </ul>
 
-        <div class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search market">
+          <button type="submit" class="btn btn-outline-secondary">Search</button>
         </div>
       </div>
-
     </div>
   </div>
+
 </div>

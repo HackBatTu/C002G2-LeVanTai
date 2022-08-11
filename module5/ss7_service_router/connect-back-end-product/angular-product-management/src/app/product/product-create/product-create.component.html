@@ -1,52 +1,121 @@
-<h1 class="text-center">Create Product</h1>
-<div class="container">
-  <form class="row col-md-12" [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="CreateProduct()">
-    <div class="col-12 form-group mt-5">
-      <div class="col-2">
-        <label for="img" class="mr-3"> Img Product <span style="color: red"> *</span></label>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee-Create</title>>
+</head>
+<body>
+<div id="fate">
+  <div class="container bg-light">
+    <div class="row col-lg-12 management">
+      <div class=" col-lg-8 ">
+        <h1 class="mb-5 text-success text-center title">Tạo Mới Nhân Viên</h1>
+        <form class="row col-md-12" [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="CreateProduct()">
+
+          <div class="col-12 form-group mt-5">
+            <label for="img" class="mr-3"> Img Product : </label>
+            <input id="img" type="file" class="form-control" (change)="showPreview($event)" accept="image/*">
+          </div>
+
+          <div class="col-6">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name" name="name">
+            <div *ngIf="!name.valid && (name.dirty || name.touched)">
+              <div class="text-danger" [hidden]="!name.errors.required">Name not required</div>
+              <div class="text-danger" [hidden]="!name.errors.minlength">name minlength = 6</div>
+            </div>
+          </div>
+
+
+          <div class="col-6">
+            <label>Price</label>
+            <input type="text" class="form-control" formControlName="price" name="price">
+            <div *ngIf="!price.valid && (price.dirty || price.touched)">
+              <div class="text-danger" [hidden]="!price.errors.required">id not required</div>
+            </div>
+          </div>
+
+
+          <div class="col-6">
+            <label>Description</label>
+            <input type="text" class="form-control" formControlName="description" name="description">
+            <div *ngIf="!description.valid && (description.dirty || description.touched)">
+              <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
+            </div>
+          </div>
+
+
+          <div class="col-6">
+            <label>Category</label>
+            <select formControlName="category" name="category" id="" style="width: 100%" class="form-control">
+              <option value="">Choice</option>
+              <option *ngFor="let item of categories" [ngValue]="item">{{item.name}}</option>
+            </select>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-success w-50">SAVE</button>
+          </div>
+
+        </form>
       </div>
-      <div class="col-8">
-        <input id="img" type="file" class="form-control-file" (change)="showPreview($event)">
+
+      <div class=" col-lg-4 order-md-last form">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-success">Coffee Market</span>
+          <span class="badge bg-success rounded-pill">$</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Vietnamese</h6>
+              <small class="text-muted">Smart Coffee</small>
+            </div>
+            <span class="text-muted">$1200</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">US-UK</h6>
+              <small class="text-muted">Smart Coffee</small>
+            </div>
+            <span class="text-muted">$1600</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">America</h6>
+              <small class="text-muted">Smart Coffee</small>
+            </div>
+            <span class="text-muted">$1600</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">China</h6>
+              <small class="text-muted">Smart Coffee</small>
+            </div>
+            <span class="text-muted">$1</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">C0222G2</h6>
+              <small>Smart Coffee</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$2000</strong>
+          </li>
+        </ul>
+
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search market">
+          <button type="submit" class="btn btn-outline-secondary">Search</button>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="col-6">
-      <label>Name</label>
-      <input type="text" class="form-control" formControlName="name" name="name">
-      <div *ngIf="!name.valid && (name.dirty || name.touched)">
-        <div class="text-danger" [hidden]="!name.errors.required">Name not required</div>
-        <div class="text-danger" [hidden]="!name.errors.minlength">name minlength = 6</div>
-      </div>
-    </div>
-
-
-    <div class="col-6">
-      <label>Price</label>
-      <input type="text" class="form-control" formControlName="price" name="price">
-      <div *ngIf="!price.valid && (price.dirty || price.touched)">
-        <div class="text-danger" [hidden]="!price.errors.required">id not required</div>
-      </div>
-    </div>
-
-
-    <div class="col-6">
-      <label>Description</label>
-      <input type="text" class="form-control" formControlName="description" name="description">
-      <div *ngIf="!description.valid && (description.dirty || description.touched)">
-        <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
-      </div>
-    </div>
-
-
-    <div class="col-6">
-      <label>Category</label>
-      <select formControlName="category" name="category" id="" style="width: 100%">
-        <option value="">choice Category</option>
-        <option *ngFor="let item of categories" [ngValue]="item">{{item.name}}</option>
-      </select>
-    </div>
-    <hr>
-    <button>SAVE</button>
-  </form>
 </div>
+</body>
+</html>
+
 

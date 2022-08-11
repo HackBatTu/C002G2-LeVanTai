@@ -3,14 +3,14 @@ import {Position} from './position';
 
 export interface Employee {
   id?: number;
-  userName?: User;
+  username?: User;
   name?: string;
   address?: string;
   gender?: number;
   phone?: string;
   birthday?: string;
   salary?: string;
-  img?: string;
+  image?: string;
   position?: Position;
-  status?: number;
+  isDeleted?: number;
 }

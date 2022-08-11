@@ -20,7 +20,7 @@
       <input type="text" class="form-control" formControlName="price" name="price">
     </div>
     <div *ngIf="!price.valid && (price.dirty || price.touched)">
-      <div class="text-danger" [hidden]="!price.errors.required">id not required</div>
+      <div class="text-danger" [hidden]="!price.errors.required">price not required</div>
     </div>
 
     <div>
@@ -28,7 +28,7 @@
       <input type="text" class="form-control" formControlName="description" name="description">
     </div>
     <div *ngIf="!description.valid && (description.dirty || description.touched)">
-      <div class="text-danger" [hidden]="!description.errors.required">id not required</div>
+      <div class="text-danger" [hidden]="!description.errors.required">description not required</div>
     </div>
 
     <div>
@@ -43,6 +43,6 @@
       <label>img</label>
       <input type="img" class="form-control" formControlName="img" name="img">
     </div>
-    <button [disabled]="!productForm.valid">SAVE</button>
+    <button [disabled]="!productForm.valid" class="btn btn-success" style="margin-top: 20px">SAVE</button>
   </form>
 </div>

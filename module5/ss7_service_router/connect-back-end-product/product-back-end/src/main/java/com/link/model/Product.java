@@ -10,7 +10,7 @@ public class Product {
     private String name;
     private Double price;
     private String description;
-            private String img;
+    private String img;
 
     @ManyToOne
     @JoinColumn(name = "category_id" ,referencedColumnName = "id")

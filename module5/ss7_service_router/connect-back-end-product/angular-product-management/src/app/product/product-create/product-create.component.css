@@ -1,0 +1,28 @@
+.management {
+  padding: 50px;
+}
+
+.complain {
+  color: red;
+}
+
+#fate {
+  background-image: url("src/assets/img/bg.jpg");
+  position: relative;
+  height: 870px;
+  padding: 70px;
+}
+.s{
+  background-color: white;
+}
+label {
+  color: black;
+}
+.btn {
+  margin: 20px;
+}
+@media only screen and (max-width: 1000px) {
+  .form {
+    display: none;
+  }
+}

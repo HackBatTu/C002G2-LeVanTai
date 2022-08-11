@@ -15,7 +15,7 @@ import {ToastrService} from 'ngx-toastr';
 export class EmployeeUpdateComponent implements OnInit {
   employeeForm: FormGroup;
   employee: Employee = {};
-  userName: User[] = [];
+  user: User[] = [];
   position: Position[] = [];
 
   constructor(private employeeService: EmployeeService, private router: Router,
@@ -57,14 +57,13 @@ export class EmployeeUpdateComponent implements OnInit {
   getEmployeeFormUpdate() {
     this.employeeForm = new FormGroup({
       id: new FormControl(this.employee.id),
-      img: new FormControl(this.employee.img),
-      userName: new FormControl(this.employee.userName),
+      image: new FormControl(this.employee.image),
+      username: new FormControl(this.employee.username),
       name: new FormControl(this.employee.name, [Validators.required]),
-      email: new FormControl(this.employee.email, [Validators.required]),
       address: new FormControl(this.employee.address, [Validators.required]),
-      gender: new FormControl(this.employee.gender, [Validators.required]),
+      gender: new FormControl(this.employee.gender),
       phone: new FormControl(this.employee.phone, [Validators.required]),
-      birthDay: new FormControl(this.employee.birthday, [Validators.required]),
+      birthDay: new FormControl(this.employee.birthday),
       salary: new FormControl(this.employee.salary, [Validators.required]),
       position: new FormControl(this.employee.position)
     });
@@ -95,10 +94,6 @@ export class EmployeeUpdateComponent implements OnInit {
 
   get name() {
     return this.employeeForm.get('name');
-  }
-
-  get email() {
-    return this.employeeForm.get('email');
   }
 
   get address() {

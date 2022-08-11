@@ -60,6 +60,7 @@ export class ProductCreateComponent implements OnInit {
   CreateProduct() {
     const nameImg = this.getCurrentDateTime() + this.selectedImage.name;
     const fileRel = this.storage.ref(nameImg);
+    console.log(fileRel)
     this.storage.upload(nameImg, this.selectedImage).snapshotChanges().pipe(
       finalize(() => {
         fileRel.getDownloadURL().subscribe((url) => {

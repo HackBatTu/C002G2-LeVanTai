@@ -5,7 +5,7 @@ import {EmployeeUpdateComponent} from './employee/employee-update/employee-updat
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'employee-list'},
+  {path: '', pathMatch: 'full', redirectTo: 'employee-create'},
   {path: 'employee-create', component: EmployeeCreateComponent},
   {path: 'employee-update', component: EmployeeUpdateComponent},
 ];
