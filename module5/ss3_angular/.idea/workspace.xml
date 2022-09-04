@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b35859a6-86cf-4005-ad01-5fd83b32b57e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../module1" beforeDir="false" afterPath="$PROJECT_DIR$/../../module1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/C0222G2-BE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/BackendCoffeeSmartApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/controller/EmployeeRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/dto/EmployeeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/model/AppUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/model/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/model/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/repository/IAppUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/repository/IEmployeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/repository/IPositionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/service/IAppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/service/IEmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/service/IPositionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/service/impl/AppUserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/service/impl/EmployeeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/java/com/example/service/impl/PositionServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/backend-coffee-smart/src/test/java/com/example/BackendCoffeeSmartApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-create/employee-create.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-create/employee-create.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-create/employee-create.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-create/employee-create.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-update/employee-update.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-update/employee-update.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-update/employee-update.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/employee-update/employee-update.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/employee/gte.validator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/model/employee.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/model/position.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/model/user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/service/employee.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/app/service/employee.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/assets/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/assets/img/image3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/assets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/smart-coffee/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-1-project/C0222G2-FE" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2DLBKMJV0UhSgtz7X7fwalGm9kJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b35859a6-86cf-4005-ad01-5fd83b32b57e" name="Default Changelist" comment="" />
+      <created>1660468419996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660468419996</updated>
+      <workItem from="1660468423181" duration="39000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>

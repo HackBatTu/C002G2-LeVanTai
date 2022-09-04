@@ -1,0 +1,7 @@
+#footer {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: brightness(10%);
+  padding-bottom: 50px;
+}

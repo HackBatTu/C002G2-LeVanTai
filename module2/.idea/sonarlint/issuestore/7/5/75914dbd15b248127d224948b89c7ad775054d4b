@@ -1,0 +1,11 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(φΖ›Ρ
+b
+java:S2095"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(π­Ο
+g
+java:S20952"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(µΞ ΐϊÿÿÿÿ
+U
+java:S1118	":Add a private constructor to hide the implicit public one.( σ²κύÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ϊα
+Z
+java:S2147:"DCombine this catch with the one at line 56, which has the same body.(ο­£Δ

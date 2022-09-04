@@ -1,0 +1,25 @@
+
+I
+src/Exam/data/mobilec.csv,a\b\abb86021dcea53d49112deb6f1a24e74a409281d
+[
++src/bai_tap_lam_them/bai_3_exam/student.csv,6\1\61e0a08a87af4b53701e2a561b8ada1af8b72d2e
+_
+/src/test_module2_java/Regex/CheckException.java,6\4\645ca58915f84d6f1ffc5d68ae2c080948ef1572
+O
+src/Exam/utils/FileService.java,7\5\75914dbd15b248127d224948b89c7ad775054d4b
+\
+,src/Exam/utils/NotFoundProductException.java,c\a\ca9fcfbf36af93e9b05e7af0fddc7b72c8b687ed
+P
+ src/Exam/services/IServices.java,8\e\8ef27148f0dbc35d371d8579b050a3c6b6529a94
+]
+-src/Exam/services/IMobieChinhHangService.java,e\a\eaed5653d76741f36741d9b6f88db21d6a46fe38
+U
+%src/Exam/models/DienThoaiXachTay.java,f\a\faffa08e9c63afdacb7433b051cacb4a150d64c3
+I
+src/Exam/data/mobilex.csv,4\0\40370d85b14b79a9eee2dc5f2d8927ad9af1599d
+I
+src/Exam/utils/Regex.java,1\1\11043d60281d9248b5f346caec7995ac824328c0
+Z
+*src/test_module2_java/array_list/Book.java,d\b\db9cb18cdb0c56c3ddb96a96676e8bc4b4c33ed1
+Z
+*src/test_module2_java/array_list/Main.java,3\0\301fb310c4e0bf6711e0f994046f039f953d14f5

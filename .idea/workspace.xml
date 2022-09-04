@@ -2,28 +2,344 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="859c230e-8695-43be-a21d-0f65b9101e9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/module3/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module3/.idea/module3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module3/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module3/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module3/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/controllers/DisplayMobileControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/controllers/DisplayMobileControllers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/data/mobilec.csv" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/data/mobilec.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/data/mobilex.csv" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/data/mobilex.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/models/DienThoaiChinhHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/models/DienThoaiChinhHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/models/DienThoaiXachTay.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/models/DienThoaiXachTay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/models/Mobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/models/Mobile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/services/IMobieChinhHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/services/IMobieChinhHangService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/services/IMobieXachTayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/services/IMobieXachTayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/services/IServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/services/IServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/services/MobileChinhHangImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/services/MobileChinhHangImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/services/MobileXachTayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/services/MobileXachTayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/utils/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/utils/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/utils/NotFoundProductException.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/utils/NotFoundProductException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/utils/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/utils/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Exam/views/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/Exam/views/Views.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/C0222G2-LeVanTai.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/case_study.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/sonarlint/issuestore/2/6/264347dbd1ddd90ce496314511b8149ce53e206e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/sonarlint/issuestore/6/1/611884f37dffeb89ed977b0e035d3b1be9ad6cb7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/sonarlint/issuestore/6/1/6173523ba11636012f853821334dcc196f9622e8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/sonarlint/issuestore/7/6/76f322194886aba9368c77eba55d2148b9d603e1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/sonarlint/issuestore/f/a/fa63280c7aedac956251fbc4425b47113ec9bec8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module4/case_study/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/case_study.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/case_study/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/exam_module/.idea/sonarlint/issuestore/2/a/2ac3a41a0c11430f40ec7265fb802222f6022c4c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/exam_module/.idea/sonarlint/issuestore/4/3/434dd99fd0aa4c2f10be6eb2a8b0bd527bbe58fe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module5/ss3_angular/.idea/ss3_angular.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/.idea/exam_module_6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/controller/RestProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/model/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/model/ProductType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/repository/IProductTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-be/src/main/java/com/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/avatar-1-tuyen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/background-tuyen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/backgroundlist.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/ban-hoann.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/bao4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baobg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baobg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baobg3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baocaffee1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baocaffee2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baocaffee3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baocaffee4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baofooter.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baoiconcf1-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baoiconcf2-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baoiconcf3-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baoiconcf4-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baologo1-removebg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baous1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/img/baous2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module6/exam_module_6/exam-project-fe/src/assets/javascript/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/prototype/prototype.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/prototype/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/local.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/ShopOnlineApiApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/authentication/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/controller/CustomerRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/controller/ProductRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/controller/jwt/JwtAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/controller/simple_email/SimpleEmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/filter/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/account/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/account/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/account/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/jwt/JwtRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/model/jwt/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/repository/IAppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/repository/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/repository/IUserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/IAppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/IUserRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/impl/AppUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/impl/UserRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/service/jwt/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/util/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/java/com/shoponlineapi/util/LoginUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online-api/src/test/java/com/shoponlineapi/ShopOnlineApiApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/authguard/admin.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/authguard/login.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/authguard/staff.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/authguard/user.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/change-password-login/change-password-login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/change-password-login/change-password-login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/change-password-login/change-password-login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error401-page/error401-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error401-page/error401-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error401-page/error401-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error403-page/error403-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error403-page/error403-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error403-page/error403-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error404-page/error404-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error404-page/error404-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/error404-page/error404-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/forgot-password-login/forgot-password-login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/forgot-password-login/forgot-password-login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/forgot-password-login/forgot-password-login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/home-login/home-login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/home-login/home-login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/home-login/home-login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/loading/loading.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/loading/loading.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/loading/loading.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/login-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/login.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/service/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/service/common.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/service/cookie.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/service/forgot.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/service/login.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/app/login/service/logout.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/css/bootstrap.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.esm.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.esm.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.esm.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/bootstrap-5.1.3-dist/popuo-box.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/carousel/carousel-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/carousel/carousel-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/carousel/carousel-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/carousel/offer-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/carousel/offer-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/cat-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/cat-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/hang-sx/vendor-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/payments.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/phuongtd-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/phuongtd-coffee-house-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/phuongtd-coffee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/shop-online/src/assets/img/product/product-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/.idea/sonarlint/issuestore/a/8/a862b92d10f810e224187403c322cb8e01f5e244" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/.idea/sonarlint/issuestore/c/d/cd521d48425db2bd14113d9ade3657cc42bfc0c4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/.idea/sonarlint/issuestore/e/b/eb64d482388ded52a54d5da71d052f1f2bcb5e9c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/CountNumberN.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/CountPrime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/CountStr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/Fibonacci.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/Prime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprint-2/thuan_toan_java/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module1" beforeDir="false" afterPath="$PROJECT_DIR$/module1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module4/ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/module4/ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module4/ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/module4/ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module4/ss5_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/module4/ss5_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module4/ss9_aop/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/module4/ss9_aop/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/exam_module/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module5/exam_module/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/exam_module/exam-backend/src/main/java/com/link/controller/ConsignmentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/module5/exam_module/exam-backend/src/main/java/com/link/controller/ConsignmentRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/ss4_5_angular_component/angular-component/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/module5/ss4_5_angular_component/angular-component/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/app/product/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/app/product/product-list/product-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/app/product/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/app/product/product-list/product-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/module5/ss7_service_router/connect-back-end-product/angular-product-management/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/C0222G2-BE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/BackendCoffeeSmartApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/controller/EmployeeRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/dto/EmployeeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/model/AppUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/model/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/model/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/repository/IAppUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/repository/IEmployeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/repository/IPositionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/service/IAppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/service/IEmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/service/IPositionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/service/impl/AppUserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/service/impl/EmployeeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/java/com/example/service/impl/PositionServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/backend-coffee-smart/src/test/java/com/example/BackendCoffeeSmartApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/black-box/[C0222G2]_BlackBoxTC_TaiLV.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/detail-design/[C0222G2]_DetailDesign_TaiLV.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/module6/detail-design/[C0222G2]_DetailDesign_TaiLV.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-create/employee-create.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-create/employee-create.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-create/employee-create.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-create/employee-create.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-update/employee-update.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-update/employee-update.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-update/employee-update.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/employee-update/employee-update.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/employee/gte.validator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/model/employee.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/model/position.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/model/user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/service/employee.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/app/service/employee.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/assets/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/assets/img/image3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/assets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module6/smart-coffee/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint-1-project/C0222G2-FE" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +358,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/module3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sprint-2/shop-online-api" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -61,6 +377,8 @@
       <workItem from="1653270459936" duration="149000" />
       <workItem from="1653270687743" duration="150000" />
       <workItem from="1653270864518" duration="72000" />
+      <workItem from="1662261420025" duration="32000" />
+      <workItem from="1662280405081" duration="105000" />
     </task>
     <servers />
   </component>

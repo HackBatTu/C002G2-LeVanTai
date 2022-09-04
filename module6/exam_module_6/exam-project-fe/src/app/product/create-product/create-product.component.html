@@ -1,0 +1,180 @@
+<div id="fate" style="padding-top: 150px">
+  <div class="container bg-white">
+    <div class="row col-lg-12 management">
+      <h1 class="mb-5 text-center title">Tạo Mới Sản Phẩm</h1>
+      <form [formGroup]="productForm" (ngSubmit)="createProduct()" *ngIf="productForm">
+        <div class="row g-3">
+
+          <div class="col-12">
+            <div class="form-floating mb-3">
+              <select class="form-select" aria-label="Default select example" name="gender"
+                      formControlName="productType"
+                      style="padding-top: 0.625rem !important;" (change)="selectProductType($event.target)">
+                <option value="" [selected]="true" [disabled]="true">Chọn Loại Sản Phẩm</option>
+                <option *ngFor="let type of productType" [ngValue]="type.id">{{type.name}}</option>
+              </select>
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.productType.hasError('required') && productForm.controls.productType.touched">
+              Vui lòng chọn loại sản phẩm
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-floating mb-3">
+              <input class="form-control" name="name" formControlName="code"
+                     id="code" type="text" placeholder="Enter your code..."/>
+              <label for="code">Mã Sản Phẩm</label>
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.code.hasError('required') && productForm.controls.code.touched">
+              Vui lòng nhập mã sản phẩm
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.code.hasError('CodeExists') && productForm.controls.code.touched">
+              Mã sản phẩm đã tồn tại
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-floating mb-3">
+              <input class="form-control" formControlName="name"
+                     id="name" type="text" placeholder="Enter your code..."/>
+              <label for="name">Tên Sản Phẩm</label>
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.name.hasError('required') && productForm.controls.name.touched">
+              Vui lòng nhập tên sản phẩm
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-floating mb-3">
+              <input class="form-control" formControlName="unitPrice"
+                     id="price" type="text" placeholder="Enter your code..."/>
+              <label for="price">Đơn Giá</label>
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.unitPrice.hasError('required') && productForm.controls.price.touched">
+              Vui lòng nhập giá sản phẩm
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-floating mb-3">
+              <input class="form-control" name="name" formControlName="dateCheckIn"
+                     id="dateIn" type="date" placeholder="Enter your code..."/>
+              <label for="dateIn">Ngày Nhập Hàng</label>
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.dateIn.hasError('required') && productForm.controls.dateIn.touched">
+              Vui lòng chọn ngày nhập hàng
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-floating mb-3">
+              <select class="form-select" aria-label="Default select example" name="gender"
+                      formControlName="statusProduct"
+                      style="padding-top: 0.625rem !important;">
+                <option value="" [selected]="true" [disabled]="true">Chọn Trạng Thái</option>
+                <option [ngValue]="false">Còn Hàng</option>
+                <option [ngValue]="true">Hết Hàng</option>
+              </select>
+            </div>
+            <div class="text-danger"
+                 *ngIf="productForm.controls.status.hasError('required') && productForm.controls.status.touched">
+              Vui lòng chọn trạng thái
+            </div>
+          </div>
+
+          <span id="drink" style="display: none">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" formControlName="origin"
+                           id="origin" type="text" placeholder="Enter your code..."/>
+                    <label for="origin">Xuất xứ</label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <select class="form-select" aria-label="Default select example" name="gender"
+                            formControlName="statusDrink"
+                            style="padding-top: 0.625rem !important;">
+                      <option value="null" [selected]="true" [disabled]="true">Loại đồ uống</option>
+                      <option [ngValue]="false">Có gas</option>
+                      <option [ngValue]="true">Không gas</option>
+                    </select>
+                  </div>
+                </div>
+          </span>
+
+          <span id="food" style="display: none">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" name="name" formControlName="origin"
+                           id="origin1" type="text" placeholder="Enter your origin..."/>
+                    <label for="origin1">Xuất Xứ</label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <select class="form-select" aria-label="Default select example" name="gender"
+                            formControlName="statusFood"
+                            style="padding-top: 0.625rem !important;">
+                      <option value="null" [selected]="true" [disabled]="true">Loại Bánh</option>
+                      <option [ngValue]="false">Ngọt</option>
+                      <option [ngValue]="true">Mặn</option>
+                    </select>
+                  </div>
+                </div>
+          </span>
+
+          <span id="book" style="display: none">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" name="name" formControlName="author"
+                           id="author" type="text" placeholder="Enter your author..."/>
+                    <label for="author">Tác Giả</label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" name="name" formControlName="bookType"
+                           id="category" type="text" placeholder="Enter your category..."/>
+                    <label for="category">Thể Loại</label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input class="form-control" name="name" formControlName="dateIn"
+                           id="publicDate" type="date" placeholder="Enter your publicDate..."/>
+                    <label for="publicDate">Ngày Xuất Bản</label>
+                  </div>
+                </div>
+          </span>
+
+        </div>
+        <hr class="my-4">
+
+        <div class="m-auto text-center col-12 row">
+          <div class="col-6">
+            <button class="w-50 btn btn-outline-secondary btn-lg" type="button" [routerLink]="['/list-product']">Trở
+              lại
+            </button>
+
+          </div>
+          <div class="col-6">
+            <button class="w-50 btn btn-outline-primary btn-lg" type="submit">Lưu</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+

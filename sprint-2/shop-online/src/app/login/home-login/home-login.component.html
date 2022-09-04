@@ -1,0 +1,108 @@
+<div class="container " id="container" style="margin-bottom: 130px; margin-top: 64px">
+  <div class="form-container sign-up-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <h1 class="text-dark">Đăng ký</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your email for registration</span>
+      <input type="text" placeholder="Tên" />
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Mật Khẩu" />
+      <input type="password" placeholder="Nhập lại mật khẩu" />
+      <button>Đăng Ký</button>
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <h1 class="text-dark">Đăng nhập</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>hoặc sử dung tài khoản của bạn</span>
+      <input type="text" formControlName="username" placeholder="Nhập tài khoản" />
+      <input type="password" formControlName="password" placeholder="Mật khẩu" />
+      <div class="checkbox my-3">
+        <input type="checkbox" value="" id="flexCheckDefault"
+               formControlName="stayLogged">
+        <label class="form-check-label px-2" for="flexCheckDefault">
+          Duy trì trạng thái đăng nhập
+        </label>
+      </div>
+
+      <div class="col-12 row text-center m-auto">
+        <div *ngIf="activeLogin">
+            <button>Đăng nhập</button>
+        </div>
+        <div *ngIf="!activeLogin">
+          <div *ngIf="realTimeSecond < 10">
+            <div class="col-12 mb-3 w-100">
+              <button class="btn btn-lg w-100 fs-6 btn-secondary disabled" type="button">0{{realTimeMinute}} : 0{{realTimeSecond}}</button>
+            </div>
+          </div>
+          <div *ngIf="realTimeSecond >= 10">
+            <div class="col-12 mb-3 w-100">
+              <button class="btn btn-lg w-100 fs-6 btn-secondary disabled" type="button">0{{realTimeMinute}}: {{realTimeSecond}}</button>
+            </div>
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+          <a type="button" class="btn btn-lg w-100 fs-6 btn-secondary" data-bs-toggle="modal"
+                  data-bs-target="#staticBackdropForgot">
+            Quên mật khẩu
+          </a>
+      </div>
+    </form>
+    <div class="modal fade" id="staticBackdropForgot" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1" aria-labelledby="staticBackdropLabelForgot" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h3 fw-bold text-brown" id="staticBackdropLabel">Tìm tài khoản
+              của bạn</h5>
+          </div>
+          <form [formGroup]="forgotForm" (ngSubmit)="onForgot()">
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="username"
+                         placeholder="name@example.com" formControlName="username">
+                  <label for="username">Nhập tài khoản cần khôi phục <span class="text-danger">(*)</span> :
+                    <span class="text-danger fs-10"
+                          *ngIf="forgotForm.controls.username.hasError('required') && forgotForm.controls.username.touched">
+                            Vui lòng nhập tên tài khoản
+                          </span>
+                  </label>
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-yellow" data-bs-dismiss="modal">Gửi</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeForgot()">Đóng
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Chào mừng trở lại!</h1>
+        <p>Hãy kết nối với chúng tôi, Vui lòng nhập thông tin đăng nhập của bạn</p>
+        <button class="ghost" id="signIn" (click)="openSignIn()">Đăng nhập</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Chào, Bạn!</h1>
+        <p>Nhập thông tin cá nhân của bạn và bắt đầu hành trình với chúng tôi</p>
+        <button class="ghost" id="signUp" (click)="openSignIn()">Đăng ký</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -69,11 +69,13 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteProduct(id: number) {
-    this.productService.deleteProduct(id).subscribe(data => {
-    }, error => {
-    }, () => {
+    this.productService.deleteProduct(id).subscribe(value => {
+      // @ts-ignore
+      $('#staticBackdropDelete' + id).modal('hide');
       this.ngOnInit();
       this.router.navigateByUrl('/product-list').then();
+    }, error => {
+    }, () => {
     })
   }
 

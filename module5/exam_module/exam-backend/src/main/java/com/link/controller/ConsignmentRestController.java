@@ -18,8 +18,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
-@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+@CrossOrigin
 @RequestMapping("/rest")
 public class ConsignmentRestController {
 

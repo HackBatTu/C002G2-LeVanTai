@@ -1,0 +1,75 @@
+.management {
+  padding: 50px 0px 50px 50px;
+}
+
+.complain {
+  color: red;
+}
+
+#fate {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(src/assets/img/luanbackground.jpg);
+  position: relative;
+  padding: 150px;
+}
+.title-image {
+  padding-bottom: 65px;
+}
+.s{
+  background-color: white;
+}
+.sliceCss {
+  border-radius: 70px;
+  margin-top: 20px;
+}
+.image-css {
+  background: #dddddd;
+  border-radius: 50%;
+  border: 2px solid #a1a1a1;
+  height: 85%;
+  width: 80%;
+  margin-left: 25px;
+  text-align: center ;
+  display: none;
+}
+@media only screen and (max-width: 1100px) {
+  .image-edit {
+    display: none;
+  }
+  .title-image{
+    display: block;
+    width: 100%;
+  }
+}
+h3 {
+  padding-left: 4px;
+}
+
+.block-2 {
+  padding-top: 14px;
+}
+
+label {
+  color: black;
+}
+.title-input {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+@media only screen and (max-width: 1330px) {
+  .block-1 {
+    display: block;
+    width: 100%;
+  }
+
+  .block-2{
+    display: none;
+  }
+}
+.bg-white {
+  border-radius: 40px;
+}
+
+
+
