@@ -35,8 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * @param auth
      * @throws Exception
-     * @creator: PhuongTD
-     * @date-create 9/8/2022
      */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -49,8 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * @return
      * @throws Exception
-     * @creator: PhuongTD
-     * @date-create 9/8/2022
      */
     @Bean
     @Override
@@ -61,8 +57,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * @param httpSecurity
      * @throws Exception
-     * @creator: PhuongTD
-     * @date-create 9/8/2022
      */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {

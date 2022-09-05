@@ -41,8 +41,11 @@ create table product (
 id int auto_increment primary key,
 name varchar(255),
 image varchar(255),
+origin varchar(255),
 description text,
+specification text,
 price double,
+amount int,
 `is_deleted` bit(1) default b'0',
 `category_id` int default null,
 foreign key (`category_id`) references `category` (`id`)

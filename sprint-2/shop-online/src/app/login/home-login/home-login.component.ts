@@ -184,6 +184,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
       this.toastrService.warning('Thông tin bạn nhập chưa chính xác!');
     }
   }
+
   openSignIn() {
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
@@ -214,4 +215,6 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   onRegister() {
 
   }
+
+
 }

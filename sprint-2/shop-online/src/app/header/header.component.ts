@@ -39,8 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @date 14/08/2022
-   * @author PhuongTd
    * @param key
    */
   readCookieService(key: string): string {

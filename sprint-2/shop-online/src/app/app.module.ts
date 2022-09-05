@@ -5,8 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
-import {HomeComponent} from './home/home.component';
-import {DetailProductComponent} from './detail-product/detail-product.component';
+import {HomeComponent} from './product/home/home.component';
 import {CartComponent} from './cart/cart.component';
 import {ChartsModule} from 'ng2-charts';
 import {BarChartComponent} from './charts-js/bar-chart/bar-chart.component';
@@ -16,9 +15,9 @@ import {PieChartComponent} from './charts-js/pie-chart/pie-chart.component';
 import {ToastrModule} from 'ngx-toastr';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
-import {ProductModule} from './product/product.module';
 import {LoginModule} from './login/login.module';
 import {HttpClientModule} from '@angular/common/http';
+import {ProductModule} from './product/product.module';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import {HttpClientModule} from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    DetailProductComponent,
     CartComponent,
     BarChartComponent,
     DoughnutChartComponent,
@@ -38,8 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
-    ProductModule,
     HttpClientModule,
+    ProductModule,
     LoginModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(
@@ -47,7 +45,7 @@ import {HttpClientModule} from '@angular/common/http';
         timeOut: 2000,
         closeButton: true,
         progressBar: true,
-        positionClass: 'toast-top-left',
+        positionClass: 'toast-top-right',
         preventDuplicates: true,
       }
     ),

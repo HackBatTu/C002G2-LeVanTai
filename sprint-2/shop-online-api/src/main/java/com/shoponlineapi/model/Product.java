@@ -21,9 +21,15 @@ public class Product {
     private String image;
     private String name;
     private double price;
+    private String origin;
+
+    @Column(columnDefinition = "text")
+    private String specification;
 
     @Column(columnDefinition = "text")
     private String description;
+
+    private Integer amount;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")

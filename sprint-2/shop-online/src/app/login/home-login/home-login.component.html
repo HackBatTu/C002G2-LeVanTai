@@ -24,17 +24,13 @@
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <span>hoặc sử dung tài khoản của bạn</span>
-      <input type="text" formControlName="username" placeholder="Nhập tài khoản" />
+      <input type="text" formControlName="username" placeholder="Nhập tài khoản"  />
       <input type="password" formControlName="password" placeholder="Mật khẩu" />
-      <div class="checkbox my-3">
-        <input type="checkbox" value="" id="flexCheckDefault"
-               formControlName="stayLogged">
-        <label class="form-check-label px-2" for="flexCheckDefault">
-          Duy trì trạng thái đăng nhập
-        </label>
-      </div>
 
-      <div class="col-12 row text-center m-auto">
+      <!-- Button trigger modal -->
+      <a  data-bs-toggle="modal" data-bs-target="#staticBackdropForgot">
+        Quên mật khẩu?
+      </a>
         <div *ngIf="activeLogin">
             <button>Đăng nhập</button>
         </div>
@@ -50,12 +46,6 @@
             </div>
           </div>
         </div>
-        <!-- Button trigger modal -->
-          <a type="button" class="btn btn-lg w-100 fs-6 btn-secondary" data-bs-toggle="modal"
-                  data-bs-target="#staticBackdropForgot">
-            Quên mật khẩu
-          </a>
-      </div>
     </form>
     <div class="modal fade" id="staticBackdropForgot" data-bs-backdrop="static" data-bs-keyboard="false"
          tabindex="-1" aria-labelledby="staticBackdropLabelForgot" aria-hidden="true">
@@ -78,7 +68,6 @@
                           </span>
                   </label>
                 </div>
-
               </div>
             </div>
             <div class="modal-footer">

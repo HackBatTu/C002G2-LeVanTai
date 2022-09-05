@@ -49,8 +49,6 @@ public class JwtAuthenticationController {
      * @param authenticationRequest
      * @return token, roles list, username, status 200 if AUTHORIZED or return status 401 if UNAUTHORIZED
      * @throws Exception
-     * @creator: PhuongTD
-     * @date-create 9/8/2022
      */
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody JwtRequest authenticationRequest,

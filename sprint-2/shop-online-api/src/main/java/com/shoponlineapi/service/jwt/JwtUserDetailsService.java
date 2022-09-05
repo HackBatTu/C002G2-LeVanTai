@@ -28,8 +28,6 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     /**
      *
-     * @creator PhuongTD
-     * @date-create 9/8/2022
      * @param userName
      * @return username, password, roles list
      * @throws UsernameNotFoundException

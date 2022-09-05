@@ -6,7 +6,10 @@ export interface Product {
   image?: string;
   name?: string;
   price?: number;
+  origin?: string;
   description?: string;
+  specification?: string;
+  amount?: number;
   isDeleted?: boolean;
   category?: Category;
   order?: Order[];
