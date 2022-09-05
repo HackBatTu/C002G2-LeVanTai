@@ -95,8 +95,6 @@ public class JwtAuthenticationController {
      * @param username
      * @param password
      * @throws Exception
-     * @creator: PhuongTD
-     * @date-create 9/8/2022
      */
     private Authentication authenticate(String username, String password) throws Exception {
         try {

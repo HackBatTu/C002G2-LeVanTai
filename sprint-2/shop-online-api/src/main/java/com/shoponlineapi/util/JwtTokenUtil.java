@@ -24,7 +24,6 @@ public class JwtTokenUtil implements Serializable {
     private String secret;
 
     /**
-     * @creator: PhuongTD
      * @param token
      * @return
      */
@@ -44,7 +43,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param token
      * @param claimsResolver
      * @param <T>
@@ -56,7 +54,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param token
      * @return
      */
@@ -66,7 +63,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param token
      * @return
      */
@@ -77,7 +73,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param userDetails
      * @return
      */
@@ -88,7 +83,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param username
      * @return
      */
@@ -98,7 +92,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param claims
      * @param subject
      * @return
@@ -116,7 +109,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param token
      * @param userDetails
      * @return
