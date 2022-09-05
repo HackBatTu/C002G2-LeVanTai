@@ -15,5 +15,5 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
             " join category on category.id = product.category_id where  product.name like :searchByName and  " +
             " product.origin like :searchByOrigin and product.price like :searchByPrice) temp_table",nativeQuery = true)
     Page<IProductDTO> getAllProduct(Pageable pageable, String searchByName, String searchByOrigin, String searchByPrice);
-    
+
 }
