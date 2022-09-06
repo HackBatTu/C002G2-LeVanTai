@@ -11,9 +11,12 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "select product.* from product join category on category.id = product.category_id where  " +
             " product.name like :searchByName and product.origin like :searchByOrigin and product.price " +
-            " like :searchByPrice ",countQuery = "select count(*) from (select product.* from product  " +
+            " like :searchByPrice and product.is_deleted = 0",countQuery = "select count(*) from (select product.* from product  " +
             " join category on category.id = product.category_id where  product.name like :searchByName and  " +
-            " product.origin like :searchByOrigin and product.price like :searchByPrice) temp_table",nativeQuery = true)
+            " product.origin like :searchByOrigin and product.price like :searchByPrice and product.is_deleted = 0) temp_table",nativeQuery = true)
     Page<IProductDTO> getAllProduct(Pageable pageable, String searchByName, String searchByOrigin, String searchByPrice);
 
+
+    @Query(value = "update product set product.is_deleted = 1 where product.id = :id ", nativeQuery = true)
+    void deleteProduct(Integer id);
 }

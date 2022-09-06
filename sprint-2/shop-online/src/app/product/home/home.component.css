@@ -72,9 +72,8 @@ body {
 }
 
 .radius-1 {
-  border-radius: 8px;
-  padding-left: 5px;
-  padding-right: 10px;
+  border-radius: 50%;
+  border: none;
 }
 
 .radius-2 {
@@ -665,7 +664,10 @@ pre code {
   position: relative;
   width: 100%;
 }
-
+.col-fate-2 {
+  width: 20% !important;
+  height: auto;
+}
 .col {
   flex-basis: 0;
   flex-grow: 1;

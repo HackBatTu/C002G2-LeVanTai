@@ -62,7 +62,6 @@ export class ConsignmentComponent implements OnInit {
     this.consignmentService.deleteConsignment(id).subscribe(data => {
     }, error => {
     }, () => {
-
       this.ngOnInit();
       this.router.navigateByUrl('/list').then(() => {
         this.toastr.error('deleted', 'SOS!!!');
