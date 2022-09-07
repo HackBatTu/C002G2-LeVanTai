@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../../model/product";
+import {ProductService} from "../../service/product.service";
+import {ToastrService} from "ngx-toastr";
+import {Title} from "@angular/platform-browser";
+import {ActivatedRoute, ParamMap, Router, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-detail',
@@ -7,10 +11,32 @@ import {Product} from "../../model/product";
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  product: Product[] = [];
-  constructor() { }
+  product: Product;
+  constructor(private productService: ProductService,
+              private toast: ToastrService,
+              private title: Title,
+              private active: ActivatedRoute,
+              private router: Router) {
+    this.title.setTitle("Chi Tiết Sản Phẩm")
+  }
 
   ngOnInit(): void {
+    this.getParamId()
+  }
+
+  getParamId(){
+    this.active.paramMap.subscribe((paraMap: ParamMap) => {
+      const id = paraMap.get('id')
+      this.productService.findById(id).subscribe(data => {
+        // @ts-ignore
+        this.product = data;
+        if(data == null){
+          this.toast.error("Mã sản phẩm vượt quá Mã cho phép hoặc không tồn tại",'Thông Báo !!!')
+          this.router.navigateByUrl("/home").then()
+        }
+      })
+    })
+
   }
 
 }

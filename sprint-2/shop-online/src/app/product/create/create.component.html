@@ -1,5 +1,5 @@
 
-  <div class="container bg-test mt-2" style="border-radius: 10px">
+  <div class="container bg-test mt-3" style="border-radius: 10px">
     <div class="row g-5 mt-1 ">
       <div class="col-xl-4 order-md-last  ">
         <h3 class="d-flex justify-content-between align-items-center mb-4">
@@ -120,7 +120,8 @@
           </div>
 
           <div class=" text-center pt-4 pb-4">
-            <button class="w-25 btn btn-success btn-lg  text-center mr-2" type="submit">Thêm</button>
+            <button class="w-25 btn btn-success btn-lg  text-center mr-2" type="submit" [disabled]="isLoading">
+              <img width="26px" src="assets/img/loading-symbol.gif" *ngIf="isLoading">Thêm</button>
             <button class="w-25 btn btn-secondary btn-lg  text-center mr-4" [routerLink]="'/home'">Trở Về</button>
           </div>
         </form>

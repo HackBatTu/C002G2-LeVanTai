@@ -22,6 +22,16 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
     ReactiveFormsModule,
     CKEditorModule
   ]
+  ,exports: [
+    CreateComponent,
+    EditComponent,
+    DetailComponent,
+    SmartPhoneComponent,
+    TiviComponent,
+    LaptopComponent,
+    CameraComponent,
+    DeviceSupComponent
+  ]
 })
 export class ProductModule {
 }

@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   role: string = '';
   username: string = '';
   token: string = '';
-
   product: Product[] = [];
   searchForm: FormGroup;
   totalPages: number;

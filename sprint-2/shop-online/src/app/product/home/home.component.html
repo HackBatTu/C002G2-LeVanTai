@@ -436,7 +436,7 @@
                   <a class="btn btn-outline-dark btn-square" href=""><i
                     class="fa fa-shopping-cart"></i></a>
                   <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                  <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product']"><i class="fa fa-search"></i></a>
+                  <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product',p.id]"><i class="fa fa-search"></i></a>
                 </div>
               </div>
               <div class="text-center py-1">
@@ -457,7 +457,7 @@
                 </div>
               </div>
               <div class="col-sm-12 row text-center m-0" *ngIf="role === 'ROLE_ADMIN'">
-                <a class="btn btn-outline-dark btn-square col-sm-6  item-text" [routerLink]="['/edit-product' + p.id]" >
+                <a class="btn btn-outline-dark btn-square col-sm-6  item-text" [routerLink]="['/edit-product',p.id]" >
                   <i class="fa-sharp fa-solid fa-pen text-primary " style="font-size: 22px"></i>Sửa</a>
                 <a class="btn btn-outline-dark btn-square col-sm-6 item-text" type="button" data-bs-toggle="modal"
                    [attr.data-bs-target]="'#staticBackdropDelete' + p.id">
@@ -473,7 +473,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      Bạn có muốn xóa sản phẩm <span class="text-danger">{{p.name}}</span> của hãng <span>{{p.origin}}</span> không?
+                      Bạn có muốn xóa sản phẩm <span class="text-danger">{{p.name}}</span> của hãng <span>{{p.manufacturer}}</span> không?
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline-primary" (click)="deleteProduct(p.id)">Xóa

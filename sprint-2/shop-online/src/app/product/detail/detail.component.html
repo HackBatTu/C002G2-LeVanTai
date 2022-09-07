@@ -1,10 +1,10 @@
 <!-- Shop Detail Start -->
 <div class="container pb-1 pt-4">
-  <div class="row px-xl-5">
+  <div class="row px-xl-5" *ngIf="product">
     <div class="col-lg-5 mb-30 h-auto" >
       <div class="product-item bg-light h-100 p-30">
         <div class="product-img position-relative overflow-hidden">
-          <img class="img-fluid w-100" src="assets/img/product/product-19.jpg" alt="">
+          <img class="img-fluid w-100" src="{{product.image}}" alt="">
           <div class="product-action">
             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
@@ -15,7 +15,7 @@
 
     <div class="col-lg-7 h-auto mb-30">
       <div class="h-100 bg-light p-30">
-        <h3>TIVI XIAOMI Mi TV P1 55</h3>
+        <h3>{{product.name}}</h3>
         <div class="d-flex mb-3">
           <div class="d-flex align-items-center justify-content-center mb-1">
             <small class="fa fa-star text-primary mr-1"></small>
@@ -26,14 +26,11 @@
             <small>(đánh giá 5s của khách hàng)</small>
           </div>
         </div>
-        <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
-        <p class="mb-4">Tặng suất mua Smartmi Standing Fan 3 giảm đến 20%. <br>
-          Tặng suất mua Xiaomi Smart Air Purifier 4 giảm đến 32% (click xem chi tiết)<br>
-          Sản phẩm có sẵn – Giao hàng ngay<br>
-          Kích thước (W x H x D): 1230 x 247 x 767mm</p>
+        <h3 class="font-weight-semi-bold mb-4">{{product.price | currency: 'VND': ''}}đ</h3>
+        <div class="mb-4" [innerHTML]="product.specification"></div>
         <div class="d-flex mb-3">
           <strong class="text-dark mr-3">Sizes:</strong>
-          <form>
+          <div>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="size-1" name="size">
               <label class="custom-control-label" for="size-1">XS</label>
@@ -54,11 +51,11 @@
               <input type="radio" class="custom-control-input" id="size-5" name="size">
               <label class="custom-control-label" for="size-5">XL</label>
             </div>
-          </form>
+          </div>
         </div>
         <div class="d-flex mb-4">
           <strong class="text-dark mr-3">Colors:</strong>
-          <form>
+          <div>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" class="custom-control-input" id="color-1" name="color">
               <label class="custom-control-label" for="color-1">Black</label>
@@ -79,7 +76,7 @@
               <input type="radio" class="custom-control-input" id="color-5" name="color">
               <label class="custom-control-label" for="color-5">Green</label>
             </div>
-          </form>
+          </div>
         </div>
         <div class="d-flex align-items-center mb-4 pt-2">
           <div class="input-group quantity mr-3" style="width: 130px;">
@@ -95,9 +92,8 @@
               </button>
             </div>
           </div>
-          <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
-            Cart
-          </button>
+          <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Thêm Vào Giỏ Hàng</button>
+          <button class="btn btn-secondary px-3"><i class="fas fa-sync-alt mr-1"></i>Tiếp Tục Mua Hàng</button>
         </div>
         <div class="d-flex pt-2">
           <strong class="text-dark mr-2">Share on:</strong>
@@ -125,11 +121,8 @@
         <div class="tab-content">
           <div class="tab-pane fade show active" id="tab-pane-1">
             <h4 class="mb-3">Mô Tả Sản Phẩm</h4>
-            <p>Sau bao ngày chờ đợi thì cuối cùng chiếc TIVI XIAOMI Mi TV P1 55″ đã có mặt tại TIVIXIAOMI.COM và hơn thế nữa đây lại là bản xuất khẩu EU và đương nhiên nó là bản GLOBAL đầy đủ các tính năng được trang bị kho ứng dụng khổng lồ, thiết kế tinh tế và đẹp mặt và đặc biệt hơn cả là những ưu điểm về giá rẻ cũng như đánh vào thị trường phân khúc tầm trung. Hãy cùng TIVIXIAOMI.COM trải nghiệm sản phẩm này ngay thôi nào.
+            <div [innerHTML]="product.description"></div>
 
-              Mi TV P1 55″ đã được nhắc đến trên VTC6:.</p>
-          </div>
-          <p>Màn hình hiển thị lên đến 4K và hỗ trợ những công nghệ hiện đại nhất hiện nay</p>
         </div>
       </div>
     </div>

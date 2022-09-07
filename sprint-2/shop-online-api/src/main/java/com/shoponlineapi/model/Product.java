@@ -21,7 +21,7 @@ public class Product {
     private Integer id;
     private String image;
     private String name;
-    @Column(columnDefinition = "date")
+    @Column(columnDefinition = "DATE")
     private Date dateIn;
     private double price;
     private String manufacturer;

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit} from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {finalize} from "rxjs/operators";
@@ -25,16 +25,21 @@ export class CreateComponent implements OnInit {
   productForm: FormGroup;
   product: Product;
   categories: Category[] = [];
+  isLoading: Boolean = false;
+  fileUploader: any;
 
   constructor(@Inject(AngularFireStorage) private storage: AngularFireStorage,
               private productService: ProductService,
               private toastrService: ToastrService,
-              private router: Router,) { }
+              private router: Router,
+              private el: ElementRef) {
+  }
 
   ngOnInit(): void {
     this.productService.getAllCategory().subscribe(value => {
       this.categories = value;
-    }, error => {}, () => {
+    }, error => {
+    }, () => {
       this.createForm();
     })
   }
@@ -42,21 +47,41 @@ export class CreateComponent implements OnInit {
   createForm() {
     this.productForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      dateIn: new FormControl('', [Validators.required]),
-      manufacturer: new FormControl('', [Validators.required]),
       price: new FormControl('', [Validators.required]),
-      quantity: new FormControl('', [Validators.required]),
-      guaranteeTime: new FormControl('', [Validators.required]),
-      discount: new FormControl(),
-      specification: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
       image: new FormControl('', [Validators.required]),
+      manufacturer: new FormControl('', [Validators.required]),
+      quantity: new FormControl('', [Validators.required]),
+      dateIn: new FormControl('', [Validators.required]),
       category: new FormControl('', [Validators.required]),
+      discount: new FormControl(),
+      guaranteeTime: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      specification: new FormControl('', [Validators.required]),
       isDeleted: new FormControl(0)
     })
   }
 
   onCreateProduct() {
+    this.toggleLoading();
+    const product: Product = this.productForm.value;
+    // product.name = product.name.trim()
+    // product.manufacturer = product.manufacturer.trim()
+    // product.guaranteeTime = product.guaranteeTime.trim()
+    // product.discount = product.discount.trim()
+    // product.specification = product.specification.trim()
+    // product.description = product.description.trim()
+    // product.image = product.image.trim()
+    if (this.selectedImage == null) {
+      for (const key of Object.keys(this.productForm.controls)) {
+        if (this.productForm.controls[key].invalid) {
+          const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+          invalidControl.focus();
+          this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+          break;
+        }
+      }
+      return this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+    }
     if (this.productForm.valid) {
       this.product = this.productForm.value;
       const nameImg = CreateComponent.getCurrentDateTime() + this.selectedImage.name;
@@ -65,7 +90,7 @@ export class CreateComponent implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.product.image = url;
-            this.productService.createProduct(this.product).subscribe(value => {
+            this.productService.createProduct(product).subscribe(value => {
               this.router.navigateByUrl("/home").then();
               this.toastrService.success("Thêm mới thành công!")
             });
@@ -83,6 +108,15 @@ export class CreateComponent implements OnInit {
       this.checkErrorGuaranteeTime();
       this.checkErrorDescription();
       this.checkErrorSpecifications();
+      for (const key of Object.keys(this.productForm.controls)) {
+        if (this.productForm.controls[key].invalid) {
+          const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+          invalidControl.focus();
+          this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+          break;
+        }
+      }
+      return this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
     }
   }
 
@@ -98,15 +132,23 @@ export class CreateComponent implements OnInit {
       this.selectedImage = null;
     }
   }
+
   private static getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyyhhmmssa', 'en-US');
+  }
+
+  toggleLoading() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2600)
   }
 
   checkErrorName() {
     let dataToggle = $('[data-toggle="name"]');
     if (this.productForm.controls.name.hasError('required')) {
       dataToggle.attr('data-content', 'Tên sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -119,7 +161,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="price"]');
     if (this.productForm.controls.price.hasError('required')) {
       dataToggle.attr('data-content', 'Giá sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -132,7 +174,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="origin"]');
     if (this.productForm.controls.origin.hasError('required')) {
       dataToggle.attr('data-content', 'Xuất xứ sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -145,7 +187,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="quantity"]');
     if (this.productForm.controls.quantity.hasError('required')) {
       dataToggle.attr('data-content', 'Số lượng sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -158,7 +200,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="releaseTime"]');
     if (this.productForm.controls.releaseTime.hasError('required')) {
       dataToggle.attr('data-content', 'Ngày sản xuất sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -171,7 +213,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="category"]');
     if (this.productForm.controls.category.hasError('required')) {
       dataToggle.attr('data-content', 'Vui lòng chọn danh mục.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -181,14 +223,14 @@ export class CreateComponent implements OnInit {
   }
 
   chooseFile() {
-    $(".custom-file-input").on("change", function() {
+    $(".custom-file-input").on("change", function () {
       const fileName = $(this).val().split('\\').pop();
       $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
     let dataToggle = $('[data-toggle="image"]');
     if (this.productForm.controls.image.hasError('required')) {
       dataToggle.attr('data-content', 'Ảnh sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -201,7 +243,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="warrantyPeriod"]');
     if (this.productForm.controls.warrantyPeriod.hasError('required')) {
       dataToggle.attr('data-content', 'Thời hạn bảo hành không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -214,7 +256,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="description"]');
     if (this.productForm.controls.description.hasError('required')) {
       dataToggle.attr('data-content', 'Mô tả sản phẩm không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');
@@ -227,7 +269,7 @@ export class CreateComponent implements OnInit {
     let dataToggle = $('[data-toggle="specifications"]');
     if (this.productForm.controls.specifications.hasError('required')) {
       dataToggle.attr('data-content', 'Thông số kỹ thuật không được để trống.');
-      setTimeout(()=>{
+      setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
       dataToggle.popover('show');

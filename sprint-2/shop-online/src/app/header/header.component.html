@@ -72,7 +72,7 @@
 
       <!-- Navbar Start -->
       <div class="container-fluid row ">
-        <div class="nav-item dropdown col-lg-3 d-none d-lg-block">
+        <div class="nav-item dropdown col-lg-3 d-none d-lg-block" *ngIf="role !== 'ROLE_ADMIN'">
           <a class="btn d-flex align-items-center justify-content-between bg-primary w-100"
              data-toggle="collapse" style="height: 40px; padding: 0 20px;">
             <p class="text-dark m-0"><i class="fa fa-bars mr-2"></i>DANH MỤC SẢN PHẨM</p>
@@ -84,6 +84,19 @@
             <a class="dropdown-item" [routerLink]="['/smart-phone']">Điện Thoại</a>
             <a class="dropdown-item" [routerLink]="['/camera']">Máy Ảnh</a>
             <a class="dropdown-item" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown col-lg-3 d-none d-lg-block" *ngIf="role === 'ROLE_ADMIN'">
+          <a class="btn d-flex align-items-center justify-content-between bg-primary w-100"
+             data-toggle="collapse" style="height: 40px; padding: 0 20px;">
+            <p class="text-dark m-0"><i class="fa fa-bars mr-2"></i>DANH MỤC QUẢN LÍ</p>
+            <i class="fa fa-angle-down text-dark"></i>
+          </a>
+          <div class="dropdown-menu bg-white rounded-0 border-0 ml-3" style="width: 90% !important;">
+            <a [routerLink]="['/create-product']" class="dropdown-item">Thêm Mới Sản Phẩm</a>
+            <a href="#" class="dropdown-item">Danh Sách Khách Hàng</a>
+            <a href="#" class="dropdown-item">Danh Sách Phản Hồi</a>
+            <a href="#" class="dropdown-item">Thống Kê Doanh Thu</a>
           </div>
         </div>
         <div class="col-lg-9 h-100">
@@ -104,14 +117,16 @@
                 <a class="nav-item nav-link" [routerLink]="['/smart-phone']">Điện Thoại</a>
                 <a class="nav-item nav-link" [routerLink]="['/camera']">Máy Ảnh</a>
                 <a class="nav-item nav-link" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
-                <div class="nav-item dropdown" *ngIf="role === 'ROLE_ADMIN'">
-                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Quản Lí Trang <i
+                <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Khác <i
                     class="fa fa-angle-down mt-1"></i></a>
                   <div class="dropdown-menu bg-white rounded-0 border-0 m-0">
-                    <a [routerLink]="['/create-product']" class="dropdown-item">Thêm Mới Sản Phẩm</a>
-                    <a href="#" class="dropdown-item">Danh Sách Khách Hàng</a>
-                    <a href="#" class="dropdown-item">Danh Sách Phản Hồi</a>
-                    <a href="#" class="dropdown-item">Thống Kê Doanh Thu</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Laptop</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Tivi</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Điện thoại</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Máy ảnh</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Thiết bị Hỗ trợ</a>
+
                   </div>
                 </div>
 
