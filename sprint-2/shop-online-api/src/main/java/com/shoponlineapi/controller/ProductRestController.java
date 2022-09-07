@@ -72,7 +72,6 @@ public class ProductRestController {
         if(bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
         BeanUtils.copyProperties(productDTO,product);
         iProductService.save(product);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -88,10 +87,49 @@ public class ProductRestController {
     public ResponseEntity<List<Category>> getAllCategory() {
         List<Category> categoryList = iCategoryService.getAllCategory();
         if (categoryList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(categoryList, HttpStatus.OK);
     }
 
-
+    @GetMapping("/smart-phone")
+    public ResponseEntity<List<Product>> getSmartPhone(){
+        List<Product> productList = this.iProductService.getSmartPhone();
+        if (productList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+    @GetMapping("/laptop")
+    public ResponseEntity<List<Product>> getLaptop(){
+        List<Product> productList = this.iProductService.getLaptop();
+        if (productList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+    @GetMapping("/tivi")
+    public ResponseEntity<List<Product>> getTivi(){
+        List<Product> productList = this.iProductService.getTivi();
+        if (productList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+    @GetMapping("/camera")
+    public ResponseEntity<List<Product>> getCamera(){
+        List<Product> productList = this.iProductService.getCamera();
+        if (productList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+    @GetMapping("/device-sup")
+    public ResponseEntity<List<Product>> getDevice(){
+        List<Product> productList = this.iProductService.getDevice();
+        if (productList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
 }

@@ -1,1 +1,131 @@
-<p>create works!</p>
+
+  <div class="container bg-test mt-2" style="border-radius: 10px">
+    <div class="row g-5 mt-1 ">
+      <div class="col-xl-4 order-md-last  ">
+        <h3 class="d-flex justify-content-between align-items-center mb-4">
+          <span class="text-white text-center m-auto font-weight-bold ">Ảnh sản phẩm*</span>
+        </h3>
+        <ul class="list-group mb-3">
+          <li class=" d-flex justify-content-between" *ngIf="imgSrc !== null">
+            <img [src]="imgSrc" id="img" class="image-css" (click)="fileUploader.click()">
+          </li>
+          <li class=" d-flex justify-content-between" *ngIf="imgSrc == null">
+            <img src="assets/img/anh-che-tien-bac-vui-nhon.jpg" id="img-test" class="image-css">
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-xl-8 m-0">
+        <h1 class="text-center text-white pt-4 pb-3"> Thêm Mới Sản Phẩm</h1>
+
+        <form class="needs-validation" [formGroup]="productForm" (ngSubmit)="onCreateProduct()" *ngIf="productForm">
+          <div class="row g-3">
+            <div class="col-xl-4 mt-3" data-toggle="name" data-content="" data-trigger="manual" data-placement="top">
+              <label for="name" class="form-label title-input">Tên sản phẩm<span class="text-white">(*)</span>: </label>
+              <input (input)="checkErrorName()" type="text" class="form-control border-warning" id="name" value="" placeholder="VD: IPhone 13 Pro Max"
+                     formControlName="name">
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="price" data-content="" data-trigger="manual" data-placement="top">
+              <label for="price" class="form-label title-input">Giá (VND) <span class="text-white">(*)</span>: </label>
+              <input (input)="checkErrorPrice()" type="text" class="form-control border-primary" id="price" value=""
+                     placeholder="VD: 10000000"  formControlName="price">
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="image" data-content="" data-trigger="manual" data-placement="top">
+              <label for="image" class="form-label title-input">Ảnh sản phẩm <span class="text-white">(*)</span>:
+              </label>
+              <div class="input-group has-validation text-white">
+                <input (input)="chooseFile()" #fileUploader (change)="showPreview($event)" type="file" class="custom-file-input text-white"
+                       id="image" name="filename" formControlName="image" >
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="origin" data-content="" data-trigger="manual" data-placement="top">
+              <label for="manufacturer" class="form-label title-input">Hãng sản xuất <span class="text-white">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorOrigin()" type="text" class="form-control border-primary" id="manufacturer"
+                       placeholder="VD: Việt Nam" formControlName="manufacturer">
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="quantity" data-content="" data-trigger="manual" data-placement="top">
+              <label for="quantity" class="form-label title-input">Số lượng <span class="text-white">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorQuantity()" type="text" class="form-control border-primary" id="quantity"
+                       placeholder="VD: 99"  formControlName="quantity">
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="releaseTime" data-content="" data-trigger="manual"
+                 data-placement="top">
+              <label for="dateIn" class="form-label title-input">Ngày sản xuất <span class="text-white">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorDateTime()" type="date" class="form-control border-primary"
+                       id="dateIn" formControlName="dateIn">
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="category" data-content="" data-trigger="manual" data-placement="top">
+              <label for="category" class="form-label title-input">Danh mục <span class="text-white">(*)</span>: </label>
+              <select class="form-control border-primary" id="category" formControlName="category"
+                      (change)="checkErrorCategory()">
+                <option class="text-dark" [value]="null" [selected]="true" [disabled]="true">Chọn danh mục </option>
+                <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
+              </select>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="discountPercent" data-content="" data-trigger="manual"
+                 data-placement="top">
+              <label for="discount" class="form-label title-input">Ưu đãi (%) <span class="text-white">(*)</span>:
+              </label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control border-primary" id="discount" placeholder="VD: 10"
+                       formControlName="discount">
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="warrantyPeriod" data-content="" data-trigger="manual"
+                 data-placement="top">
+              <label for="guaranteeTime" class="form-label title-input">Bảo hành <span class="text-white">(*)</span>:
+              </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorGuaranteeTime()" type="text" class="form-control border-primary"
+                       placeholder="VD: 24 tháng"  id="guaranteeTime" formControlName="guaranteeTime">
+              </div>
+            </div>
+
+            <div class="col-xl-12 mt-3" data-toggle="description" data-content="" data-trigger="manual"
+                 data-placement="top">
+              <label for="description" class="form-label title-input">Mô tả sản phẩm <span class="text-white">(*)</span>:
+              </label>
+              <div class="input-group has-validation">
+                <ckeditor (change)="checkErrorDescription()" class="w-100 border border-primary"
+                          data="<b>MÔ TẢ SẢN PHẨM</b>" id="description"
+                          [editor]="Editor" formControlName="description"></ckeditor>
+              </div>
+            </div>
+
+            <div class="col-xl-12 mt-3" data-toggle="specifications" data-content="" data-trigger="manual"
+                 data-placement="top">
+              <label for="specification" class="form-label title-input">Thông số kỹ thuật <span
+                class="text-white">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <ckeditor (change)="checkErrorSpecifications()" class="w-100 border border-primary"
+                          data="<b>THÔNG SỐ KỸ THUẬT</b>" id="specification"
+                          [editor]="Editor" formControlName="specification"></ckeditor>
+              </div>
+            </div>
+
+          </div>
+
+          <div class=" text-center pt-4 pb-4">
+            <button class="w-25 btn btn-success btn-lg  text-center mr-2" type="submit">Thêm</button>
+            <button class="w-25 btn btn-secondary btn-lg  text-center mr-4" [routerLink]="'/home'">Trở Về</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+

@@ -1,7 +1,7 @@
-package com.shoponlineapi.filter;
+package com.shoponlineapi.security.filter;
 
 import com.shoponlineapi.service.jwt.JwtUserDetailsService;
-import com.shoponlineapi.util.JwtTokenUtil;
+import com.shoponlineapi.security.util.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

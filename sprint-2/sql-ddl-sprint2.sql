@@ -40,12 +40,15 @@ name varchar(255)
 create table product (
 id int auto_increment primary key,
 name varchar(255),
+date_in date,
 image varchar(255),
-origin varchar(255),
+guarantee_time varchar(255),
+manufacturer varchar(255),
+discount varchar(255),
 description text,
 specification text,
 price double,
-amount int,
+quantity int,
 `is_deleted` bit(1) default b'0',
 `category_id` int default null,
 foreign key (`category_id`) references `category` (`id`)
@@ -61,7 +64,7 @@ rating int,
 foreign key (`customer_id`) references `customer` (`id`)
 );
 
-create table `order` (
+create table `order_service` (
 id int auto_increment primary key,
 creation_date date,
 quantity int,

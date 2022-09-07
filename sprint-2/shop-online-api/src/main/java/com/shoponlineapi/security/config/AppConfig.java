@@ -1,4 +1,4 @@
-package com.shoponlineapi.config;
+package com.shoponlineapi.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -5,8 +5,11 @@ public interface IProductDTO {
     String getName();
     String getImage();
     Double getPrice();
-    String getOrigin();
-    Integer getAmount();
+    String getManufacturer();
+    Integer getQuantity();
+    String getDateIn();
+    String getGuaranteeTime();
+    String getDiscount();
     String getSpecification();
     String getDescription();
     Boolean getIsDeleted();

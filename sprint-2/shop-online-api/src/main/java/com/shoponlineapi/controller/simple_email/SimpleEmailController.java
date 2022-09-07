@@ -4,9 +4,9 @@
 //import com.shoponlineapi.model.jwt.JwtRequest;
 //import com.shoponlineapi.model.jwt.JwtResponse;
 //import com.shoponlineapi.service.IAppUserService;
-//import com.shoponlineapi.util.EncrytedPasswordUtils;
-//import com.shoponlineapi.util.JwtTokenUtil;
-//import com.shoponlineapi.util.LoginUtil;
+//import com.shoponlineapi.security.util.EncrytedPasswordUtils;
+//import com.shoponlineapi.security.util.JwtTokenUtil;
+//import com.shoponlineapi.security.util.LoginUtil;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.http.HttpStatus;

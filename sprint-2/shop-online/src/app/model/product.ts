@@ -3,14 +3,17 @@ import {Order} from './order';
 
 export interface Product {
   id?: number;
-  image?: string;
   name?: string;
+  dateIn?: string;
+  manufacturer?: string;
   price?: number;
-  origin?: string;
-  description?: string;
+  quantity?: number;
+  guaranteeTime?: string;
+  discount?: string;
   specification?: string;
-  amount?: number;
-  isDeleted?: boolean;
+  description?: string;
+  image?: string;
   category?: Category;
+  isDeleted?: boolean;
   order?: Order[];
 }

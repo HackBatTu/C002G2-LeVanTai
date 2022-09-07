@@ -15,7 +15,7 @@
           <a class="text-white mr-3 " href=""><i class="fa fa-bell-o" aria-hidden="true"></i> Thông báo</a>
           <a class="text-white mr-3 " href=""><i class="fa fa-question-circle-o" aria-hidden="true"></i> Hỗ trợ</a>
           <a class="text-white mr-3 " href=""><i class="fa fa-life-ring" aria-hidden="true"></i> Ngôn ngữ</a>
-          <a class="text-white mr-1 " href="" *ngIf="token === ''">Đăng ký |</a>
+          <a class="text-white mr-1 " *ngIf="token === ''" [routerLink]="['/login']">Đăng ký |</a>
           <a class="text-white mr-1 " *ngIf="token === ''" [routerLink]="['/login']"> Đăng nhập</a>
           <!-- Example split danger button -->
           <div class="btn-group bg-primary" *ngIf="token !== ''">
@@ -79,11 +79,11 @@
             <i class="fa fa-angle-down text-dark"></i>
           </a>
           <div class="dropdown-menu bg-white rounded-0 border-0 ml-3" style="width: 90% !important;">
-            <a href="index.html" class="dropdown-item ">Laptop</a>
-            <a href="shop.html" class="dropdown-item">Tivi</a>
-            <a href="detail.html" class="dropdown-item">Điện Thoại</a>
-            <a href="contact.html" class="dropdown-item">Máy Ảnh</a>
-            <a href="cart.html" class="dropdown-item">Thiết Bị Hỗ Trợ</a>
+            <a class="dropdown-item" [routerLink]="['/laptop']">Laptop</a>
+            <a class="dropdown-item" [routerLink]="['/tivi']">Tivi</a>
+            <a class="dropdown-item" [routerLink]="['/smart-phone']">Điện Thoại</a>
+            <a class="dropdown-item" [routerLink]="['/camera']">Máy Ảnh</a>
+            <a class="dropdown-item" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
           </div>
         </div>
         <div class="col-lg-9 h-100">
@@ -99,16 +99,16 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between dropdown-toggle" id="navbarCollapse">
               <div class="navbar-nav mr-auto py-0 dropdown-toggle">
-                <a href="" class="nav-item nav-link">Laptop</a>
-                <a href="" class="nav-item nav-link">Tivi</a>
-                <a href="#" class="nav-item nav-link">Điện Thoại</a>
-                <a href="#" class="nav-item nav-link">Máy Ảnh</a>
-                <a href="#" class="nav-item nav-link">Thiết Bị Hỗ Trợ</a>
+                <a class="nav-item nav-link" [routerLink]="['/laptop']">Laptop</a>
+                <a class="nav-item nav-link" [routerLink]="['/tivi']">Tivi</a>
+                <a class="nav-item nav-link" [routerLink]="['/smart-phone']">Điện Thoại</a>
+                <a class="nav-item nav-link" [routerLink]="['/camera']">Máy Ảnh</a>
+                <a class="nav-item nav-link" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
                 <div class="nav-item dropdown" *ngIf="role === 'ROLE_ADMIN'">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Quản Lí Trang <i
                     class="fa fa-angle-down mt-1"></i></a>
                   <div class="dropdown-menu bg-white rounded-0 border-0 m-0">
-                    <a href="#" class="dropdown-item">Thêm Mới Sản Phẩm</a>
+                    <a [routerLink]="['/create-product']" class="dropdown-item">Thêm Mới Sản Phẩm</a>
                     <a href="#" class="dropdown-item">Danh Sách Khách Hàng</a>
                     <a href="#" class="dropdown-item">Danh Sách Phản Hồi</a>
                     <a href="#" class="dropdown-item">Thống Kê Doanh Thu</a>

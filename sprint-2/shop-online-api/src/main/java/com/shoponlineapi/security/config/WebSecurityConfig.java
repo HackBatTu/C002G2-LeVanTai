@@ -1,7 +1,7 @@
-package com.shoponlineapi.config;
+package com.shoponlineapi.security.config;
 
-import com.shoponlineapi.authentication.JwtAuthenticationEntryPoint;
-import com.shoponlineapi.filter.JwtRequestFilter;
+import com.shoponlineapi.security.authentication.JwtAuthenticationEntryPoint;
+import com.shoponlineapi.security.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.shoponlineapi.util;
+package com.shoponlineapi.security.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

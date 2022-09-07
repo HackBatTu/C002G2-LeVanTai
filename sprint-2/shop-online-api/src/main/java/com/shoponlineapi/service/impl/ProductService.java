@@ -41,4 +41,32 @@ public class ProductService implements IProductService {
     public void save(Product product) {
         this.iProductRepository.save(product);
     }
+
+    @Override
+    public List<Product> getSmartPhone() {
+        return iProductRepository.getSmartPhone();
+    }
+
+    @Override
+    public List<Product> getLaptop() {
+        return iProductRepository.getLaptop();
+
+    }
+
+    @Override
+    public List<Product> getTivi() {
+        return iProductRepository.getTivi();
+    }
+
+    @Override
+    public List<Product> getCamera() {
+        return iProductRepository.getCamera();
+
+    }
+
+    @Override
+    public List<Product> getDevice() {
+        return iProductRepository.getDevice();
+
+    }
 }

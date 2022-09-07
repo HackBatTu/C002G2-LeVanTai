@@ -444,7 +444,7 @@
                 <div class="d-flex align-items-center justify-content-center mt-2">
                   <b class="text-danger">{{p.price | currency: 'VND' : ''}}đ</b>
                   <b class="text-muted ml-2">
-                    <del class="text-success">(20%)</del>
+                    <del class="text-success">({{p.discount}}%)</del>
                   </b>
                 </div>
                 <div class="d-flex align-items-center justify-content-center mb-1">
@@ -453,7 +453,7 @@
                   <small class="fa fa-star text-primary mr-1"></small>
                   <small class="fa fa-star text-primary mr-1"></small>
                   <small class="fa fa-star text-primary mr-1"></small>
-                  <small>({{p.amount}})</small>
+                  <small>({{p.quantity}})</small>
                 </div>
               </div>
               <div class="col-sm-12 row text-center m-0" *ngIf="role === 'ROLE_ADMIN'">

@@ -1,4 +1,4 @@
-package com.shoponlineapi.util;
+package com.shoponlineapi.security.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;

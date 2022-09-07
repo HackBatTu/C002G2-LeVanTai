@@ -17,4 +17,14 @@ public interface IProductService {
     Product findById(Integer id);
 
     void save(Product product);
+
+    List<Product> getSmartPhone();
+
+    List<Product> getLaptop();
+
+    List<Product> getTivi();
+
+    List<Product> getCamera();
+
+    List<Product> getDevice();
 }

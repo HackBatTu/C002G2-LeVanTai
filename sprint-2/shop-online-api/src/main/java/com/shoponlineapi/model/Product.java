@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,8 +21,13 @@ public class Product {
     private Integer id;
     private String image;
     private String name;
+    @Column(columnDefinition = "date")
+    private Date dateIn;
     private double price;
-    private String origin;
+    private String manufacturer;
+    private String guaranteeTime;
+    private String discount;
+    private Integer quantity;
 
     @Column(columnDefinition = "text")
     private String specification;
@@ -29,18 +35,18 @@ public class Product {
     @Column(columnDefinition = "text")
     private String description;
 
-    private Integer amount;
+
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
+    @Column(columnDefinition = "bit(1) default 0")
+    private Boolean isDeleted;
+
     @JsonIgnore
     @OneToMany(mappedBy = "product")
     List<OrderService> orderServiceList;
-
-    @Column(columnDefinition = "bit(1) default 0")
-    private Boolean isDeleted;
 
     @Override
     public boolean equals(Object o) {
