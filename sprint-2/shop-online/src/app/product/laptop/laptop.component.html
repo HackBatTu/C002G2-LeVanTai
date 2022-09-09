@@ -1,14 +1,78 @@
 <!-- Shop Start -->
-<div class="container pt-2 sp-1 mb-4 mt-1 radius-2">
-  <img class="w-100" src="assets/img/bg/sieu-mua.jpg">
+<div class="container pt-2 pb-4 radius-2">
+  <!--  <img class="w-100" src="assets/img/bg/sieu-mua.jpg">-->
   <div class="row pl-3 pr-0">
 
+    <!-- Shop Product Start -->
+    <div class="col-lg-9 row col-md-12 pt-3">
+      <div class="row col-lg-12 pb-3 pr-1">
+        <div class="col-fate-2 pb-1 pr-1 pl-1" *ngFor="let p of laptopProduct">
+          <div class=" product-item bg-light mb-3" >
+            <div class="product-img position-relative overflow-hidden">
+              <img class="img-fluid w-100" [src]="p.image" alt="">
+              <div class="product-action">
+                <a class="btn btn-outline-dark btn-square" href=""><i
+                  class="fa fa-shopping-cart"></i></a>
+                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product', p.id]"><i class="fa fa-search"></i></a>
+              </div>
+            </div>
+            <div class="text-center py-1">
+              <a class="h6 text-decoration-none text-truncate" href="">{{p.name}} </a>
+              <div class="d-flex align-items-center justify-content-center mt-2">
+                <b class="text-danger">{{ p.price - (p.price * p.discount / 100) | currency: 'VND' : ''}}đ</b>
+                <b class="text-muted ml-2">
+                  <b class="text-success">({{-p.discount}}%)</b>
+                </b>
+              </div>
+              <div class="d-flex align-items-center justify-content-center mb-1">
+                <small class="fa fa-star text-primary mr-1"></small>
+                <small class="fa fa-star text-primary mr-1"></small>
+                <small class="fa fa-star text-primary mr-1"></small>
+                <small class="fa fa-star text-primary mr-1"></small>
+                <small class="fa fa-star text-primary mr-1"></small>
+                <small>({{p.quantity}})</small>
+              </div>
+            </div>
+            <div class="col-sm-12 row text-center m-0" *ngIf="role === 'ROLE_ADMIN'">
+              <a class="btn btn-outline-dark btn-square col-sm-6  item-text" [routerLink]="['/edit-product' , p.id]" >
+                <i class="fa-sharp fa-solid fa-pen text-primary " style="font-size: 22px"></i>Sửa</a>
+              <a class="btn btn-outline-dark btn-square col-sm-6 item-text" type="button" data-bs-toggle="modal"
+                 [attr.data-bs-target]="'#staticBackdropDelete' + p.id">
+                <i class="fa-sharp fa-solid fa-trash text-danger " style="font-size: 22px"></i>Xóa</a>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropDelete{{p.id}}" data-bs-backdrop="static"
+                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-danger" id="staticBackdropLabelDelete">Xóa sản phẩm</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Bạn có muốn xóa sản phẩm <span class="text-danger">{{p.name}}</span> của hãng <span>{{p.manufacturer}}</span> không?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteProduct(p.id)">Xóa
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Shop Product End -->
+
     <!-- Shop Sidebar Start -->
-    <div class="col-lg-3 col-md-4 mb-30">
+    <div class="col-lg-3 col-md-4 bg-white">
       <!-- Image Start -->
       <div>
-        <h4 class="section-title position-relative text-uppercase mb-4 mt-4"><span
-          class="text-white pr-2">Chọn Hãng SX:</span>
+        <h4 class="section-title position-relative text-uppercase mb-4 pt-1"><span
+          class="text-danger pr-2 ">Chọn Hãng SX:</span>
         </h4>
         <div class=" row col-12 radius-1">
           <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
@@ -45,32 +109,32 @@
       <!-- Price Start -->
       <div>
         <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span
-          class="text-white pr-2">Chọn Mức Giá:</span>
+          class="text-danger pr-2">Chọn Mức Giá:</span>
         </h4>
         <div class=" p-3 row col-12 radius-2">
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" checked id="price-all">
-            <label class="custom-control-label text-white" for="price-all">Trên 20 triệu</label>
+            <label class="custom-control-label text-dark" for="price-all">Trên 20 triệu</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="price-1">
-            <label class="custom-control-label text-white" for="price-1">Dưới 7 triệu</label>
+            <label class="custom-control-label text-dark" for="price-1">Dưới 7 triệu</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="price-2">
-            <label class="custom-control-label text-white" for="price-2">Từ 7 đến 10 triệu</label>
+            <label class="custom-control-label text-dark" for="price-2">Từ 7 đến 10 triệu</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="price-3">
-            <label class="custom-control-label text-white" for="price-3">Từ 10 đến 12 triệu</label>
+            <label class="custom-control-label text-dark" for="price-3">Từ 10 đến 12 triệu</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="price-4">
-            <label class="custom-control-label text-white" for="price-4">Từ 12 đến 15 triệu</label>
+            <label class="custom-control-label text-dark" for="price-4">Từ 12 đến 15 triệu</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="price-5">
-            <label class="custom-control-label text-white" for="price-5">Từ 15 đến 20 triệu</label>
+            <label class="custom-control-label text-dark" for="price-5">Từ 15 đến 20 triệu</label>
           </div>
 
         </div>
@@ -80,32 +144,32 @@
       <!-- Color Start -->
       <div>
         <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span
-          class="text-white pr-2">Chọn Màu Sắc:</span>
+          class="text-danger pr-2">Chọn Màu Sắc:</span>
         </h4>
         <div class=" p-3 row col-12 radius-2">
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" checked id="color-all">
-            <label class="custom-control-label text-white" for="price-all">Tất cả</label>
+            <label class="custom-control-label text-dark" for="price-all">Tất cả</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="color-1">
-            <label class="custom-control-label text-white" for="color-1">Màu đen</label>
+            <label class="custom-control-label text-dark" for="color-1">Màu đen</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="color-2">
-            <label class="custom-control-label text-white" for="color-2">Màu trắng</label>
+            <label class="custom-control-label text-dark" for="color-2">Màu trắng</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="color-3">
-            <label class="custom-control-label text-white" for="color-3">Màu đỏ</label>
+            <label class="custom-control-label text-dark" for="color-3">Màu đỏ</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="color-4">
-            <label class="custom-control-label text-white" for="color-4">Màu xanh lục</label>
+            <label class="custom-control-label text-dark" for="color-4">Màu xanh lục</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between  mb-3">
             <input type="checkbox" class="custom-control-input" id="color-5">
-            <label class="custom-control-label text-white" for="color-5">Màu xanh lá</label>
+            <label class="custom-control-label text-dark" for="color-5">Màu xanh lá</label>
           </div>
         </div>
         <!-- Color End -->
@@ -118,27 +182,27 @@
         <div class=" row col-12  p-3 radius-2">
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" checked id="size-all">
-            <label class="custom-control-label text-white" for="size-all">Tất cả size</label>
+            <label class="custom-control-label text-danger" for="size-all">Tất cả size</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="size-1">
-            <label class="custom-control-label text-white" for="size-1">XS</label>
+            <label class="custom-control-label text-dark" for="size-1">XS</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="size-2">
-            <label class="custom-control-label text-white" for="size-2">S</label>
+            <label class="custom-control-label text-dark" for="size-2">S</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="size-3">
-            <label class="custom-control-label text-white" for="size-3">M</label>
+            <label class="custom-control-label text-dark" for="size-3">M</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="size-4">
-            <label class="custom-control-label text-white" for="size-4">L</label>
+            <label class="custom-control-label text-dark" for="size-4">L</label>
           </div>
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
             <input type="checkbox" class="custom-control-input" id="size-5">
-            <label class="custom-control-label text-white" for="size-5">XL</label>
+            <label class="custom-control-label text-dark" for="size-5">XL</label>
           </div>
         </div>
       </div>
@@ -146,101 +210,6 @@
       <!-- Size End -->
     </div>
     <!-- Shop Sidebar End -->
-
-    <!-- Shop Product Start -->
-    <div class="col-lg-9 row col-md-12 pt-1">
-      <div class="row col-lg-12 pb-3 pr-1">
-        <div class="col-lg-12 pb-1 ">
-          <div class="d-flex align-items-center justify-content-between mb-4">
-            <div>
-              <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
-              <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
-            </div>
-            <div class="ml-2">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                        data-toggle="dropdown">Sắp xếp theo
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Latest</a>
-                  <a class="dropdown-item" href="#">Popularity</a>
-                  <a class="dropdown-item" href="#">Best Rating</a>
-                </div>
-              </div>
-              <div class="btn-group ml-2">
-                <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                        data-toggle="dropdown">Xem số lượng
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">10</a>
-                  <a class="dropdown-item" href="#">20</a>
-                  <a class="dropdown-item" href="#">30</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-fate-2 pb-1 pr-1 pl-1" *ngFor="let p of laptopProduct">
-          <div class=" product-item bg-light mb-3" >
-            <div class="product-img position-relative overflow-hidden">
-              <img class="img-fluid w-100" [src]="p.image" alt="">
-              <div class="product-action">
-                <a class="btn btn-outline-dark btn-square" href=""><i
-                  class="fa fa-shopping-cart"></i></a>
-                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product'+ p.id]"><i class="fa fa-search"></i></a>
-              </div>
-            </div>
-            <div class="text-center py-1">
-              <a class="h6 text-decoration-none text-truncate" href="">{{p.name}} </a>
-              <div class="d-flex align-items-center justify-content-center mt-2">
-                <b class="text-danger">{{p.price | currency: 'VND' : ''}}đ</b>
-                <b class="text-muted ml-2">
-                  <del class="text-success">(20%)</del>
-                </b>
-              </div>
-              <div class="d-flex align-items-center justify-content-center mb-1">
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small>({{p.quantity}})</small>
-              </div>
-            </div>
-            <div class="col-sm-12 row text-center m-0" *ngIf="role === 'ROLE_ADMIN'">
-              <a class="btn btn-outline-dark btn-square col-sm-6  item-text" [routerLink]="['/edit-product' + p.id]" >
-                <i class="fa-sharp fa-solid fa-pen text-primary " style="font-size: 22px"></i>Sửa</a>
-              <a class="btn btn-outline-dark btn-square col-sm-6 item-text" type="button" data-bs-toggle="modal"
-                 [attr.data-bs-target]="'#staticBackdropDelete' + p.id">
-                <i class="fa-sharp fa-solid fa-trash text-danger " style="font-size: 22px"></i>Xóa</a>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdropDelete{{p.id}}" data-bs-backdrop="static"
-                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title text-danger" id="staticBackdropLabelDelete">Xóa sản phẩm</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Bạn có muốn xóa sản phẩm <span class="text-danger">{{p.name}}</span> của hãng <span>{{p.manufacturer}}</span> không?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" (click)="deleteProduct(p.id)">Xóa
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Shop Product End -->
-
   </div>
 </div>
 <!-- Shop End -->

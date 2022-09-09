@@ -7,6 +7,7 @@ import {Error403PageComponent} from './error403-page/error403-page.component';
 import {LoadingComponent} from './loading/loading.component';
 import {LoginGuard} from './authguard/login.guard';
 import {Error401PageComponent} from './error401-page/error401-page.component';
+import {UserCustomerComponent} from "../customer/user-customer/user-customer.component";
 
 const routes: Routes = [
   {

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {render} from 'creditcardpayments/creditCardPayments';
+import { render} from "creditcardpayments/creditCardPayments";
+
+declare var $: any;
 
 @Component({
   selector: 'app-cart',
@@ -23,6 +25,21 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onPaypal();
   }
 
+
+  onPaypal() {
+
+    // @ts-ignore
+    paypal.Buttons({
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          alert(details.payer.name.given_name + 'thanh toán thành công' + '!')
+          $('#table-card').hide();
+          $('#table-card-1').hide();
+        })
+      }
+    }).render('#myPaypalButtons');
+  }
 }

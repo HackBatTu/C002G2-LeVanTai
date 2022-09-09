@@ -76,6 +76,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.router.navigateByUrl('/login').then(() => {
             this.toastrService.success('Đăng xuất thành công!');
             this.sendMessage();
+            this.cookieService.deleteAllCookies();
+            this.cookieService.removeAllCookies();
           });
         });
       } else {

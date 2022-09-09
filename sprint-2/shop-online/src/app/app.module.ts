@@ -18,6 +18,7 @@ import {AngularFireModule} from '@angular/fire';
 import {LoginModule} from './login/login.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ProductModule} from './product/product.module';
+import {CustomerModule} from "./customer/customer.module";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {ProductModule} from './product/product.module';
     ChartsModule,
     HttpClientModule,
     ProductModule,
+    CustomerModule,
     LoginModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(

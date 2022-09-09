@@ -2,6 +2,7 @@ package com.shoponlineapi.service;
 
 
 
+import com.shoponlineapi.dto.RegisterDTO;
 import com.shoponlineapi.model.account.AppUser;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface IAppUserService {
     void updatePassword(AppUser appUser);
 
     void saveAppUser(AppUser appUser);
+
+    void registerUser(RegisterDTO registerDTO);
+
 }

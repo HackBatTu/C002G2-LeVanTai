@@ -33,7 +33,6 @@ public class JwtTokenUtil implements Serializable {
     }
 
     /**
-     * @creator: PhuongTD
      * @param token
      * @return
      */

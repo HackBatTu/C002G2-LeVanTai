@@ -24,19 +24,19 @@ export class DetailComponent implements OnInit {
     this.getParamId()
   }
 
-  getParamId(){
+  getParamId() {
     this.active.paramMap.subscribe((paraMap: ParamMap) => {
-      const id = paraMap.get('id')
-      this.productService.findById(id).subscribe(data => {
+      const id = paraMap.get('id');
+      // @ts-ignore
+      this.productService.findById(parseInt(id)).subscribe(data => {
         // @ts-ignore
         this.product = data;
-        if(data == null){
-          this.toast.error("Mã sản phẩm vượt quá Mã cho phép hoặc không tồn tại",'Thông Báo !!!')
-          this.router.navigateByUrl("/home").then()
+        if (data == null) {
+          this.toast.error("Không có dữ liệu hoặc bạn đang nhập quá dữ liệu hiện có", "Thông Báo")
+          this.router.navigateByUrl('/home').then();
         }
-      })
-    })
-
+      });
+    });
   }
 
 }

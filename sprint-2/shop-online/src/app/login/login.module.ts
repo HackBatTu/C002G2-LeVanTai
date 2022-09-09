@@ -11,6 +11,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { Error404PageComponent } from './error404-page/error404-page.component';
 import { Error401PageComponent } from './error401-page/error401-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { UserCustomerComponent } from '../customer/user-customer/user-customer.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     Error403PageComponent,
     LoadingComponent,
     Error404PageComponent,
-    Error401PageComponent],
+    Error401PageComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,

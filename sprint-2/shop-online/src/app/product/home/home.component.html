@@ -1,4 +1,4 @@
-<div class="container mt-3 ">
+<div class="container pt-3 ">
 
   <!-- Carousel Start -->
   <div class=" row px-xl-1">
@@ -289,7 +289,7 @@
           </div>
         </div>
         <!-- Image End -->
-  <hr>
+        <hr>
         <!-- Price Start -->
         <div>
           <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span
@@ -324,7 +324,7 @@
           </div>
         </div>
         <!-- Price End -->
-<hr>
+        <hr>
         <!-- Color Start -->
         <div>
           <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span
@@ -358,7 +358,7 @@
           </div>
           <!-- Color End -->
         </div>
-<hr>
+        <hr>
         <!-- Size Start -->
         <div>
           <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span class="text-white pr-2">Chọn Theo Size:</span>
@@ -429,22 +429,23 @@
             </div>
           </div>
           <div class="col-fate-2 pb-1 pr-1 pl-1" *ngFor="let p of product">
-            <div class=" product-item bg-light mb-3" >
+            <div class=" product-item bg-light mb-3">
               <div class="product-img position-relative overflow-hidden">
                 <img class="img-fluid w-100" [src]="p.image" alt="">
                 <div class="product-action">
                   <a class="btn btn-outline-dark btn-square" href=""><i
                     class="fa fa-shopping-cart"></i></a>
                   <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                  <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product',p.id]"><i class="fa fa-search"></i></a>
+                  <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product',p.id]"><i
+                    class="fa fa-search"></i></a>
                 </div>
               </div>
               <div class="text-center py-1">
                 <a class="h6 text-decoration-none text-truncate" href="">{{p.name}} </a>
                 <div class="d-flex align-items-center justify-content-center mt-2">
-                  <b class="text-danger">{{p.price | currency: 'VND' : ''}}đ</b>
+                  <b class="text-danger">{{ p.price - (p.price * p.discount / 100) | currency: 'VND' : ''}}đ</b>
                   <b class="text-muted ml-2">
-                    <del class="text-success">({{p.discount}}%)</del>
+                    <b class="text-success">(-{{p.discount}}%)</b>
                   </b>
                 </div>
                 <div class="d-flex align-items-center justify-content-center mb-1">
@@ -457,34 +458,39 @@
                 </div>
               </div>
               <div class="col-sm-12 row text-center m-0" *ngIf="role === 'ROLE_ADMIN'">
-                <a class="btn btn-outline-dark btn-square col-sm-6  item-text" [routerLink]="['/edit-product',p.id]" >
-                  <i class="fa-sharp fa-solid fa-pen text-primary " style="font-size: 22px"></i>Sửa</a>
-                <a class="btn btn-outline-dark btn-square col-sm-6 item-text" type="button" data-bs-toggle="modal"
-                   [attr.data-bs-target]="'#staticBackdropDelete' + p.id">
-                  <i class="fa-sharp fa-solid fa-trash text-danger " style="font-size: 22px"></i>Xóa</a>
+                <button class="btn btn-outline-dark btn-square col-sm-6  item-text"
+                        [routerLink]="['/edit-product',p.id]">
+                  <i class="fa-sharp fa-solid fa-pen text-primary " style="font-size: 22px"></i>Sửa
+                </button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-dark btn-square col-sm-6  item-text" data-bs-toggle="modal"
+                        [attr.data-bs-target]="'#exampleModal'+p.id">
+                  <i class="fa-sharp fa-solid fa-trash text-danger " style="font-size: 22px"></i> Xóa
+                </button>
               </div>
               <!-- Modal -->
-              <div class="modal fade" id="staticBackdropDelete{{p.id}}" data-bs-backdrop="static"
-                   data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+              <div class="modal fade" id="exampleModal{{p.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                   aria-hidden="false">
+                <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title text-danger" id="staticBackdropLabelDelete">Xóa sản phẩm</h4>
+                      <h5 class="modal-title text-danger" id="exampleModalLabel">Xóa Sản Phẩm</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      Bạn có muốn xóa sản phẩm <span class="text-danger">{{p.name}}</span> của hãng <span>{{p.manufacturer}}</span> không?
+                      <span>bạn có muốn xóa sản phẩm </span>{{p.name}} <span>của hãng </span>{{p.manufacturer}} không?
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-outline-primary" (click)="deleteProduct(p.id)">Xóa
-                      </button>
-                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteProduct(p.id)">Chấp Nhận</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+
           <div class="col-lg-12">
             <nav>
               <ul class="pagination justify-content-center">
@@ -823,8 +829,10 @@
   </div>
   <!-- Offer End -->
 
-  <!-- Back to Top -->
-  <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<!-- Back to Top -->
+  <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<!--  Back to top button -->
+
 </div>
 
 

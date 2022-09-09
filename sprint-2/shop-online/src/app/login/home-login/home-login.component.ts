@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CookieService} from '../service/cookie.service';
-import {NavigationEnd, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {LoginService} from '../service/login.service';
 import {AuthService} from '../service/auth.service';
@@ -9,6 +9,11 @@ import {ForgotService} from '../service/forgot.service';
 import {CommonService} from '../service/common.service';
 import {Subscription} from 'rxjs';
 import {Title} from '@angular/platform-browser';
+import {Customer} from "../../model/customer";
+import {CustomerService} from "../../service/customer.service";
+import {AppUser} from "../../model/app-user";
+
+declare var $: any;
 
 @Component({
   selector: 'app-home-login',
@@ -26,6 +31,9 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   public realTimeSecond = 0;
   public realTimeMinute = 2;
   registerForm: FormGroup;
+  public passwordStatus: string = 'SHOW';
+  public confirmPasswordStatus: string = 'SHOW';
+  public buttonRegisterStatus: boolean = true;
 
   constructor(private cookieService: CookieService,
               private router: Router,
@@ -34,7 +42,9 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
               private authService: AuthService,
               private forgotService: ForgotService,
               private commonService: CommonService,
-              private title: Title) {
+              private title: Title,
+              private customerService: CustomerService,
+              private el: ElementRef) {
 
     const timePrevious = Number(localStorage.getItem('time'));
 
@@ -70,6 +80,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.createLoginForm();
     this.createForgotForm();
+    this.createRegisterForm();
   }
 
   createLoginForm() {
@@ -208,13 +219,181 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
     this.forgotForm.reset();
   }
 
+  onRegister() {
+    this.buttonRegisterStatus = false;
+    if (this.registerForm.valid) {
+      $('#field-username').css('border', 'none');
+      $('#field-password').css('border', 'none');
+      $('#field-confirmPassword').css('border', 'none');
+      let userRegister = {
+        username: this.registerForm.value.username,
+        password: this.registerForm.value.pass.password,
+        confirmPassword: this.registerForm.value.pass.confirmPassword
+      };
+      // @ts-ignore
+      this.customerService.goRegister(userRegister).subscribe(() => {
+        setTimeout(() => {
+          this.router.navigateByUrl("/login").then(() => {
+            this.toastrService.success("Đăng ký thành công!");
+            this.buttonRegisterStatus = true;
+          })
+        }, 2000)
+      }, error => {
+        this.buttonRegisterStatus = true;
+        switch (error.error.defaultMessage) {
+          case "usernameExists":
+            this.registerForm.controls.username.setErrors({'usernameExists': true});
+            this.toastrService.error("Tên đăng nhập đã tồn tại!")
+            break;
+          case "passwordNotSame":
+            this.registerForm.controls.pass.setErrors({'confirmPass': true})
+            this.toastrService.error("Tên nhập lại mật khẩu phải trùng với mật khẩu!")
+            break;
+          default:
+            this.toastrService.error("Vui lòng nhập đúng thông tin!")
+            break;
+        }
+        this.focusErrorInput();
+      });
+    } else {
+      this.buttonRegisterStatus = true;
+      this.checkErrorUsername();
+      this.checkErrorPassword();
+      this.checkErrorConfirmPassword();
+      this.focusErrorInput();
+    }
+  }
+
+  createRegisterForm() {
+    this.registerForm = new FormGroup({
+      username: new FormControl('', [Validators.required, Validators.pattern('^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$')]),
+      pass: new FormGroup({
+        password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$')]),
+        confirmPassword: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$')])
+      }, this.checkSamePassword)
+    });
+  }
+
+  checkSamePassword(pass: AbstractControl) {
+    let value = pass.value;
+    if (value.password != value.confirmPassword) {
+      return {'confirmPass': true};
+    }
+    return null;
+  }
+
+  focusErrorInput() {
+    for (const key of Object.keys(this.registerForm.controls)) {
+      if (this.registerForm.controls[key].invalid) {
+        const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+        invalidControl.focus();
+        this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+        break;
+      }
+    }
+    return this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+  }
+
+  showPassword() {
+    if (this.passwordStatus == 'SHOW') {
+      $('#password').attr('type', 'text');
+      this.passwordStatus = 'HIDE';
+    } else if (this.passwordStatus == 'HIDE') {
+      $('#password').attr('type', 'password');
+      this.passwordStatus = 'SHOW';
+    }
+  }
+
+  showConfirmPassword() {
+    if (this.confirmPasswordStatus == 'SHOW') {
+      $('#confirmPassword').attr('type', 'text');
+      this.confirmPasswordStatus = 'HIDE';
+    } else if (this.confirmPasswordStatus == 'HIDE') {
+      $('#confirmPassword').attr('type', 'password');
+      this.confirmPasswordStatus = 'SHOW';
+    }
+  }
+
+  checkErrorUsername() {
+    let dataToggleUsername = $('[data-bs-toggle="username"]');
+    if (this.registerForm.controls.username.hasError('required')) {
+      dataToggleUsername.attr('data-bs-content', 'Tên đăng nhập không được để trống.');
+      setTimeout(() => {
+        dataToggleUsername.popover('hide');
+      }, 2000)
+      dataToggleUsername.popover('show');
+    } else if (this.registerForm.controls.username.hasError('pattern')) {
+      dataToggleUsername.attr('data-bs-content', 'Tên đăng nhập từ 8 - 20 ký tự bắt đầu bằng chữ cái và không được chứa ký tự đặc biệt.');
+      setTimeout(() => {
+        dataToggleUsername.popover('hide');
+      }, 2000)
+      dataToggleUsername.popover('show');
+    } else if (this.registerForm.controls.username.hasError('usernameExists')) {
+      dataToggleUsername.attr('data-bs-content', 'Tên đăng nhập đã tồn tại.');
+      setTimeout(() => {
+        dataToggleUsername.popover('hide');
+      }, 2000)
+      dataToggleUsername.popover('show');
+    } else {
+      dataToggleUsername.popover('hide');
+    }
+  }
+
+  checkErrorPassword() {
+    let dataTogglePassword = $('[data-bs-toggle="password"]');
+    if (this.registerForm.controls.pass.get('password').hasError('required')) {
+      dataTogglePassword.attr('data-bs-content', 'Mật khẩu không được để trống.');
+      setTimeout(() => {
+        dataTogglePassword.popover('hide');
+      }, 2000)
+      dataTogglePassword.popover('show');
+    } else if (this.registerForm.controls.pass.get('password').hasError('pattern')) {
+      dataTogglePassword.attr('data-bs-content', 'Mật khẩu tối thiểu tám ký tự, ít nhất một chữ cái, một số và một ký tự đặc biệt.');
+      setTimeout(() => {
+        dataTogglePassword.popover('hide');
+      }, 2000)
+      dataTogglePassword.popover('show');
+    } else {
+      dataTogglePassword.popover('hide');
+    }
+  }
+
+  checkErrorConfirmPassword() {
+    let dataToggleConfirmPassword = $('[data-bs-toggle="confirmPassword"]');
+    let dataToggleSamePass = $('[data-toggle="samePassword"]');
+    if (this.registerForm.controls.pass.get('confirmPassword').hasError('required')) {
+      dataToggleConfirmPassword.attr('data-bs-content', 'Mật khẩu không được để trống.');
+      setTimeout(() => {
+        dataToggleConfirmPassword.popover('hide');
+      }, 2000)
+      dataToggleConfirmPassword.popover('show');
+    } else if (this.registerForm.controls.pass.get('confirmPassword').hasError('pattern')) {
+      dataToggleConfirmPassword.attr('data-bs-content', 'Mật khẩu tối thiểu tám ký tự, ít nhất một chữ cái, một số và một ký tự đặc biệt.');
+      setTimeout(() => {
+        dataToggleConfirmPassword.popover('hide');
+      }, 2000)
+      dataToggleConfirmPassword.popover('show');
+    } else if (this.registerForm.controls.pass.get('password').valid && this.registerForm.controls.pass.get('confirmPassword').valid) {
+      if (this.registerForm.controls.pass.hasError('confirmPass')) {
+        dataToggleSamePass.attr('data-bs-content', 'Mật khẩu và xác nhận mật khẩu phải giống nhau.');
+        setTimeout(() => {
+          dataToggleSamePass.popover('hide');
+        }, 2000)
+        dataToggleSamePass.popover('show');
+      } else {
+        dataToggleSamePass.popover('hide');
+      }
+    } else {
+      dataToggleSamePass.popover('hide');
+    }
+  }
+
   ngOnDestroy(): void {
     this.subscriptionName.unsubscribe();
+    $('[data-toggle="username"]').popover('hide');
+    $('[data-toggle="password"]').popover('hide');
+    $('[data-toggle="confirmPassword"]').popover('hide');
+    $('[data-toggle="samePassword"]').popover('hide');
   }
-
-  onRegister() {
-
-  }
-
 
 }

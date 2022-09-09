@@ -17,7 +17,7 @@ public class OrderService {
 
     private Date creationDate;
 
-    private Integer quantity;
+    private Integer quantity;   
 
     @Column(columnDefinition = "bit(1) default 0")
     private Boolean isDeleted;

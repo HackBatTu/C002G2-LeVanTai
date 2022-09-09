@@ -9,6 +9,8 @@ import {ProductService} from '../../service/product.service';
 import {Product} from "../../model/product";
 import {FormControl, FormGroup} from "@angular/forms";
 
+declare var $: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -101,16 +103,15 @@ export class HomeComponent implements OnInit {
   deleteProduct(id: number) {
     // @ts-ignore
     this.productService.deleteProduct(id).subscribe(value => {
-    }, error => {
-    }, () => {
       // @ts-ignore
-      $('#staticBackdropDelete' + id).modal('hide');
-      this.toastrService.error('deleted', 'SOS!!!');
+      $('#exampleModal' + id).modal('hide');
+      this.toastrService.success('Xóa thành công !!!', 'SOS!!!');
       this.ngOnInit();
       this.router.navigateByUrl('/home').then();
+    }, error => {
+    }, () => {
     })
   }
-
 
 
 }

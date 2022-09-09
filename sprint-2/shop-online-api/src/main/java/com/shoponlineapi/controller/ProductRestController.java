@@ -48,11 +48,11 @@ public class ProductRestController {
     }
     @GetMapping("/findById/{id}")
     public ResponseEntity<Product> findById(@PathVariable Integer id){
-        Product product = iProductService.findById(id);
-        if(product.getId() == null){
+
+        if(id == null){
           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(product,HttpStatus.OK);
+        return new ResponseEntity<>(iProductService.findById(id),HttpStatus.OK);
     }
 
     @PostMapping("/product/create")

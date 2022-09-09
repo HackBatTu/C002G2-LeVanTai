@@ -82,25 +82,19 @@ export class EditComponent implements OnInit {
     })
   }
 
+
   onEditProduct() {
     this.toggleLoading()
     let product: Product = this.productForm.value;
     if (this.selectedImage == null) {
-      for (const key of Object.keys(this.productForm.controls)) {
-        if (this.productForm.controls[key].invalid) {
-          const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
-          invalidControl.focus();
-          this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
-          break;
-        }
-      }
+      this.checkFocusFirstError()
       if (this.productForm.valid) {
         this.productService.editProduct(product).subscribe((data) => {
           this.toastrService.success('Cập nhật thành công', 'Thông báo!!!')
-          this.router.navigateByUrl('/employee').then();
+          this.router.navigateByUrl('/home').then();
         });
       } else {
-        return this.toastrService.warning("Vui lòng nhập đầy đủ và đúng dữ liệu!!!", "Thông báo")
+        this.checkFocusFirstError()
       }
     } else {
       const nameImg = EditComponent.getCurrentDateTime() + this.selectedImage.name;
@@ -115,14 +109,7 @@ export class EditComponent implements OnInit {
                 this.router.navigateByUrl('/home').then()
               });
             } else {
-              for (const key of Object.keys(this.productForm.controls)) {
-                if (this.productForm.controls[key].invalid) {
-                  const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
-                  invalidControl.focus();
-                  break;
-                }
-              }
-              return this.toastrService.warning("Vui lòng nhập đầy đủ và đúng dữ liệu!!!", "Thông báo")
+              this.checkFocusFirstError()
             }
           });
         })
@@ -136,6 +123,18 @@ export class EditComponent implements OnInit {
       this.isLoading = false;
     }, 3000)
   }
+  showPreview(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (o: any) => this.imgSrc = o.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+      document.getElementById('img').style.display = 'block';
+    } else {
+      this.imgSrc = '';
+      this.selectedImage = null;
+    }
+  }
 
   private static getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyyhhmmssa', 'en-US');
@@ -146,24 +145,10 @@ export class EditComponent implements OnInit {
     }
   }
 
-  showPreview(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (o: any) => this.imgSrc = o.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-      document.getElementById("image").style.display = "none"
-      document.getElementById("img").style.display = "block"
-    } else {
-      this.imgSrc = "";
-      this.selectedImage = null;
-    }
-  }
-
   checkErrorName() {
-    let dataToggle = $('[data-toggle="name"]');
+    let dataToggle = $('[data-bs-toggle="name"]');
     if (this.productForm.controls.name.hasError('required')) {
-      dataToggle.attr('data-content', 'Tên sản phẩm không được để trống.');
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -174,9 +159,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorPrice() {
-    let dataToggle = $('[data-toggle="price"]');
+    let dataToggle = $('[data-bs-toggle="price"]');
     if (this.productForm.controls.price.hasError('required')) {
-      dataToggle.attr('data-content', 'Giá sản phẩm không được để trống.');
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -187,9 +172,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorOrigin() {
-    let dataToggle = $('[data-toggle="origin"]');
-    if (this.productForm.controls.origin.hasError('required')) {
-      dataToggle.attr('data-content', 'Xuất xứ sản phẩm không được để trống.');
+    let dataToggle = $('[data-bs-toggle="manufacturer"]');
+    if (this.productForm.controls.manufacturer.hasError('required')) {
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -200,9 +185,21 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorQuantity() {
-    let dataToggle = $('[data-toggle="quantity"]');
+    let dataToggle = $('[data-bs-toggle="quantity"]');
     if (this.productForm.controls.quantity.hasError('required')) {
-      dataToggle.attr('data-content', 'Số lượng sản phẩm không được để trống.');
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
+      setTimeout(() => {
+        dataToggle.popover('hide');
+      }, 2000)
+      dataToggle.popover('show');
+    } else {
+      dataToggle.popover('hide');
+    }
+  }
+  checkErrorDiscount() {
+    let dataToggle = $('[data-bs-toggle="discount"]');
+    if (this.productForm.controls.discount.hasError('required')) {
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -213,9 +210,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorDateTime() {
-    let dataToggle = $('[data-toggle="releaseTime"]');
-    if (this.productForm.controls.releaseTime.hasError('required')) {
-      dataToggle.attr('data-content', 'Ngày sản xuất sản phẩm không được để trống.');
+    let dataToggle = $('[data-bs-toggle="dateIn"]');
+    if (this.productForm.controls.dateIn.hasError('required')) {
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -226,9 +223,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorCategory() {
-    let dataToggle = $('[data-toggle="category"]');
+    let dataToggle = $('[data-bs-toggle="category"]');
     if (this.productForm.controls.category.hasError('required')) {
-      dataToggle.attr('data-content', 'Vui lòng chọn danh mục.');
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -243,9 +240,9 @@ export class EditComponent implements OnInit {
       const fileName = $(this).val().split('\\').pop();
       $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
-    let dataToggle = $('[data-toggle="image"]');
+    let dataToggle = $('[data-bs-toggle="image"]');
     if (this.productForm.controls.image.hasError('required')) {
-      dataToggle.attr('data-content', 'Ảnh sản phẩm không được để trống.');
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -256,9 +253,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorGuaranteeTime() {
-    let dataToggle = $('[data-toggle="warrantyPeriod"]');
-    if (this.productForm.controls.warrantyPeriod.hasError('required')) {
-      dataToggle.attr('data-content', 'Thời hạn bảo hành không được để trống.');
+    let dataToggle = $('[data-bs-toggle="guaranteeTime"]');
+    if (this.productForm.controls.guaranteeTime.hasError('required')) {
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -269,9 +266,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorDescription() {
-    let dataToggle = $('[data-toggle="description"]');
+    let dataToggle = $('[data-bs-toggle="description"]');
     if (this.productForm.controls.description.hasError('required')) {
-      dataToggle.attr('data-content', 'Mô tả sản phẩm không được để trống.');
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -282,9 +279,9 @@ export class EditComponent implements OnInit {
   }
 
   checkErrorSpecifications() {
-    let dataToggle = $('[data-toggle="specifications"]');
-    if (this.productForm.controls.specifications.hasError('required')) {
-      dataToggle.attr('data-content', 'Thông số kỹ thuật không được để trống.');
+    let dataToggle = $('[data-bs-toggle="specification"]');
+    if (this.productForm.controls.specification.hasError('required')) {
+      dataToggle.attr('data-bs-content', 'Vui lòng nhập dữ liệu.');
       setTimeout(() => {
         dataToggle.popover('hide');
       }, 2000)
@@ -292,5 +289,27 @@ export class EditComponent implements OnInit {
     } else {
       dataToggle.popover('hide');
     }
+  }
+  checkFocusFirstError(){
+    for (const key of Object.keys(this.productForm.controls)) {
+      if (this.productForm.controls[key].invalid) {
+        const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+        invalidControl.focus();
+        this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+        break;
+      }
+    }
+    this.checkErrorName();
+    this.checkErrorPrice();
+    this.checkErrorOrigin();
+    this.checkErrorQuantity();
+    this.checkErrorDateTime();
+    this.checkErrorCategory();
+    this.chooseFile();
+    this.checkErrorDiscount();
+    this.checkErrorGuaranteeTime();
+    this.checkErrorDescription();
+    this.checkErrorSpecifications();
+    return this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
   }
 }

@@ -1,27 +1,7 @@
 <app-header></app-header>
-<div style="background: url(assets/img/bg/bg-2.jpg)" class="pb-5 pt-1">
-<!--<div class="pb-5 pt-1 bg-light">-->
-
-  <div class="container" >
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link text-warning" [routerLink]="['/']"><b>Biểu Đồ Thống Kê :</b></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-warning" [routerLink]="['/bar-chart']">Biểu đồ cột</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-warning" [routerLink]="['/doughnut-chart']">Biểu đồ bánh</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link text-warning" [routerLink]="['/radar-chart']">Biểu đồ radar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-warning" [routerLink]="['/pie-chart']">Biểu đồ tròn</a>
-      </li>
-    </ul>
-  </div>
-  <router-outlet (activate)="onActivate($event)"></router-outlet>
+<!--<div style="background: url(assets/img/bg/bg-2.jpg)" class="pb-5 pt-1">-->
+<div class="bg-home">
+  <router-outlet class="bg-light" (activate)="onActivate($event)"></router-outlet>
 </div>
 
 <app-footer></app-footer>

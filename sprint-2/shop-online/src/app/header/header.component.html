@@ -22,7 +22,7 @@
             <li type="button" class="text-white text-uppercase dropdown-toggle" data-bs-toggle="dropdown"
                 aria-expanded="false">{{username}}</li>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Chi tiết tài khoản</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/info']">Chi tiết tài khoản</a></li>
               <li><a class="dropdown-item" (click)="onLogout()">Đăng xuất</a></li>
             </ul>
           </div>
@@ -55,7 +55,7 @@
         <div class="col-lg-7 pt-3">
           <form action="">
             <div class="input-group radius">
-              <input type="text" class="form-control " placeholder="Tìm kiếm sản phẩm">
+              <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
               <div class="input-group-append">
               <span class="input-group-text bg-transparent text-primary">
                 <i class="fa fa-search"></i>
@@ -66,7 +66,7 @@
         </div>
         <div class="col-lg-2 text-right pt-1 ">
           <p class="m-0  text-white">Chăm sóc khách hàng</p>
-          <h5 class="m-0 text-white">+012 345 6789</h5>
+          <h5 class="m-0 text-white">+093 636 9999</h5>
         </div>
       </div>
 
@@ -96,7 +96,7 @@
             <a [routerLink]="['/create-product']" class="dropdown-item">Thêm Mới Sản Phẩm</a>
             <a href="#" class="dropdown-item">Danh Sách Khách Hàng</a>
             <a href="#" class="dropdown-item">Danh Sách Phản Hồi</a>
-            <a href="#" class="dropdown-item">Thống Kê Doanh Thu</a>
+            <a [routerLink]="['/bar-chart']" class="dropdown-item">Thống Kê Doanh Thu</a>
           </div>
         </div>
         <div class="col-lg-9 h-100">

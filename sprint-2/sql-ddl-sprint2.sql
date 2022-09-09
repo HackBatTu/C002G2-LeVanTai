@@ -27,6 +27,10 @@ create table customer (
 id int auto_increment primary key,
 name varchar(255),
 email varchar(255),
+image varchar(255),
+birthday date,
+phone varchar(255),
+hobbies varchar(255),
 `is_deleted` bit(1) default b'0',
 `user_id` int default null,
 foreign key (`user_id`) references `app_user` (`id`)

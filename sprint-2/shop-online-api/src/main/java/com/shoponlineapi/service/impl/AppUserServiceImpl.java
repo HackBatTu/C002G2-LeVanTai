@@ -1,18 +1,31 @@
 package com.shoponlineapi.service.impl;
 
 
+import com.shoponlineapi.dto.RegisterDTO;
+import com.shoponlineapi.model.account.AppRole;
 import com.shoponlineapi.model.account.AppUser;
+import com.shoponlineapi.model.account.UserRole;
 import com.shoponlineapi.repository.IAppUserRepository;
+import com.shoponlineapi.security.util.EncrytedPasswordUtils;
 import com.shoponlineapi.service.IAppUserService;
+import com.shoponlineapi.service.IUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class AppUserServiceImpl implements IAppUserService {
     @Autowired
     private IAppUserRepository iUserRepository;
+
+    @Autowired
+    private EncrytedPasswordUtils encrytedPasswordUtils;
+
+    @Autowired
+    private IUserRoleService userRoleService;
 
     /**
      * @creator TaiLV
@@ -35,9 +48,24 @@ public class AppUserServiceImpl implements IAppUserService {
         iUserRepository.saveAppUser(appUser);
     }
 
+    @Override
+    public void registerUser(RegisterDTO registerDTO) {
+        AppUser appUser = new AppUser();
+        appUser.setUserName(registerDTO.getUsername());
+        appUser.setPassword(this.encrytedPasswordUtils.encrytePassword(registerDTO.getPassword()));
+        appUser.setCreationDate(Date.valueOf(LocalDate.now()));
+        appUser.setIsDeleted(false);
+        AppUser appUserDone = this.iUserRepository.save(appUser);
+        AppRole appRole = new AppRole();
+        appRole.setId(2);
+        UserRole userRole = new UserRole();
+        userRole.setAppRole(appRole);
+        userRole.setAppUser(appUserDone);
+        userRole.setIsDeleted(false);
+        this.userRoleService.save(userRole);
+    }
+
     /**
-     * @creator: PhuongTD
-     * @date-create 9/8/2022
      * @param appUser
      */
     @Override
