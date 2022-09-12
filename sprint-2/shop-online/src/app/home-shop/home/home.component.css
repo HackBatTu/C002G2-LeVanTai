@@ -664,11 +664,7 @@ pre code {
   position: relative;
   width: 100%;
 }
-.col-fate-2 {
-  width: 20% !important;
-  height: auto;
-  max-width: 1000px;
-}
+
 
 
 .col {
@@ -1350,8 +1346,8 @@ pre code {
   }
 
   .col-lg-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
   }
 
   .col-lg-3 {

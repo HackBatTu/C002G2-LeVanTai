@@ -13,5 +13,5 @@ public interface IProductDTO {
     String getSpecification();
     String getDescription();
     Boolean getIsDeleted();
-    String getCategory();
+    Integer getCategory();
 }

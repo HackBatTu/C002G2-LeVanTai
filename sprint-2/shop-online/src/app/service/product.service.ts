@@ -16,10 +16,17 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll(page: number, searchName, searchOrigin, searchPrice) {
+  getAll(page: number, searchCategory, searchName, searchOrigin, searchStartPrice, searchEndPrice, sort) {
+    let productCategory;
     let productName;
     let productOrigin;
-    let productPrice;
+    let productStartPrice;
+    let productEndPrice;
+    if (searchCategory == null) {
+      productCategory = '';
+    } else {
+      productCategory = searchCategory;
+    }
     if (searchName == null) {
       productName = '';
     } else {
@@ -30,22 +37,42 @@ export class ProductService {
     } else {
       productOrigin = searchOrigin;
     }
-
-    if (searchPrice == null) {
-      productPrice = '';
+    if (searchStartPrice == null) {
+      productStartPrice = '0';
     } else {
-      productPrice = searchPrice;
+      productStartPrice = searchStartPrice;
     }
-    return this.httpClient.get<Product[]>(this.URL_CONNECT + '/product?page=' + page + '&searchName=' + productName +
-      '&searchOrigin=' + productOrigin + '&searchPrince=' + productPrice);
+    if (searchEndPrice == null) {
+      productEndPrice = '200000000';
+    } else {
+      productEndPrice = searchEndPrice;
+    }
+    return this.httpClient.get<Product[]>(this.URL_CONNECT + '/products?page=' + page + '&categoryId=' + productCategory + '&searchName=' + productName +
+      '&searchOrigin=' + productOrigin + '&searchStartPrice=' + productStartPrice + '&searchEndPrice=' + productEndPrice + "&sort=" + sort);
   }
+
+
+  getAllListProducts() {
+    return this.httpClient.get(this.URL_CONNECT + '/product/list');
+  }
+
+  getAllPageProducts(pageNumber: number, categoryId: string, productName: string, beginPrice: string, endPrice: string, originName: string, sort: string): Observable<Product[]> {
+    let searchName;
+    if (productName == null) {
+      searchName = '';
+    } else {
+      searchName = productName;
+    }
+    return this.httpClient.get<Product[]>(this.URL_CONNECT + '/product/page?page=' + pageNumber + '&categoryId=' + categoryId + '&productName=' + searchName + '&beginPrice=' + beginPrice + '&endPrice=' + endPrice + '&originName=' + originName + "&sort=" + sort);
+  }
+
 
   createProduct(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.URL_CONNECT + '/product/create', product)
   }
 
   editProduct(product: Product): Observable<Product> {
-    return this.httpClient.patch<Product>(this.URL_CONNECT + '/product/edit' , product)
+    return this.httpClient.patch<Product>(this.URL_CONNECT + '/product/edit', product)
   }
 
   findById(id): Observable<Product> {
@@ -81,4 +108,15 @@ export class ProductService {
   }
 
 
+  getAllCategoriesPage(size: number): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(this.URL_CONNECT + "/categories/page?size=" + size);
+  }
+
+  getCategoriesDiscount(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(this.URL_CONNECT + "/categories/discount");
+  }
+
+  getAllCategoriesList(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(this.URL_CONNECT + "/categories/list");
+  }
 }

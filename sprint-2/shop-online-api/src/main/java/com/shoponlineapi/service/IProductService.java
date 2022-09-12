@@ -8,9 +8,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface IProductService {
-    Page<IProductDTO> getAllProduct(Pageable pageable, String searchByName, String searchByOrigin, String searchByPrice);
 
-    List<Product> getAllPro();
 
     void deleteProduct(Integer id);
 
@@ -27,4 +25,13 @@ public interface IProductService {
     List<Product> getCamera();
 
     List<Product> getDevice();
+
+    List<Product> getNewProducts();
+
+    List<Product> findAll();
+
+    Page<Product> findAllProduct(Pageable pageable, String categoryId, String productName, String beginPrice, String endPrice, String originName);
+
+
+    Page<Product> getAllProduct(Pageable pageable,String searchByCategory, String searchByName, String searchByOrigin, String searchByStartPrice,String searchByEndPrice);
 }

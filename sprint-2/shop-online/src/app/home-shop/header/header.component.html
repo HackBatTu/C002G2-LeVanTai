@@ -36,24 +36,24 @@
           <a href="" class="btn px-0 ml-2">
             <i class="fas fa-shopping-cart text-dark"></i>
             <span class="badge text-dark border border-dark rounded-circle"
-                  style="padding-bottom: 2px;">0</span>
+                  style="padding-bottom: 2px;">{{totalProductInCart}}</span>
           </a>
         </div>
       </div>
     </div>
 
     <div class="row align-items-center pt-3 d-none d-lg-flex header-page mx-0">
-      <div class="row">
+      <div class="row col-lg-12">
 
-        <div class="col-lg-3">
-          <a href="" class="text-decoration-none">
+        <div class="col-lg-3 col-md-12">
+          <a href="" class="text-decoration-none ">
             <span class="h1 text-uppercase text-white px-2"><span class="fa fa-shipping-fast "></span></span>
             <span class="font-italic text-white px-2 ml-n1" style="font-size: 40px"
                   [routerLink]="['/home']">FateShop</span>
           </a>
         </div>
-        <div class="col-lg-7 pt-3">
-          <form action="">
+        <div class="col-lg-7 col-md-12 pt-3">
+          <div action="">
             <div class="input-group radius">
               <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
               <div class="input-group-append">
@@ -62,9 +62,9 @@
               </span>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-        <div class="col-lg-2 text-right pt-1 ">
+        <div class="col-lg-2 col-md-12 text-right pt-1 ">
           <p class="m-0  text-white">Chăm sóc khách hàng</p>
           <h5 class="m-0 text-white">+093 636 9999</h5>
         </div>
@@ -112,6 +112,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between dropdown-toggle" id="navbarCollapse">
               <div class="navbar-nav mr-auto py-0 dropdown-toggle">
+                <a class="nav-item nav-link" [routerLink]="['/list-product']">Tất Cả Sản Phẩm</a>
                 <a class="nav-item nav-link" [routerLink]="['/laptop']">Laptop</a>
                 <a class="nav-item nav-link" [routerLink]="['/tivi']">Tivi</a>
                 <a class="nav-item nav-link" [routerLink]="['/smart-phone']">Điện Thoại</a>

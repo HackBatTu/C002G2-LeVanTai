@@ -665,9 +665,24 @@ pre code {
   width: 100%;
 }
 .col-fate-2 {
+  position: relative;
   width: 20% !important;
   height: auto;
 }
+.col-fate-2 {
+  flex: 0 0 auto;
+  width: 100%
+}
+.col-fate-3 {
+  position: relative;
+  width: 20% !important;
+  height: auto;
+}
+.col-fate-3 {
+  flex: 0 0 auto;
+  width: 100%
+}
+
 .col {
   flex-basis: 0;
   flex-grow: 1;
@@ -1347,8 +1362,8 @@ pre code {
   }
 
   .col-lg-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
+    flex: 0 0 20%;
+    max-width: 20%;
   }
 
   .col-lg-3 {

@@ -1,44 +1,35 @@
 package com.shoponlineapi.model;
+
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Objects;
 
+@Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
-@Entity
-public class OrderService {
+public class ProductCoupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Date creationDate;
-
-    private Integer quantity;   
-
-    @Column(columnDefinition = "bit(1) default 0")
-    private Boolean isDeleted;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    private Customer customer;
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "bill_id", referencedColumnName = "id")
-    private Bill bill;
+    @JoinColumn(name = "coupon_id", referencedColumnName = "id")
+    private Coupon coupon;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        OrderService that = (OrderService) o;
+        ProductCoupon that = (ProductCoupon) o;
         return id != null && Objects.equals(id, that.id);
     }
 

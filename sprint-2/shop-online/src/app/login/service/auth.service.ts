@@ -1,12 +1,17 @@
 import {Injectable} from '@angular/core';
 import {CookieService} from './cookie.service';
+import {Observable} from "rxjs";
+import {environment} from "../../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
+const API_URL = `${environment.apiUrl}`;
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private cookieService: CookieService) {
+  constructor(private httpClient: HttpClient,
+              private cookieService: CookieService) {
   }
 
   isLogin(value: any) {
@@ -30,4 +35,17 @@ export class AuthService {
   //     return value === 'ROLE_STAFF';
   //   });
   // }
+
+
+  checkLogin(): Observable<boolean> {
+    return this.httpClient.post<boolean>(API_URL + "/check/login", null);
+  }
+  checkAdminRole(): Observable<string> {
+    return this.httpClient.post<string>(API_URL + "/role/admin", null);
+  }
+
+  getRoles(): Observable<any> {
+    return this.httpClient.post(API_URL + "/get/role", null)
+  }
+
 }

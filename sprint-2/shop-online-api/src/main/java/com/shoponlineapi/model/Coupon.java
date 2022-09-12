@@ -1,54 +1,43 @@
 package com.shoponlineapi.model;
 
-import com.shoponlineapi.model.account.AppUser;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class Feedback {
+public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String content;
+    @Column(unique = true)
+    private String name;
 
-    private Date feedbackDate;
-
-    @Column(columnDefinition = "text")
-    private String image;
-
-    private Integer rate;
+    @Column(columnDefinition = "double default 0")
+    private Integer discountPercent;
 
     @Column(columnDefinition = "bit(1) default 0")
     private Boolean isDeleted;
 
-    @OneToOne(mappedBy = "feedback")
-    private Bill bill;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    private Customer customer;
+    @OneToMany(mappedBy = "coupon")
+    private List<ProductCoupon> productCouponList;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Feedback feedback = (Feedback) o;
-        return id != null && Objects.equals(id, feedback.id);
+        Coupon coupon = (Coupon) o;
+        return id != null && Objects.equals(id, coupon.id);
     }
 
     @Override
     public int hashCode() {
         return getClass().hashCode();
     }
-
 }

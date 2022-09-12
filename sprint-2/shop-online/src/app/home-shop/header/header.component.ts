@@ -1,10 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {CookieService} from '../login/service/cookie.service';
+import {CookieService} from '../../login/service/cookie.service';
 import {ToastrService} from 'ngx-toastr';
-import {LogoutService} from '../login/service/logout.service';
+import {LogoutService} from '../../login/service/logout.service';
 import {Router} from '@angular/router';
-import {CommonService} from '../login/service/common.service';
+import {CommonService} from '../../login/service/common.service';
+import {Order} from "../../model/order";
+import {Customer} from "../../model/customer";
+import {OrderService} from "../../service/order.service";
+import {CustomerService} from "../../service/customer.service";
 
 @Component({
   selector: 'app-header',
@@ -17,12 +21,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   token: string = '';
   messageReceived: any;
   private subscriptionName: Subscription;
+  totalProductInCart: number = 0;
+  order: Order[] = [];
+  customer: Customer;
 
   constructor(private cookieService: CookieService,
               private toastrService: ToastrService,
               private logoutService: LogoutService,
               private router: Router,
-              private commonService: CommonService) {
+              private commonService: CommonService,
+              private orderService: OrderService,
+              private customerService: CustomerService) {
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
@@ -36,6 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getCustomerByUsername(this.username)
   }
 
   /**
@@ -78,6 +88,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.sendMessage();
             this.cookieService.deleteAllCookies();
             this.cookieService.removeAllCookies();
+            this.totalProductInCart = 0;
           });
         });
       } else {
@@ -95,5 +106,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
   sendMessage(): void {
     // send message to subscribers via observable subject
     this.commonService.sendUpdate('Đăng Xuất thành công!');
+  }
+
+  getTotalProductInCart(customer: Customer){
+    this.totalProductInCart = 0;
+    this.orderService.getProductInCardByCustomer(customer).subscribe((pos: Order[])=> {
+      this.order = pos;
+      for (let i =0;i<pos.length;i++){
+        this.totalProductInCart += pos[i].quantity
+      }
+    })
+  }
+
+  getCustomerByUsername(username: string) {
+    this.customerService.getCustomerByUserName(username).subscribe(value => {
+      this.customer = value;
+      this.getTotalProductInCart(value)
+    });
+
   }
 }

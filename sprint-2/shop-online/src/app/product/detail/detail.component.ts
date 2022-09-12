@@ -29,6 +29,7 @@ export class DetailComponent implements OnInit {
       const id = paraMap.get('id');
       // @ts-ignore
       this.productService.findById(parseInt(id)).subscribe(data => {
+        console.log(data)
         // @ts-ignore
         this.product = data;
         if (data == null) {

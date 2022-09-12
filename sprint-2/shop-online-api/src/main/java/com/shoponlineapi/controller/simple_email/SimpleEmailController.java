@@ -82,7 +82,7 @@ public class SimpleEmailController {
             String htmlMsg = createHTMLMailForm(token, appUser.getUserName());
             message.setContent(htmlMsg, "text/html; charset=UTF-8");
 
-//            helper.setTo(appUser.getEmployee().getEmail());
+            helper.setTo(appUser.getCustomer().getEmail());
 
             helper.setSubject("[C0222G2 - Coffee] Lấy lại mật khẩu");
 

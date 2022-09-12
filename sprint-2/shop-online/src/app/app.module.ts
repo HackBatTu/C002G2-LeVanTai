@@ -3,10 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
-import {HomeComponent} from './product/home/home.component';
-import {CartComponent} from './cart/cart.component';
 import {ChartsModule} from 'ng2-charts';
 import {BarChartComponent} from './charts-js/bar-chart/bar-chart.component';
 import {DoughnutChartComponent} from './charts-js/doughnut-chart/doughnut-chart.component';
@@ -19,15 +15,12 @@ import {LoginModule} from './login/login.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ProductModule} from './product/product.module';
 import {CustomerModule} from "./customer/customer.module";
+import {HomeShopModule} from "./home-shop/home-shop.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    CartComponent,
     BarChartComponent,
     DoughnutChartComponent,
     RadarChartComponent,
@@ -41,6 +34,7 @@ import {CustomerModule} from "./customer/customer.module";
     ProductModule,
     CustomerModule,
     LoginModule,
+    HomeShopModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(
       {

@@ -50,8 +50,6 @@ input, label {
   text-align: left !important;
 }
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -163,19 +161,20 @@ input {
 .sign-in-container {
   left: 0;
   width: 50%;
-  z-index: 2;
+  /*z-index: 2;*/
+}
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  /*z-index: 1;*/
 }
 
 .container.right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
 
-.sign-up-container {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
+
 
 .container.right-panel-active .sign-up-container {
   transform: translateX(100%);

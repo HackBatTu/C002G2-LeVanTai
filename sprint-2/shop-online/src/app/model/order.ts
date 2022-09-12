@@ -8,4 +8,5 @@ export interface Order {
   isDeleted?: boolean;
   product?: Product;
   customer?: Customer;
+  totalMoney?: number;
 }

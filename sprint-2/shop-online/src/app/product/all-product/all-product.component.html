@@ -1,6 +1,7 @@
+<!-- Page Header Start -->
 <div class="container-fluid bg-white">
   <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
-      <h1 class="font-weight-semi-bold text-uppercase mb-3">DANH SÁCH Máy Ảnh</h1>
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">DANH SÁCH SẢN PHẨM</h1>
     <div class="d-inline-flex">
       <p class="m-0"><a href="">Trang chủ</a></p>
       <p class="m-0 px-2">-</p>
@@ -8,20 +9,45 @@
     </div>
   </div>
 </div>
+<!-- Page Header End -->
 <!-- Shop Start -->
-<div class="container pt-1 pb-4">
+<div class="container pt-3 pb-4 radius-2">
   <!--  <img class="w-100" src="assets/img/bg/sieu-mua.jpg">-->
   <div class="row pl-3 pr-0">
 
     <!-- Shop Product Start -->
-    <div class="col-lg-9 row col-md-12 pt-1">
+    <div class="col-lg-9 row col-md-12 pt-3">
+      <div class="d-flex justify-content-between mb-4">
+        <form [formGroup]="searchByNameForm" (ngSubmit)="searchByName()">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><a class="text-dark" [routerLink]="" (click)="resetSearchForm()">Hủy</a></div>
+            </div>
+            <input type="text" class="form-control border-primary" id="inlineFormInputGroup" placeholder="Tìm tên sản phẩm" formControlName="productName">
+            <button type="submit" class="btn btn-outline-primary" style="border: none !important;">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+        <div class="dropdown ml-4">
+          <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                  data-bs-toggle="dropdown">
+            Sắp xếp theo
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" [routerLink]="" (click)="sortByDate('date_in,DESC')">Ngày phát hành</a>
+            <a class="dropdown-item" [routerLink]="" (click)="sortByPriceDESC('price,DESC')">Giá giảm dần</a>
+            <a class="dropdown-item" [routerLink]="" (click)="sortByPriceASC('price')">Giá tăng dần</a>
+          </div>
+        </div>
+      </div>
       <div class="row col-lg-12 pb-3 pr-1">
-        <div class="col-lg-2 col-md-6 pb-1 pr-1 pl-1" *ngFor="let p of cameraProduct">
+        <div class="col-lg-2 col-md-6 pb-1 pr-1 pl-1" *ngFor="let p of products">
           <div class=" product-item bg-white " >
             <div class="product-img position-relative overflow-hidden">
               <img class="img-fluid w-100" [src]="p.image" alt="">
               <div class="product-action">
-                <a class="btn btn-outline-dark btn-square" href=""><i
+                <a class="btn btn-outline-dark btn-square" [routerLink]="" (click)="addToCart(p)" ><i
                   class="fa fa-shopping-cart"></i></a>
                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                 <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product', p.id]"><i class="fa fa-search"></i></a>
@@ -35,6 +61,7 @@
                   <b class="text-success">({{-p.discount}}%)</b>
                 </b>
               </div>
+
               <div class="d-flex align-items-center justify-content-center mb-1">
                 <small class="fa fa-star text-primary mr-1"></small>
                 <small class="fa fa-star text-primary mr-1"></small>
@@ -73,124 +100,94 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 pb-1 text-center font-weight-bold text-white" style="font-size: 30px !important;" *ngIf="cameraProduct.length <= 0">
-          Không có dữ liệu !!!.
-        </div>
       </div>
     </div>
     <!-- Shop Product End -->
 
     <!-- Shop Sidebar Start -->
     <div class="col-lg-3 col-md-12 bg-white">
-      <!-- Image Start -->
-      <div>
-        <h4 class="section-title position-relative text-uppercase mb-4 pt-1"><span
-          class="text-danger pr-2 ">Chọn Hãng SX:</span>
-        </h4>
-        <div class=" row col-12 radius-1">
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-1.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-2.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-3.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-4.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-5.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-6.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-7.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2  d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-8.jpg" alt="">
-          </a>
-          <a class="col-4 mb-2 d-flex align-items-center justify-content-between radius-1" href="#">
-            <img class="img-fluid-1 w-100 radius-1" src="assets/img/hang-sx/vendor-9.jpg" alt="">
-          </a>
-        </div>
+      <!-- Categories Start -->
+      <div class="border-none mb-4 pb-4">
+          <h4 class="section-title position-relative text-uppercase mb-2 mt-4" data-bs-toggle="collapse" href="#navbar-vertical" ><span
+            class="text-danger pr-2">Chọn Danh Mục</span><i class="fa fa-angle-down text-danger"></i>
+          </h4>
+        <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border-none" id="navbar-vertical">
+          <div class="navbar-nav w-100 overflow-hidden" style="height: auto">
+            <a [routerLink]="" (click)="loadProductByCategory(category.id + '')"
+               class="nav-item nav-link" data-toggle="reset-active-category" [id]="'category' + category.id" *ngFor="let category of categories">
+              {{category.name}} [{{category.totalProduct}}]
+            </a>
+            <button class="btn btn-outline-primary" (click)="loadProductByCategory('')">
+              Tất cả sản phẩm
+              <small class="border-primary text-dark">[{{totalProducts}}]</small>
+            </button>
+          </div>
+        </nav>
       </div>
       <!-- Image End -->
-      <hr>
       <!-- Price Start -->
       <div>
         <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span
           class="text-danger pr-2">Chọn Mức Giá:</span>
         </h4>
         <div class=" p-3 row col-12 radius-2">
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" checked id="price-all">
-            <label class="custom-control-label text-dark" for="price-all">Trên 20 triệu</label>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="radio" name="filter-price" class="custom-control-input" checked id="price-all" (input)="filterPrice('0', '400000000000')">
+            <label class="custom-control-label" for="price-all">Tất cả giá bán</label>
+            <span class="badge border text-dark font-weight-normal">{{totalProductsFilter}}</span>
           </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-1">
-            <label class="custom-control-label text-dark" for="price-1">Dưới 7 triệu</label>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="radio" name="filter-price" class="custom-control-input" id="price-1" (input)="filterPrice('0','1000000')">
+            <label class="custom-control-label" for="price-1">0<sup>đ</sup> - 1.000.000<sup>đ</sup></label>
+            <span class="badge border text-dark font-weight-normal">{{this.totalOneMi}}</span>
           </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-2">
-            <label class="custom-control-label text-dark" for="price-2">Từ 7 đến 10 triệu</label>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="radio" name="filter-price" class="custom-control-input" id="price-2" (input)="filterPrice('1000001','3000000')">
+            <label class="custom-control-label" for="price-2">1.000.000<sup>đ</sup> - 3.000.000<sup>đ</sup></label>
+            <span class="badge border text-dark font-weight-normal">{{totalThreeMi}}</span>
           </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-3">
-            <label class="custom-control-label text-dark" for="price-3">Từ 10 đến 12 triệu</label>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="radio" name="filter-price" class="custom-control-input" id="price-3" (input)="filterPrice('3000001','5000000')">
+            <label class="custom-control-label" for="price-3">3.000.000<sup>đ</sup> - 5.000.000<sup>đ</sup></label>
+            <span class="badge border text-dark font-weight-normal">{{totalFiveMi}}</span>
           </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-4">
-            <label class="custom-control-label text-dark" for="price-4">Từ 12 đến 15 triệu</label>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="radio" name="filter-price" class="custom-control-input" id="price-4" (input)="filterPrice('5000001','10000000')">
+            <label class="custom-control-label" for="price-4">5.000.000<sup>đ</sup> - 10.000.000<sup>đ</sup></label>
+            <span class="badge border text-dark font-weight-normal">{{totalTenMi}}</span>
           </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-5">
-            <label class="custom-control-label text-dark" for="price-5">Từ 15 đến 20 triệu</label>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+            <input type="radio" name="filter-price" class="custom-control-input" id="price-5" (input)="filterPrice('10000001','400000000000')">
+            <label class="custom-control-label" for="price-5">10.000.000<sup>đ</sup> trở lên</label>
+            <span class="badge border text-dark font-weight-normal">{{totalLetThanTenMi}}</span>
           </div>
 
         </div>
       </div>
       <!-- Price End -->
       <hr>
+
       <!-- Color Start -->
       <div>
         <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span
-          class="text-danger pr-2">Chọn Màu Sắc:</span>
+          class="text-danger pr-2">Chọn Nơi Xuất Xứ:</span>
         </h4>
-        <div class=" p-3 row col-12 radius-2">
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" checked id="color-all">
-            <label class="custom-control-label text-dark" for="price-all">Tất cả</label>
-          </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="color-1">
-            <label class="custom-control-label text-dark" for="color-1">Màu đen</label>
-          </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="color-2">
-            <label class="custom-control-label text-dark" for="color-2">Màu trắng</label>
-          </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="color-3">
-            <label class="custom-control-label text-dark" for="color-3">Màu đỏ</label>
-          </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="color-4">
-            <label class="custom-control-label text-dark" for="color-4">Màu xanh lục</label>
-          </div>
-          <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between  mb-3">
-            <input type="checkbox" class="custom-control-input" id="color-5">
-            <label class="custom-control-label text-dark" for="color-5">Màu xanh lá</label>
-          </div>
+        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+          <input type="radio" name="origin" class="custom-control-input" checked id="color-all" (input)="filterOrigin('')">
+          <label class="custom-control-label" for="color-all">Tất cả hãng</label>
+          <span class="badge border font-weight-normal">{{totalProductsFilter}}</span>
+        </div>
+        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3" *ngFor="let origin of originDtos; index as i">
+          <input type="radio" name="origin" class="custom-control-input" id="color-{{origin.name}}" (input)="filterOrigin(origin.name)">
+          <label class="custom-control-label" for="color-{{origin.name}}">{{origin.name}}</label>
+          <span class="badge border font-weight-normal">{{origin.quantity}}</span>
         </div>
         <!-- Color End -->
       </div>
       <hr>
       <!-- Size Start -->
       <div>
-        <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span class="text-white pr-2">Chọn Theo Size:</span>
+        <h4 class="section-title position-relative text-uppercase mb-2 mt-4"><span class="text-danger pr-2">Chọn Theo Size:</span>
         </h4>
         <div class=" row col-12  p-3 radius-2">
           <div class="col-6 custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">

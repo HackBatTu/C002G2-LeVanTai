@@ -5,7 +5,7 @@
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text-white"
                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+              <img src="{{customer.image}}"
                    alt="Avatar" class="img-fluid my-5" style="width: 150px;" />
               <h3 *ngIf="customer.name != ''" >{{customer.name}}</h3>
               <p>
@@ -25,8 +25,16 @@
                     <p>{{username}}</p>
                   </div>
                   <div class="col-6 mb-3">
+                    <b>Số điện thoại :</b>
+                    <p>{{customer.phone}}</p>
+                  </div>
+                  <div class="col-6 mb-3">
                     <b>Mật Khẩu :</b>
-                    <p>{{customer.appUser.password}}</p>
+                    <p>**********</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <b>Ngày Sinh :</b>
+                    <p>{{customer.birthday| date : 'dd-MM-yyyy'}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <b>Email :</b>
@@ -42,7 +50,7 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <b>Sở thích</b>
-                    <p class="text-danger ">Yêu Màu Hường , ghét sự giả dối...</p>
+                    <p class="text-danger ">{{customer.hobbies}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <b>Phương châm</b>

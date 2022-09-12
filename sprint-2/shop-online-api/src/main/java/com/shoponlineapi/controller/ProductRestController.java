@@ -9,7 +9,9 @@ import com.shoponlineapi.service.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,21 +33,40 @@ public class ProductRestController {
     @Autowired
     private ICategoryService iCategoryService;
 
-    @GetMapping("/product")
-    public ResponseEntity<Page<IProductDTO>> getPageProduct(@PageableDefault(20)Pageable pageable,
-                                                            Optional<String> searchPrice,
+    @GetMapping( "/product/list")
+    public ResponseEntity<List<Product>> getAllListProducts() {
+        List<Product> productList = this.iProductService.findAll();
+        if (productList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+    @GetMapping(value = "/new/products")
+    public ResponseEntity<List<Product>> getNewProducts() {
+        List<Product> productList = this.iProductService.getNewProducts();
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+
+    @GetMapping("/products")
+    public ResponseEntity<Page<Product>> getPageProduct(@PageableDefault(32)Pageable pageable,
+                                                            Optional<String> categoryId,
+                                                            Optional<String> searchStartPrice,
+                                                            Optional<String> searchEndPrice,
                                                             Optional<String> searchOrigin,
                                                             Optional<String> searchName){
-       String searchByName = searchName.orElse("");
-       String searchByPrice = searchPrice.orElse("");
-       String searchByOrigin = searchOrigin.orElse("");
+        String searchByCategory = categoryId.orElse("");
+        String searchByName = searchName.orElse("");
+        String searchByStartPrice = searchStartPrice.orElse("0");
+        String searchByEndPrice = searchEndPrice.orElse("200000000");
+        String searchByOrigin = searchOrigin.orElse("");
 
-        Page<IProductDTO> productDTOPage = iProductService.getAllProduct(pageable,searchByName,searchByOrigin,searchByPrice);
+        Page<Product> productDTOPage = iProductService.getAllProduct(pageable,searchByCategory,searchByName,searchByOrigin,searchByStartPrice,searchByEndPrice);
         if(productDTOPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(productDTOPage,HttpStatus.OK);
     }
+
     @GetMapping("/findById/{id}")
     public ResponseEntity<Product> findById(@PathVariable Integer id){
 
@@ -132,4 +153,5 @@ public class ProductRestController {
         }
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
 }

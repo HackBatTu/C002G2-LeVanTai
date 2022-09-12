@@ -35,7 +35,12 @@ public class Product {
     @Column(columnDefinition = "text")
     private String description;
 
+    @OneToMany(mappedBy = "product")
+    private List<ProductCoupon> productCouponList;
 
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private List<Promotion>  promotionList;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
