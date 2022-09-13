@@ -64,6 +64,7 @@ export class EditComponent implements OnInit {
       this.categories = data;
     })
   }
+
   editForm() {
     this.productForm = new FormGroup({
       id: new FormControl(this.product.id),

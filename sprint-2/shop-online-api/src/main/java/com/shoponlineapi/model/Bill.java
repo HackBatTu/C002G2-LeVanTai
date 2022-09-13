@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,7 +15,9 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String code;
+
+    private Date creationDate;
 
     @Column(columnDefinition = "bit(1) default 0")
     private Boolean isDeleted;
@@ -24,7 +27,7 @@ public class Bill {
     private Feedback feedback;
 
     @OneToMany(mappedBy = "bill")
-    private List<OrderService> orderServiceList;
+    private List<OrderService> productOrderList;
 
     @Override
     public boolean equals(Object o) {

@@ -79,8 +79,8 @@ export class ProductService {
     return this.httpClient.get<Product>(this.URL_CONNECT + '/findById/' + id);
   }
 
-  deleteProduct(id) {
-    return this.httpClient.delete(this.URL_CONNECT + '/delete/' + id);
+  deleteProduct(id: number): Observable<Product> {
+    return this.httpClient.delete<Product>(this.URL_CONNECT + '/delete/' + id);
   }
 
   getAllCategory() {

@@ -112,6 +112,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.totalProductInCart = 0;
     this.orderService.getProductInCardByCustomer(customer).subscribe((pos: Order[])=> {
       this.order = pos;
+      console.log(pos)
       for (let i =0;i<pos.length;i++){
         this.totalProductInCart += pos[i].quantity
       }
@@ -123,6 +124,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.customer = value;
       this.getTotalProductInCart(value)
     });
-
   }
 }

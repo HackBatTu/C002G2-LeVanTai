@@ -10,7 +10,7 @@ import java.util.List;
 public interface IProductService {
 
 
-    void deleteProduct(Integer id);
+    Boolean deleteProduct(String id);
 
     Product findById(Integer id);
 
@@ -29,9 +29,6 @@ public interface IProductService {
     List<Product> getNewProducts();
 
     List<Product> findAll();
-
-    Page<Product> findAllProduct(Pageable pageable, String categoryId, String productName, String beginPrice, String endPrice, String originName);
-
 
     Page<Product> getAllProduct(Pageable pageable,String searchByCategory, String searchByName, String searchByOrigin, String searchByStartPrice,String searchByEndPrice);
 }

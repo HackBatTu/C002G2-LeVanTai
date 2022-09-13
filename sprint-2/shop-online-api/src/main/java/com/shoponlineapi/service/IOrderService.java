@@ -1,6 +1,7 @@
 package com.shoponlineapi.service;
 
 import com.shoponlineapi.dto.ErrorDTO;
+import com.shoponlineapi.dto.PaymentDto;
 import com.shoponlineapi.model.Customer;
 import com.shoponlineapi.model.OrderService;
 
@@ -16,4 +17,6 @@ public interface IOrderService {
     Boolean plusQuantity(OrderService orderService);
 
     Boolean findProductOrder(OrderService orderService);
+
+    PaymentDto goPayment(Customer customer);
 }

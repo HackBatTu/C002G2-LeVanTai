@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   category: Category;
   sort: string = '';
   categoryId: string = '';
+  public infoStatus: boolean = false;
   constructor(private title: Title,
               private cookieService: CookieService,
               private productService: ProductService,
@@ -153,11 +154,26 @@ export class HomeComponent implements OnInit {
   getCustomerByUsername(username: string) {
     this.customerService.getCustomerByUserName(username).subscribe(value => {
       this.customer = value;
+      if (value == null) {
+        this.infoStatus = true;
+      } else {
+        this.infoStatus = value.appUser.isDeleted;
+      }
+    });
+  }
+  addToCartMessage() {
+    this.toastrService.warning('Vui lòng đăng nhập thành viên để thực hiện chức năng này!');
+  }
+
+  updateInfoMessage() {
+    this.router.navigateByUrl('/info').then(value => {
+      this.toastrService.warning('Vui lòng cập nhật thông tin để mua hàng!');
     });
   }
   sendMessage(): void {
     this.commonService.sendUpdate('Success!');
   }
+
   public fPrince: string = 'Tìm kiếm theo giá'
   filterPrice(start: string, end: string) {
     this.startPrice = start;

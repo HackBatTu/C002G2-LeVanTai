@@ -25,31 +25,16 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
             " and product.is_deleted = 0 ) temp_table", nativeQuery = true)
     Page<Product> getAllProduct(Pageable pageable, String searchByCategory, String searchByName, String searchByOrigin, String searchByStartPrice, String searchByEndPrice);
 
-    @Query(value = " select p.* from product p " +
-            " join category c on c.id = p.category_id" +
-            " where c.id = :id and p.is_deleted = 0 and c.is_deleted = 0 ", nativeQuery = true)
-    List<Product> findByCategoryId(@Param("id") Integer id);
-
     @Query(value = " SELECT * FROM product where is_deleted = 0 order by date_in desc limit 32 ", nativeQuery = true)
     List<Product> getNewProducts();
 
     @Query(value = " SELECT * FROM product where is_deleted = 0 ", nativeQuery = true)
     List<Product> findAll();
 
-    @Query(value = " select p.* from product p " +
-            " join category c on c.id = p.category_id " +
-            " where p.category_id like :id and p.name like :productName " +
-            " and p.price between :beginPrice and :endPrice and p.manufacturer like :originName " +
-            " and p.is_deleted = 0 ", nativeQuery = true)
-    Page<Product> findAllProduct(Pageable pageable,
-                                 @Param("id") String id, @Param("productName") String productName,
-                                 @Param("beginPrice") Double beginPrice, @Param("endPrice") Double endPrice,
-                                 @Param("originName") String originName);
-
     @Transactional
     @Modifying
-    @Query(value = "update product set product.is_deleted = 1 where product.id = :id ", nativeQuery = true)
-    void deleteProduct(Integer id);
+    @Query(value = " update product set is_deleted = 1 where id = :id ", nativeQuery = true)
+    void deleteProduct(@Param("id") String id);
 
 
     @Query(value = "select * from product join category on category.id = product.category_id " +
@@ -73,4 +58,13 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
     List<Product> getTivi();
 
 
+    @Modifying
+    @Transactional
+    @Query(value = " UPDATE `product` SET `quantity` = (`quantity` - :quantity) WHERE (`id` = :id) ", nativeQuery = true)
+    void updateQuantity(@Param("quantity") Integer quantity,@Param("id") Integer id);
+
+    @Modifying
+    @Transactional
+    @Query(value = " UPDATE `product` SET `is_deleted` = 1 WHERE (`id` = :id) ", nativeQuery = true)
+    void updateIsDeleted(@Param("id") Integer id);
 }

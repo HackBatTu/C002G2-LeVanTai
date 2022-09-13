@@ -8,6 +8,7 @@ import {ToastrService} from "ngx-toastr";
 import {CommonService} from "../../login/service/common.service";
 import {CookieService} from "../../login/service/cookie.service";
 import {Subscription} from "rxjs";
+import {Router} from "@angular/router";
 
 declare var $: any;
 
@@ -22,6 +23,7 @@ export class CartComponent implements OnInit {
   token: string = '';
   messageReceived: any;
   private subscriptionName: Subscription;
+  public loginStatus: any;
   customer: Customer;
   productOrders: Order[] = [];
   totalMoney: number = 0;
@@ -30,7 +32,8 @@ export class CartComponent implements OnInit {
               private customerService: CustomerService,
               private cartService: OrderService,
               private toastrService: ToastrService,
-              private commonService: CommonService) {
+              private commonService: CommonService,
+              private router: Router) {
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
@@ -48,6 +51,7 @@ export class CartComponent implements OnInit {
   }
   ngOnInit(): void {
     this.sendMessage();
+    this.getCustomerByUsername(this.username);
   }
 
   getProductInCardByCustomer(customer: Customer) {
@@ -65,8 +69,37 @@ export class CartComponent implements OnInit {
     this.totalMoney = 0;
     for (let i = 0; i < pos.length; i++) {
       // @ts-ignore
-      this.totalMoney += ((pos[i].product.price - (pos[i].product.price * (pos[i].product.discount / 100)))) * pos[i].quantity;
+      this.totalMoney += ((pos[i].product.price - (pos[i].product.price * (pos[i].product.discount / 100))) * pos[i].quantity);
     }
+    if (this.totalMoney >= 0) {
+      render(
+        {
+          id: '#payments',
+          currency: 'USD',
+          value: String(((this.totalMoney + 50000) / 23000).toFixed(2)),
+          onApprove: (details) => {
+            console.log(details);
+            if (details.status == 'COMPLETED') {
+              this.onPaymentSuccess();
+            }
+          }
+        }
+      );
+    }
+  }
+
+  onPaymentSuccess() {
+    $('#exampleModalPayment').modal('hide');
+    this.router.navigateByUrl('/loading').then(() => {
+      this.cartService.goPayment(this.customer).subscribe(() => {
+        setTimeout(() => {
+          this.router.navigateByUrl("/list-product").then(() => {
+            this.toastrService.success('Thanh toán thành công!');
+          })
+        }, 500);
+      });
+      this.sendMessage();
+    });
   }
 
   getCustomerByUsername(username: string) {
@@ -99,13 +132,13 @@ export class CartComponent implements OnInit {
       this.sendMessage();
     }, error => {
       if (error.error.message == 'maximum') {
-        this.toastrService.warning("Số lượng sản phẩm đã tối đa.");
+        this.toastrService.warning('Số lượng sản phẩm đã tối đa.');
       }
     });
   }
 
   maximumQuantity() {
-    this.toastrService.warning("Số lượng sản phẩm đã tối đa.");
+    this.toastrService.warning('Số lượng sản phẩm đã tối đa.');
   }
 
   sendMessage(): void {
@@ -116,13 +149,13 @@ export class CartComponent implements OnInit {
     this.cartService.deleteProductInCard(po).subscribe((value: Order[]) => {
       this.productOrders = value;
       this.caculateTotalMoney(value);
-      this.toastrService.success("Xóa thành công sản phẩm " + po.product.name + " khỏi giỏ hàng.");
+      this.toastrService.success('Xóa thành công sản phẩm ' + po.product.name + ' khỏi giỏ hàng.');
       $('#deleteMinusModal' + po.product.id).modal('hide');
       $('#exampleModalDeleteButton' + po.product.id).modal('hide');
       this.sendMessage();
     }, error => {
       if (error.error.message == 'notfound') {
-        this.toastrService.warning("Không tìm thấy sản phẩm!");
+        this.toastrService.warning('Không tìm thấy sản phẩm!');
       }
     });
   }

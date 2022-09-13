@@ -14,6 +14,8 @@ import {CookieService} from "../../login/service/cookie.service";
 import {Subscription} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
 import {OriginDto} from "../../model/origin-dto";
+import {Title} from "@angular/platform-browser";
+import {LogoutService} from "../../login/service/logout.service";
 
 declare var $: any;
 
@@ -23,70 +25,61 @@ declare var $: any;
   styleUrls: ['./all-product.component.css']
 })
 export class AllProductComponent implements OnInit {
-  products: Product[] = [];
-  categories: Category[] = [];
-  public role: string;
-  public username: string = '';
-  public token: string;
-  public loginStatus: any;
-  public totalProducts: number;
+  role: string = '';
+  username: string = '';
+  token: string = '';
+  product: Product[] = [];
+  category: Category[] = [];
+  searchForm: FormGroup;
+  totalPages: number;
+  number: number;
+  countTotalPages: number[];
   customer: Customer;
-  public infoStatus: boolean = true;
-  searchByNameForm: FormGroup;
-  messageReceived: any;
-  private subscriptionName: Subscription;
+  startPrice: string = '0';
+  endPrice: string = '200000000';
+  sort: string = '';
   categoryId: string = '';
-  beginPrice: string = '0';
-  endPrice: string = '400000000000';
   originDtos: OriginDto[] = [];
-  public totalProductsFilter: number;
+  public infoStatus: boolean = false;
   public originName = '';
-  public productName = '';
+  public totalProducts: number;
+  public totalProductsFilter: number;
   public totalOneMi: number = 0;
   public totalThreeMi: number = 0;
   public totalFiveMi: number = 0;
   public totalTenMi: number = 0;
   public totalLetThanTenMi: number = 0;
-  sort: string = 'id';
-  constructor(private productService: ProductService,
-              private router: Router,
+  sortTitle: string = 'Sắp xếp theo';
+
+  constructor(private title: Title,
               private cookieService: CookieService,
+              private productService: ProductService,
               private toastrService: ToastrService,
+              private logoutService: LogoutService,
+              private router: Router,
+
               private activatedRoute: ActivatedRoute,
-              private customerService: CustomerService,
               private orderService: OrderService,
-              private commonService: CommonService,
-              private authService: AuthService,) {
+              private customerService: CustomerService,
+              private commonService: CommonService) {
+    this.title.setTitle("Trang chủ FateShop")
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
-    // subscribe to sender component messages
-    this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
-      this.messageReceived = message;
-      this.role = this.readCookieService('role');
-      this.username = this.readCookieService('username');
-      this.token = this.readCookieService('jwToken');
-    });
   }
+
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
   }
+
   ngOnInit(): void {
-    // $('#product-list').attr('class', 'nav-item nav-link active');
-    // this.authService.checkLogin().subscribe(value => {
-    //   this.loginStatus = value;
-    //   if (value) {
-    //     this.authService.getRoles().subscribe(resp => {
-          this.getCustomerByUsername(this.username);
-    //       this.getRole(resp);
-    //     }, error => {
-    //     });
-    //   } else {
-    //
-    //   }
-    // }, error => {
-    // });
-    this.getAllCategories();
+    this.getCategory();
+    this.getAll(0,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+    this.getCustomerByUsername(this.username);
+    this.searchForm = new FormGroup({
+      searchName: new FormControl(),
+      searchOrigin: new FormControl(),
+    });
     this.activatedRoute.paramMap.subscribe(value => {
       if (value.get('id') != null) {
         this.loadProductByCategory(value.get('id'));
@@ -95,49 +88,21 @@ export class AllProductComponent implements OnInit {
       }
     });
     this.sendMessage();
-    this.createSearchByNameForm();
-  }
-  getRole(value: any) {
-    if (this.isAdmin(value.grantList)) {
-      this.role = 'ROLE_ADMIN';
-    } else if (this.isUser(value.grantList)) {
-      this.role = 'ROLE_USER';
-    }
-    this.username = value.username;
   }
 
-  isAdmin(grantList: string[]): boolean {
-    return grantList.some(value => {
-      return value === 'ROLE_ADMIN';
-    });
-  }
-
-  isUser(grantList: string[]): boolean {
-    return grantList.some(value => {
-      return value === 'ROLE_USER';
-    });
-  }
-
-  getAllCategories() {
-    this.productService.getAllCategory().subscribe(value => {
-      // @ts-ignore
-      this.categories = value;
-    });
-    this.getAllProductPage(0,this.categoryId,'','0','200000000','',this.sort)
-  }
-
-  getAllProductPage(pageNumber: number, categoryId: string, productName: string, beginPrice: string, endPrice: string, originName: string, sort: string) {
-    this.productService.getAllPageProducts(pageNumber, categoryId, productName, beginPrice, endPrice, originName, sort).subscribe((value: any) => {
-      if (value != null) {
-        if (value.totalElements >= 0) {
-          this.products = value.content;
-          this.totalProductsFilter = value.content.length;
-          if (originName == '') {
+  getAll(page: number,searchCategory, searchName, searchOrigin, searchStartPrice,searchEndPrice,sort) {
+    this.productService.getAll(page,searchCategory, searchName, searchOrigin, searchStartPrice,searchEndPrice,sort).subscribe((data: any) => {
+      console.log(data)
+      if (data != null) {
+        if (data.totalElements >= 0) {
+          this.product = data.content;
+          this.totalProductsFilter = data.content.length;
+          if (searchOrigin == '') {
             this.originDtos = [];
           }
-          for (let i = 0; i < value.content.length; i++) {
+          for (let i = 0; i < data.content.length; i++) {
             let o = {
-              name: value.content[i].origin,
+              name: data.content[i].manufacturer,
               quantity: 1
             };
             this.originDtos.push(o);
@@ -145,7 +110,7 @@ export class AllProductComponent implements OnInit {
           for (let i = 0; i < this.originDtos.length; i++) {
             for (let j = i + 1; j < this.originDtos.length; j++) {
               if (this.originDtos[i].name == this.originDtos[j].name) {
-                if (this.originDtos[i].name != originName) {
+                if (this.originDtos[i].name != searchOrigin) {
                   this.originDtos[i].quantity = this.originDtos[i].quantity + 1;
                 }
                 this.originDtos.splice(j, 1);
@@ -155,7 +120,15 @@ export class AllProductComponent implements OnInit {
           }
         }
       } else {
-        this.products = [];
+        this.product = [];
+      }
+      if (this.product.length !== 0) {
+        // @ts-ignore
+        this.totalPages = data.totalPages;
+        // @ts-ignore
+        this.countTotalPages = new Array(data.totalPages);
+        // @ts-ignore
+        this.number = data.number;
       }
     });
     this.productService.getAllListProducts().subscribe(value => {
@@ -172,14 +145,48 @@ export class AllProductComponent implements OnInit {
     });
   }
 
-
-  loadProductByCategory(id: string) {
-    this.categoryId = id;
-    this.searchByName();
-    $('[data-toggle="reset-active-category"]').attr('class', 'nav-item nav-link');
-    $('#category' + id).attr('class', 'nav-item nav-link active');
-    this.getTotalFilterPrice(id);
+  getCategory(){
+    this.productService.getAllCategory().subscribe( data => {
+      console.log(data)
+      // @ts-ignore
+      this.category = data;
+    })
   }
+
+  getSearch() {
+    const searchByName = this.searchForm.value.searchName;
+    const searchByOrigin = this.searchForm.value.searchOrigin;
+    this.getAll(0,this.categoryId, searchByName, searchByOrigin, this.startPrice,this.endPrice,this.sort);
+  }
+
+  goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getAll(numberPage,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getAll(numberPage, this.categoryId,'', '', this.startPrice,this.endPrice,this.sort);
+    }
+  }
+
+  goItem(i: number) {
+    this.getAll(i,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+  }
+
+  deleteProduct(product: Product) {
+    this.productService.deleteProduct(product.id).subscribe(value => {
+      this.ngOnInit();
+      $('#exampleModalDelete' + product.id).modal('hide');
+      this.toastrService.success('Xóa thành công sản phẩm ' + product.name);
+    });
+  }
+
 
   addToCart(product: Product) {
     let order: Order = {
@@ -196,100 +203,80 @@ export class AllProductComponent implements OnInit {
       }
     });
   }
-
   getCustomerByUsername(username: string) {
     this.customerService.getCustomerByUserName(username).subscribe(value => {
       this.customer = value;
       if (value == null) {
-        this.infoStatus = false;
+        this.infoStatus = true;
       } else {
         this.infoStatus = value.appUser.isDeleted;
       }
     });
   }
 
-  sendMessage(): void {
-    this.commonService.sendUpdate('Success!');
-  }
-
   addToCartMessage() {
-    this.toastrService.warning('Vui lòng đăng nhập để thực hiện chức năng này!');
+    this.toastrService.warning('Vui lòng đăng nhập thành viên để thực hiện chức năng này!');
   }
 
   updateInfoMessage() {
-    this.router.navigateByUrl('/checkout').then(value => {
-      this.toastrService.warning('Vui lòng cập nhật thông tin!');
+    this.router.navigateByUrl('/info').then(value => {
+      this.toastrService.warning('Vui lòng cập nhật thông tin để mua hàng!');
     });
   }
-
-  createSearchByNameForm() {
-    this.searchByNameForm = new FormGroup({
-      productName: new FormControl()
-    });
+  sendMessage(): void {
+    this.commonService.sendUpdate('Success!');
+  }
+  public fPrince: string = 'Tìm kiếm theo giá'
+  filterPrice(start: string, end: string) {
+    this.startPrice = start;
+    this.endPrice =end;
+    this.getAll(0,this.categoryId,'','',start,end,this.sort)
+    this.fPrince = "Từ " + start + 'đ - ' +end + 'đ'
   }
 
-  searchByName() {
-    const productName = this.searchByNameForm.value.productName
-    this.getAllProductPage(0, this.categoryId, productName, this.beginPrice, this.endPrice, this.originName, this.sort);
+  public cName: string = 'Tìm kiếm theo danh mục';
+  filterCategory(id: string, name: string) {
+    this.getAll(0,id,'','',this.startPrice,this.endPrice,this.sort);
+    this.cName ='Tìm kiếm theo ' + name;
   }
 
-  resetSearchForm() {
-    this.searchByNameForm.reset();
-    this.getAllProductPage(0, this.categoryId, this.productName, this.beginPrice, this.endPrice, this.originName, this.sort);
+  sortByDate(sortValue: string) {
+    this.sortTitle = "Ngày phát hành"
+    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
   }
 
-  closeModal(id: number) {
-    $('#exampleModalDelete' + id).modal('hide');
+  sortByPriceDESC(sortValue: string) {
+    this.sortTitle = "Giá cao đến thấp"
+    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
   }
-
-
-  deleteProduct(id: number) {
-    // @ts-ignore
-    this.productService.deleteProduct(id).subscribe(value => {
-      // @ts-ignore
-      $('#exampleModal' + id).modal('hide');
-      this.toastrService.success('Xóa thành công !!!', 'SOS!!!');
-      this.ngOnInit();
-      this.router.navigateByUrl('/home').then();
-    }, error => {
-    }, () => {
-    })
-  }
-
-  filterPrice(begin: string, end: string) {
-    this.beginPrice = begin;
-    this.endPrice = end;
-    this.getAllProductPage(0, this.categoryId, this.productName, begin, end, this.originName, this.sort);
-  }
-
-  filterOrigin(originName: string) {
-    this.originName = originName;
-    this.getAllProductPage(0, this.categoryId, this.productName, this.beginPrice, this.endPrice, originName, this.sort);
+  sortByPriceASC(sortValue: string) {
+    this.sortTitle = "Giá thấp đến cao"
+    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
   }
 
   getTotalFilterPrice(categoryId: string) {
-    this.productService.getAllPageProducts(0, categoryId, '', '0', '1000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId, '', '0', '1000000', '', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalOneMi = value.content.length;
       } else {
         this.totalOneMi = 0;
       }
     });
-    this.productService.getAllPageProducts(0, categoryId, '', '1000001', '3000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId, '', '1000001', '3000000', '', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalThreeMi = value.content.length;
       } else {
         this.totalThreeMi = 0;
       }
     });
-    this.productService.getAllPageProducts(0, categoryId, '', '3000001', '5000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId, '', '3000001', '5000000', '', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalFiveMi = value.content.length;
       } else {
         this.totalFiveMi = 0;
       }
     });
-    this.productService.getAllPageProducts(0, categoryId, '', '5000001', '10000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId, '', '5000001', '10000000', '', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalTenMi = value.content.length;
       } else {
@@ -297,7 +284,7 @@ export class AllProductComponent implements OnInit {
       }
     });
 
-    this.productService.getAllPageProducts(0, categoryId, '', '10000000', '400000000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId, '', '10000000', '400000000000', '', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalLetThanTenMi = value.content.length;
       } else {
@@ -305,17 +292,16 @@ export class AllProductComponent implements OnInit {
       }
     });
   }
-
-  sortByDate(sortValue: string) {
-
-    this.getAllProductPage(0, this.categoryId, this.productName, this.beginPrice, this.endPrice, this.originName, sortValue);
+  filterOrigin(originName: string) {
+    this.originName = originName;
+    this.getAll(0, this.categoryId, '', originName, this.startPrice, this.endPrice, this.sort);
   }
 
-  sortByPriceDESC(sortValue: string) {
-    this.getAllProductPage(0, this.categoryId, this.productName, this.beginPrice, this.endPrice, this.originName, sortValue);
-  }
-
-  sortByPriceASC(sortValue: string) {
-    this.getAllProductPage(0, this.categoryId, this.productName, this.beginPrice, this.endPrice, this.originName, sortValue);
+  loadProductByCategory(id: string) {
+    this.categoryId = id;
+    this.getSearch();
+    $('[data-toggle="reset-active-category"]').attr('class', 'nav-item nav-link');
+    $('#category' + id).attr('class', 'nav-item nav-link active');
+    this.getTotalFilterPrice(id);
   }
 }

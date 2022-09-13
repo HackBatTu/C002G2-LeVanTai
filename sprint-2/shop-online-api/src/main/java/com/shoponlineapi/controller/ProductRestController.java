@@ -1,5 +1,6 @@
 package com.shoponlineapi.controller;
 
+import com.shoponlineapi.dto.ErrorDTO;
 import com.shoponlineapi.dto.IProductDTO;
 import com.shoponlineapi.dto.ProductDTO;
 import com.shoponlineapi.model.Category;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -67,6 +69,7 @@ public class ProductRestController {
         return new ResponseEntity<>(productDTOPage,HttpStatus.OK);
     }
 
+
     @GetMapping("/findById/{id}")
     public ResponseEntity<Product> findById(@PathVariable Integer id){
 
@@ -76,6 +79,7 @@ public class ProductRestController {
         return new ResponseEntity<>(iProductService.findById(id),HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("/product/create")
     public ResponseEntity<?> createProduct(@Valid @RequestBody ProductDTO productDTO , BindingResult bindingResult){
         if(bindingResult.hasErrors()){
@@ -87,6 +91,7 @@ public class ProductRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PatchMapping("/product/edit")
     public ResponseEntity<?> editProduct(@Valid @RequestBody ProductDTO productDTO , BindingResult bindingResult){
         Product product  = iProductService.findById(productDTO.getId());
@@ -98,10 +103,16 @@ public class ProductRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/delete/{id}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable Integer id) {
-        this.iProductService.deleteProduct(id);
-        return new ResponseEntity<>( HttpStatus.OK);
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable String id) {
+        Boolean check = this.iProductService.deleteProduct(id);
+        if (check) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        ErrorDTO errorDto = new ErrorDTO();
+        errorDto.setMessage("idnotfound");
+        return new ResponseEntity<>(errorDto, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @GetMapping("/category")

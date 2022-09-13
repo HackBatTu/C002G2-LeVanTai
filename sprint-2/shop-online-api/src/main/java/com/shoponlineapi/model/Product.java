@@ -26,7 +26,7 @@ public class Product {
     private double price;
     private String manufacturer;
     private String guaranteeTime;
-    private String discount;
+    private Double  discount;
     private Integer quantity;
 
     @Column(columnDefinition = "text")

@@ -19,8 +19,15 @@ public class ProductService implements IProductService {
 
 
     @Override
-    public void deleteProduct(Integer id) {
-        iProductRepository.deleteProduct(id);
+    public Boolean deleteProduct(String id) {
+        List<Product> productList = this.iProductRepository.findAll();
+        for (Product product : productList) {
+            if (product.getId().equals(Integer.parseInt(id)) && !product.getIsDeleted()) {
+                this.iProductRepository.deleteProduct(id);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -72,15 +79,12 @@ public class ProductService implements IProductService {
     }
 
 
-    @Override
-    public Page<Product> findAllProduct(Pageable pageable, String id, String productName, String beginPrice, String endPrice, String originName) {
-        Double begin = Double.valueOf(beginPrice);
-        Double end = Double.valueOf(endPrice);
-        if (id.equals("")) {
-            id = "%%";
-        }
-        return this.iProductRepository.findAllProduct(pageable, id, "%" + productName + "%", begin, end, "%" + originName + "%");
-    }
+
+//        Double begin = Double.valueOf(beginPrice);
+//        Double end = Double.valueOf(endPrice);
+//        if (id.equals("")) {
+//            id = "%%";
+//        }
 
     @Override
     public Page<Product> getAllProduct(Pageable pageable,String searchByCategory, String searchByName, String searchByOrigin, String searchByStartPrice,String searchByEndPrice) {

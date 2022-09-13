@@ -5,6 +5,11 @@ import {CookieService} from "../../login/service/cookie.service";
 import {ProductService} from "../../service/product.service";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
+import {Order} from "../../model/order";
+import {Customer} from "../../model/customer";
+import {OrderService} from "../../service/order.service";
+import {CustomerService} from "../../service/customer.service";
+import {CommonService} from "../../login/service/common.service";
 
 @Component({
   selector: 'app-device-sup',
@@ -16,14 +21,17 @@ export class DeviceSupComponent implements OnInit {
   role: string = '';
   username: string = '';
   token: string = '';
-
+  public infoStatus: boolean = false;
   deviceProduct: Product[] = [];
-
+  customer: Customer;
   constructor(private title: Title,
               private cookieService: CookieService,
               private productService: ProductService,
               private toastrService: ToastrService,
-              private router: Router) {
+              private router: Router,
+              private orderService: OrderService,
+              private customerService: CustomerService,
+              private commonService: CommonService) {
     this.title.setTitle("Trang Sản Phẩm Thiết Bị Hỗ Trợ")
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
@@ -36,6 +44,7 @@ export class DeviceSupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDevice()
+    this.getCustomerByUsername(this.username);
   }
 
   getDevice(){
@@ -45,7 +54,44 @@ export class DeviceSupComponent implements OnInit {
       this.deviceProduct = data;
     })
   }
+  addToCart(product: Product) {
+    let order: Order = {
+      customer: this.customer,
+      product: product,
+      quantity: 1
+    };
+    this.orderService.addOrder(order).subscribe((po: Order) => {
+      this.toastrService.success('Thêm thành công sản phẩm ' + po.product.name);
+      this.sendMessage();
+    }, error => {
+      if (error.error.message == 'quantity') {
+        this.toastrService.warning('Bạn đã thêm vượt quá số lượng sản phẩm!');
+      }
+    });
+  }
+  getCustomerByUsername(username: string) {
+    this.customerService.getCustomerByUserName(username).subscribe(value => {
+      this.customer = value;
+      if (value == null) {
+        this.infoStatus = true;
+      } else {
+        this.infoStatus = value.appUser.isDeleted;
+      }
+    });
+  }
 
+  addToCartMessage() {
+    this.toastrService.warning('Vui lòng đăng nhập thành viên để thực hiện chức năng này!');
+  }
+
+  updateInfoMessage() {
+    this.router.navigateByUrl('/info').then(value => {
+      this.toastrService.warning('Vui lòng cập nhật thông tin để mua hàng!');
+    });
+  }
+  sendMessage(): void {
+    this.commonService.sendUpdate('Success!');
+  }
   deleteProduct(id: number) {
     // @ts-ignore
     this.productService.deleteProduct(id).subscribe(value => {
