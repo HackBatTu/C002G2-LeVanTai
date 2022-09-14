@@ -46,9 +46,11 @@ export class CartComponent implements OnInit {
       this.getCustomerByUsername(this.username)
     });
   }
+
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
   }
+
   ngOnInit(): void {
     this.sendMessage();
     this.getCustomerByUsername(this.username);

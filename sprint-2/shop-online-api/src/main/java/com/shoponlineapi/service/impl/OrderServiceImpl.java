@@ -62,6 +62,11 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     @Override
+    public List<OrderService> getOrderInCustomer(Customer customer) {
+        return this.productOrderRepository.getOrderInCustomer(customer);
+    }
+
+    @Override
     public Boolean minusQuantity(OrderService productOrder) {
         if (productOrder.getQuantity() > 1) {
             productOrder.setQuantity(productOrder.getQuantity() - 1);
@@ -103,6 +108,7 @@ public class OrderServiceImpl implements IOrderService {
         bill.setIsDeleted(false);
         bill.setCreationDate(new Date(System.currentTimeMillis()));
         this.billRepository.save(bill);
+
         Bill billReturn = this.billRepository.getBillByCode(randomCode);
         this.productOrderRepository.setBill(customer.getId(), billReturn.getId());
         PaymentDto paymentDto = new PaymentDto();
@@ -118,6 +124,8 @@ public class OrderServiceImpl implements IOrderService {
         }
         return paymentDto;
     }
+
+
 
     private int getRandomNumber(List<Bill> billList) {
         int randomNumber = 10000;

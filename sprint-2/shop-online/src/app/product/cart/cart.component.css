@@ -52,7 +52,9 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
-
+.bg-th {
+  background-color: #F6402D !important;
+}
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;

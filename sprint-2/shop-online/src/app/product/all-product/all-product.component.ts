@@ -92,7 +92,6 @@ export class AllProductComponent implements OnInit {
 
   getAll(page: number,searchCategory, searchName, searchOrigin, searchStartPrice,searchEndPrice,sort) {
     this.productService.getAll(page,searchCategory, searchName, searchOrigin, searchStartPrice,searchEndPrice,sort).subscribe((data: any) => {
-      console.log(data)
       if (data != null) {
         if (data.totalElements >= 0) {
           this.product = data.content;
@@ -147,7 +146,6 @@ export class AllProductComponent implements OnInit {
 
   getCategory(){
     this.productService.getAllCategory().subscribe( data => {
-      console.log(data)
       // @ts-ignore
       this.category = data;
     })
@@ -240,18 +238,22 @@ export class AllProductComponent implements OnInit {
     this.cName ='Tìm kiếm theo ' + name;
   }
 
-  sortByDate(sortValue: string) {
-    this.sortTitle = "Ngày phát hành"
-    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
+  sortByDate() {
+    this.sortTitle = "Mới Nhất"
+    this.sort = 'date_in,asc'
+    console.log(this.sort)
+    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, this.sort);
   }
 
-  sortByPriceDESC(sortValue: string) {
-    this.sortTitle = "Giá cao đến thấp"
-    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
+  sortByPriceDESC() {
+    this.sortTitle = "Giá tăng dần"
+    this.sort = 'price,asc'
+    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, this.sort);
   }
-  sortByPriceASC(sortValue: string) {
-    this.sortTitle = "Giá thấp đến cao"
-    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
+  sortByPriceASC() {
+    this.sortTitle = "Giá giảm dần"
+    this.sort = 'price,desc'
+    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, this.sort);
   }
 
   getTotalFilterPrice(categoryId: string) {

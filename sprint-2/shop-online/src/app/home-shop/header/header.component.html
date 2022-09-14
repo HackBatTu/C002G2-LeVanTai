@@ -7,7 +7,7 @@
           <a class="text-white mr-3 " href="">Trở thành người bán</a>
           <a class="text-white mr-3" href="">Kênh người bán</a>
           <a class="text-white mr-3 " href="">Tải ứng dụng <i class="fa fa-download" aria-hidden="true"></i></a>
-          <a class="text-white mr-3 " href=""> Kết nối <i class="fab fa-facebook-f"></i></a>
+          <a class="text-white mr-3 " href="https://www.facebook.com/đăng nhập"> Kết nối <i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
       <div class="col-lg-6 text-center text-lg-right ">
@@ -23,25 +23,13 @@
                 aria-expanded="false">{{username}}</li>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" [routerLink]="['/info']">Chi tiết tài khoản</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/history']">Lịch sử mua hàng</a></li>
               <li><a class="dropdown-item" (click)="onLogout()">Đăng xuất</a></li>
             </ul>
           </div>
         </div>
-        <div class="d-inline-flex align-items-center d-block d-lg-none">
-          <a href="" class="btn px-0 ml-2">
-            <i class="fas fa-heart text-dark"></i>
-            <span class="badge text-dark border border-dark rounded-circle"
-                  style="padding-bottom: 2px;">0</span>
-          </a>
-          <a href="" class="btn px-0 ml-2">
-            <i class="fas fa-shopping-cart text-dark"></i>
-            <span class="badge text-dark border border-dark rounded-circle"
-                  style="padding-bottom: 2px;">{{totalProductInCart}}</span>
-          </a>
-        </div>
       </div>
     </div>
-
     <div class="row align-items-center pt-3 d-none d-lg-flex header-page mx-0">
       <div class="row col-lg-12">
 
@@ -142,7 +130,7 @@
                 <a [routerLink]="['/cart']" class="btn px-0 ml-3">
                   <i class="fas fa-shopping-cart text-primary icon"></i>
                   <span class="badge text-secondary border border-secondary rounded-circle"
-                        style="padding-bottom: 1px;">0</span>
+                        style="padding-bottom: 1px;">{{totalProductInCart}}</span>
                 </a>
               </div>
             </div>

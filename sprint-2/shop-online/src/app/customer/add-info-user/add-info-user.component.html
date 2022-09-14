@@ -1,8 +1,18 @@
-
-<div class="container pt-5 pb-5">
+<div class="container-fluid bg-white">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Thêm Thông Tin Tài Khoản</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Danh sách sản phẩm</p>
+    </div>
+  </div>
+</div>
+<!-- Shop Start -->
+<div class="container pb-5 pt-1">
   <div class="row bg-test" style="border-radius: 10px">
-    <div class="col-xl-4 order-md-last  pt-4">
-      <h3 class="text-center text-white pt-5 pb-2"><sub>******* </sub>Ảnh Cá Nhân<sub> *******</sub></h3>
+    <div class="col-xl-4 order-md-last ">
+      <h3 class="text-center text-white pt-4 pb-2"><sub>******* </sub>Ảnh Cá Nhân<sub> *******</sub></h3>
       <ul class="list-group mb-3">
         <li class=" d-flex justify-content-between" *ngIf="imgSrc !== null">
           <img [src]="imgSrc" id="img" class="image-css" (click)=" fileUploader.click()">
@@ -13,36 +23,36 @@
       </ul>
     </div>
 
-    <div class="col-xl-8 m-0 ">
-      <h1 class="text-center text-white pt-5 pb-4"> Thêm Thông Tin Tài Khoản</h1>
+    <div class="col-xl-8 m-0 pt-4">
       <form class="needs-validation" [formGroup]="userForm" (ngSubmit)="onEditInfo()" *ngIf="userForm">
 
         <div class="row g-3">
-          <div class="col-xl-4 mt-3">
+          <div class="col-xl-6  mt-3">
             <label for="appUsers" class="form-label title-input">Tên tài khoản <span class="text-white">(*)</span>:
             </label>
             <select class="form-control border-primary" id="appUsers" formControlName="appUsers"
                     [compareWith]="compareUser" [(ngModel)]="customer.appUser" disabled>
-              <option *ngFor="let app of appUser" [ngValue]="appUser" [disabled]="true" >{{app.userName}}</option>
+              <option class="" *ngFor="let app of appUser" [ngValue]="appUser" [disabled]="true" >{{app.userName}}</option>
             </select>
           </div>
 
-          <div class="col-xl-4 mt-3">
+          <div class="col-xl-6 mt-3">
             <label for="name" class="form-label title-input">Tên của bạn<span class="text-white">(*)</span>: </label>
             <input type="text" class="form-control border-warning" id="name" value=""
                    placeholder="VD: Lê Văn A" formControlName="name">
-          </div>
-
-          <div class="col-xl-4 mt-3" >
-            <label for="images" class="form-label title-input">Ảnh cá nhân <span class="text-white">(*)</span>:</label>
-              <input #fileUploader (change)="showPreview($event)" type="file"
-                     class="form-control text-dark" id="images"  name="image" formControlName="image">
           </div>
 
           <div class="col-xl-6 mt-4">
             <label for="email" class="form-label title-input">Email <span class="text-white">(*)</span>: </label>
             <input type="text" class="form-control border-primary" id="email" value="" placeholder="VD: example@gmail.com" formControlName="email">
           </div>
+
+          <div class="col-xl-6 mt-4" >
+            <label for="images" class="form-label title-input">Ảnh cá nhân <span class="text-white">(*)</span>:</label>
+              <input #fileUploader (change)="showPreview($event)" type="file"
+                     class="form-control text-dark" id="images"  name="image" formControlName="image">
+          </div>
+
 
           <div class="col-xl-6 mt-4">
             <label for="birthday" class="form-label title-input">Ngày sinh <span class="text-white">(*)</span>:</label>
@@ -54,9 +64,9 @@
             <input type="text" class="form-control border-primary" id="phone" placeholder="VD: 0936369999" formControlName="phone">
           </div>
 
-          <div class="col-xl-6 mt-4">
+          <div class="col-xl-12 mt-4">
             <label for="hobbies" class="form-label title-input">Sở thích <span class="text-white">(*)</span>:</label>
-            <input type="text" class="form-control border-primary" id="hobbies" formControlName="hobbies" placeholder="VD: yêu màu hường">
+            <textarea type="text" class="form-control border-primary" id="hobbies" formControlName="hobbies" placeholder="VD: yêu màu hường"></textarea>
           </div>
           <div class=" text-center pt-5 pb-5">
             <button class="btn btn-success  btn-lg mr-2 col-4" type="submit" [disabled]="isLoading">

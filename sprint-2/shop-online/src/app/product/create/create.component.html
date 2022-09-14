@@ -1,8 +1,19 @@
-
-  <div class="container pt-2 pb-4" >
+<!-- Page Header Start -->
+<div class="container-fluid bg-white">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">THÊM MỚI SẢN PHẨM</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Danh sách sản phẩm</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+  <div class="container pt-1 pb-4" >
     <div class="row  bg-test " style="border-radius: 10px">
-      <div class="col-xl-4 order-md-last  pt-4">
-        <h3 class="text-center text-white pt-5 pb-4"><sub>******* </sub>Ảnh Sản Phẩm<sub> *******</sub></h3>
+      <div class="col-xl-4 order-md-last  ">
+        <h3 class="text-center text-white pt-4 pb-4"><sub>******* </sub>Ảnh Sản Phẩm<sub> *******</sub></h3>
         <ul class="list-group mb-3">
           <li class=" d-flex justify-content-between" *ngIf="imgSrc !== null">
             <img [src]="imgSrc" id="img" class="image-css" (click)="fileUploader.click()">
@@ -14,9 +25,7 @@
       </div>
 
       <div class="col-xl-8 m-0 ">
-        <h1 class="text-center text-white pt-5 pb-4"> Thêm Mới Sản Phẩm</h1>
-
-        <form class="needs-validation" [formGroup]="productForm" (ngSubmit)="onCreateProduct()" *ngIf="productForm">
+        <form class="needs-validation pt-4 pb-4 " [formGroup]="productForm" (ngSubmit)="onCreateProduct()" *ngIf="productForm">
           <div class="row g-3">
             <div class="col-xl-4 mt-3" data-bs-toggle="name" data-bs-content="" data-bs-trigger="manual" data-bs-placement="bottom">
               <label for="name" class="form-label title-input">Tên sản phẩm<span class="text-white">(*)</span>: </label>

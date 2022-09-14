@@ -1,4 +1,15 @@
-  <div class="container py-5 h-100">
+<div class="container-fluid bg-white">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Thông Tin Tài Khoản</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Danh sách sản phẩm</p>
+    </div>
+  </div>
+</div>
+<!-- Shop Start -->
+  <div class="container pb-5 pt-1 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 mb-4 mb-lg-0">
         <div class="card mb-3" style="border-radius: .5rem;">
@@ -11,14 +22,12 @@
               <p>
                 <b>Developer</b>
               </p>
-              <a type="button" class="text-dark" [routerLink]="['/add-info',username]">
+              <a type="button" class="text-warning" [routerLink]="['/add-info',username]">
                 <i class="far fa-edit mb-5" style="font-size: 40px"></i>
               </a>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
-                <h3>Thông Tin Tài Khoản! </h3>
-                <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <b>Tài khoản :</b>

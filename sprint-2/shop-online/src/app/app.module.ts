@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ProductModule} from './product/product.module';
 import {CustomerModule} from "./customer/customer.module";
 import {HomeShopModule} from "./home-shop/home-shop.module";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -29,6 +30,8 @@ import {HomeShopModule} from "./home-shop/home-shop.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     ChartsModule,
     HttpClientModule,
     ProductModule,

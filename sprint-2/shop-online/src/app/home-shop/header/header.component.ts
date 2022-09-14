@@ -22,8 +22,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   messageReceived: any;
   private subscriptionName: Subscription;
   totalProductInCart: number = 0;
-  order: Order[] = [];
+  productOrders: Order[] = [];
   customer: Customer;
+  public infoStatus: boolean = false;
 
   constructor(private cookieService: CookieService,
               private toastrService: ToastrService,
@@ -35,12 +36,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
+    this.getCustomerByUsername(this.username);
     // subscribe to sender component messages
     this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
       this.messageReceived = message;
       this.role = this.readCookieService('role');
       this.username = this.readCookieService('username');
       this.token = this.readCookieService('jwToken');
+      this.getCustomerByUsername(this.username);
     });
   }
 
@@ -108,21 +111,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.commonService.sendUpdate('Đăng Xuất thành công!');
   }
 
-  getTotalProductInCart(customer: Customer){
+  getProductInCardByCustomer(customer: Customer) {
     this.totalProductInCart = 0;
-    this.orderService.getProductInCardByCustomer(customer).subscribe((pos: Order[])=> {
-      this.order = pos;
-      console.log(pos)
-      for (let i =0;i<pos.length;i++){
-        this.totalProductInCart += pos[i].quantity
+    this.orderService.getProductInCardByCustomer(customer).subscribe((pos: Order[]) => {
+      // console.log(pos)
+      if (pos != null) {
+        this.productOrders = pos;
+        for (let i = 0; i < pos.length; i++) {
+          this.totalProductInCart += pos[i].quantity;
+        }
+      } else {
+        this.productOrders = [];
       }
-    })
+    });
   }
 
   getCustomerByUsername(username: string) {
-    this.customerService.getCustomerByUserName(username).subscribe(value => {
-      this.customer = value;
-      this.getTotalProductInCart(value)
+    this.customerService.getCustomerByUserName(username).subscribe((value: Customer) => {
+      if (value == null) {
+        this.infoStatus = true;
+      } else {
+        this.getProductInCardByCustomer(value);
+        this.infoStatus = value.appUser.isDeleted;
+        // this.avatar = value.image;
+        // this.name = value.name;
+      }
     });
   }
 }

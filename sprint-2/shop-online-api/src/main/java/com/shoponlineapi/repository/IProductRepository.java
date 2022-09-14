@@ -14,15 +14,15 @@ import java.util.List;
 
 public interface IProductRepository extends JpaRepository<Product, Integer> {
 
-    @Query(value = "select product.* from product join category on category.id = product.category_id where " +
-            " product.category_id like :searchByCategory and product.name like :searchByName and " +
-            " product.manufacturer like :searchByOrigin and (product.price " +
-            " between :searchByStartPrice and :searchByEndPrice) and product.is_deleted = 0" +
-            "", countQuery = "select count(*) from (select product.* from product  " +
-            " join category on category.id = product.category_id where product.category_id like :searchByCategory and " +
-            " product.name like :searchByName and product.manufacturer like :searchByOrigin and " +
-            " (product.price between :searchByStartPrice and :searchByEndPrice) " +
-            " and product.is_deleted = 0 ) temp_table", nativeQuery = true)
+    @Query(value = "select p.* from product p join category c on c.id = p.category_id where " +
+            " p.category_id like :searchByCategory and p.name like :searchByName and " +
+            " p.manufacturer like :searchByOrigin and (p.price " +
+            " between :searchByStartPrice and :searchByEndPrice) and p.is_deleted = 0" +
+            "", countQuery = "select count(*) from (select p.* from product p  " +
+            " join category c on c.id = p.category_id where p.category_id like :searchByCategory and " +
+            " p.name like :searchByName and p.manufacturer like :searchByOrigin and " +
+            " (p.price between :searchByStartPrice and :searchByEndPrice) " +
+            " and p.is_deleted = 0 ) temp_table", nativeQuery = true)
     Page<Product> getAllProduct(Pageable pageable, String searchByCategory, String searchByName, String searchByOrigin, String searchByStartPrice, String searchByEndPrice);
 
     @Query(value = " SELECT * FROM product where is_deleted = 0 order by date_in desc limit 32 ", nativeQuery = true)

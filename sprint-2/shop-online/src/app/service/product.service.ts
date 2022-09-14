@@ -4,6 +4,8 @@ import {Category} from "../model/category";
 import {Observable} from "rxjs";
 import {Product} from "../model/product";
 import {environment} from "../../environments/environment";
+import {Customer} from "../model/customer";
+import {Order} from "../model/order";
 
 const APL_URL = `${environment.apiUrl}`
 
@@ -51,21 +53,9 @@ export class ProductService {
       '&searchOrigin=' + productOrigin + '&searchStartPrice=' + productStartPrice + '&searchEndPrice=' + productEndPrice + "&sort=" + sort);
   }
 
-
   getAllListProducts() {
     return this.httpClient.get(this.URL_CONNECT + '/product/list');
   }
-
-  getAllPageProducts(pageNumber: number, categoryId: string, productName: string, beginPrice: string, endPrice: string, originName: string, sort: string): Observable<Product[]> {
-    let searchName;
-    if (productName == null) {
-      searchName = '';
-    } else {
-      searchName = productName;
-    }
-    return this.httpClient.get<Product[]>(this.URL_CONNECT + '/product/page?page=' + pageNumber + '&categoryId=' + categoryId + '&productName=' + searchName + '&beginPrice=' + beginPrice + '&endPrice=' + endPrice + '&originName=' + originName + "&sort=" + sort);
-  }
-
 
   createProduct(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.URL_CONNECT + '/product/create', product)

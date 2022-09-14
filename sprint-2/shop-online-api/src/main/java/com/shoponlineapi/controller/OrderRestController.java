@@ -93,6 +93,16 @@ public class OrderRestController {
         return new ResponseEntity<>(productOrderList, HttpStatus.OK);
     }
 
+    //    @PreAuthorize("isAuthenticated()")
+    @PostMapping("/cart/history")
+    public ResponseEntity<?> getOrderInCustomer(@RequestBody Customer customer) {
+        List<OrderService> productOrderList = this.productOrderService.getOrderInCustomer(customer);
+        if (productOrderList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productOrderList, HttpStatus.OK);
+    }
+
 //    @PreAuthorize("isAuthenticated()")
     @PostMapping("/cart/payment")
     public ResponseEntity<?> goPayment(@RequestBody Customer customer) throws MessagingException {

@@ -10,6 +10,7 @@ import {Customer} from "../../model/customer";
 import {OrderService} from "../../service/order.service";
 import {CustomerService} from "../../service/customer.service";
 import {CommonService} from "../../login/service/common.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-camera',
@@ -24,6 +25,8 @@ export class CameraComponent implements OnInit {
   public infoStatus: boolean = false;
   customer: Customer;
   cameraProduct: Product[] = [];
+  sortTitle: string = 'Sắp xếp theo';
+  searchForm: FormGroup;
 
   constructor(private title: Title,
               private cookieService: CookieService,
@@ -46,6 +49,10 @@ export class CameraComponent implements OnInit {
   ngOnInit(): void {
     this.getCamera()
     this.getCustomerByUsername(this.username);
+    this.searchForm = new FormGroup({
+      searchName: new FormControl(),
+      searchOrigin: new FormControl(),
+    });
   }
 
   getCamera(){
@@ -105,5 +112,23 @@ export class CameraComponent implements OnInit {
       this.ngOnInit();
       this.router.navigateByUrl('/home').then();
     })
+  }
+  sortByDate(sortValue: string) {
+    this.sortTitle = "Ngày phát hành"
+    // this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
+  }
+
+  sortByPriceDESC(sortValue: string) {
+    this.sortTitle = "Giá cao đến thấp"
+    // this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
+  }
+  sortByPriceASC(sortValue: string) {
+    this.sortTitle = "Giá thấp đến cao"
+    // this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, sortValue);
+  }
+  getSearch() {
+    const searchByName = this.searchForm.value.searchName;
+    const searchByOrigin = this.searchForm.value.searchOrigin;
+    // this.getAll(0,this.categoryId, searchByName, searchByOrigin, this.startPrice,this.endPrice,this.sort);
   }
 }

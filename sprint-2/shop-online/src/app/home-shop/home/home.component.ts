@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
 
   getAll(page: number,searchCategory, searchName, searchOrigin, searchStartPrice,searchEndPrice,sort) {
     this.productService.getAll(page,searchCategory, searchName, searchOrigin, searchStartPrice,searchEndPrice,sort).subscribe((data: Product[]) => {
-      console.log(data)
+      // console.log(data)
       if (data != null) {
         // @ts-ignore
         this.product = data.content;
@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
 
   getCategory(){
     this.productService.getAllCategory().subscribe( data => {
-      console.log(data)
+      // console.log(data)
       // @ts-ignore
       this.category = data;
     })
@@ -187,10 +187,21 @@ export class HomeComponent implements OnInit {
     this.getAll(0,id,'','',this.startPrice,this.endPrice,this.sort);
     this.cName ='Tìm kiếm theo ' + name;
   }
-
-  sortPage(sortValue: string) {
-    this.sort = sortValue;
-    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, sortValue);
+  titleSort: string = 'Sắp xếp';
+  sortDate() {
+    this.titleSort = 'Mới nhất'
+    this.sort = 'date_in,desc';
+    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
   }
 
+  sortPriceASC() {
+    this.titleSort = 'Giá tăng dần'
+    this.sort = 'price';
+    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
+  }
+  sortPriceDESC() {
+    this.titleSort = 'Giá giảm dần'
+    this.sort = 'price,desc';
+    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
+  }
 }

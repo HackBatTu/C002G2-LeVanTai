@@ -28,4 +28,10 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
     @Transactional
     @Query(value = " UPDATE `order_service` SET `bill_id` = :billId WHERE (`customer_id` = :customerId) and `bill_id` is null ", nativeQuery = true)
     void setBill(@Param("customerId") Integer customerId, @Param("billId") Integer billId);
+
+    @Query(value = " select po.* from order_service po " +
+            " join customer c on c.id = po.customer_id " +
+            " join product p on p.id = po.product_id " +
+            " where po.customer_id = :#{#customer.id} and po.is_deleted = 0 ", nativeQuery = true)
+    List<OrderService> getOrderInCustomer(Customer customer);
 }
