@@ -18,19 +18,23 @@
         <thead class="thead-dark">
         <tr>
           <th class="bg-th">STT</th>
+          <th class="bg-th">Mã Đơn Hàng</th>
           <th class="bg-th">Tên Sản Phẩm</th>
           <th class="bg-th">Ngày Mua Hàng</th>
+          <th class="bg-th">Khuyến Mãi</th>
           <th class="bg-th">Số Lượng</th>
           <th class="bg-th">Tổng Tiền</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let p of productOrders,index as i">
+          <td>{{i+1}}</td>
+          <td>{{p.bill.code}}</td>
+          <td>{{p.product.name}}</td>
+          <td>{{p.bill.creationDate}}</td>
+          <td>{{p.product.discount}}%</td>
+          <td>{{p.quantity}}</td>
+          <td>{{p.product.price - (p.product.price * (p.product.discount / 100))}}</td>
         </tr>
         </tbody>
       </table>

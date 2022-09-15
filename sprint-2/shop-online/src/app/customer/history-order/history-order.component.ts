@@ -47,25 +47,25 @@ export class HistoryOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCustomerByUsername(this.username)
-    this.getOrderByCustomer(this.customer)
   }
 
   getCustomerByUsername(username: string) {
     this.customerService.getCustomerByUserName(username).subscribe(value => {
       this.customer = value;
-      console.log(value)
+
+      this.orderService.getOrderByCustomer(this.customer).subscribe((pos: Order[]) => {
+        console.log(pos)
+        if (pos != null) {
+          // @ts-ignore
+          this.productOrders = pos;
+        } else {
+          this.productOrders = [];
+        }
+      });
     });
   }
 
-  getOrderByCustomer(customer: Customer){
-    this.orderService.getOrderByCustomer(customer).subscribe((pos: Order[]) => {
-      console.log(pos)
-      if (pos != null) {
-        // @ts-ignore
-        this.productOrders = pos;
-      } else {
-        this.productOrders = [];
-      }
-    });
-  }
+  // getOrderByCustomer(customer: Customer){
+  //
+  // }
 }

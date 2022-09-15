@@ -1,5 +1,6 @@
 package com.shoponlineapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -26,6 +27,7 @@ public class Bill {
     @JoinColumn(name = "feedback_id", referencedColumnName = "id")
     private Feedback feedback;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "bill")
     private List<OrderService> productOrderList;
 
