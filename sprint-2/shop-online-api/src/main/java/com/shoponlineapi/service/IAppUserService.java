@@ -24,4 +24,5 @@ public interface IAppUserService {
 
     void registerUser(RegisterDTO registerDTO);
 
+    AppUser getAppUserByUsername(String username);
 }

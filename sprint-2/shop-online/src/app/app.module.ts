@@ -17,6 +17,7 @@ import {ProductModule} from './product/product.module';
 import {CustomerModule} from "./customer/customer.module";
 import {HomeShopModule} from "./home-shop/home-shop.module";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {StatisticalModule} from "./statistical/statistical.module";
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
     HttpClientModule,
     ProductModule,
     CustomerModule,
+    StatisticalModule,
     LoginModule,
     HomeShopModule,
     AngularFireModule.initializeApp(environment.firebase),

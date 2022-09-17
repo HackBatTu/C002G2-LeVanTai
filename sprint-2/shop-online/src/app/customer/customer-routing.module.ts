@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {AddInfoUserComponent} from "./add-info-user/add-info-user.component";
 import {UserCustomerComponent} from "./user-customer/user-customer.component";
 import {HistoryOrderComponent} from "./history-order/history-order.component";
+import {ListCustomerComponent} from "./list-customer/list-customer.component";
 
 
 const routes: Routes = [
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'history', component: HistoryOrderComponent
+  },
+  {
+    path: 'list-customer', component: ListCustomerComponent
   }
 ];
 

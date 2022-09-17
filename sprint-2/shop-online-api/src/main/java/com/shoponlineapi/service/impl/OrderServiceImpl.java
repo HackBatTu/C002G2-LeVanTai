@@ -12,11 +12,12 @@ import com.shoponlineapi.repository.IOrderServiceRepository;
 import com.shoponlineapi.repository.IProductRepository;
 import com.shoponlineapi.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -64,6 +65,16 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public List<OrderService> getOrderInCustomer(Customer customer) {
         return this.productOrderRepository.getOrderInCustomer(customer);
+    }
+
+    @Override
+    public Page<OrderService> findAll(Pageable pageable) {
+        return productOrderRepository.findAllOrder(pageable);
+    }
+
+    @Override
+    public Page<OrderService> getListOrderYesterday(Pageable pageable) {
+        return productOrderRepository.getListOrderYesterday(pageable);
     }
 
     @Override

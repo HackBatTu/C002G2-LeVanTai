@@ -1,19 +1,18 @@
 package com.shoponlineapi.service.impl;
 
 import com.shoponlineapi.model.Customer;
-import com.shoponlineapi.model.account.AppRole;
-import com.shoponlineapi.model.account.AppUser;
-import com.shoponlineapi.model.account.UserRole;
+import com.shoponlineapi.model.OrderService;
 import com.shoponlineapi.repository.ICustomerRepository;
 import com.shoponlineapi.service.IAppUserService;
 import com.shoponlineapi.service.ICustomerService;
 import com.shoponlineapi.service.IUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
+
 
 @Service
 public class CustomerService implements ICustomerService {
@@ -29,10 +28,6 @@ public class CustomerService implements ICustomerService {
         return iCustomerRepository.getCustomerByUserName(userName);
     }
 
-    @Override
-    public List<Customer> findAll() {
-        return iCustomerRepository.findAll();
-    }
 
     @Override
     public void save(Customer customer) {
@@ -40,7 +35,14 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public Customer findById(Integer id) {
-        return iCustomerRepository.findById(id).orElse(null);
+    public Page<Customer> getListCustomer(Pageable pageable) {
+        return iCustomerRepository.findAllCustomer(pageable);
     }
+
+    @Override
+    public List<OrderService> findProductById(Integer id) {
+        return iCustomerRepository.findProductById(id);
+    }
+
+
 }

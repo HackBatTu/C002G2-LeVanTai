@@ -162,14 +162,20 @@ export class HomeComponent implements OnInit {
     });
   }
   addToCartMessage() {
-    this.toastrService.warning('Vui lòng đăng nhập thành viên để thực hiện chức năng này!');
+    this.toastrService.warning('Vui lòng đăng nhập tài khoản thành viên để thực hiện chức năng này!');
   }
 
+  addToCartMessage2() {
+    this.router.navigateByUrl('/login').then(value => {
+      this.toastrService.warning('Vui lòng đăng nhập tài khoản thành viên để thực hiện chức năng này!');
+    });
+  }
   updateInfoMessage() {
     this.router.navigateByUrl('/info').then(value => {
       this.toastrService.warning('Vui lòng cập nhật thông tin để mua hàng!');
     });
   }
+
   sendMessage(): void {
     this.commonService.sendUpdate('Success!');
   }
@@ -204,4 +210,5 @@ export class HomeComponent implements OnInit {
     this.sort = 'price,desc';
     this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
   }
+
 }

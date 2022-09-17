@@ -93,7 +93,7 @@ public class OrderRestController {
         return new ResponseEntity<>(productOrderList, HttpStatus.OK);
     }
 
-    //    @PreAuthorize("isAuthenticated()")
+//    @PreAuthorize("isAuthenticated()")
     @PostMapping("/cart/history")
     public ResponseEntity<?> getOrderInCustomer(@RequestBody Customer customer) {
         List<OrderService> productOrderList = this.productOrderService.getOrderInCustomer(customer);
@@ -114,6 +114,7 @@ public class OrderRestController {
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
         String htmlMsg = createHTMLMailForm(paymentDto);
+
         message.setContent(htmlMsg, "text/html; charset=UTF-8");
 
         helper.setTo(paymentDto.getCustomer().getEmail());

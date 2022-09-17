@@ -82,8 +82,9 @@
           </a>
           <div class="dropdown-menu bg-white rounded-0 border-0 ml-3" style="width: 90% !important;">
             <a [routerLink]="['/create-product']" class="dropdown-item">Thêm Mới Sản Phẩm</a>
-            <a href="#" class="dropdown-item">Danh Sách Khách Hàng</a>
-            <a href="#" class="dropdown-item">Danh Sách Phản Hồi</a>
+            <a [routerLink]="['/list-customer']" class="dropdown-item">Danh Sách Khách Hàng</a>
+            <a [routerLink]="['/yesterday']" class="dropdown-item">Lịch Sử Giao Dịch Hôm qua</a>
+            <a [routerLink]="['/transaction']" class="dropdown-item">Lịch Sử Giao Dịch Của Web</a>
             <a [routerLink]="['/bar-chart']" class="dropdown-item">Thống Kê Doanh Thu</a>
           </div>
         </div>

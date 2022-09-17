@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {CookieService} from "../../login/service/cookie.service";
 import {CustomerService} from "../../service/customer.service";
@@ -14,10 +14,11 @@ export class UserCustomerComponent implements OnInit {
   username: string = '';
   token: string = '';
   customer: Customer;
+
   constructor(private title: Title,
               private cookieService: CookieService,
               private customerService: CustomerService
-              ) {
+  ) {
     this.title.setTitle("Thông tin tài khoản")
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
@@ -27,13 +28,13 @@ export class UserCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.getInfo(this.username);
   }
+
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
   }
 
-  getInfo(userName){
-    // @ts-ignore
-    this.customerService.getCustomerByUserName(userName).subscribe(value => {
+  getInfo(userName) {
+    this.customerService.getCustomerByUserName(userName).subscribe((value: Customer) => {
       this.customer = value;
     })
   }

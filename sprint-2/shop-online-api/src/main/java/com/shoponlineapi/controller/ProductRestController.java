@@ -50,7 +50,7 @@ public class ProductRestController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<Page<Product>> getPageProduct(@PageableDefault(32)Pageable pageable,
+    public ResponseEntity<Page<Product>> getPageProduct(@PageableDefault(32) Pageable pageable,
                                                             Optional<String> categoryId,
                                                             Optional<String> searchStartPrice,
                                                             Optional<String> searchEndPrice,
@@ -132,6 +132,7 @@ public class ProductRestController {
         }
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
     @GetMapping("/laptop")
     public ResponseEntity<List<Product>> getLaptop(){
         List<Product> productList = this.iProductService.getLaptop();
@@ -140,6 +141,7 @@ public class ProductRestController {
         }
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
     @GetMapping("/tivi")
     public ResponseEntity<List<Product>> getTivi(){
         List<Product> productList = this.iProductService.getTivi();
@@ -148,6 +150,7 @@ public class ProductRestController {
         }
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
     @GetMapping("/camera")
     public ResponseEntity<List<Product>> getCamera(){
         List<Product> productList = this.iProductService.getCamera();
@@ -156,6 +159,7 @@ public class ProductRestController {
         }
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
     @GetMapping("/device-sup")
     public ResponseEntity<List<Product>> getDevice(){
         List<Product> productList = this.iProductService.getDevice();

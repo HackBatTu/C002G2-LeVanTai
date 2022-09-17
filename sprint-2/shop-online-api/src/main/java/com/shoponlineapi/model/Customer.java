@@ -28,7 +28,8 @@ public class Customer {
     private Date birthday;
     private String phone;
     private String hobbies;
-
+    @Column(columnDefinition = "text")
+    private String address;
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private AppUser appUser;

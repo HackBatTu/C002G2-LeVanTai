@@ -31,6 +31,11 @@ public class UserRestController {
         this.appUserService.registerUser(registerDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping(value = "/get/user/{username}")
+    public ResponseEntity<AppUser> getAppUserByUsername(@PathVariable String username) {
+        AppUser appUser = this.appUserService.getAppUserByUsername(username);
+        return new ResponseEntity<>(appUser, HttpStatus.OK);
+    }
     @GetMapping("/user")
     public ResponseEntity<List<AppUser>> getAllUser(){
         List<AppUser> appUser = appUserService.getAllUser();

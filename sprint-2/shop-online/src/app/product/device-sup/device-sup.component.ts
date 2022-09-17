@@ -19,14 +19,15 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class DeviceSupComponent implements OnInit {
 
-  role: string = '';
-  username: string = '';
-  token: string = '';
-  public infoStatus: boolean = false;
   deviceProduct: Product[] = [];
   customer: Customer;
   sortTitle: string = 'Sắp xếp theo';
   searchForm: FormGroup;
+  role: string = '';
+  username: string = '';
+  token: string = '';
+  public infoStatus: boolean = false;
+
   constructor(private title: Title,
               private cookieService: CookieService,
               private productService: ProductService,
@@ -94,6 +95,11 @@ export class DeviceSupComponent implements OnInit {
   updateInfoMessage() {
     this.router.navigateByUrl('/info').then(value => {
       this.toastrService.warning('Vui lòng cập nhật thông tin để mua hàng!');
+    });
+  }
+  addToCartMessage2() {
+    this.router.navigateByUrl('/login').then(value => {
+      this.toastrService.warning('Vui lòng đăng nhập tài khoản thành viên để thực hiện chức năng này!');
     });
   }
   sendMessage(): void {

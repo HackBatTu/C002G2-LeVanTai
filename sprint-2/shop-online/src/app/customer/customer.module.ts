@@ -6,10 +6,11 @@ import { AddInfoUserComponent } from './add-info-user/add-info-user.component';
 import {UserCustomerComponent} from "./user-customer/user-customer.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import { HistoryOrderComponent } from './history-order/history-order.component';
+import { ListCustomerComponent } from './list-customer/list-customer.component';
 
 
 @NgModule({
-  declarations: [AddInfoUserComponent,UserCustomerComponent, HistoryOrderComponent],
+  declarations: [AddInfoUserComponent,UserCustomerComponent, HistoryOrderComponent, ListCustomerComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule,

@@ -4,12 +4,15 @@ import {AppUser} from "../../model/app-user";
 import {Customer} from "../../model/customer";
 import {CustomerService} from "../../service/customer.service";
 import {ToastrService} from "ngx-toastr";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {Title} from "@angular/platform-browser";
 import {finalize} from "rxjs/operators";
 import {formatDate} from "@angular/common";
-
+import {CookieService} from "../../login/service/cookie.service";
+import {CommonService} from "../../login/service/common.service";
+import {Subscription} from "rxjs";
+declare var $: any;
 @Component({
   selector: 'app-add-info-user',
   templateUrl: './add-info-user.component.html',
@@ -18,125 +21,150 @@ import {formatDate} from "@angular/common";
 export class AddInfoUserComponent implements OnInit {
   userForm: FormGroup;
   customer: Customer;
-  appUser: AppUser[] = [];
-  imgSrc: any;
+  appUser: AppUser;
+  // appUser1: AppUser[] = [];
+  public role: string;
+  public username: string = '';
+  public imgSrc: any = 'assets/img/loading-symbol.gif';
   selectedImage: any = null;
-  fileUploader: any;
   isLoading: Boolean = false;
+  private subscriptionName: Subscription;
+  token: string = '';
 
-  constructor(private customerService: CustomerService,
-              private toast: ToastrService,
-              private activate: ActivatedRoute,
+  constructor(private cookieService: CookieService,
+              private toastrService: ToastrService,
               private storage: AngularFireStorage,
-              private title: Title,
-              private el: ElementRef,
-              private router: Router) {
-    this.title.setTitle("Thêm Thông Tin Tài Khoản")
+              private router: Router,
+              private commonService: CommonService,
+              private customerService: CustomerService,
+              private el: ElementRef) {
+    this.role = this.readCookieService('role');
+    this.username = this.readCookieService('username');
+    this.token = this.readCookieService('jwToken');
+    // subscribe to sender component messages
+    this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
+      // this.messageReceived = message;
+      this.role = this.readCookieService('role');
+      this.username = this.readCookieService('username');
+      this.token = this.readCookieService('jwToken');
+    });
+  }
+  readCookieService(key: string): string {
+    return this.cookieService.getCookie(key);
   }
 
   ngOnInit(): void {
-    this.getParamUserName();
+    this.sendMessage();
+    this.getCustomerByUsername(this.username)
   }
 
-  getParamUserName(){
-    this.activate.paramMap.subscribe((paraMap: ParamMap) => {
-      const userName =paraMap.get('userName')
-      this.customerService.findByUserName(userName).subscribe( data => {
-        this.customer =data;
-        if(data == null){
-          this.toast.error("Bạn đang nhập quá dư liệu")
-          this.router.navigateByUrl("/info").then();
-        }
-        this.getListUser()
-        this.getForm()
+  getCustomerByUsername(username: string) {
+    this.customerService.getCustomerByUserName(username).subscribe(data => {
+      this.customer = data;
+      this.customerService.getAppUserFromUsername(username).subscribe((au: AppUser) => {
+        this.appUser = au;
+        this.getForm(data, au);
+      });
+      if (data != null) {
+        $('#previewImage').attr('src', data.image);
+      }
+    });
+    console.log(this.customer)
+    console.log(this.appUser)
+  }
+
+  getForm(customer: Customer, appUser: AppUser){
+    if(customer == null){
+      this.userForm = new FormGroup({
+        name: new FormControl('',this.checkName),
+        image: new FormControl('',this.checkImage),
+        birthday: new FormControl('',this.checkBirthday),
+        phone: new FormControl('',this.checkPhone),
+        email: new FormControl('',this.checkMail),
+        address: new FormControl(''),
+        hobbies: new FormControl('',this.checkHobbies),
+        appUsers: new FormControl(customer.appUser.id),
+        isDeleted: new FormControl()
       })
-    })
+    }else {
+      this.userForm = new FormGroup({
+        id: new FormControl(customer.id),
+        name: new FormControl(this.customer.name,this.checkName),
+        image: new FormControl(this.customer.image,this.checkImage),
+        birthday: new FormControl(this.customer.birthday,this.checkBirthday),
+        phone: new FormControl(this.customer.phone,this.checkPhone),
+        email: new FormControl(this.customer.email,this.checkMail),
+        address: new FormControl(this.customer.address),
+        hobbies: new FormControl(this.customer.hobbies,this.checkHobbies),
+        appUsers: new FormControl(this.customer.appUser.id),
+        isDeleted: new FormControl(this.customer.isDeleted)
+      })
+    }
+  }
+  chooseFile() {
+    $('.custom-file-input').on('change', function() {
+      const fileName = $(this).val().split('\\').pop();
+      $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
+    });
   }
 
-  getForm(){
-    this.userForm = new FormGroup({
-      name: new FormControl(this.customer.name,this.checkName),
-      image: new FormControl(this.customer.image,this.checkImage),
-      birthday: new FormControl(this.customer.birthday,this.checkBirthday),
-      phone: new FormControl(this.customer.phone,this.checkPhone),
-      email: new FormControl(this.customer.email,this.checkMail),
-      hobbies: new FormControl(this.customer.hobbies,this.checkHobbies),
-      appUsers: new FormControl(this.customer.appUser.id)
-    })
+  // getListUser(){
+  //   this.customerService.getListUser().subscribe( data => {
+  //     // @ts-ignore
+  //     this.appUser1 = data;
+  //   })
+  // }
+  sendMessage(): void {
+    // send message to subscribers via observable subject
+    this.commonService.sendUpdate('Đăng Nhập thành công!');
   }
-
-  getListUser(){
-    this.customerService.getListUser().subscribe( data => {
-      // @ts-ignore
-      this.appUser = data;
-    })
-  }
-
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (o: any) => this.imgSrc = o.target.result;
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
-      document.getElementById("img").style.display = "block"
     } else {
-      this.imgSrc = "";
+      this.imgSrc = '';
       this.selectedImage = null;
     }
   }
   getCurrentDateTime(): string {
-    return formatDate(new Date(), 'dd-MM-yyyy-hh:mm:ss', 'en-US');
+    return formatDate(new Date(), 'dd-MM-yyyy-hh:mm:ssa', 'en-US');
   }
 
   onEditInfo() {
     this.toggleLoading();
-    let customer: Customer = this.userForm.value;
-    if (this.selectedImage == null) {
-      for (const key of Object.keys(this.userForm.controls)) {
-        if (this.userForm.controls[key].invalid) {
-          const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
-          invalidControl.focus();
-          this.toast.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
-          break;
-        }
-      }
-      if (this.userForm.valid) {
-        this.customerService.updateCustomer(customer).subscribe((data) => {
-          this.toast.success('Cập nhật thành công', 'Thông báo!!!')
-          this.router.navigateByUrl('/employee').then();
+    if (this.userForm.valid) {
+      let customerValue: Customer = this.userForm.value;
+      console.log(customerValue)
+      if (this.selectedImage == undefined) {
+        this.customerService.saveCustomer(customerValue).subscribe(value => {
+          this.router.navigateByUrl('/info').then(() => {
+            this.toastrService.success('Cập nhật thông tin thành công!');
+            this.sendMessage();
+          });
         });
       } else {
-        return this.toast.warning("Vui lòng nhập đầy đủ và đúng dữ liệu!!!", "Thông báo")
-      }
-    } else {
-      const nameImg = this.getCurrentDateTime() + this.selectedImage.name;
-      const fileRef = this.storage.ref(nameImg);
-      this.storage.upload(nameImg, this.selectedImage).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            customer.image = url;
-            if (this.userForm.valid) {
-              this.customerService.updateCustomer(customer).subscribe((data) => {
-                this.toast.success('Cập nhật thành công', 'Thông báo!!!')
-                this.router.navigateByUrl('/info').then()
+        const nameImg = this.getCurrentDateTime() + this.selectedImage.name;
+        const fileRef = this.storage.ref(nameImg);
+        this.storage.upload(nameImg, this.selectedImage).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              customerValue.image = url;
+              this.customerService.saveCustomer(customerValue).subscribe(value => {
+                this.router.navigateByUrl('/info').then(() => {
+                  this.toastrService.success('Cập nhật thông tin thành công!');
+                  this.sendMessage();
+                });
               });
-            } else {
-              for (const key of Object.keys(this.userForm.controls)) {
-                if (this.userForm.controls[key].invalid) {
-                  const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
-                  invalidControl.focus();
-                  break;
-                }
-              }
-              return this.toast.warning("Vui lòng nhập đầy đủ và đúng dữ liệu!!!", "Thông báo")
-            }
-          });
-        })
-      ).subscribe();
+            });
+          })
+        ).subscribe();
+      }
     }
-
-
   }
+
   compareUser(c1: AppUser, c2: AppUser): boolean {
     if((c1 && c2 ) != undefined){
       return c1.id === c1.id

@@ -13,12 +13,34 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 mb-4 mb-lg-0">
         <div class="card mb-3" style="border-radius: .5rem;">
-          <div class="row g-0">
+          <div class="row g-0" *ngIf="customer">
             <div class="col-md-4 gradient-custom text-center text-white"
                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="{{customer.image}}"
-                   alt="Avatar" class="img-fluid my-5" style="width: 150px;" />
-              <h3 *ngIf="customer.name != ''" >{{customer.name}}</h3>
+              <a [routerLink]="">
+                <img *ngIf="customer != null" src="{{customer.image}}" alt="Admin" class="rounded-circle pt-5" width="150" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                <img *ngIf="customer == null" src="assets/img/loading-symbol.gif" alt="Admin" class="rounded-circle pt-5" width="150" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+              </a>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title font-weight-bold text-uppercase text-dark" id="exampleModalLongTitle">{{customer.name}}</h5>
+                      <button type="button" class="close text-white bg-danger" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <img *ngIf="customer == null" src="assets/img/loading-symbol.gif" width="100%" alt="">
+                      <img *ngIf="customer != null"  src="{{customer.image}}" width="100%" alt="">
+                    </div>
+                    <div class="modal-footer">
+                      <!--                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3 *ngIf="customer != null" >{{customer.name}}</h3>
               <p>
                 <b>Developer</b>
               </p>
@@ -72,7 +94,7 @@
                   <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
                 </div>
                 <div class="text-center">
-                  <button class="btn btn-secondary" [routerLink]="'/home'">Quay lại trang chủ</button>
+                  <button class="btn btn-secondary" [routerLink]="'/'">Quay lại trang chủ</button>
                 </div>
               </div>
             </div>

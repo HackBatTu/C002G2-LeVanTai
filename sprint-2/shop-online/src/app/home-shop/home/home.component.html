@@ -269,8 +269,8 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" [routerLink]="" (click)="sortDate()">Ngày phát hành</a>
-                  <a class="dropdown-item" [routerLink]="" (click)="sortPriceASC()">Giá giảm dần</a>
-                  <a class="dropdown-item" [routerLink]="" (click)="sortPriceDESC()">Giá tăng dần</a>
+                  <a class="dropdown-item" [routerLink]="" (click)="sortPriceASC()">Giá tăng dần</a>
+                  <a class="dropdown-item" [routerLink]="" (click)="sortPriceDESC()">Giá giảm dần</a>
                 </div>
               </div>
 
@@ -317,8 +317,11 @@
                 <a *ngIf="role == 'ROLE_USER'  && infoStatus == true " class="btn btn-outline-dark btn-square"
                    [routerLink]="" (click)="updateInfoMessage()"><i
                   class="fa fa-shopping-cart"></i></a>
-                <a *ngIf="role != 'ROLE_USER'" class="btn btn-outline-dark btn-square" [routerLink]=""
+                <a *ngIf="role == 'ROLE_ADMIN'" class="btn btn-outline-dark btn-square" [routerLink]=""
                    (click)="addToCartMessage()"><i
+                  class="fa fa-shopping-cart"></i></a>
+                <a *ngIf="role == ''" class="btn btn-outline-dark btn-square" [routerLink]=""
+                   (click)="addToCartMessage2()"><i
                   class="fa fa-shopping-cart"></i></a>
                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                 <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product',p.id]"><i
@@ -342,13 +345,13 @@
                 <small>({{p.quantity}})</small>
               </div>
             </div>
-            <div class="col-sm-12 row text-center m-0" *ngIf="role === 'ROLE_ADMIN'">
-              <button class="btn btn-outline-dark btn-square col-sm-6  item-text"
+            <div class="col-sm-12 row text-center justify-content-center m-0" *ngIf="role === 'ROLE_ADMIN'">
+              <button class="btn btn-outline-dark btn-square col-sm-6 item-text"
                       [routerLink]="['/edit-product',p.id]">
                 <i class="fa-sharp fa-solid fa-pen text-primary " style="font-size: 22px"></i>Sửa
               </button>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-outline-dark btn-square col-sm-6  item-text" data-bs-toggle="modal"
+              <button type="button" class="btn btn-outline-dark btn-square col-sm-6 item-text" data-bs-toggle="modal"
                       [attr.data-bs-target]="'#exampleModal'+p.id">
                 <i class="fa-sharp fa-solid fa-trash text-danger " style="font-size: 22px"></i> Xóa
               </button>

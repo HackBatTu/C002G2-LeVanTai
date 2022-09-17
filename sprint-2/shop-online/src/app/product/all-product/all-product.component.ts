@@ -215,7 +215,11 @@ export class AllProductComponent implements OnInit {
   addToCartMessage() {
     this.toastrService.warning('Vui lòng đăng nhập thành viên để thực hiện chức năng này!');
   }
-
+  addToCartMessage2() {
+    this.router.navigateByUrl('/login').then(value => {
+      this.toastrService.warning('Vui lòng đăng nhập tài khoản thành viên để thực hiện chức năng này!');
+    });
+  }
   updateInfoMessage() {
     this.router.navigateByUrl('/info').then(value => {
       this.toastrService.warning('Vui lòng cập nhật thông tin để mua hàng!');
@@ -302,7 +306,7 @@ export class AllProductComponent implements OnInit {
   loadProductByCategory(id: string) {
     this.categoryId = id;
     this.getSearch();
-    $('[data-toggle="reset-active-category"]').attr('class', 'nav-item nav-link');
+    $('[data-bs-toggle="reset-active-category"]').attr('class', 'nav-item nav-link');
     $('#category' + id).attr('class', 'nav-item nav-link active');
     this.getTotalFilterPrice(id);
   }

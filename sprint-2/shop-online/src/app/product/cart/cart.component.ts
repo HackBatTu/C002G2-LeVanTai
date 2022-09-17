@@ -56,6 +56,13 @@ export class CartComponent implements OnInit {
     this.getCustomerByUsername(this.username);
   }
 
+  getCustomerByUsername(username: string) {
+    this.customerService.getCustomerByUserName(username).subscribe(value => {
+      this.customer = value;
+      this.getProductInCardByCustomer(value);
+    });
+  }
+
   getProductInCardByCustomer(customer: Customer) {
     this.cartService.getProductInCardByCustomer(customer).subscribe((pos: Order[]) => {
       if (pos != null) {
@@ -101,13 +108,6 @@ export class CartComponent implements OnInit {
         }, 500);
       });
       this.sendMessage();
-    });
-  }
-
-  getCustomerByUsername(username: string) {
-    this.customerService.getCustomerByUserName(username).subscribe(value => {
-      this.customer = value;
-      this.getProductInCardByCustomer(value);
     });
   }
 
@@ -161,36 +161,4 @@ export class CartComponent implements OnInit {
       }
     });
   }
-  // constructor() {
-  //   render({
-  //     id: 'myPaypalButtons',
-  //     currency: 'USD',
-  //     value: '100.00',
-  //     onApprove: (details) => {
-  //       alert('Transaction Successful');
-  //     },
-  //     // createOrder: (details) => {
-  //     //   alert('Transaction Successful');
-  //     // }
-  //   });
-  // }
-  //
-  // ngOnInit(): void {
-  //   this.onPaypal();
-  // }
-  //
-  //
-  // onPaypal() {
-  //
-  //   // @ts-ignore
-  //   paypal.Buttons({
-  //     onApprove: function (data, actions) {
-  //       return actions.order.capture().then(function (details) {
-  //         alert(details.payer.name.given_name + 'thanh toán thành công' + '!')
-  //         $('#table-card').hide();
-  //         $('#table-card-1').hide();
-  //       })
-  //     }
-  //   }).render('#myPaypalButtons');
-  // }
 }

@@ -65,6 +65,11 @@ public class AppUserServiceImpl implements IAppUserService {
         this.userRoleService.save(userRole);
     }
 
+    @Override
+    public AppUser getAppUserByUsername(String username) {
+        return iUserRepository.getAppUserByUsername(username);
+    }
+
     /**
      * @param appUser
      */

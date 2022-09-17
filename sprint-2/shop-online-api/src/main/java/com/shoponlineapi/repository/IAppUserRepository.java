@@ -28,10 +28,15 @@ public interface IAppUserRepository extends JpaRepository<AppUser, Integer> {
     void saveAppUser(AppUser appUser);
 
     @Query(value = " SELECT app_user.id, app_user.user_name,app_user.creation_date, app_user.password, app_user.is_deleted FROM app_user where user_name = :username ", nativeQuery = true)
-    AppUser findAppUserByUserName(@Param("username") String userName);
+    AppUser findAppUserByUserName(@Param("username") String username);
 
     @Transactional
     @Modifying
     @Query(value = " update app_user au set au.password = :#{#appUser.password} where au.user_name = :#{#appUser.userName}  ", nativeQuery = true)
     void updatePassword(@Param("appUser") AppUser appUser);
+
+    @Query(value = " select au.id, au.is_deleted, " +
+            " au.password, au.user_name, au.creation_date from app_user au where au.user_name = :username and au.is_deleted = 0 ",
+            nativeQuery = true)
+    AppUser getAppUserByUsername(@Param("username") String username);
 }

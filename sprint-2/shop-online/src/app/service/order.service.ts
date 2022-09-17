@@ -42,4 +42,11 @@ export class OrderService {
   getOrderByCustomer(customer: Customer): Observable<Order[]> {
     return this.httpClient.post<Order[]>(this.URL_CONNECT+ "/cart/history", customer);
   }
+
+  getAllOrder(page: number): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(this.URL_CONNECT+ "/list-order?page="+ page);
+  }
+  getAllOrderYesterday(page: number): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(this.URL_CONNECT+ "/yesterday?page="+ page);
+  }
 }

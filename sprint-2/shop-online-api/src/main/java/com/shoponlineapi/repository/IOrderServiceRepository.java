@@ -3,6 +3,8 @@ package com.shoponlineapi.repository;
 import com.shoponlineapi.model.Customer;
 import com.shoponlineapi.model.OrderService;
 import com.shoponlineapi.service.impl.OrderServiceImpl;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -35,4 +37,30 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
             " join bill b on b.id = po.bill_id " +
             " where po.customer_id = :#{#customer.id} and po.is_deleted = 0 ", nativeQuery = true)
     List<OrderService> getOrderInCustomer(Customer customer);
+
+    @Query(value = " select po.* from order_service po " +
+            " join customer c on c.id = po.customer_id " +
+            " join product p on p.id = po.product_id " +
+            " join bill b on b.id = po.bill_id " +
+            " where po.is_deleted = 0 ",
+            countQuery = "select count(*) from ( select po.* from order_service po " +
+            "           join customer c on c.id = po.customer_id " +
+            "            join product p on p.id = po.product_id " +
+            "            join bill b on b.id = po.bill_id  " +
+            "            where po.is_deleted = 0) temp_table",nativeQuery = true)
+    Page<OrderService> findAllOrder(Pageable pageable);
+
+    @Query(value = "select po.* from order_service po " +
+            "join customer c on c.id = po.customer_id " +
+            "join product p on p.id = po.product_id " +
+            "join bill b on b.id = po.bill_id " +
+            "where po.is_deleted = 0 " +
+            " and b.creation_date  >= current_date - interval 1 day and b.creation_date < current_date",
+            countQuery = "select count(*) from (select po.* from order_service po " +
+                    "     join customer c on c.id = po.customer_id " +
+                    "     join product p on p.id = po.product_id " +
+                    "     join bill b on b.id = po.bill_id " +
+                    "     where po.is_deleted = 0 " +
+                    "     and b.creation_date  >= current_date - interval 1 day and b.creation_date < current_date) temp_table",nativeQuery = true)
+    Page<OrderService> getListOrderYesterday(Pageable pageable);
 }

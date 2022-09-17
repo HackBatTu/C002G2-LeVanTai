@@ -47,11 +47,17 @@
             <div class="product-img position-relative overflow-hidden">
               <img class="img-fluid w-100" [src]="p.image" alt="">
               <div class="product-action">
-                <a  *ngIf="role == 'ROLE_USER' && infoStatus == false" class="btn btn-outline-dark btn-square" [routerLink]="" (click)="addToCart(p)"><i
+                <a *ngIf="role == 'ROLE_USER' && infoStatus == false" class="btn btn-outline-dark btn-square"
+                   [routerLink]="" (click)="addToCart(p)"><i
                   class="fa fa-shopping-cart"></i></a>
-                <a  *ngIf="role == 'ROLE_USER'  && infoStatus == true "  class="btn btn-outline-dark btn-square" [routerLink]="" (click)="updateInfoMessage()"><i
+                <a *ngIf="role == 'ROLE_USER'  && infoStatus == true " class="btn btn-outline-dark btn-square"
+                   [routerLink]="" (click)="updateInfoMessage()"><i
                   class="fa fa-shopping-cart"></i></a>
-                <a  *ngIf="role != 'ROLE_USER'"  class="btn btn-outline-dark btn-square" [routerLink]=""  (click)="addToCartMessage()"><i
+                <a *ngIf="role == 'ROLE_ADMIN'" class="btn btn-outline-dark btn-square" [routerLink]=""
+                   (click)="addToCartMessage()"><i
+                  class="fa fa-shopping-cart"></i></a>
+                <a *ngIf="role == ''" class="btn btn-outline-dark btn-square" [routerLink]=""
+                   (click)="addToCartMessage2()"><i
                   class="fa fa-shopping-cart"></i></a>
                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                 <a class="btn btn-outline-dark btn-square" [routerLink]="['/detail-product', p.id]"><i class="fa fa-search"></i></a>
