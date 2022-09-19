@@ -1,5 +1,6 @@
 package com.shoponlineapi.service.impl;
 
+import com.shoponlineapi.model.Bill;
 import com.shoponlineapi.model.Customer;
 import com.shoponlineapi.model.OrderService;
 import com.shoponlineapi.repository.ICustomerRepository;
@@ -18,10 +19,7 @@ import java.util.List;
 public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerRepository iCustomerRepository;
-    @Autowired
-    private IAppUserService iAppUserService;
-    @Autowired
-    private IUserRoleService iUserRoleService;
+
 
     @Override
     public Customer getCustomerByUserName(String userName) {
@@ -37,11 +35,6 @@ public class CustomerService implements ICustomerService {
     @Override
     public Page<Customer> getListCustomer(Pageable pageable) {
         return iCustomerRepository.findAllCustomer(pageable);
-    }
-
-    @Override
-    public List<OrderService> findProductById(Integer id) {
-        return iCustomerRepository.findProductById(id);
     }
 
 

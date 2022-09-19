@@ -36,7 +36,7 @@ public class UserRestController {
         AppUser appUser = this.appUserService.getAppUserByUsername(username);
         return new ResponseEntity<>(appUser, HttpStatus.OK);
     }
-    @GetMapping("/user")
+    @GetMapping("/users")
     public ResponseEntity<List<AppUser>> getAllUser(){
         List<AppUser> appUser = appUserService.getAllUser();
         return new ResponseEntity<>(appUser,HttpStatus.OK);

@@ -45,9 +45,9 @@
             <div class="input-group radius">
               <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
               <div class="input-group-append">
-              <span class="input-group-text bg-transparent text-primary">
+              <button class="input-group-text bg-transparent text-primary">
                 <i class="fa fa-search"></i>
-              </span>
+              </button>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
               <span class="h1 text-uppercase text-dark bg-light px-2">Fate</span>
               <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
             </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse"
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                     data-target="#navbarCollapse">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -108,7 +108,7 @@
                 <a class="nav-item nav-link" [routerLink]="['/camera']">Máy Ảnh</a>
                 <a class="nav-item nav-link" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
                 <div class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Khác <i
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Khác <i
                     class="fa fa-angle-down mt-1"></i></a>
                   <div class="dropdown-menu bg-white rounded-0 border-0 m-0">
                     <a href="#" class="dropdown-item">Phụ kiện Laptop</a>
@@ -123,7 +123,7 @@
               </div>
 
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                <a href="" class="btn px-0">
+                <a  [routerLink]="['/chat']" class="btn px-0">
                   <i class="fas fa-heart text-primary icon"></i>
                   <span class="badge text-secondary border border-secondary rounded-circle"
                         style="padding-bottom: 1px;">0</span>

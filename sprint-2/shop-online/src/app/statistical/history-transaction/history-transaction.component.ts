@@ -34,7 +34,7 @@ export class HistoryTransactionComponent implements OnInit {
               private commonService: CommonService,
               private title: Title,
               private cookieService: CookieService) {
-    this.title.setTitle('Danh Sách Khách Hàng')
+    this.title.setTitle('Lịch Sử Giao Dịch Web')
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');

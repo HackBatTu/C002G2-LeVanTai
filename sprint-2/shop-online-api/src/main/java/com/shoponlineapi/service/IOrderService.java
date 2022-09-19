@@ -22,9 +22,10 @@ public interface IOrderService {
 
     PaymentDto goPayment(Customer customer);
 
-    List<OrderService> getOrderInCustomer(Customer customer);
 
     Page<OrderService> findAll(Pageable pageable);
 
     Page<OrderService> getListOrderYesterday(Pageable pageable);
+
+    Page<OrderService> getOrderInCustomer(Pageable pageable, Customer customer);
 }

@@ -1,7 +1,8 @@
 package com.shoponlineapi.service;
 
+
 import com.shoponlineapi.model.Customer;
-import com.shoponlineapi.model.OrderService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,8 +15,6 @@ public interface ICustomerService {
 
 
     Page<Customer> getListCustomer(Pageable pageable);
-
-    List<OrderService> findProductById(Integer id);
 
 
 }

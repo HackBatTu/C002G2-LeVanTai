@@ -4,6 +4,7 @@ import com.shoponlineapi.dto.CustomerDTO;
 import com.shoponlineapi.model.Customer;
 import com.shoponlineapi.model.OrderService;
 import com.shoponlineapi.model.Product;
+import com.shoponlineapi.repository.IOrderServiceRepository;
 import com.shoponlineapi.service.ICustomerService;
 import org.hibernate.id.BulkInsertionCapableIdentifierGenerator;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +27,9 @@ public class CustomerRestController {
 
     @Autowired
     private ICustomerService iCustomerService;
+
+    @Autowired
+    private IOrderServiceRepository iOrderServiceRepository;
 
     @GetMapping("/customer/{userName}")
     public ResponseEntity<Customer> getCustomerByUserName(@PathVariable String userName){
@@ -59,12 +63,11 @@ public class CustomerRestController {
 
     @GetMapping("/findProductById/{id}")
     public ResponseEntity<List<OrderService>> findProduct(@PathVariable Integer id){
-        List<OrderService> orderServiceList = this.iCustomerService.findProductById(id);
-        if (orderServiceList == null){
+        List<OrderService> orderServiceList = this.iOrderServiceRepository.findProductById(id);
+        if(orderServiceList.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
-            return new ResponseEntity<>(orderServiceList,HttpStatus.OK);
         }
+        return new ResponseEntity<>(orderServiceList,HttpStatus.OK);
     }
 
 }

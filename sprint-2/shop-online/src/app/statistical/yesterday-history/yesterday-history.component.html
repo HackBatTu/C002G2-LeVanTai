@@ -50,34 +50,34 @@
           <ul class="pagination justify-content-center">
             <div *ngIf="number == 0" >
               <li class="page-item disabled">
-                <button class="page-link " style="background-color: red; color: white" (click)="goPrevious()" hidden>Quay Lại</button>
+                <button class="page-link " (click)="goPrevious()" hidden>Quay Lại</button>
               </li>
             </div>
             <div *ngIf="number != 0">
               <li class="page-item">
-                <button class="page-link "  style="background-color: red; color: white" (click)="goPrevious()">Quay Lại</button>
+                <button class="page-link "  (click)="goPrevious()">Quay Lại</button>
               </li>
             </div>
             <div *ngFor="let count of countTotalPages; index as i" >
               <div *ngIf="i == number">
                 <li class="page-item active">
-                  <button class="page-link"  style="background-color: red; color: white" (click)="goItem(i)">{{i + 1}}</button>
+                  <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
                 </li>
               </div>
               <div *ngIf="i != number">
                 <li class="page-item">
-                  <button class="page-link"  style="background-color: red; color: white" (click)="goItem(i)">{{i + 1}}</button>
+                  <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
                 </li>
               </div>
             </div>
             <div *ngIf="number == totalPages - 1">
               <li class="page-item disabled">
-                <button class="page-link"  style="background-color: red; color: white" (click)="goNext()" hidden>Tiếp</button>
+                <button class="page-link"  (click)="goNext()" hidden>Tiếp</button>
               </li>
             </div>
             <div *ngIf="number != totalPages - 1">
               <li class="page-item">
-                <button class="page-link "  style="background-color: red; color: white" (click)="goNext()">Tiếp</button>
+                <button class="page-link "  (click)="goNext()">Tiếp</button>
               </li>
             </div>
           </ul>

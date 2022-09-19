@@ -5,24 +5,28 @@ import { HomeShopRoutingModule } from './home-shop-routing.module';
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {HomeComponent} from "./home/home.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ChatComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,
     HomeShopRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class HomeShopModule { }

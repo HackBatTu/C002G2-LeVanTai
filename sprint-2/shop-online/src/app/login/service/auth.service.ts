@@ -3,6 +3,7 @@ import {CookieService} from './cookie.service';
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {AppUser} from "../../model/app-user";
 
 const API_URL = `${environment.apiUrl}`;
 @Injectable({
@@ -36,7 +37,6 @@ export class AuthService {
   //   });
   // }
 
-
   checkLogin(): Observable<boolean> {
     return this.httpClient.post<boolean>(API_URL + "/check/login", null);
   }
@@ -47,5 +47,7 @@ export class AuthService {
   getRoles(): Observable<any> {
     return this.httpClient.post(API_URL + "/get/role", null)
   }
-
+  getAllUsers(): Observable<AppUser[]> {
+    return this.httpClient.get<AppUser[]>(API_URL + '/users');
+  }
 }

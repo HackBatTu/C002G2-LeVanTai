@@ -39,8 +39,8 @@ export class OrderService {
     return this.httpClient.post(this.URL_CONNECT + "/cart/payment", customer);
   }
 
-  getOrderByCustomer(customer: Customer): Observable<Order[]> {
-    return this.httpClient.post<Order[]>(this.URL_CONNECT+ "/cart/history", customer);
+  getOrderByCustomer(page: number,customer: Customer): Observable<Order[]> {
+    return this.httpClient.post<Order[]>(this.URL_CONNECT+ "/cart/history?page=" + page, customer);
   }
 
   getAllOrder(page: number): Observable<Order[]> {

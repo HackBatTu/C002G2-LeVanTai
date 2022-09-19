@@ -7,6 +7,9 @@ import com.shoponlineapi.model.OrderService;
 import com.shoponlineapi.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -87,16 +90,6 @@ public class OrderRestController {
     @PostMapping("/cart/products")
     public ResponseEntity<?> getProductInCard(@RequestBody Customer customer) {
         List<OrderService> productOrderList = this.productOrderService.getProductInCardByCustomer(customer);
-        if (productOrderList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(productOrderList, HttpStatus.OK);
-    }
-
-//    @PreAuthorize("isAuthenticated()")
-    @PostMapping("/cart/history")
-    public ResponseEntity<?> getOrderInCustomer(@RequestBody Customer customer) {
-        List<OrderService> productOrderList = this.productOrderService.getOrderInCustomer(customer);
         if (productOrderList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

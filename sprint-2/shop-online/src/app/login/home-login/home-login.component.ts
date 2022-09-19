@@ -390,10 +390,10 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptionName.unsubscribe();
-    $('[data-toggle="username"]').popover('hide');
-    $('[data-toggle="password"]').popover('hide');
-    $('[data-toggle="confirmPassword"]').popover('hide');
-    $('[data-toggle="samePassword"]').popover('hide');
+    $('[data-bs-toggle="username"]').popover('hide');
+    $('[data-bs-toggle="password"]').popover('hide');
+    $('[data-bs-toggle="confirmPassword"]').popover('hide');
+    $('[data-bs-toggle="samePassword"]').popover('hide');
   }
 
 }

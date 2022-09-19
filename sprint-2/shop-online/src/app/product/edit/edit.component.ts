@@ -66,6 +66,7 @@ export class EditComponent implements OnInit {
   }
 
   editForm() {
+    this.product.dateIn = new Date().toISOString().slice(0, 10)
     this.productForm = new FormGroup({
       id: new FormControl(this.product.id),
       name: new FormControl(this.product.name, [Validators.required]),

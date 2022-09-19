@@ -84,7 +84,7 @@ public class SimpleEmailController {
 
             helper.setTo(appUser.getCustomer().getEmail());
 
-            helper.setSubject("[C0222G2 - Coffee] Lấy lại mật khẩu");
+            helper.setSubject("[Fate-Shop] Lấy lại mật khẩu");
 
             this.emailSender.send(message);
 
@@ -245,7 +245,7 @@ public class SimpleEmailController {
                 "                                        Một liên kết duy nhất để đặt lại mật khẩu của bạn đã được tạo ra.\n" +
                 "                                        Để đặt lại mật khẩu, hãy nhấp vào liên kết bên dưới và làm theo hướng dẫn.\n" +
                 "                                    </p>\n" +
-                "                                    <a href=\"" + api_url + "/forgotPassword/" + token + "\" class=\"btn-yellow\"\n" +
+                "                                    <a href=\"" + api_url + "/forgot/" + token + "\" class=\"btn-yellow\"\n" +
                 "                                       style=\" text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;\">Cập\n" +
                 "                                        nhật mật khẩu</a>\n" +
                 "                                </td>\n" +

@@ -37,10 +37,12 @@ export class AddInfoUserComponent implements OnInit {
               private router: Router,
               private commonService: CommonService,
               private customerService: CustomerService,
+              private title: Title,
               private el: ElementRef) {
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
+    this.title.setTitle("Thêm Thông Tin Tài Khoản")
     // subscribe to sender component messages
     this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
       // this.messageReceived = message;
@@ -83,15 +85,17 @@ export class AddInfoUserComponent implements OnInit {
         email: new FormControl('',this.checkMail),
         address: new FormControl(''),
         hobbies: new FormControl('',this.checkHobbies),
-        appUsers: new FormControl(customer.appUser.id),
+        appUsers: new FormControl(appUser.id),
         isDeleted: new FormControl()
       })
     }else {
+
       this.userForm = new FormGroup({
+
         id: new FormControl(customer.id),
         name: new FormControl(this.customer.name,this.checkName),
         image: new FormControl(this.customer.image,this.checkImage),
-        birthday: new FormControl(this.customer.birthday,this.checkBirthday),
+        birthday: new FormControl(this.customer.birthday.slice(0, 10),this.checkBirthday),
         phone: new FormControl(this.customer.phone,this.checkPhone),
         email: new FormControl(this.customer.email,this.checkMail),
         address: new FormControl(this.customer.address),

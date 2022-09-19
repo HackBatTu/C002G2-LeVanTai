@@ -79,7 +79,7 @@ public class ProductRestController {
         return new ResponseEntity<>(iProductService.findById(id),HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("/product/create")
     public ResponseEntity<?> createProduct(@Valid @RequestBody ProductDTO productDTO , BindingResult bindingResult){
         if(bindingResult.hasErrors()){
@@ -91,7 +91,7 @@ public class ProductRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PatchMapping("/product/edit")
     public ResponseEntity<?> editProduct(@Valid @RequestBody ProductDTO productDTO , BindingResult bindingResult){
         Product product  = iProductService.findById(productDTO.getId());

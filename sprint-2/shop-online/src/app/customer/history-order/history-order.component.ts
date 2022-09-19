@@ -11,6 +11,7 @@ import html2canvas from "html2canvas";
 import {jsPDF} from "jspdf";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-history-order',
@@ -28,16 +29,19 @@ export class HistoryOrderComponent implements OnInit {
   isLoading: Boolean = false;
   productOrderByCode:  Order[] = [];
   totalMoney: number = 0;
+  totalPages: number;
+  number: number;
+  countTotalPages: number[];
   constructor(private cookieService: CookieService,
               private commonService: CommonService,
               private customerService: CustomerService,
               private orderService: OrderService,
               private toast: ToastrService,
-              private router: Router,
-              private active: ActivatedRoute) {
+             private title: Title) {
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
+    this.title.setTitle("Lịch Sử Mua Hàng")
     // subscribe to sender component messages
     this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
       this.messageReceived = message;
@@ -54,22 +58,17 @@ export class HistoryOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCustomerByUsername(this.username)
+
   }
 
   getCustomerByUsername(username: string) {
     this.customerService.getCustomerByUserName(username).subscribe(value => {
+      console.log(value)
       this.customer = value;
-      this.orderService.getOrderByCustomer(this.customer).subscribe((pos: Order[]) => {
-        console.log(pos)
-        if (pos != null) {
-          // @ts-ignore
-          this.productOrders = pos;
-        } else {
-          this.productOrders = [];
-        }
-      });
+      this.getListCustomer(0,this.customer)
     });
   }
+
   generatePDF(username) {
     this.toggleLoading();
     let data = document.getElementById('pdf');
@@ -89,6 +88,7 @@ export class HistoryOrderComponent implements OnInit {
       this.toast.success("Xuất File Lịch Sử Của Bạn Thành Công!", "Thông Báo");
     });
   }
+
   toggleLoading() {
     this.isLoading = true;
     setTimeout(() => {
@@ -105,24 +105,70 @@ export class HistoryOrderComponent implements OnInit {
       this.totalMoney = 0;
       for (let i = 0; i < data.length; i++) {
         // @ts-ignore
-        this.totalMoney += ((pos[i].product.price - (pos[i].product.price * (pos[i].product.discount / 100))) * pos[i].quantity);
+        this.totalMoney += ((data[i].product.price - (data[i].product.price * (data[i].product.discount / 100))) * data[i].quantity);
       }
     }, error => {
     });
   }
 
-  generatePDF2(username) {
+  generatePDF2(id: number) {
     this.toggleLoading();
-    let data = document.getElementById('pdf');
+    let data = document.getElementById('pdf2'+ id);
     html2canvas(data).then(canvas => {
       const contentDataURL = canvas.toDataURL('image/png')
       // @ts-ignore
       let doc = new jsPDF('p', 'pt', 'a4');
       let position = 0;
       // @ts-ignore
-      doc.addImage(contentDataURL, 130, 0);
-      doc.save('History-FateShop by-' + username + '.pdf');
+      const imgProps = doc.getImageProperties(canvas);
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth * 0.98) / imgProps.width;
+
+      doc.addImage(contentDataURL, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      doc.save('History-FateShop by-' + this.username + '.pdf');
       this.toast.success("Xuất File Lịch Sử Của Bạn Thành Công!", "Thông Báo");
     });
+  }
+
+  getListCustomer(page: number,customer: Customer){
+    // @ts-ignore
+    this.orderService.getOrderByCustomer(page,customer).subscribe((pos: Order[]) => {
+      if (pos != null) {
+        // @ts-ignore
+        this.productOrders = pos.content;
+      } else {
+        this.productOrders = [];
+      }
+      if (this.productOrders.length !== 0) {
+        // @ts-ignore
+        this.totalPages = pos.totalPages;
+        // @ts-ignore
+        this.countTotalPages = new Array(pos.totalPages);
+        // @ts-ignore
+        this.number = pos.number;
+      }
+    })
+  }
+
+  goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getListCustomer(numberPage,this.customer);
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getListCustomer(numberPage,this.customer);
+
+    }
+  }
+
+  goItem(i: number) {
+    this.getListCustomer(i,this.customer);
+
   }
 }

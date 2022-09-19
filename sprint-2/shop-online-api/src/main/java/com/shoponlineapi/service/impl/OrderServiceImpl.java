@@ -63,11 +63,6 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     @Override
-    public List<OrderService> getOrderInCustomer(Customer customer) {
-        return this.productOrderRepository.getOrderInCustomer(customer);
-    }
-
-    @Override
     public Page<OrderService> findAll(Pageable pageable) {
         return productOrderRepository.findAllOrder(pageable);
     }
@@ -75,6 +70,11 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public Page<OrderService> getListOrderYesterday(Pageable pageable) {
         return productOrderRepository.getListOrderYesterday(pageable);
+    }
+
+    @Override
+    public Page<OrderService> getOrderInCustomer(Pageable pageable, Customer customer) {
+        return productOrderRepository.getOrderInCustomer(pageable,customer);
     }
 
     @Override
