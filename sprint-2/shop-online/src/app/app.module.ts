@@ -40,6 +40,7 @@ import {StatisticalModule} from "./statistical/statistical.module";
     StatisticalModule,
     LoginModule,
     HomeShopModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(
       {

@@ -3,6 +3,10 @@
 
 <div class="bg-home">
   <router-outlet class="bg-light" (activate)="onActivate($event)"></router-outlet>
+  <div (click)="onActivate($event)" class="btn back-to-top" style="background-color: red">
+    <i class="fa fa-angle-double-up text-white" style="font-size: 27px"></i>
+  </div>
+
 </div>
 
 <app-footer></app-footer>

@@ -37,6 +37,8 @@ export class AllProductComponent implements OnInit {
   customer: Customer;
   startPrice: string = '0';
   endPrice: string = '200000000';
+  searchName: string;
+  searchOrigin: string;
   sort: string = '';
   categoryId: string = '';
   originDtos: OriginDto[] = [];
@@ -152,16 +154,16 @@ export class AllProductComponent implements OnInit {
   }
 
   getSearch() {
-    const searchByName = this.searchForm.value.searchName;
-    const searchByOrigin = this.searchForm.value.searchOrigin;
-    this.getAll(0,this.categoryId, searchByName, searchByOrigin, this.startPrice,this.endPrice,this.sort);
+    this.searchName = this.searchForm.value.searchName;
+    this.searchOrigin = this.searchForm.value.searchOrigin;
+    this.getAll(0,this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
   }
 
   goPrevious() {
     let numberPage: number = this.number;
     if (numberPage > 0) {
       numberPage--;
-      this.getAll(numberPage,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+      this.getAll(numberPage,this.categoryId,  this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
     }
   }
 
@@ -169,12 +171,12 @@ export class AllProductComponent implements OnInit {
     let numberPage: number = this.number;
     if (numberPage < this.totalPages - 1) {
       numberPage++;
-      this.getAll(numberPage, this.categoryId,'', '', this.startPrice,this.endPrice,this.sort);
+      this.getAll(numberPage, this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
     }
   }
 
   goItem(i: number) {
-    this.getAll(i,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+    this.getAll(i,this.categoryId,  this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
   }
 
   deleteProduct(product: Product) {
@@ -232,13 +234,13 @@ export class AllProductComponent implements OnInit {
   filterPrice(start: string, end: string) {
     this.startPrice = start;
     this.endPrice =end;
-    this.getAll(0,this.categoryId,'','',start,end,this.sort)
+    this.getAll(0,this.categoryId, this.searchName, this.searchOrigin,start,end,this.sort)
     this.fPrince = "Từ " + start + 'đ - ' +end + 'đ'
   }
 
   public cName: string = 'Tìm kiếm theo danh mục';
   filterCategory(id: string, name: string) {
-    this.getAll(0,id,'','',this.startPrice,this.endPrice,this.sort);
+    this.getAll(0,id, this.searchName, this.searchOrigin,this.startPrice,this.endPrice,this.sort);
     this.cName ='Tìm kiếm theo ' + name;
   }
 
@@ -246,43 +248,43 @@ export class AllProductComponent implements OnInit {
     this.sortTitle = "Mới Nhất"
     this.sort = 'date_in,asc'
     console.log(this.sort)
-    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, this.sort);
+    this.getAll(0, this.categoryId,  this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
 
   sortByPriceDESC() {
     this.sortTitle = "Giá tăng dần"
     this.sort = 'price,asc'
-    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, this.sort);
+    this.getAll(0, this.categoryId,  this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
   sortByPriceASC() {
     this.sortTitle = "Giá giảm dần"
     this.sort = 'price,desc'
-    this.getAll(0, this.categoryId, '', '', this.startPrice, this.endPrice, this.sort);
+    this.getAll(0, this.categoryId,  this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
 
   getTotalFilterPrice(categoryId: string) {
-    this.productService.getAll(0, categoryId, '', '0', '1000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId,  this.searchName, this.searchOrigin, '0', '1000000', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalOneMi = value.content.length;
       } else {
         this.totalOneMi = 0;
       }
     });
-    this.productService.getAll(0, categoryId, '', '1000001', '3000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId,  this.searchName, this.searchOrigin, '1000001', '3000000', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalThreeMi = value.content.length;
       } else {
         this.totalThreeMi = 0;
       }
     });
-    this.productService.getAll(0, categoryId, '', '3000001', '5000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId,  this.searchName, this.searchOrigin, '3000001', '5000000', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalFiveMi = value.content.length;
       } else {
         this.totalFiveMi = 0;
       }
     });
-    this.productService.getAll(0, categoryId, '', '5000001', '10000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId,  this.searchName, this.searchOrigin, '5000001', '10000000', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalTenMi = value.content.length;
       } else {
@@ -290,7 +292,7 @@ export class AllProductComponent implements OnInit {
       }
     });
 
-    this.productService.getAll(0, categoryId, '', '10000000', '400000000000', '', this.sort).subscribe((value: any) => {
+    this.productService.getAll(0, categoryId, this.searchName, this.searchOrigin, '10000000', '400000000000', this.sort).subscribe((value: any) => {
       if (value != null) {
         this.totalLetThanTenMi = value.content.length;
       } else {
@@ -299,8 +301,8 @@ export class AllProductComponent implements OnInit {
     });
   }
   filterOrigin(originName: string) {
-    this.originName = originName;
-    this.getAll(0, this.categoryId, '', originName, this.startPrice, this.endPrice, this.sort);
+    this.searchOrigin = originName;
+    this.getAll(0, this.categoryId, this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
 
   loadProductByCategory(id: string) {

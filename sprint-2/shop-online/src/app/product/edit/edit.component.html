@@ -126,10 +126,18 @@
 
         </div>
 
-        <div class=" text-center pt-4 pb-5">
-          <button class="btn btn-success  btn-lg mr-2 col-4" type="submit" [disabled]="isLoading">
-            <img width="26px" src="assets/img/loading-symbol.gif" *ngIf="isLoading">Sửa</button>
-          <button class="btn btn-dark  btn-lg col-4" [routerLink]="'/home'"><i class="fas fa-sync-alt"></i>Quay lại</button>
+        <div class="row mt-3" style="margin-bottom: 10px">
+
+          <div class="col-6" style="text-align: right">
+            <button class="btn btn-primary" [disabled]="isLoading" type="submit" >
+              <img *ngIf="isLoading" width="20px"  src="assets/img/loading-symbol.gif"><b style="color: white">Lưu Lại Chỉnh Sửa</b>
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-danger"  [routerLink]="'/home'">
+              <b style="color: white" >Quay Lại Trang Chủ</b>
+            </button>
+          </div>
         </div>
       </form>
     </div>

@@ -80,6 +80,9 @@ export class CartComponent implements OnInit {
       // @ts-ignore
       this.totalMoney += ((pos[i].product.price - (pos[i].product.price * (pos[i].product.discount / 100))) * pos[i].quantity);
     }
+    const target = $('#paymentsBtn');
+    target.remove('#payments');
+    target.html('<div id="payments" *ngIf="totalMoney >= 0"></div>');
     if (this.totalMoney >= 0) {
       render(
         {
@@ -102,7 +105,7 @@ export class CartComponent implements OnInit {
     this.router.navigateByUrl('/loading').then(() => {
       this.cartService.goPayment(this.customer).subscribe(() => {
         setTimeout(() => {
-          this.router.navigateByUrl("/list-product").then(() => {
+          this.router.navigateByUrl("/history").then(() => {
             this.toastrService.success('Thanh toán thành công!');
           })
         }, 500);

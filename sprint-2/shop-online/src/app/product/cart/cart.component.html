@@ -28,7 +28,8 @@
         <tr *ngFor="let po of productOrders; index as i">
           <td><img src="{{po.product.image}}" alt="" style="width: 70px;">  {{po.product.name}}</td>
           <td
-            class="align-middle">{{po.product.price - (po.product.price * po.product.discount / 100) | currency: 'VND': ''}}<sup>đ</sup></td>
+            class="align-middle">{{po.product.price - (po.product.price * po.product.discount / 100) | currency: 'VND': ''}}
+            <sup>đ</sup></td>
           <td class="align-middle">
             <div class="input-group quantity mx-auto" style="width: 100px;">
               <div class="input-group-btn">
@@ -78,7 +79,8 @@
             </div>
           </td>
           <td
-            class="align-middle">{{(po.product.price - (po.product.price * po.product.discount / 100)) * po.quantity | currency: 'VND': ''}}<sup>đ</sup></td>
+            class="align-middle">{{(po.product.price - (po.product.price * po.product.discount / 100)) * po.quantity | currency: 'VND': ''}}
+            <sup>đ</sup></td>
           <td class="align-middle ">
             <button style="border: none ; background-color: red" data-bs-toggle="modal"
                     [attr.data-bs-target]="'#exampleModalDeleteButton' + po.product.id">
@@ -176,7 +178,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="paymentsBtn">
                   <div id="payments" *ngIf="totalMoney >= 0"></div>
                 </div>
                 <div class="modal-footer">

@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit {
   customer: Customer;
   startPrice: string = '0';
   endPrice: string = '200000000';
+  searchName: string;
+  searchOrigin: string;
   category: Category;
   sort: string = '';
   categoryId: string = '';
@@ -58,7 +60,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
-    this.getAll(0,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+    this.getAll(0,this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
     this.getCustomerByUsername(this.username);
     this.searchForm = new FormGroup({
       searchName: new FormControl(),
@@ -97,16 +99,16 @@ export class HomeComponent implements OnInit {
   getSearch() {
     // this.searchForm.value.searchName = this.searchForm.value.searchName.trim();
     // this.searchForm.value.searchOrigin = this.searchForm.value.searchOrigin.trim();
-    const searchByName = this.searchForm.value.searchName;
-    const searchByOrigin = this.searchForm.value.searchOrigin;
-    this.getAll(0,this.categoryId, searchByName, searchByOrigin, this.startPrice,this.endPrice,this.sort);
+    this.searchName = this.searchForm.value.searchName;
+    this.searchOrigin = this.searchForm.value.searchOrigin;
+    this.getAll(0,this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
   }
 
   goPrevious() {
     let numberPage: number = this.number;
     if (numberPage > 0) {
       numberPage--;
-      this.getAll(numberPage,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+      this.getAll(numberPage,this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
     }
   }
 
@@ -114,12 +116,12 @@ export class HomeComponent implements OnInit {
     let numberPage: number = this.number;
     if (numberPage < this.totalPages - 1) {
       numberPage++;
-      this.getAll(numberPage, this.categoryId,'', '', this.startPrice,this.endPrice,this.sort);
+      this.getAll(numberPage, this.categoryId,this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
     }
   }
 
   goItem(i: number) {
-    this.getAll(i,this.categoryId, '', '', this.startPrice,this.endPrice,this.sort);
+    this.getAll(i,this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
   }
 
   deleteProduct(id: number) {
@@ -190,25 +192,32 @@ export class HomeComponent implements OnInit {
 
   public cName: string = 'Tìm kiếm theo danh mục';
   filterCategory(id: string, name: string) {
-    this.getAll(0,id,'','',this.startPrice,this.endPrice,this.sort);
+    this.getAll(0,id,this.searchName, this.searchOrigin,this.startPrice,this.endPrice,this.sort);
     this.cName ='Tìm kiếm theo ' + name;
   }
   titleSort: string = 'Sắp xếp';
   sortDate() {
     this.titleSort = 'Mới nhất'
     this.sort = 'date_in,desc';
-    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
+    this.getAll(0, this.categoryId,this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
 
   sortPriceASC() {
     this.titleSort = 'Giá tăng dần'
     this.sort = 'price';
-    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
+    this.getAll(0, this.categoryId,this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
   sortPriceDESC() {
     this.titleSort = 'Giá giảm dần'
     this.sort = 'price,desc';
-    this.getAll(0, this.categoryId,'' , '', this.startPrice, this.endPrice, this.sort);
+    this.getAll(0, this.categoryId,this.searchName, this.searchOrigin, this.startPrice, this.endPrice, this.sort);
   }
 
+  onActivate(event) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

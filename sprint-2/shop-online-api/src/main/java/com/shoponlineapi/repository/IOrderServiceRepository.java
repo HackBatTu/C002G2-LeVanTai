@@ -68,7 +68,8 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
                     "           join customer c on c.id = po.customer_id " +
                     "          join product p on p.id = po.product_id " +
                     "           join bill b on b.id = po.bill_id " +
-                    "            where po.customer_id = :#{#customer.id} and po.is_deleted = 0 order by b.creation_date desc) temp_table",nativeQuery = true)
+                    "            where po.customer_id = :#{#customer.id} and po.is_deleted = 0 " +
+                    " order by b.creation_date desc) temp_table",nativeQuery = true)
     Page<OrderService> getOrderInCustomer(Pageable pageable,Customer customer);
 
     @Query(value = "select os.* from order_service os " +
