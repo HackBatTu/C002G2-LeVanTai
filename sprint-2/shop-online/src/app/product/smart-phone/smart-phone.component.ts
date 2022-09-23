@@ -27,6 +27,7 @@ export class SmartPhoneComponent implements OnInit {
   customer: Customer;
   sortTitle: string = 'Sắp xếp theo';
   searchForm: FormGroup;
+  p: number = 1;
   constructor(private title: Title,
               private cookieService: CookieService,
               private productService: ProductService,

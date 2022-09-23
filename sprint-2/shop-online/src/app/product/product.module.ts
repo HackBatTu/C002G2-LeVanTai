@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import {CartComponent} from "./cart/cart.component";
 import {AllProductComponent} from './all-product/all-product.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {AllProductComponent} from './all-product/all-product.component';
     CommonModule,
     ProductRoutingModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    NgxPaginationModule
   ]
   , exports: [
     CreateComponent,

@@ -9,7 +9,7 @@
   </div>
 </div>
 <!-- Shop Start -->
-<div class="container pb-5 pt-1">
+<div class="container pb-5 pt-1" *ngIf="customer">
   <div class="row bg-test" style="border-radius: 10px">
     <div class="col-xl-4 order-md-last ">
       <h3 class="text-center text-white pt-4 pb-2"><sub>******* </sub>Ảnh Cá Nhân<sub> *******</sub></h3>
@@ -56,7 +56,6 @@
               <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input"
                      id="image2"
                      name="filename" *ngIf="customer != null">
-              <!--              <label class="custom-file-label border-primary" for="image2" data-bs-browse="Tải lên">Chọn ảnh...</label>-->
             </div>
           </div>
           <div class="col-xl-6 mt-3">

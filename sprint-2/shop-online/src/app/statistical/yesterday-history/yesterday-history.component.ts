@@ -7,6 +7,7 @@ import {ToastrService} from "ngx-toastr";
 import {CommonService} from "../../login/service/common.service";
 import {Title} from "@angular/platform-browser";
 import {CookieService} from "../../login/service/cookie.service";
+import {StatisticalService} from "../../service/statistical.service";
 
 @Component({
   selector: 'app-yesterday-history',
@@ -25,7 +26,8 @@ export class YesterdayHistoryComponent implements OnInit {
   totalPages: number;
   number: number;
   countTotalPages: number[];
-  constructor(private orderService: OrderService,
+  size: number;
+  constructor(private statisticalService: StatisticalService,
               private toast: ToastrService,
               private commonService: CommonService,
               private title: Title,
@@ -52,7 +54,7 @@ export class YesterdayHistoryComponent implements OnInit {
   }
 
   getAllOrderYesterday(page: number){
-    this.orderService.getAllOrderYesterday(page).subscribe(value => {
+    this.statisticalService.getAllOrderYesterday(page).subscribe(value => {
       console.log(value)
       if(value != null){
         // @ts-ignore
@@ -63,6 +65,8 @@ export class YesterdayHistoryComponent implements OnInit {
       if (this.order.length !== 0) {
         // @ts-ignore
         this.totalPages = value.totalPages;
+        // @ts-ignore
+        this.size = value.size;
         // @ts-ignore
         this.countTotalPages = new Array(value.totalPages);
         // @ts-ignore

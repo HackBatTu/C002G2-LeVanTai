@@ -50,6 +50,7 @@ export class AddInfoUserComponent implements OnInit {
       this.username = this.readCookieService('username');
       this.token = this.readCookieService('jwToken');
     });
+    this.getCustomerByUsername(this.username)
   }
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
@@ -63,9 +64,11 @@ export class AddInfoUserComponent implements OnInit {
   getCustomerByUsername(username: string) {
     this.customerService.getCustomerByUserName(username).subscribe(data => {
       this.customer = data;
-      this.customerService.getAppUserFromUsername(username).subscribe((au: AppUser) => {
-        this.appUser = au;
-        this.getForm(data, au);
+      console.log(data)
+      this.customerService.getAppUserFromUsername(username).subscribe((value: AppUser) => {
+        this.appUser = value;
+        console.log(value)
+        this.getForm(this.customer, this.appUser);
       });
       if (data != null) {
         $('#previewImage').attr('src', data.image);
@@ -89,9 +92,7 @@ export class AddInfoUserComponent implements OnInit {
         isDeleted: new FormControl()
       })
     }else {
-
       this.userForm = new FormGroup({
-
         id: new FormControl(customer.id),
         name: new FormControl(this.customer.name,this.checkName),
         image: new FormControl(this.customer.image,this.checkImage),

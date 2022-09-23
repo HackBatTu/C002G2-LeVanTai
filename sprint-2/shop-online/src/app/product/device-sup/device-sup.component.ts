@@ -18,7 +18,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./device-sup.component.css']
 })
 export class DeviceSupComponent implements OnInit {
-
+  p: number = 1;
   deviceProduct: Product[] = [];
   customer: Customer;
   sortTitle: string = 'Sắp xếp theo';

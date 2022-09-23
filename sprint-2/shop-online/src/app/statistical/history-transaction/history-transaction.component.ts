@@ -9,6 +9,7 @@ import {OrderService} from "../../service/order.service";
 import {ToastrService} from "ngx-toastr";
 import {Title} from "@angular/platform-browser";
 import {Order} from "../../model/order";
+import {StatisticalService} from "../../service/statistical.service";
 
 
 
@@ -28,8 +29,8 @@ export class HistoryTransactionComponent implements OnInit {
   totalPages: number;
   number: number;
   countTotalPages: number[];
-
-  constructor(private orderService: OrderService,
+  size: number;
+  constructor(private statisticalService: StatisticalService,
               private toast: ToastrService,
               private commonService: CommonService,
               private title: Title,
@@ -56,7 +57,7 @@ export class HistoryTransactionComponent implements OnInit {
   }
 
   getListOrder(page: number){
-    this.orderService.getAllOrder(page).subscribe(value => {
+    this.statisticalService.getAllOrder(page).subscribe(value => {
       console.log(value)
       if(value != null){
         // @ts-ignore
@@ -69,6 +70,8 @@ export class HistoryTransactionComponent implements OnInit {
         this.totalPages = value.totalPages;
         // @ts-ignore
         this.countTotalPages = new Array(value.totalPages);
+        // @ts-ignore
+        this.size = value.size;
         // @ts-ignore
         this.number = value.number;
       }

@@ -18,7 +18,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./camera.component.css']
 })
 export class CameraComponent implements OnInit {
-
+  p: number = 1;
   role: string = '';
   username: string = '';
   token: string = '';

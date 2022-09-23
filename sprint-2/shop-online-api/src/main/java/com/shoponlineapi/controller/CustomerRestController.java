@@ -3,10 +3,8 @@ package com.shoponlineapi.controller;
 import com.shoponlineapi.dto.CustomerDTO;
 import com.shoponlineapi.model.Customer;
 import com.shoponlineapi.model.OrderService;
-import com.shoponlineapi.model.Product;
 import com.shoponlineapi.repository.IOrderServiceRepository;
 import com.shoponlineapi.service.ICustomerService;
-import org.hibernate.id.BulkInsertionCapableIdentifierGenerator;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -48,7 +46,6 @@ public class CustomerRestController {
         }
         return new ResponseEntity<>(customerPage,HttpStatus.OK);
     }
-
 
     @PostMapping("/update/customer")
     public ResponseEntity<?> saveCustomer(@Valid @RequestBody CustomerDTO customerDTO, BindingResult bindingResult) {

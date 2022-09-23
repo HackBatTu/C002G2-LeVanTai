@@ -42,8 +42,8 @@
 
           </div>
         </div>
-        <div class="col-lg-2 col-md-6  pb-1 pr-1 pl-1" *ngFor="let p of tiviProduct">
-          <div class=" product-item bg-light mb-3" >
+        <div class="col-lg-2 col-md-6 pb-1 pr-1 pl-1" *ngFor="let p of tiviProduct| paginate: { itemsPerPage: 15, currentPage: p }">
+          <div class=" product-item bg-white " >
             <div class="product-img position-relative overflow-hidden">
               <img class="img-fluid w-100" [src]="p.image" alt="">
               <div class="product-action">
@@ -109,6 +109,9 @@
             </div>
           </div>
         </div>
+        <div class="text-center" style="color: red">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
         <div class="col-lg-12 col-md-12 col-sm-12 pb-1 text-center font-weight-bold text-white" style="font-size: 30px !important;" *ngIf="tiviProduct.length <= 0">
           Không có dữ liệu !!!.
         </div>
@@ -117,7 +120,7 @@
     <!-- Shop Product End -->
 
     <!-- Shop Sidebar Start -->
-    <div class="col-lg-3 col-md-4 bg-white">
+    <div class="col-lg-3 col-md-12 bg-white">
       <!-- Image Start -->
       <div>
         <h4 class="section-title position-relative text-uppercase mb-4 pt-1"><span

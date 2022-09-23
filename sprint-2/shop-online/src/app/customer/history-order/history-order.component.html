@@ -1,3 +1,4 @@
+
 <div id="pdf">
   <!-- Page Header Start -->
   <div class="container-fluid bg-white">
@@ -7,13 +8,15 @@
         <p class="m-0"><a href="">Trang chủ</a></p>
         <p class="m-0 px-2">-</p>
         <p class="m-0 pb-2">Danh sách sản phẩm | <button style="border: none; background-color: orange" (click)="generatePDF(username)"> In lịch sử mua hàng</button>
+
        </p>
+
       </div>
     </div>
   </div>
   <!-- Page Header End -->
   <!-- Cart Start -->
-  <div class="container-fluid" style="padding: 0px 200px 50px 200px">
+  <div class="container-fluid" style="padding: 0px 200px 50px 200px; height: 750px" >
     <div class="row col-12 pt-2">
       <div class="col-lg-12 table-responsive mb-5" id="table-card">
         <table id="table" class="table table-hover text-center mb-0">
@@ -32,7 +35,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let p of productOrders,index as i">
-            <td class="align-middle">{{i+1}}</td>
+            <td class="align-middle">{{(i + 1) + size * number}}</td>
             <td class="align-middle">{{p.bill.code}}</td>
             <td class="align-middle">{{p.product.name}}</td>
             <td class="align-middle">{{p.bill.creationDate| date: 'dd-MM-yyyy hh:mm:ssa'}}</td>

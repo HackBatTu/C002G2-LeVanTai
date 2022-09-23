@@ -18,7 +18,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./tivi.component.css']
 })
 export class TiviComponent implements OnInit {
-
+  p: number = 1;
   role: string = '';
   username: string = '';
   token: string = '';

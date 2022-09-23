@@ -3178,7 +3178,7 @@ textarea.form-control-lg {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
+  background-color: red;
   border-color: #dc3545
 }
 
@@ -3432,13 +3432,13 @@ textarea.form-control-lg {
 }
 
 .btn-outline-danger {
-  color: #dc3545;
-  border-color: #dc3545
+  color: black;
+  border-color: red
 }
 
 .btn-outline-danger:hover {
   color: #fff;
-  background-color: #dc3545;
+  background-color: red;
   border-color: #dc3545
 }
 

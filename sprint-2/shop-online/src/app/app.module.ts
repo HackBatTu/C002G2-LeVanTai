@@ -18,7 +18,7 @@ import {CustomerModule} from "./customer/customer.module";
 import {HomeShopModule} from "./home-shop/home-shop.module";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {StatisticalModule} from "./statistical/statistical.module";
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -40,14 +40,14 @@ import {StatisticalModule} from "./statistical/statistical.module";
     StatisticalModule,
     LoginModule,
     HomeShopModule,
-
+    NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(
       {
         timeOut: 2000,
         closeButton: true,
         progressBar: true,
-        positionClass: 'toast-top-right',
+        positionClass: 'toast-top-center',
         preventDuplicates: true,
       }
     ),

@@ -1,0 +1,83 @@
+.body {
+  padding: 0px 100px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+
+.header-panel {
+  background-color: red;
+  height: 80px;
+  width: 100%;
+}
+
+.titles {
+  background-color: red;
+  height: 60px;
+  line-height: 60px;
+  color: white;
+  text-align: center;
+  margin-bottom: 2px;
+  border-radius: 6px;
+}
+
+.bodyAll {
+  width: 80%;
+  border-radius: 10px;
+  background-color: white;
+  margin: 90px auto;
+  padding: 10px;
+}
+
+.tableTitle {
+  background-color: green;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

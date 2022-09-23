@@ -8,7 +8,7 @@ import {ListCustomerComponent} from "./list-customer/list-customer.component";
 
 const routes: Routes = [
   {
-    path: 'add-info/:userName',component: AddInfoUserComponent
+    path: 'add-info',component: AddInfoUserComponent
   },
   {
     path: 'info',component: UserCustomerComponent

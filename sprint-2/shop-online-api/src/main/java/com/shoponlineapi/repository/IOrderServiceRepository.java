@@ -1,5 +1,7 @@
 package com.shoponlineapi.repository;
 
+import com.shoponlineapi.dto.CustomerTopDTO;
+import com.shoponlineapi.dto.StatisticDTO;
 import com.shoponlineapi.model.Customer;
 import com.shoponlineapi.model.OrderService;
 import com.shoponlineapi.service.impl.OrderServiceImpl;
@@ -79,4 +81,44 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
             " where b.id = :id and os.is_deleted = 0 ",
             nativeQuery = true)
     List<OrderService> findProductById( Integer id);
+
+    @Query(value = "select sum(os.quantity) as quantity , p.name as name , b.creation_date as creation_date from order_service os " +
+            " join product p on os.product_id = p.id " +
+            " join customer c on os.customer_id = c.id " +
+            " join bill b on os.bill_id = b.id " +
+            " group by os.product_id " +
+            " having b.creation_date  >= current_date - interval 7 day AND b.creation_date <  current_date - interval 1 day " +
+            " order by sum(os.quantity) desc " +
+            " limit 10 ", nativeQuery = true)
+    List<StatisticDTO> getWeekStatistic();
+
+    @Query(value = "select sum(os.quantity) as quantity , p.name as name , b.creation_date as creation_date from order_service os " +
+            " join product p on os.product_id = p.id " +
+            " join customer c on os.customer_id = c.id " +
+            " join bill b on os.bill_id = b.id " +
+            " group by os.product_id " +
+            " having b.creation_date  >= current_date - interval 30 day AND b.creation_date <  current_date - interval 1 day " +
+            " order by sum(os.quantity) desc " +
+            " limit 10 ", nativeQuery = true)
+    List<StatisticDTO> getMonthStatistic();
+
+    @Query(value = "select sum(os.quantity) as quantity ,  p.name as name , b.creation_date as creation_date from order_service os " +
+            " join product p on os.product_id = p.id " +
+            " join customer c on os.customer_id = c.id " +
+            " join bill b on os.bill_id = b.id " +
+            " group by os.product_id " +
+            " having b.creation_date  >= current_date - interval 365 day AND b.creation_date <  current_date - interval 1 day " +
+            " order by sum(os.quantity) desc " +
+            " limit 10 ", nativeQuery = true)
+    List<StatisticDTO> getYearStatistic();
+
+    @Query(value = "select sum(os.quantity) as quantity , c.* ,ass.user_name from order_service os " +
+            " join product p on os.product_id = p.id " +
+            " join customer c on os.customer_id = c.id " +
+            " join bill b on os.bill_id = b.id " +
+            " join app_user ass on c.user_id = ass.id " +
+            "group by os.customer_id " +
+            "order by sum(os.quantity) desc " +
+            "limit 10 ",nativeQuery = true)
+    List<CustomerTopDTO> getTopCustomer();
 }

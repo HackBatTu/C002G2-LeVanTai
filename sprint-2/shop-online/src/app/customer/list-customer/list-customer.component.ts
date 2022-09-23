@@ -24,7 +24,7 @@ export class ListCustomerComponent implements OnInit {
   totalPages: number;
   number: number;
   countTotalPages: number[];
-
+  size: number;
   constructor(private customerService: CustomerService,
               private toast: ToastrService,
               private commonService: CommonService,
@@ -62,6 +62,8 @@ export class ListCustomerComponent implements OnInit {
       if (this.customer.length !== 0) {
         // @ts-ignore
         this.totalPages = data.totalPages;
+        // @ts-ignore
+        this.size = data.size;
         // @ts-ignore
         this.countTotalPages = new Array(data.totalPages);
         // @ts-ignore

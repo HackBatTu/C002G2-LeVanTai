@@ -12,6 +12,7 @@ import {jsPDF} from "jspdf";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
+import {StatisticalService} from "../../service/statistical.service";
 
 @Component({
   selector: 'app-history-order',
@@ -31,11 +32,12 @@ export class HistoryOrderComponent implements OnInit {
   totalMoney: number = 0;
   totalPages: number;
   number: number;
+  size: number;
   countTotalPages: number[];
   constructor(private cookieService: CookieService,
               private commonService: CommonService,
               private customerService: CustomerService,
-              private orderService: OrderService,
+              private statisticalService: StatisticalService,
               private toast: ToastrService,
              private title: Title) {
     this.role = this.readCookieService('role');
@@ -132,7 +134,7 @@ export class HistoryOrderComponent implements OnInit {
 
   getListCustomer(page: number,customer: Customer){
     // @ts-ignore
-    this.orderService.getOrderByCustomer(page,customer).subscribe((pos: Order[]) => {
+    this.statisticalService.getOrderByCustomer(page,customer).subscribe((pos: Order[]) => {
       if (pos != null) {
         // @ts-ignore
         this.productOrders = pos.content;
@@ -142,6 +144,8 @@ export class HistoryOrderComponent implements OnInit {
       if (this.productOrders.length !== 0) {
         // @ts-ignore
         this.totalPages = pos.totalPages;
+        // @ts-ignore
+        this.size = pos.size;
         // @ts-ignore
         this.countTotalPages = new Array(pos.totalPages);
         // @ts-ignore

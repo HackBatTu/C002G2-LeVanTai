@@ -11,7 +11,7 @@
 </div>
 <!-- Page Header End -->
 <!-- Cart Start -->
-<div class="container" style="padding-bottom: 90px">
+<div class="container" style="padding-bottom: 90px ; height: 750px">
   <div class="row col-12 pt-2">
     <div class="col-lg-12 table-responsive mb-5" id="table-card">
       <table class="table table-hover text-center mb-0">
@@ -30,7 +30,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let p of order,index as i">
-          <td>{{i+1}}</td>
+          <td>{{i+1 + number * size}}</td>
           <td>{{p.bill.code}}</td>
           <td>{{p.customer.name}}</td>
           <td>{{p.product.name}}</td>
@@ -45,7 +45,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 pb-1 text-center font-weight-bold text-dark" style="font-size: 30px !important;" *ngIf="order.length <= 0">
         Không có dữ liệu !!!.
       </div>
-      <div class="col-lg-12" *ngIf="order.length > 0" style="margin-top: 10px">
+      <div class="col-lg-12" *ngIf="order.length > 1" style="margin-top: 10px">
         <nav>
           <ul class="pagination justify-content-center">
             <div *ngIf="number == 0" >
