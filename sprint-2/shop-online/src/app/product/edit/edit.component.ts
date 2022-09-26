@@ -86,20 +86,27 @@ export class EditComponent implements OnInit {
 
 
   onEditProduct() {
-    this.toggleLoading()
+    this.toggleLoading();
     let product: Product = this.productForm.value;
     if (this.selectedImage == null) {
-      this.checkFocusFirstError()
+      for (const key of Object.keys(this.productForm.controls)) {
+        if (this.productForm.controls[key].invalid) {
+          const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+          invalidControl.focus();
+          this.toastrService.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+          break;
+        }
+      }
       if (this.productForm.valid) {
         this.productService.editProduct(product).subscribe((data) => {
           this.toastrService.success('Cập nhật thành công', 'Thông báo!!!')
-          this.router.navigateByUrl('/home').then();
+          this.router.navigateByUrl('/list-product').then();
         });
       } else {
-        this.checkFocusFirstError()
+        return this.toastrService.warning("Vui lòng nhập đầy đủ và đúng dữ liệu!!!", "Thông báo")
       }
     } else {
-      const nameImg = EditComponent.getCurrentDateTime() + this.selectedImage.name;
+      const nameImg = this.getCurrentDateTime() + this.selectedImage.name;
       const fileRef = this.storage.ref(nameImg);
       this.storage.upload(nameImg, this.selectedImage).snapshotChanges().pipe(
         finalize(() => {
@@ -108,7 +115,7 @@ export class EditComponent implements OnInit {
             if (this.productForm.valid) {
               this.productService.editProduct(product).subscribe((data) => {
                 this.toastrService.success('Cập nhật thành công', 'Thông báo!!!')
-                this.router.navigateByUrl('/home').then()
+                this.router.navigateByUrl('/list-product').then()
               });
             } else {
               this.checkFocusFirstError()
@@ -131,14 +138,15 @@ export class EditComponent implements OnInit {
       reader.onload = (o: any) => this.imgSrc = o.target.result;
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
-      document.getElementById('img').style.display = 'block';
+      document.getElementById("image").style.display = "none"
+      document.getElementById("img").style.display = "block"
     } else {
-      this.imgSrc = '';
+      this.imgSrc = "";
       this.selectedImage = null;
     }
   }
 
-  private static getCurrentDateTime(): string {
+   getCurrentDateTime() {
     return formatDate(new Date(), 'dd-MM-yyyyhhmmssa', 'en-US');
   }
   compareCategory(c1: Category, c2: Category): boolean {

@@ -1,7 +1,5 @@
 package com.shoponlineapi.dto;
 
-
-
 import java.util.Date;
 
 public interface CustomerTopDTO {

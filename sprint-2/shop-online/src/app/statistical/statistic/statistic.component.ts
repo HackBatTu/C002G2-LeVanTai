@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StatisticalService} from "../../service/statistical.service";
 import {FormGroup} from "@angular/forms";
 import * as Chart from 'chart.js'
@@ -19,13 +19,14 @@ export class StatisticComponent implements OnInit {
   public canvas: any;
   a: number = 222222;
   public ctx: any;
-  public labelsW: string[]= [] ;
-  public dataCasesW: number[] = [] ;
-  public labelsM: string[]= [] ;
-  public dataCasesM: number[] = [] ;
-  public labelsY: string[]= [] ;
-  public dataCasesY: number[] = [] ;
+  public labelsW: string[] = [];
+  public dataCasesW: number[] = [];
+  public labelsM: string[] = [];
+  public dataCasesM: number[] = [];
+  public labelsY: string[] = [];
+  public dataCasesY: number[] = [];
   isLoading: Boolean = false;
+
   constructor(private statisticalService: StatisticalService,
               private toast: ToastrService) {
 
@@ -37,6 +38,7 @@ export class StatisticComponent implements OnInit {
     this.getListYear()
     this.createLineChart();
   }
+
   private createLineChart() {
     this.canvas = document.getElementById('myChart');
     this.ctx = this.canvas.getContext('2d');
@@ -46,6 +48,7 @@ export class StatisticComponent implements OnInit {
       data: {
         labels: this.labelsW,
         datasets: [{
+
           label: "Tuần",
           data: this.dataCasesW,
           backgroundColor: '#ffbb33',
@@ -83,36 +86,35 @@ export class StatisticComponent implements OnInit {
           mode: 'nearest',
           intersect: true
         },
-
       }
     });
   }
-  getListWeek(){
-    this.statisticalService.getStatisticByWeek().subscribe( (data: QuantityDto[]) => {
-      console.log(data)
+
+  getListWeek() {
+    this.statisticalService.getStatisticByWeek().subscribe((data: QuantityDto[]) => {
       this.listStatisticWeek = data;
-      for (let i = 0; i < data.length ; i++) {
-         this.labelsW.push(data[i].name)
-         this.dataCasesW.push(data[i].quantity)
+      for (let i = 0; i < data.length; i++) {
+        this.labelsW.push(data[i].name)
+        this.dataCasesW.push(data[i].quantity)
       }
     })
-    console.log(this.listStatisticWeek)
   }
-  getListMonth(){
+
+  getListMonth() {
     this.statisticalService.getStatisticByMonth().subscribe((value: QuantityDto[]) => {
-      console.log(value)
       this.listStatisticMonth = value;
-      for (let i = 0; i < value.length ; i++) {
+      for (let i = 0; i < value.length; i++) {
         this.labelsM.push(value[i].name)
         this.dataCasesM.push(value[i].quantity)
       }
     })
+    console.log(this.listStatisticMonth)
   }
-  getListYear(){
-    this.statisticalService.getStatisticByYear().subscribe( (year: QuantityDto[]) => {
-      console.log(year)
+
+  getListYear() {
+    this.statisticalService.getStatisticByYear().subscribe((year: QuantityDto[]) => {
       this.listStatisticYear = year;
-      for (let i = 0; i < year.length ; i++) {
+      for (let i = 0; i < year.length; i++) {
         this.labelsY.push(year[i].name)
         this.dataCasesY.push(year[i].quantity)
       }
@@ -137,10 +139,41 @@ export class StatisticComponent implements OnInit {
       this.toast.success("Xuất File Lịch Sử Của Bạn Thành Công!", "Thông Báo");
     });
   }
+
   toggleLoading() {
+
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
     }, 2600)
+  }
+
+  selectType(target: any) {
+    switch (target.value[3]) {
+      case 'week':
+        // @ts-ignore
+        $('#week').show();
+        // @ts-ignore
+        $('#month').hide();
+        // @ts-ignore
+        $('#year').hide();
+        break;
+      case 'month':
+        // @ts-ignore
+        $('#week').hide();
+        // @ts-ignore
+        $('#month').show();
+        // @ts-ignore
+        $('#year').hide();
+        break;
+      case 'year':
+        // @ts-ignore
+        $('#week').hide();
+        // @ts-ignore
+        $('#month').hide();
+        // @ts-ignore
+        $('#year').show();
+        break;
+    }
   }
 }

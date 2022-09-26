@@ -1,12 +1,11 @@
 .body {
-  padding: 0px 100px;
+  padding: 0px 0px 0px 30px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   width: 100%;
+  height: auto;
 }
-
-
 
 .header-panel {
   background-color: red;
@@ -16,7 +15,7 @@
 
 .titles {
   background-color: red;
-  height: 60px;
+  height: auto;
   line-height: 60px;
   color: white;
   text-align: center;

@@ -82,7 +82,7 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
             nativeQuery = true)
     List<OrderService> findProductById( Integer id);
 
-    @Query(value = "select sum(os.quantity) as quantity , p.name as name , b.creation_date as creation_date from order_service os " +
+    @Query(value = "select sum(os.quantity) as quantity , p.name as name , b.creation_date as creationDate from order_service os " +
             " join product p on os.product_id = p.id " +
             " join customer c on os.customer_id = c.id " +
             " join bill b on os.bill_id = b.id " +
@@ -92,7 +92,7 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
             " limit 10 ", nativeQuery = true)
     List<StatisticDTO> getWeekStatistic();
 
-    @Query(value = "select sum(os.quantity) as quantity , p.name as name , b.creation_date as creation_date from order_service os " +
+    @Query(value = "select sum(os.quantity) as quantity , p.name as name , b.creation_date as creationDate from order_service os " +
             " join product p on os.product_id = p.id " +
             " join customer c on os.customer_id = c.id " +
             " join bill b on os.bill_id = b.id " +
@@ -102,7 +102,7 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
             " limit 10 ", nativeQuery = true)
     List<StatisticDTO> getMonthStatistic();
 
-    @Query(value = "select sum(os.quantity) as quantity ,  p.name as name , b.creation_date as creation_date from order_service os " +
+    @Query(value = "select sum(os.quantity) as quantity ,  p.name as name , b.creation_date as creationDate from order_service os " +
             " join product p on os.product_id = p.id " +
             " join customer c on os.customer_id = c.id " +
             " join bill b on os.bill_id = b.id " +
@@ -112,7 +112,7 @@ public interface IOrderServiceRepository extends JpaRepository<OrderService, Int
             " limit 10 ", nativeQuery = true)
     List<StatisticDTO> getYearStatistic();
 
-    @Query(value = "select sum(os.quantity) as quantity , c.* ,ass.user_name from order_service os " +
+    @Query(value = "select sum(os.quantity) as quantity , c.* ,ass.user_name as userName from order_service os " +
             " join product p on os.product_id = p.id " +
             " join customer c on os.customer_id = c.id " +
             " join bill b on os.bill_id = b.id " +
