@@ -9,7 +9,7 @@
   </div>
 </div>
 <!-- Shop Start -->
-<div class="container pb-5 pt-1" *ngIf="customer">
+<div class="container pb-5 pt-1" >
   <div class="row bg-test" style="border-radius: 10px">
     <div class="col-xl-4 order-md-last ">
       <h3 class="text-center text-white pt-4 pb-2"><sub>******* </sub>Ảnh Cá Nhân<sub> *******</sub></h3>
@@ -25,11 +25,6 @@
     <div class="col-xl-8 m-0 pt-5">
       <form class="needs-validation" [formGroup]="userForm" (ngSubmit)="onEditInfo()" *ngIf="userForm">
         <div class="row g-3">
-
-<!--            <select class="form-control border-primary" id="appUsers"  readonly formControlName="appUsers"-->
-<!--                    [compareWith]="compareUser" [(ngModel)]="customer.appUser" hidden>-->
-<!--              <option class="" *ngFor="let app of appUser1" [ngValue]="appUser1" [disabled]="true" >{{app.userName}}</option>-->
-<!--            </select>-->
 
           <input type="hidden" readonly formControlName="id" *ngIf="customer != null">
           <input type="hidden" readonly formControlName="appUsers" *ngIf="customer != null">
@@ -97,14 +92,20 @@
 
         </div>
         <hr class="my-4">
-        <div class="text-center justify-content-center">
-          <button class="btn btn-success btn-lg mr-2 col-4" type="submit" [disabled]="isLoading">
-            <img width="26px" src="assets/img/loading-symbol.gif" *ngIf="isLoading">Đồng ý
-          </button>
-          <button class="btn btn-dark btn-lg col-4" [routerLink]="'/info'"><i class="fas fa-sync-alt"></i>Quay
-            lại
-          </button>
+        <div class="row mt-3" style="margin-bottom: 10px">
+
+          <div class="col-6" style="text-align: right">
+            <button class="btn btn-primary" [disabled]="isLoading" type="submit" >
+              <img *ngIf="isLoading" width="20px"  src="assets/img/loading-symbol.gif"><b style="color: white">Đồng ý</b>
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-danger"  [routerLink]="'/info'">
+              <b style="color: white" >Quay Lại </b>
+            </button>
+          </div>
         </div>
+
 
       </form>
 

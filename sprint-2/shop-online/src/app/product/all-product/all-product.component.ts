@@ -180,8 +180,10 @@ export class AllProductComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
+    let numberPage: number = this.number;
+
     this.productService.deleteProduct(product.id).subscribe(value => {
-      this.ngOnInit();
+      this.getAll(numberPage, this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
       $('#exampleModalDelete' + product.id).modal('hide');
       this.toastrService.success('Xóa thành công sản phẩm ' + product.name);
     });

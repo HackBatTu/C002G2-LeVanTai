@@ -125,12 +125,13 @@ export class HomeComponent implements OnInit {
   }
 
   deleteProduct(id: number) {
+    let numberPage: number = this.number;
     // @ts-ignore
     this.productService.deleteProduct(id).subscribe(value => {
       // @ts-ignore
       $('#exampleModal' + id).modal('hide');
       this.toastrService.success('Xóa thành công !!!', 'SOS!!!');
-      this.ngOnInit();
+      this.getAll(numberPage, this.categoryId,this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
       this.router.navigateByUrl('/home').then();
     }, error => {
     }, () => {

@@ -51,6 +51,7 @@ export class AddInfoUserComponent implements OnInit {
       this.token = this.readCookieService('jwToken');
     });
     this.getCustomerByUsername(this.username)
+    console.log(this.username)
   }
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
@@ -89,7 +90,7 @@ export class AddInfoUserComponent implements OnInit {
         address: new FormControl(''),
         hobbies: new FormControl('',this.checkHobbies),
         appUsers: new FormControl(appUser.id),
-        isDeleted: new FormControl()
+        isDeleted: new FormControl(0)
       })
     }else {
       this.userForm = new FormGroup({

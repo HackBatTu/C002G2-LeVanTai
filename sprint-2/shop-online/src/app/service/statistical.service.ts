@@ -23,8 +23,8 @@ export class StatisticalService {
     return this.httpClient.post<Order[]>(this.URL_CONNECT + "/cart/history?page=" + page, customer);
   }
 
-  getAllOrder(page: number): Observable<Order[]> {
-    return this.httpClient.get<Order[]>(this.URL_CONNECT + "/list-order?page=" + page);
+  getAllOrder( number: number, size: number): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(this.URL_CONNECT + "/list-order?page=" + number + '&size=' + size);
   }
 
   getAllOrderYesterday(page: number): Observable<Order[]> {

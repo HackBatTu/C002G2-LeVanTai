@@ -45,44 +45,36 @@
       <div class="col-lg-12 col-md-12 col-sm-12 pb-1 text-center font-weight-bold text-dark" style="font-size: 30px !important;" *ngIf="order.length <= 0">
         Không có dữ liệu !!!.
       </div>
-      <div class="col-lg-12 " *ngIf="order.length > 0" style="margin-top: 10px">
+      <div class="col-lg-12 text-center" *ngIf="order.length > 0" style="margin-top: 15px">
         <nav>
-          <ul class="pagination justify-content-center">
-            <div *ngIf="number == 0" >
-              <li class="page-item disabled">
-                <button class="page-link" (click)="goPrevious()" hidden>Quay Lại</button>
-              </li>
-            </div>
-            <div *ngIf="number != 0">
-              <li class="page-item">
-                <button class="page-link" (click)="goPrevious()">Quay Lại</button>
-              </li>
-            </div>
-            <div *ngFor="let count of countTotalPages; index as i" >
-              <div *ngIf="i == number">
-                <li class="page-item active">
-                  <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
-                </li>
+          <ul class="pagination text-center justify-content-center">
+          <div [ngStyle]="{'display':displayPagination}">
+              <div style="display: flex;align-items: center;justify-content: flex-end">
+                <b style="margin: 0 10px 0 0; color: red">Số phần tử của trang:</b>
+                <select (change)="changePageSize($event)" style="width: 80px" class="form-select text-danger">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                </select>
+                <b style="margin: 0 20px 0 40px ; color: red">
+                    {{pageSize * number + 1}} - {{pageSize * number + numberOfElement}}
+                  trên {{totalElements}}
+          </b>
+                <button (click)="previousPage($event)" [ngStyle]="{'display':previousPageStyle}" type="button"
+                        class="btn btn-outline-danger">
+                  <i class="fa fa-chevron-left "></i>
+                </button>
+                <button (click)="nextPage($event)" [ngStyle]="{'display':nextPageStyle}" style="margin-left: 10px"
+                        type="button"
+                        class="btn btn-outline-danger">
+                  <i class="fa fa-chevron-right "></i>
+                </button>
               </div>
-              <div *ngIf="i != number">
-                <li class="page-item">
-                  <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
-                </li>
-              </div>
-            </div>
-            <div *ngIf="number == totalPages - 1">
-              <li class="page-item disabled">
-                <button class="page-link" (click)="goNext()" hidden>Tiếp</button>
-              </li>
-            </div>
-            <div *ngIf="number != totalPages - 1">
-              <li class="page-item">
-                <button class="page-link" (click)="goNext()">Tiếp</button>
-              </li>
             </div>
           </ul>
         </nav>
-      </div>
+        </div>
+
     </div>
 
 
