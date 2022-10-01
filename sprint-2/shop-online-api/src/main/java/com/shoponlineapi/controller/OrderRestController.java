@@ -475,7 +475,7 @@ public class OrderRestController {
                 "                            </tr>\n" +
                 "                            <tr>\n" +
                 "                                <td style=\"font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;\">\n" +
-                "                                    Xem thêm các sản phẩm khác <a style=\"font-weight: bold\" target=\"_blank\" href=\"" + apiUrl + "/product/list\">tại đây</a>.\n" +
+                "                                    Xem thêm các sản phẩm khác <a style=\"font-weight: bold\" target=\"_blank\" href=\"" + apiUrl + "/list-product\">tại đây</a>.\n" +
                 "                                </td>\n" +
                 "                            </tr>\n" +
                 "                            </tbody>\n" +

@@ -49,8 +49,9 @@
             <label for="images" class="form-label title-input">Ảnh sản phẩm <span class="text-white">(*)</span>:
             </label>
             <div class="input-group has-validation text-white">
+              <i class="fa fa-picture-o align-content-center" aria-hidden="true" style="font-size: 40px" (click)="picture.click()"></i>
               <input (input)="chooseFile()" #fileUploader (change)="showPreview($event)" type="file"
-                     class="form-control text-dark"
+                     class="form-control text-dark"  #picture style="display: none" accept=".jpg, .png, .jpeg"
                      id="images" name="filename" formControlName="image">
             </div>
           </div>

@@ -27,7 +27,7 @@
         <div class="row g-3">
 
           <input type="hidden" readonly formControlName="id" *ngIf="customer != null">
-          <input type="hidden" readonly formControlName="appUsers" *ngIf="customer != null">
+          <input type="hidden" readonly formControlName="appUser" *ngIf="customer != null">
           <div class="col-xl-4 mt-3">
             <label for="name" class="form-label font-weight-bold text-white"><b>Họ và tên <span class="text-white">(*)</span>:</b>
             </label>
@@ -42,14 +42,16 @@
                    value="" formControlName="phone">
           </div>
           <div class="col-xl-4 mt-3">
-            <label for="image1" class="form-label font-weight-bold text-white"> <b>Ảnh đại diện<span class="text-white">(*)</span>:</b>
+            <label  class="form-label font-weight-bold text-white"> <b>Ảnh đại diện<span class="text-white">(*)</span>:</b>
             </label>
+
             <div class="input-group has-validation border-primary">
+<!--              <i class="fa fa-picture-o text-white" aria-hidden="true" style="font-size: 40px" (click)="picture.click()"></i>-->
               <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input"
-                     id="image1"
+                     id="image1" accept=".jpg, .png, .jpeg"
                      name="filename" formControlName="image" *ngIf="customer == null">
               <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input"
-                     id="image2"
+                     id="image2" accept=".jpg, .png, .jpeg"
                      name="filename" *ngIf="customer != null">
             </div>
           </div>

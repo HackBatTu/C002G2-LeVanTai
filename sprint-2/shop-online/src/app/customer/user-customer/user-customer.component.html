@@ -25,7 +25,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title font-weight-bold text-uppercase text-dark" id="exampleModalLongTitle">{{customer.name}}</h5>
+                      <h5 *ngIf="customer != null" class="modal-title font-weight-bold text-uppercase text-dark" id="exampleModalLongTitle">{{customer.name}}</h5>
                       <button type="button" class="close text-white bg-danger" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -40,11 +40,11 @@
                   </div>
                 </div>
               </div>
-              <h3 class="pt-4">{{customer.name}}</h3>
+              <h3 *ngIf="customer != null" class="pt-4">{{customer.name}}</h3>
               <p>
                 <b>Developer</b>
               </p>
-              <a type="button" class="text-warning" [routerLink]="['/add-info']">
+              <a type="button" class="text-warning" [routerLink]="['/add-info',username]">
                 <i class="far fa-edit mb-5" style="font-size: 40px"></i>
               </a>
             </div>
@@ -57,7 +57,7 @@
                   </div>
                   <div class="col-6 mb-3">
                     <b>Số điện thoại :</b>
-                    <p>{{customer.phone}}</p>
+                    <p *ngIf="customer != null" >{{customer.phone}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <b>Mật Khẩu :</b>
@@ -65,15 +65,15 @@
                   </div>
                   <div class="col-6 mb-3">
                     <b>Ngày Sinh :</b>
-                    <p>{{customer.birthday| date : 'dd-MM-yyyy'}}</p>
+                    <p *ngIf="customer != null" >{{customer.birthday| date : 'dd-MM-yyyy'}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <b>Email :</b>
-                    <p>{{customer.email}}</p>
+                    <p *ngIf="customer != null" >{{customer.email}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <b>Ngày khởi tạo :</b>
-                    <p>{{customer.appUser.creationDate | date: "dd-MM-yyyy"}}</p>
+                    <p *ngIf="customer != null" >{{customer.appUser.creationDate | date: "dd-MM-yyyy"}}</p>
                   </div>
                 </div>
                 <h3>Thông tin thêm!</h3>
@@ -81,7 +81,7 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <b>Sở thích</b>
-                    <p class="text-danger ">{{customer.hobbies}}</p>
+                    <p *ngIf="customer != null" class="text-danger ">{{customer.hobbies}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <b>Phương châm</b>

@@ -36,42 +36,95 @@ export class StatisticComponent implements OnInit {
     this.getListWeek()
     this.getListMonth()
     this.getListYear()
-    this.createLineChart();
+    this.createLineChartM()
+    this.createLineChartW()
+    this.createLineChartY()
   }
 
-  private createLineChart() {
-    this.canvas = document.getElementById('myChart');
+  private createLineChartW() {
+    this.canvas = document.getElementById('myChartW');
     this.ctx = this.canvas.getContext('2d');
 
-    const myChart = new Chart(this.ctx, {
+    const myChartW = new Chart(this.ctx, {
       type: 'bar',
       data: {
         labels: this.labelsW,
         datasets: [{
-
           label: "Tuần",
           data: this.dataCasesW,
           backgroundColor: '#ffbb33',
           borderColor: '#ffbb33',
           fill: false,
           borderWidth: 2
+        }]
+      },
+      options: {
+        title: {
+          display: false,
+          text: ""
         },
-          {
-            label: "Tháng",
-            data: this.dataCasesM,
-            backgroundColor: 'red',
-            borderColor: 'red',
-            fill: false,
-            borderWidth: 2
-          },
-          {
-            label: "Năm",
-            data: this.dataCasesY,
-            backgroundColor: '#1bff00',
-            borderColor: '#1bff00',
-            fill: false,
-            borderWidth: 2
-          }]
+        tooltips: {
+          mode: 'index',
+          intersect: true
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+      }
+    });
+  }
+  private createLineChartM() {
+    this.canvas = document.getElementById('myChartM');
+    this.ctx = this.canvas.getContext('2d');
+
+    const myChartM = new Chart(this.ctx, {
+      type: 'bar',
+      data: {
+        labels: this.labelsM,
+        datasets: [{
+
+          label: "Tháng",
+          data: this.dataCasesM,
+          backgroundColor: '#ffbb33',
+          borderColor: '#ffbb33',
+          fill: false,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        title: {
+          display: false,
+          text: ""
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: true
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+      }
+    });
+  }
+  private createLineChartY() {
+    this.canvas = document.getElementById('myChartY');
+    this.ctx = this.canvas.getContext('2d');
+
+    const myChartY = new Chart(this.ctx, {
+      type: 'bar',
+      data: {
+        labels: this.labelsY,
+        datasets: [{
+
+          label: "Năm",
+          data: this.dataCasesY,
+          backgroundColor: '#ffbb33',
+          borderColor: '#ffbb33',
+          fill: false,
+          borderWidth: 2
+        }]
       },
       options: {
         title: {
@@ -141,7 +194,6 @@ export class StatisticComponent implements OnInit {
   }
 
   toggleLoading() {
-
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
@@ -149,30 +201,22 @@ export class StatisticComponent implements OnInit {
   }
 
   selectType(target: any) {
-    switch (target.value[3]) {
-      case 'week':
-        // @ts-ignore
-        $('#week').show();
-        // @ts-ignore
-        $('#month').hide();
-        // @ts-ignore
-        $('#year').hide();
+    console.log(target.value)
+    switch (parseInt(target.value)) {
+      case 1:
+        document.getElementById("week").style.display = "block";
+        document.getElementById("month").style.display = "none";
+        document.getElementById("year").style.display = "none";
         break;
-      case 'month':
-        // @ts-ignore
-        $('#week').hide();
-        // @ts-ignore
-        $('#month').show();
-        // @ts-ignore
-        $('#year').hide();
+      case 2:
+        document.getElementById("week").style.display = "none";
+        document.getElementById("month").style.display = "block";
+        document.getElementById("year").style.display = "none";
         break;
-      case 'year':
-        // @ts-ignore
-        $('#week').hide();
-        // @ts-ignore
-        $('#month').hide();
-        // @ts-ignore
-        $('#year').show();
+      case 3:
+        document.getElementById("week").style.display = "none";
+        document.getElementById("month").style.display = "none";
+        document.getElementById("year").style.display = "block";
         break;
     }
   }

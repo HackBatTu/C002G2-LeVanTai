@@ -89,19 +89,19 @@ export class HistoryTransactionComponent implements OnInit {
   previousPage(event: any) {
     event.preventDefault();
     this.number--;
-    this.ngOnInit();
+    this.getListOrder()
   }
 
   setPage(i: number, event: any) {
     event.preventDefault();
     this.number = i;
-    this.getListOrder();
+    this.getListOrder()
   }
 
   nextPage(event: any) {
     event.preventDefault();
     this.number++;
-    this.ngOnInit();
+    this.getListOrder()
   }
 
   // kiem tra hien thi nut tiep theo va truoc
@@ -122,17 +122,17 @@ export class HistoryTransactionComponent implements OnInit {
       case '5' :
         this.pageSize = 5;
         this.number = 0;
-        this.ngOnInit();
+        this.getListOrder()
         break;
       case '10' :
         this.pageSize = 10;
         this.number = 0;
-        this.ngOnInit();
+        this.getListOrder()
         break;
       case '12':
         this.pageSize = 12;
         this.number = 0;
-        this.ngOnInit();
+        this.getListOrder()
         break;
 
     }

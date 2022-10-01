@@ -26,15 +26,15 @@ export class UserCustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getInfo(this.username);
+    this.getInfo();
   }
 
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
   }
 
-  getInfo(userName) {
-    this.customerService.getCustomerByUserName(userName).subscribe((value: Customer) => {
+  getInfo() {
+    this.customerService.getCustomerByUserName(this.username).subscribe((value: Customer) => {
       this.customer = value;
     })
   }

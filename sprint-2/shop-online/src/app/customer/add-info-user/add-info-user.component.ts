@@ -22,7 +22,6 @@ export class AddInfoUserComponent implements OnInit {
   userForm: FormGroup;
   customer: Customer;
   appUser: AppUser;
-  // appUser1: AppUser[] = [];
   public role: string;
   public username: string = '';
   public imgSrc: any = 'assets/img/loading-symbol.gif';
@@ -30,6 +29,7 @@ export class AddInfoUserComponent implements OnInit {
   isLoading: Boolean = false;
   private subscriptionName: Subscription;
   token: string = '';
+  picture: any;
 
   constructor(private cookieService: CookieService,
               private toastrService: ToastrService,
@@ -50,8 +50,7 @@ export class AddInfoUserComponent implements OnInit {
       this.username = this.readCookieService('username');
       this.token = this.readCookieService('jwToken');
     });
-    this.getCustomerByUsername(this.username)
-    console.log(this.username)
+
   }
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
@@ -59,17 +58,15 @@ export class AddInfoUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.sendMessage();
-    this.getCustomerByUsername(this.username)
+    this.getCustomerByUsername();
   }
 
-  getCustomerByUsername(username: string) {
-    this.customerService.getCustomerByUserName(username).subscribe(data => {
+  getCustomerByUsername() {
+    this.customerService.getCustomerByUserName(this.username).subscribe(data => {
       this.customer = data;
-      console.log(data)
-      this.customerService.getAppUserFromUsername(username).subscribe((value: AppUser) => {
+      this.customerService.getAppUserFromUsername(this.username).subscribe((value: AppUser) => {
         this.appUser = value;
-        console.log(value)
-        this.getForm(this.customer, this.appUser);
+        this.getForm(data, value);
       });
       if (data != null) {
         $('#previewImage').attr('src', data.image);
@@ -89,7 +86,7 @@ export class AddInfoUserComponent implements OnInit {
         email: new FormControl('',this.checkMail),
         address: new FormControl(''),
         hobbies: new FormControl('',this.checkHobbies),
-        appUsers: new FormControl(appUser.id),
+        appUser: new FormControl(appUser),
         isDeleted: new FormControl(0)
       })
     }else {
@@ -102,7 +99,7 @@ export class AddInfoUserComponent implements OnInit {
         email: new FormControl(this.customer.email,this.checkMail),
         address: new FormControl(this.customer.address),
         hobbies: new FormControl(this.customer.hobbies,this.checkHobbies),
-        appUsers: new FormControl(this.customer.appUser.id),
+        appUser: new FormControl(this.customer.appUser),
         isDeleted: new FormControl(this.customer.isDeleted)
       })
     }
@@ -114,16 +111,12 @@ export class AddInfoUserComponent implements OnInit {
     });
   }
 
-  // getListUser(){
-  //   this.customerService.getListUser().subscribe( data => {
-  //     // @ts-ignore
-  //     this.appUser1 = data;
-  //   })
-  // }
+
   sendMessage(): void {
     // send message to subscribers via observable subject
     this.commonService.sendUpdate('Đăng Nhập thành công!');
   }
+
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();

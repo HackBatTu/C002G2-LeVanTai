@@ -42,9 +42,11 @@
             <div class="col-xl-4 mt-3" data-bs-toggle="image" data-bs-content="" data-bs-trigger="manual" data-bs-placement="bottom">
               <label for="image" class="form-label title-input">Ảnh sản phẩm <span class="text-white">(*)</span>:
               </label>
-              <div class="input-group has-validation text-white">
+              <div class="input-group has-validation text-white" >
+                <i class="fa fa-picture-o " aria-hidden="true" style="font-size: 40px" (click)="picture.click()"></i>
+
                 <input (input)="chooseFile()" #fileUploader (change)="showPreview($event)" type="file" class="form-control text-dark"
-                       id="image" name="filename" formControlName="image" >
+                       accept=".jpg, .png, .jpeg" id="image" name="filename" formControlName="image" #picture style="display: none">
               </div>
             </div>
 
