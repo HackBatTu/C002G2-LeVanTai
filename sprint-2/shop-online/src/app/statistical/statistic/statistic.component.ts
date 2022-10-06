@@ -52,8 +52,8 @@ export class StatisticComponent implements OnInit {
         datasets: [{
           label: "Tuần",
           data: this.dataCasesW,
-          backgroundColor: '#ffbb33',
-          borderColor: '#ffbb33',
+          backgroundColor: 'red',
+          borderColor: 'red',
           fill: false,
           borderWidth: 2
         }]
@@ -86,8 +86,8 @@ export class StatisticComponent implements OnInit {
 
           label: "Tháng",
           data: this.dataCasesM,
-          backgroundColor: '#ffbb33',
-          borderColor: '#ffbb33',
+          backgroundColor: 'red',
+          borderColor: 'red',
           fill: false,
           borderWidth: 2
         }]
@@ -120,8 +120,8 @@ export class StatisticComponent implements OnInit {
 
           label: "Năm",
           data: this.dataCasesY,
-          backgroundColor: '#ffbb33',
-          borderColor: '#ffbb33',
+          backgroundColor: 'red',
+          borderColor: '#red',
           fill: false,
           borderWidth: 2
         }]

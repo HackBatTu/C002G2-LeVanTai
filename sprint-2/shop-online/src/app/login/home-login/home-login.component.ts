@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CookieService} from '../service/cookie.service';
 import {Router} from '@angular/router';
@@ -14,14 +14,14 @@ import {CustomerService} from "../../service/customer.service";
 import {AppUser} from "../../model/app-user";
 
 declare var $: any;
-
+declare var FB: any;
 @Component({
   selector: 'app-home-login',
   templateUrl: './home-login.component.html',
   styleUrls: ['./home-login.component.css']
 })
 export class HomeLoginComponent implements OnInit, OnDestroy {
-
+  @ViewChild('loginRef', {static: true }) loginElement: ElementRef;
   loginForm: FormGroup;
   forgotForm: FormGroup;
   messageReceived: any;
@@ -34,7 +34,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   public passwordStatus: string = 'SHOW';
   public confirmPasswordStatus: string = 'SHOW';
   public buttonRegisterStatus: boolean = true;
-
+  auth2: any;
   constructor(private cookieService: CookieService,
               private router: Router,
               private toastrService: ToastrService,
@@ -78,9 +78,29 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.googleInitialize();
+    (window as any).fbAsyncInit = function() {
+      FB.init({
+        appId      : '465080152218827',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.1'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
     this.createLoginForm();
     this.createForgotForm();
     this.createRegisterForm();
+
+
   }
 
   createLoginForm() {
@@ -395,5 +415,57 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
     $('[data-toggle="confirmPassword"]').popover('hide');
     $('[data-toggle="samePassword"]').popover('hide');
   }
+
+
+  submitLogin() {
+    console.log("submit login to facebook");
+    // FB.login();
+    FB.login((response)=>
+    {
+      console.log('submitLogin',response);
+      if (response.authResponse)
+      {
+        this.toastrService.success('login successful', 'Success!');
+      }
+      else
+      {
+        console.log('User login failed');
+      }
+    });
+  }
+  googleInitialize() {
+    window['googleSDKLoaded'] = () => {
+      window['gapi'].load('auth2', () => {
+        this.auth2 = window['gapi'].auth2.init({
+          client_id: '798327737941-5me6s9dbebgulst7e6bpsasctkelj4hg.apps.googleusercontent.com',
+          cookie_policy: 'single_host_origin',
+          scope: 'profile email'
+        });
+        this.prepareLogin();
+      });
+    }
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'google-jssdk'));
+  }
+
+  prepareLogin() {
+    this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
+      (googleUser) => {
+        let profile = googleUser.getBasicProfile();
+        console.log('Token || ' + googleUser.getAuthResponse().id_token);
+        // this.show = true;
+        // this.Name =  profile.getName();
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+      }, (error) => {
+        alert(JSON.stringify(error, undefined, 2));
+      });
+  }
+
 
 }

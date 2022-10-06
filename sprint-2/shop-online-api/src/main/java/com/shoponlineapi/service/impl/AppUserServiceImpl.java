@@ -56,8 +56,10 @@ public class AppUserServiceImpl implements IAppUserService {
         appUser.setCreationDate(Date.valueOf(LocalDate.now()));
         appUser.setIsDeleted(false);
         AppUser appUserDone = this.iUserRepository.save(appUser);
+
         AppRole appRole = new AppRole();
         appRole.setId(2);
+
         UserRole userRole = new UserRole();
         userRole.setAppRole(appRole);
         userRole.setAppUser(appUserDone);

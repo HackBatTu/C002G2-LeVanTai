@@ -90,8 +90,15 @@
         <div *ngIf="activeLogin">
           <button>Đăng nhập</button>
         </div>
-        <div class="fb-login-button d-flex pt-2" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        <div class="row mt-5 col-md-12">
+          <div (click)="submitLogin()"  class="fb-login-button d-flex pt-2 col-md-4" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
+          <div class="col-md-4 mt-2 m-auto ">
+            <div class="login-Btn" #loginRef>
+              Login with Google<img class="social-btn-icon" alt="Login with Google" src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg">
+            </div>
+          </div>
+        </div>
         <div *ngIf="!activeLogin">
           <div *ngIf="realTimeSecond < 10">
             <div class="col-12 mb-3 w-100">
