@@ -1,3 +1,4 @@
+
 <div class="fate">
   <!-- Topbar Start -->
   <div class="container">
@@ -13,6 +14,7 @@
       <div class="col-lg-6 text-center text-lg-right ">
         <div class="d-inline-flex align-items-center">
           <a class="text-white mr-3 " href=""><i class="fa fa-bell-o" aria-hidden="true"></i> Thông báo</a>
+
           <a class="text-white mr-3 " href=""><i class="fa fa-question-circle-o" aria-hidden="true"></i> Hỗ trợ</a>
           <a class="text-white mr-3 " href=""><i class="fa fa-life-ring" aria-hidden="true"></i> Ngôn ngữ</a>
           <a class="text-white mr-1 " *ngIf="token === ''" [routerLink]="['/login']">Đăng ký |</a>
@@ -27,6 +29,20 @@
               <li><a class="dropdown-item" (click)="onLogout()">Đăng xuất</a></li>
             </ul>
           </div>
+
+          <ul class="navbar-nav ml-auto" *ngIf="isLogged">
+            <li class="nav-item disabled">
+              <a class="nav-link" >
+                {{userLogged.name}}
+              </a>
+            </li>
+          </ul>
+
+          <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width: 50px">
+          <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
+            <i class="fas fa-sign-in-alt fa-lg"></i> Đăng Nhập</button>
+          <button *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()">
+            <i class="fas fa-sign-out-alt fa-lg"></i> Đăng Xuất</button>
         </div>
       </div>
     </div>

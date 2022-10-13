@@ -39,6 +39,8 @@ export class HomeComponent implements OnInit {
   sort: string = '';
   categoryId: string = '';
   public infoStatus: boolean = false;
+
+
   constructor(private title: Title,
               private cookieService: CookieService,
               private productService: ProductService,

@@ -14,7 +14,6 @@ public class CountStr {
         int count[] = new int[255];
         for (int i = 0; i < str.length(); i++) {
             count[str.charAt(i)]++;
-            System.out.println(count[str.charAt(i)]);
         }
         char arr[] = new char[str.length()];
         for (int i = 0; i < str.length(); i++) {

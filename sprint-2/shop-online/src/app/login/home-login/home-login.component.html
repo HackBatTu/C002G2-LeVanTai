@@ -1,6 +1,10 @@
+
 <div style="padding: 95px 0px 145px">
+
   <div class="container py-5" id="container">
+
     <div class="form-container sign-up-container">
+
       <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
         <h1 class="text-dark">Đăng ký</h1>
         <div class="social-container">
@@ -42,12 +46,14 @@
       </form>
     </div>
     <div class="form-container sign-in-container">
+
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <h1 class="text-dark">Đăng nhập</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        <div class="social-container" *ngIf="!isLogged">
+          <a  class="social" ><i class="fab fa-facebook-f" aria-hidden="true"  ></i></a>
+          <a   class="social" ><i class="fab fa-google-plus-g" aria-hidden="true" ></i></a>
+          <a class="social"><i class="fab fa-linkedin-in"></i></a>
+
         </div>
         <span>hoặc sử dung tài khoản của bạn</span>
         <input type="text" formControlName="username" placeholder="Nhập tài khoản"/>
@@ -90,15 +96,7 @@
         <div *ngIf="activeLogin">
           <button>Đăng nhập</button>
         </div>
-        <div class="row mt-5 col-md-12">
-          <div (click)="submitLogin()"  class="fb-login-button d-flex pt-2 col-md-4" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
-          <div class="col-md-4 mt-2 m-auto ">
-            <div class="login-Btn" #loginRef>
-              Login with Google<img class="social-btn-icon" alt="Login with Google" src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg">
-            </div>
-          </div>
-        </div>
         <div *ngIf="!activeLogin">
           <div *ngIf="realTimeSecond < 10">
             <div class="col-12 mb-3 w-100">
@@ -131,4 +129,11 @@
       </div>
     </div>
   </div>
+  <div class="text-center d-flex row">
+    <button   class="btn btn-outline-danger btn-lg btn-block"  (click)="signInWithGoogle()">
+      <i class="fab fa-google"></i>Đăng nhập với Google</button>
+    <button  class="btn btn-outline-primary btn-lg  btn-block"  (click)="signInWithFB()">
+      <i class="fab fa-facebook"></i>Đăng nhập với FaceBook</button>
+  </div>
 </div>
+

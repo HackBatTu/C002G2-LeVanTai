@@ -110,7 +110,6 @@ public class SimpleEmailController {
      * @param response
      * @return redirect to change password form if true or redirect to login form if false
      * @throws IOException
-     * @creator: PhuongTD
      * @date-create 9/8/2022
      */
     @GetMapping("/forgotPassword/{token}")

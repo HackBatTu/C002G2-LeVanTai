@@ -9,6 +9,8 @@ import {Order} from "../../model/order";
 import {Customer} from "../../model/customer";
 import {OrderService} from "../../service/order.service";
 import {CustomerService} from "../../service/customer.service";
+import {SocialAuthService, SocialUser} from "angularx-social-login";
+import {TokenService} from "../../service/token.service";
 
 @Component({
   selector: 'app-header',
@@ -25,14 +27,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   productOrders: Order[] = [];
   customer: Customer;
   public infoStatus: boolean = false;
-
+  userLogged: SocialUser;
+  isLogged: boolean;
   constructor(private cookieService: CookieService,
               private toastrService: ToastrService,
               private logoutService: LogoutService,
               private router: Router,
               private commonService: CommonService,
               private orderService: OrderService,
-              private customerService: CustomerService) {
+              private customerService: CustomerService,
+              private authServices: SocialAuthService,
+              private tokenService: TokenService){
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
@@ -48,9 +53,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.authServices.authState.subscribe(
+      data => {
+        this.userLogged = data;
+        this.isLogged = (this.userLogged != null && this.tokenService.getToken() != null);
+      }
+    );
     this.getCustomerByUsername(this.username)
   }
-
+  logOut(): void {
+    this.authServices.signOut().then(
+      data => {
+        this.tokenService.logOut();
+        this.router.navigate(['/login']);
+      }
+    );
+  }
   /**
    * @param key
    */

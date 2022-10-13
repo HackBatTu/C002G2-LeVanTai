@@ -1,0 +1,11 @@
+
+i
+java:S1104"SMake WEBSITE a static final constant or non-public and provide accessors if needed.(ç“öî
+C
+java:S1444"-Make this "public static WEBSITE" field final(ç“öî
+h
+java:S3008"RRename this field "WEBSITE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç“öî
+P
+java:S1118":Add a private constructor to hide the implicit public one.(³¸£ê
+S	java:S106"9Replace this use of System.out or System.err by a logger.(º© ³ùÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Š¹¹Òûÿÿÿÿ

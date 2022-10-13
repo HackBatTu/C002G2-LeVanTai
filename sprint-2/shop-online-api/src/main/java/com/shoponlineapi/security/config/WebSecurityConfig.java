@@ -53,7 +53,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
+    @Override
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
     /**
      * @param httpSecurity
      * @throws Exception
@@ -67,6 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/authenticate",
                         "/sendSimpleEmail",
                         "/forgotPassword/**",
+                        "/oauth/**",
                         "/findPassword","/**").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().

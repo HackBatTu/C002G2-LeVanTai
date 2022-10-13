@@ -20,6 +20,15 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
 import {StatisticalModule} from "./statistical/statistical.module";
 import {NgxPaginationModule} from 'ngx-pagination';
 
+// social login
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  AmazonLoginProvider,
+} from 'angularx-social-login';
+import {productoInterceptor} from "./interceptors/producto.interceptor";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +39,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
   ],
   imports: [
     BrowserModule,
+    SocialLoginModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -52,7 +62,27 @@ import {NgxPaginationModule} from 'ngx-pagination';
       }
     ),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '691954765888-heqsae7l1aii1ir5njk0ekakdjkg60iu.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('660649972087304'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+    productoInterceptor
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

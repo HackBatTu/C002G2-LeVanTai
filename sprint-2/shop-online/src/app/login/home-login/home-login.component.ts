@@ -9,9 +9,14 @@ import {ForgotService} from '../service/forgot.service';
 import {CommonService} from '../service/common.service';
 import {Subscription} from 'rxjs';
 import {Title} from '@angular/platform-browser';
-import {Customer} from "../../model/customer";
 import {CustomerService} from "../../service/customer.service";
-import {AppUser} from "../../model/app-user";
+import { SocialAuthService, GoogleLoginProvider, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
+import {OauthService} from "../../service/oauth.service";
+import {TokenService} from "../../service/token.service";
+import {TokenDto} from "../../model/token-dto";
+
+
+
 
 declare var $: any;
 declare var FB: any;
@@ -35,11 +40,17 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   public confirmPasswordStatus: string = 'SHOW';
   public buttonRegisterStatus: boolean = true;
   auth2: any;
+  socialUser: SocialUser;
+  userLogged: SocialUser;
+  isLogged: boolean;
   constructor(private cookieService: CookieService,
               private router: Router,
               private toastrService: ToastrService,
               private loginService: LoginService,
               private authService: AuthService,
+              private authServices: SocialAuthService,
+              private oauthService: OauthService,
+              private tokenService: TokenService,
               private forgotService: ForgotService,
               private commonService: CommonService,
               private title: Title,
@@ -78,29 +89,15 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.googleInitialize();
-    (window as any).fbAsyncInit = function() {
-      FB.init({
-        appId      : '465080152218827',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.1'
-      });
-      FB.AppEvents.logPageView();
-    };
-
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    this.authServices.authState.subscribe(
+      data => {
+        this.userLogged = data;
+        this.isLogged = (this.userLogged != null && this.tokenService.getToken() != null);
+      }
+    );
     this.createLoginForm();
     this.createForgotForm();
     this.createRegisterForm();
-
-
   }
 
   createLoginForm() {
@@ -417,55 +414,110 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   }
 
 
-  submitLogin() {
-    console.log("submit login to facebook");
-    // FB.login();
-    FB.login((response)=>
-    {
-      console.log('submitLogin',response);
-      if (response.authResponse)
-      {
-        this.toastrService.success('login successful', 'Success!');
+  signInWithGoogle(): void {
+    this.authServices.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      data => {
+        this.socialUser = data;
+        const tokenGoogle = new TokenDto(this.socialUser.idToken);
+        this.oauthService.google(tokenGoogle).subscribe(
+          res => {
+            this.tokenService.setToken(res.value);
+            this.isLogged = true;
+            this.router.navigate(['/']);
+          },
+          err => {
+            console.log(err);
+            this.logOut();
+          }
+        );
       }
-      else
-      {
-        console.log('User login failed');
+    ).catch(
+      err => {
+        console.log(err);
       }
-    });
-  }
-  googleInitialize() {
-    window['googleSDKLoaded'] = () => {
-      window['gapi'].load('auth2', () => {
-        this.auth2 = window['gapi'].auth2.init({
-          client_id: '798327737941-5me6s9dbebgulst7e6bpsasctkelj4hg.apps.googleusercontent.com',
-          cookie_policy: 'single_host_origin',
-          scope: 'profile email'
-        });
-        this.prepareLogin();
-      });
-    }
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'google-jssdk'));
+    );
   }
 
-  prepareLogin() {
-    this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
-      (googleUser) => {
-        let profile = googleUser.getBasicProfile();
-        console.log('Token || ' + googleUser.getAuthResponse().id_token);
-        // this.show = true;
-        // this.Name =  profile.getName();
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-      }, (error) => {
-        alert(JSON.stringify(error, undefined, 2));
-      });
+  signInWithFB(): void {
+    this.authServices.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      data => {
+        this.socialUser = data;
+        const tokenFace = new TokenDto(this.socialUser.authToken);
+        this.oauthService.facebook(tokenFace).subscribe(
+          res => {
+            this.tokenService.setToken(res.value);
+            this.isLogged = true;
+            this.router.navigate(['/']);
+          },
+          err => {
+            console.log(err);
+            this.logOut();
+          }
+        );
+      }
+    ).catch(
+      err => {
+        console.log(err);
+      }
+    );
   }
+  logOut(): void {
+    this.authServices.signOut().then(
+      data => {
+        this.tokenService.logOut();
+        this.isLogged = false;
+      }
+    );
+  }
+  // submitLogin() {
+  //   console.log("submit login to facebook");
+  //   // FB.login();
+  //   FB.login((response)=>
+  //   {
+  //     console.log('submitLogin',response);
+  //     if (response.authResponse)
+  //     {
+  //       this.toastrService.success('login successful', 'Success!');
+  //     }
+  //     else
+  //     {
+  //       console.log('User login failed');
+  //     }
+  //   });
+  // }
+  // googleInitialize() {
+  //   window['googleSDKLoaded'] = () => {
+  //     window['gapi'].load('auth2', () => {
+  //       this.auth2 = window['gapi'].auth2.init({
+  //         client_id: '798327737941-5me6s9dbebgulst7e6bpsasctkelj4hg.apps.googleusercontent.com',
+  //         cookie_policy: 'single_host_origin',
+  //         scope: 'profile email'
+  //       });
+  //       this.prepareLogin();
+  //     });
+  //   }
+  //   (function(d, s, id){
+  //     var js, fjs = d.getElementsByTagName(s)[0];
+  //     if (d.getElementById(id)) {return;}
+  //     js = d.createElement(s); js.id = id;
+  //     js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
+  //     fjs.parentNode.insertBefore(js, fjs);
+  //   }(document, 'script', 'google-jssdk'));
+  // }
+
+  // prepareLogin() {
+  //   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
+  //     (googleUser) => {
+  //       let profile = googleUser.getBasicProfile();
+  //       console.log('Token || ' + googleUser.getAuthResponse().id_token);
+  //       // this.show = true;
+  //       // this.Name =  profile.getName();
+  //       console.log('Image URL: ' + profile.getImageUrl());
+  //       console.log('Email: ' + profile.getEmail());
+  //     }, (error) => {
+  //       alert(JSON.stringify(error, undefined, 2));
+  //     });
+  // }
 
 
 }
