@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7de9e05f-85a4-4061-bbcc-d0a7fe1ebc6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module1" beforeDir="false" afterPath="$PROJECT_DIR$/../../module1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/src/ss14_sort/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/src/ss14_sort/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/exam_module/exam-backend/src/main/java/com/link/controller/ConsignmentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam_module/exam-backend/src/main/java/com/link/controller/ConsignmentRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/c0222g2-project/C0222G2-BE" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/c0222g2-project/C0222G2-BE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/c0222g2-project/C0222G2-FE" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/c0222g2-project/C0222G2-FE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/controllers/authControllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/controllers/authControllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../nodejs/connect-be-to-fb/backend-api/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nodejs/nodejs/database/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../nodejs/nodejs/database/connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../reactjs/project_youtube_clone" beforeDir="false" afterPath="$PROJECT_DIR$/../../reactjs/project_youtube_clone" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-security/Sprint-2" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-security/Sprint-2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-security/angular7-jwt" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-security/angular7-jwt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-social-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/login-social-front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-social-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/login-social-front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-social-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/login-social-front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online-api/src/main/java/com/shoponlineapi/security/authentication/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online-api/src/main/java/com/shoponlineapi/security/authentication/JwtAuthenticationEntryPoint.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/login-social-front" />
+  </component>
+  <component name="ProjectId" id="2G3qoPHsTuWOCb44Pmzk0tfOFZB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shop-online" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7de9e05f-85a4-4061-bbcc-d0a7fe1ebc6f" name="Default Changelist" comment="" />
+      <created>1665627788241</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665627788241</updated>
+      <workItem from="1665627790251" duration="619000" />
+      <workItem from="1665628502703" duration="676000" />
+      <workItem from="1665933587738" duration="255000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="260" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1665628517180">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="260" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1665628517180" />
+    <state x="586" y="278" key="FileChooserDialogImpl" timestamp="1665933830548">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="586" y="278" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1665933830548" />
+    <state width="1575" height="276" key="GridCell.Tab.0.bottom" timestamp="1665629069385">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1575" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1665629069385" />
+    <state width="1575" height="276" key="GridCell.Tab.0.center" timestamp="1665629069384">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1575" height="276" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1665629069384" />
+    <state width="1575" height="276" key="GridCell.Tab.0.left" timestamp="1665629069384">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1575" height="276" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1665629069384" />
+    <state width="1575" height="276" key="GridCell.Tab.0.right" timestamp="1665629069385">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1575" height="276" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1665629069385" />
+  </component>
+</project>

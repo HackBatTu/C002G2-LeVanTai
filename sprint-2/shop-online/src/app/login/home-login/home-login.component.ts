@@ -423,7 +423,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
           res => {
             this.tokenService.setToken(res.value);
             this.isLogged = true;
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
           },
           err => {
             console.log(err);
@@ -447,7 +447,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
           res => {
             this.tokenService.setToken(res.value);
             this.isLogged = true;
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
           },
           err => {
             console.log(err);

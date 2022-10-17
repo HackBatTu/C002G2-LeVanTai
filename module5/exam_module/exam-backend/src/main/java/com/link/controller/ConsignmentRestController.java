@@ -30,6 +30,7 @@ public class ConsignmentRestController {
     public ResponseEntity<Page<Consignment>> getAllConsignment(@PageableDefault(5)Pageable pageable,
                                                                Optional<String> searchName,
                                                                Optional<String> searchDateCheckOut,
+
                                                                Optional<String> searchStartDate,
                                                                Optional<String> searchEndDate){
         String productName = searchName.orElse("");
