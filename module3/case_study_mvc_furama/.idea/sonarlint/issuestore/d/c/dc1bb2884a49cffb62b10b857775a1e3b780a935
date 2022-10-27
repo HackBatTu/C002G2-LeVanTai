@@ -1,0 +1,71 @@
+
+m
+java:S11920"WDefine a constant instead of duplicating this literal "employee_position_name" 3 times.(—‹Šæ
+p
+java:S1192/"UDefine a constant instead of duplicating this literal "employee_position_id" 4 times.(ƒ‚ Ëùÿÿÿÿ
+h
+java:S1192)"RDefine a constant instead of duplicating this literal "employee_birthday" 3 times.(ó•åÀ
+g
+java:S1192."QDefine a constant instead of duplicating this literal "employee_address" 3 times.(ø¸šÈ
+b
+java:S11923"LDefine a constant instead of duplicating this literal "division_id" 4 times.(àª‚
+f
+java:S1192+"PDefine a constant instead of duplicating this literal "employee_salary" 3 times.(´ğ˜ü
+d
+java:S1192("NDefine a constant instead of duplicating this literal "employee_name" 3 times.(Ğîø‡
+l
+java:S11922"VDefine a constant instead of duplicating this literal "education_degree_name" 3 times.(Œ½¦Ì
+j
+java:S1192,"ODefine a constant instead of duplicating this literal "employee_phone" 3 times.(³¹Şêúÿÿÿÿ
+g
+java:S1192*"QDefine a constant instead of duplicating this literal "employee_id_card" 3 times.(·œ±Ó
+o
+java:S11921"TDefine a constant instead of duplicating this literal "education_degree_id" 4 times.(”¼Öıùÿÿÿÿ
+j
+java:S1192-"ODefine a constant instead of duplicating this literal "employee_email" 3 times.(¦Ô¦úÿÿÿÿ
+b
+java:S1192'"LDefine a constant instead of duplicating this literal "employee_id" 3 times.(­°•è
+d
+java:S11924"NDefine a constant instead of duplicating this literal "division_name" 3 times.(Æ¯‚­
+]
+java:S1192¾"GDefine a constant instead of duplicating this literal "status" 4 times.(ÅÈ¿}
+d
+java:S11925"IDefine a constant instead of duplicating this literal "username" 4 times.(“£÷ÿÿÿÿÿ
+k	java:S117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ‚ Ëùÿÿÿÿ
+f	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—‹Šæ
+k	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¼Öıùÿÿÿÿ
+f	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ½¦Ì
+f	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àª‚
+f	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ¯‚­
+f
+java:S2095Ò"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¥š¼²
+e
+java:S2095„"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ç¾˜)
+e
+java:S2095d"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¨İ¢„
+f
+java:S2095¹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Â¶Á±
+e
+java:S2095H"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¥†¦¥
+f
+java:S2095€"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(£ëŠõ
+f
+java:S2095ë"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(öŠÄú
+k
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÁÊöşÿÿÿÿ
+j
+java:S2095$"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(×ô¾şÿÿÿÿ
+f
+java:S2095“"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(æ§º
+s	java:S116"^Rename this field "SELECT_ALL_POSITION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â‚ÍÌ
+y	java:S116"_Rename this field "SELECT_ALL_EDUCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÕ¿ıÿÿÿÿ
+x	java:S116"^Rename this field "SELECT_ALL_DIVISION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯×Í®ÿÿÿÿÿ
+o	java:S116"ZRename this field "SELECT_ALL_USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î‰şû
+7
+java:S1170"!Make this final field static too.(Â‚ÍÌ
+<
+java:S1170"!Make this final field static too.(ŠÕ¿ıÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(¯×Í®ÿÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(Î‰şû

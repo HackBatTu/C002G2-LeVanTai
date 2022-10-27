@@ -1,0 +1,28 @@
+
+]
+java:S11928"GDefine a constant instead of duplicating this literal "gender" 7 times.(´½×²
+b
+java:S1192="GDefine a constant instead of duplicating this literal "idCard" 5 times.(é¬Ğñşÿÿÿÿ
+g
+java:S1192R"QDefine a constant instead of duplicating this literal "listCustomerType" 6 times.(§‹Õê
+c
+java:S1192."MDefine a constant instead of duplicating this literal "customerType" 7 times.(·—¢ê
+\
+java:S1192?"FDefine a constant instead of duplicating this literal "email" 5 times.(»öÃ—
+d
+java:S11924"IDefine a constant instead of duplicating this literal "birthDay" 5 times.(É£Ïšıÿÿÿÿ
+c
+java:S1192@"HDefine a constant instead of duplicating this literal "address" 5 times.(€€Ìÿÿÿÿÿ
+
+java:S11920"xDefine a constant instead of duplicating this literal "Ã”i báº¡n Æ¡i nháº­p dá»¯ liá»‡u Ä‘i ! á»Ÿ Ä‘Ã³ mÃ  f12" 4 times.(ç¥¯³
+u
+java:S1192Ô"^Define a constant instead of duplicating this literal "customer/display_customer.jsp" 3 times.(±ÃÃß
+a
+java:S1192>"FDefine a constant instead of duplicating this literal "phone" 5 times.(Ú˜Åßùÿÿÿÿ
+d
+java:S1192Ğ"MDefine a constant instead of duplicating this literal "customerList" 3 times.(–æäÂ
+`
+java:S1192L"JDefine a constant instead of duplicating this literal "/customer" 3 times.(šÔâí
+\
+java:S2147×"ECombine this catch with the one at line 213, which has the same body.(ï­£Ä
+O	java:S106Ò"9Replace this use of System.out or System.err by a logger.(ê¾ú®

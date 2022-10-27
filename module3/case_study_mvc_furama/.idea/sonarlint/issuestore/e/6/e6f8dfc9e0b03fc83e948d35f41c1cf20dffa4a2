@@ -1,0 +1,43 @@
+
+f
+java:S11922"PDefine a constant instead of duplicating this literal "service_type_id" 4 times.(†êâò
+b
+java:S1192("MDefine a constant instead of duplicating this literal "service_name" 3 times.(¼Æän
+c
+java:S11920"MDefine a constant instead of duplicating this literal "rent_type_id" 4 times.(Ğ¾Ôö
+e
+java:S1192."JDefine a constant instead of duplicating this literal "pool_area" 3 times.(ãù­“üÿÿÿÿ
+i
+java:S1192+"SDefine a constant instead of duplicating this literal "service_max_person" 3 times.(§Íû
+m
+java:S11923"RDefine a constant instead of duplicating this literal "service_type_name" 3 times.(ĞÑìëùÿÿÿÿ
+i
+java:S1192,"NDefine a constant instead of duplicating this literal "room_standard" 3 times.(¦æ“€üÿÿÿÿ
+d
+java:S11921"ODefine a constant instead of duplicating this literal "rent_type_name" 3 times.(Áõúc
+f
+java:S1192'"KDefine a constant instead of duplicating this literal "service_id" 3 times.(‰ıÕÓÿÿÿÿÿ
+h
+java:S1192*"MDefine a constant instead of duplicating this literal "service_cost" 3 times.(ˆ °¨ÿÿÿÿÿ
+g
+java:S1192/"QDefine a constant instead of duplicating this literal "number_of_floors" 3 times.(§ßàš
+n
+java:S1192-"SDefine a constant instead of duplicating this literal "another_convenient" 3 times.(·æ•§ùÿÿÿÿ
+c
+java:S1192)"MDefine a constant instead of duplicating this literal "service_area" 3 times.(¦‡«Û
+e
+java:S2095E"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¥†¦¥
+f
+java:S2095­"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ü‘ğØ
+j
+java:S2095z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(…èÕİùÿÿÿÿ
+f
+java:S2095Ï"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(æ§º
+k
+java:S2095‘"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(è“¹Öúÿÿÿÿ
+j
+java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Óª¥şÿÿÿÿ
+e
+java:S2095$"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºîƒÈ
+k
+java:S2095ñ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¢ûì‚ùÿÿÿÿ

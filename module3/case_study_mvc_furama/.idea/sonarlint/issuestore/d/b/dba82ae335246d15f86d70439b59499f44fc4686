@@ -1,0 +1,32 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(°áäİ
+\
+java:S1126"AReplace this if-then-else statement by a single return statement.(®úÃœüÿÿÿÿ
+\
+java:S1126"AReplace this if-then-else statement by a single return statement.(Ğ±úóúÿÿÿÿ
+o
+java:S5850	"TGroup parts of the regex together to make the intended operator precedence explicit.(’ºÒûÿÿÿÿ
+W
+java:S1126"AReplace this if-then-else statement by a single return statement.(İª°š
+K
+java:S6035"0Replace this alternation with a character class.(ø‰Æûÿÿÿÿ
+K
+java:S6035"0Replace this alternation with a character class.(ø‰Æûÿÿÿÿ
+W
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(ø‰Æûÿÿÿÿ
+W
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(ø‰Æûÿÿÿÿ
+W
+java:S1126!"AReplace this if-then-else statement by a single return statement.(«ğìÜ
+b
+java:S5998
+"LRefactor this repetition that can lead to a stack overflow for large inputs.(÷—Åú
+W
+java:S1126'"AReplace this if-then-else statement by a single return statement.(ˆ–ãá
+j
+java:S5850"TGroup parts of the regex together to make the intended operator precedence explicit.(çŸÜò
+K
+java:S1068"5Remove this unused "REGEX_CUSTOMER_ID" private field.(ĞÖÛ¾
+J
+java:S1068"4Remove this unused "REGEX_SERVICE_ID" private field.(ù£ğê

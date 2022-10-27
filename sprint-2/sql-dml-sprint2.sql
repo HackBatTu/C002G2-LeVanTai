@@ -1,13 +1,13 @@
-use shop_online;
+use shop_online2;
 -- App Role
 INSERT INTO app_role (role_name) VALUES ('ROLE_ADMIN'); 
 INSERT INTO app_role (role_name) VALUES ('ROLE_USER');
 
 -- App User
 INSERT INTO app_user (`password`, user_name, creation_date) 
-VALUES ('$2a$10$NaPco7fYsB2Y/0xbQaOruum.w9V1nzHKqNYQ98/GQr7jCkKdZEg6q', 'manager', '2022-09-04');
-INSERT INTO app_user (`password`, user_name, creation_date) 
 VALUES ('$2a$10$NaPco7fYsB2Y/0xbQaOruum.w9V1nzHKqNYQ98/GQr7jCkKdZEg6q', 'admin', '2022-09-04');
+INSERT INTO app_user (`password`, user_name, creation_date) 
+VALUES ('$2a$10$NaPco7fYsB2Y/0xbQaOruum.w9V1nzHKqNYQ98/GQr7jCkKdZEg6q', 'manager', '2022-09-04');
 INSERT INTO app_user (`password`, user_name, creation_date) 
 VALUES ('$2a$10$NaPco7fYsB2Y/0xbQaOruum.w9V1nzHKqNYQ98/GQr7jCkKdZEg6q', 'levantai', '2022-09-04');
 INSERT INTO app_user (`password`, user_name, creation_date) 
@@ -28,8 +28,8 @@ INSERT INTO user_role (role_id, user_id) VALUES ('2', '4');
 INSERT INTO user_role (role_id, user_id) VALUES ('2', '5');
 
 -- customer
-INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('1', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Háck Bất Tử', '0936369999', 1);
-INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('2', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Háck Bất Tử', '0936369999', 2);
+INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('1', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Im Admin', '0936369999', 1);
+INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('2', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Im Manager', '0936369999', 2);
 INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('3', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Háck Bất Tử', '0936369999', 3);
 INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('4', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Háck Bất Tử', '0936369999', 4);
 INSERT INTO `customer` (`id`, `birthday`, `email`, `hobbies`, `image`,`address`, `is_deleted`, `name`, `phone`, `user_id`) VALUES ('5', '2000-01-01', 'levantai1496@gmail.com', 'thích màu hường và ghét sự giả dối', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/ava1-bg.jpg?alt=media&token=68e76b97-3f61-4fdb-bda9-1d8bf9fb0ae0','Việt Nam', 0, 'Háck Bất Tử', '0936369999', 5);
@@ -134,7 +134,7 @@ VALUES ('44', 'Camera 007', 'https://firebasestorage.googleapis.com/v0/b/print-2
 INSERT INTO `product` (`id`, `name`, `image`,`manufacturer`,`date_in`,`guarantee_time`,`discount`,`specification`, `description`, `price`,`quantity`, `is_deleted`, `category_id`) 
 VALUES ('45', 'Camera Hường', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/product-15.jpg?alt=media&token=587c2acf-03e1-42a5-b4c9-a66708735fc1','Sony', '2022-09-09','24 tháng','10', '6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels','Ưu việt , đa dạng về chất lượng, giá thành hợp lí ', 14000000,100,0, 3);
 INSERT INTO `product` (`id`, `name`, `image`,`manufacturer`,`date_in`,`guarantee_time`,`discount`,`specification`, `description`, `price`,`quantity`, `is_deleted`, `category_id`)
- VALUES ('56', 'Phụ Kiện xx', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/product-16.jpg?alt=media&token=0c03123d-c33a-46e0-8ede-98d5078b6a92','Sony', '2022-09-09','24 tháng','10', '6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels','Ưu việt , đa dạng về chất lượng, giá thành hợp lí ', 18000000,100,0, 4);
+ VALUES ('46', 'Phụ Kiện xx', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/product-16.jpg?alt=media&token=0c03123d-c33a-46e0-8ede-98d5078b6a92','Sony', '2022-09-09','24 tháng','10', '6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels','Ưu việt , đa dạng về chất lượng, giá thành hợp lí ', 18000000,100,0, 4);
 INSERT INTO `product` (`id`, `name`, `image`,`manufacturer`,`date_in`,`guarantee_time`,`discount`,`specification`, `description`, `price`,`quantity`, `is_deleted`, `category_id`) 
 VALUES ('47', 'Sony Camera', 'https://firebasestorage.googleapis.com/v0/b/print-2-shop-online.appspot.com/o/product-17.jpg?alt=media&token=574c4fd8-8e18-428d-a763-5539b849f5b9','Sony', '2022-09-09','24 tháng','10', '6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels','Ưu việt , đa dạng về chất lượng, giá thành hợp lí ', 19000000,100,0, 3);
 INSERT INTO `product` (`id`, `name`, `image`,`manufacturer`,`date_in`,`guarantee_time`,`discount`,`specification`, `description`, `price`,`quantity`, `is_deleted`, `category_id`) 

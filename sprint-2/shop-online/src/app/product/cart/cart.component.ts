@@ -80,9 +80,9 @@ export class CartComponent implements OnInit {
       // @ts-ignore
       this.totalMoney += ((pos[i].product.price - (pos[i].product.price * (pos[i].product.discount / 100))) * pos[i].quantity);
     }
-    const target = $('#paymentsBtn');
-    target.remove('#payments');
-    target.html('<div id="payments" *ngIf="totalMoney >= 0"></div>');
+    // const target = $('#paymentsBtn');
+    // target.remove('#payments');
+    // target.html('<div id="payments" *ngIf="totalMoney >= 0"></div>');
     if (this.totalMoney >= 0) {
       render(
         {

@@ -58,61 +58,29 @@ export class ChatComponent implements OnInit {
               private customerService: CustomerService,
               private commonService: CommonService,
               private cookieService: CookieService) {
-    this.authService.checkLogin().subscribe(value => {
-      this.loginStatus = value;
-      if (value) {
-        this.authService.getRoles().subscribe(resp => {
-          this.getRole(resp);
-          this.getCustomerByUsername(resp.username);
-        }, error => {
-        });
-      }
-    }, error => {
-    });
-    this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
-      this.messageReceived = message;
-    });
+
     this.role = this.readCookieService('role');
     this.username = this.readCookieService('username');
     this.token = this.readCookieService('jwToken');
-    this.getCustomerByUsername(this.username);
     // subscribe to sender component messages
     this.subscriptionName = this.commonService.getUpdate().subscribe(message => {
       this.messageReceived = message;
       this.role = this.readCookieService('role');
       this.username = this.readCookieService('username');
       this.token = this.readCookieService('jwToken');
-      this.getCustomerByUsername(this.username);
     });
   }
   readCookieService(key: string): string {
     return this.cookieService.getCookie(key);
   }
-  getRole(value: any) {
-    if (this.isAdmin(value.grantList)) {
-      this.role = 'ROLE_ADMIN';
-    } else if (this.isUser(value.grantList)) {
-      this.role = 'ROLE_USER';
-    }
-    this.currentUserName = value.username;
-  }
 
-  isAdmin(grantList: string[]): boolean {
-    return grantList.some(value => {
-      return value === 'ROLE_ADMIN';
-    });
-  }
-
-  isUser(grantList: string[]): boolean {
-    return grantList.some(value => {
-      return value === 'ROLE_USER';
-    });
-  }
 
   getCustomerByUsername(username: string) {
     this.customerService.getCustomerByUserName(username).subscribe(c => {
+      console.log(c)
       this.customer = c;
       this.customerService.getAppUserFromUsername(username).subscribe((au: any) => {
+        console.log("au", au)
         this.appUser = au;
         this.currentUserId = au.id;
         this.currentUserName = au.userName;
@@ -124,10 +92,13 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCustomerByUsername(this.username);
+
   }
 
   getAllUser() {
     this.authService.getAllUsers().subscribe((res: AppUser[]) => {
+      console.log("res", res)
       for (const user of res) {
         this.customerService.getCustomerByUserName(user.userName).subscribe(value => {
           user.customer = value;
@@ -148,6 +119,7 @@ export class ChatComponent implements OnInit {
     }, () => {
 
       this.customerService.getCustomerByUserName(this.appUsers[0].userName).subscribe(value => {
+        console.log(value)
         if (value != null) {
           this.secondUserName = value.name;
           this.secondImage = value.image;
@@ -163,6 +135,7 @@ export class ChatComponent implements OnInit {
         this.getAllMessages();
       });
     });
+    console.log(this.secondUserName)
 
   }
 
@@ -170,6 +143,7 @@ export class ChatComponent implements OnInit {
     this.firebaseChat.getAll(this.chatCode).snapshotChanges().pipe(
       map(changes => changes.map(c => ({key: c.payload.key, ...c.payload.val()}
       )))).subscribe(messages => {
+      console.log(messages)
       for (const mes of messages) {
         mes.time = mes.time.slice(0, 5);
       }
@@ -195,6 +169,7 @@ export class ChatComponent implements OnInit {
     $('[id|=\'box-user\']').attr('class', 'clearfix');
     $('#box-user-' + item.id).attr('class', 'clearfix active');
     if (item.customer != null) {
+      console.log("item", item)
       this.secondUserName = item.customer.name;
       this.secondImage = item.customer.image;
     } else {
@@ -202,15 +177,18 @@ export class ChatComponent implements OnInit {
       this.secondImage = 'https://bootdey.com/img/Content/avatar/avatar1.png';
     }
     for (const user of this.appUsers) {
+      console.log("user", user)
       if (user.customer != null) {
         if (user.customer.name == this.secondUserName) {
           this.chatUserId = user.id;
         }
       } else {
+
         if (user.userName == this.secondUserName) {
           this.chatUserId = user.id;
         }
       }
+      console.log(this.secondUserName)
     }
     this.setChatCode();
     this.getAllMessages();
@@ -218,6 +196,8 @@ export class ChatComponent implements OnInit {
 
   setChatCode() {
     if (this.currentUserId < this.chatUserId) {
+      console.log("this.currentUserId", this.currentUserId)
+      console.log("this.chatUserId", this.chatUserId)
       this.chatCode = this.currentUserId + '' + this.chatUserId;
     } else {
       this.chatCode = this.chatUserId + '' + this.currentUserId;

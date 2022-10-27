@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="17337511-eb42-46d3-a489-ff0c91858712" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../shop-online-api/src/main/java/com/shoponlineapi/controller/CheckLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop-online-api/src/main/java/com/shoponlineapi/service/CookieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/.idea/module6.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/c0222g2-project/C0222G2-BE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/c0222g2-project/C0222G2-FE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/c0222g2-project/mydb-project-coffee-store-dml.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/c0222g2-project/mydb-project-coffee-store.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../reactjs/project_youtube_clone" beforeDir="false" afterPath="$PROJECT_DIR$/../../reactjs/project_youtube_clone" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-security/Sprint-2" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-security/Sprint-2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-security/angular7-jwt" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-security/angular7-jwt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/.idea/login.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/LoginSocialApiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/controller/OauthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/controller/ProductoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/dto/TokenDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/entity/AppUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/entity/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/entity/Rol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/enums/RolNombre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/repository/RolRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/repository/UsuarioRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/MyWebSecurity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/UsuarioPrincipal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/UsuarioPrincipalFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/jwt/JwtEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/jwt/JwtProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/security/jwt/JwtTokenFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/service/RolService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/java/loginsocialapi/service/UsuarioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social-api/src/test/java/loginsocialapi/LoginSocialApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/guards/producto.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/home/home.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/interceptors/producto.interceptor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/login/login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/menu/menu.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/menu/menu.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/menu/menu.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/menu/menu.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/models/producto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/models/token-dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/productos/productos.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/productos/productos.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/productos/productos.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/services/oauth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/services/producto.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/app/services/token.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/login-social/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodejs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodejs/views/error.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online-api/src/main/java/com/shoponlineapi/controller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online-api/src/main/java/com/shoponlineapi/controller/UserRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online/src/app/home-shop/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online/src/app/home-shop/chat/chat.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online/src/app/home-shop/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online/src/app/home-shop/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online/src/app/login/service/logout.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online/src/app/login/service/logout.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online/src/app/service/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online/src/app/service/order.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online/src/app/service/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-online/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-online/src/environments/environment.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2GL13dZBf6XE0dF5DW7Jk2weGju" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../reactjs/base-chat" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17337511-eb42-46d3-a489-ff0c91858712" name="Default Changelist" comment="" />
+      <created>1666152851190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666152851190</updated>
+      <workItem from="1666152852847" duration="304000" />
+      <workItem from="1666153894950" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="716" y="280" key="FileChooserDialogImpl" timestamp="1666153909291">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="716" y="280" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1666153909291" />
+  </component>
+</project>

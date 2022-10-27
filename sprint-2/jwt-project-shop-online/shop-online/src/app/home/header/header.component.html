@@ -1,0 +1,167 @@
+
+<div class="fate">
+  <!-- Topbar Start -->
+  <div class="container">
+    <div class="row header-1 pt-2">
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="d-inline-flex align-items-center h-100 ">
+          <a class="text-white mr-3 " href="">Trở thành người bán</a>
+          <a class="text-white mr-3" href="">Kênh người bán</a>
+          <a class="text-white mr-3 " href="">Tải ứng dụng <i class="fa fa-download" aria-hidden="true"></i></a>
+          <a class="text-white mr-3 " href="https://www.facebook.com/đăng nhập"> Kết nối <i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right ">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-white mr-3 " href=""><i class="fa fa-bell-o" aria-hidden="true"></i> Thông báo</a>
+
+          <a class="text-white mr-3 " href=""><i class="fa fa-question-circle-o" aria-hidden="true"></i> Hỗ trợ</a>
+          <a class="text-white mr-3 " href=""><i class="fa fa-life-ring" aria-hidden="true"></i> Ngôn ngữ</a>
+          <a class="text-white mr-1 " *ngIf="loginStatus == false "  [routerLink]="['/login']">Đăng ký |</a>
+          <a class="text-white mr-1 " *ngIf="loginStatus == false" [routerLink]="['/login']"> Đăng nhập</a>
+          <!-- Example split danger button -->
+          <div class="btn-group bg-primary" *ngIf="loginStatus == true && buttonLogoutStatus">
+            <li type="button" class="text-white text-uppercase dropdown-toggle" data-bs-toggle="dropdown" *ngIf="name == ''"
+                aria-expanded="false">{{username}}</li>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/info']">Chi tiết tài khoản</a></li>
+              <li><a class="dropdown-item" *ngIf="role == 'ROLE_USER'" [routerLink]="['/history']">Lịch sử mua hàng</a></li>
+              <li><a class="dropdown-item" (click)="onLogout()">Đăng xuất</a></li>
+            </ul>
+          </div>
+
+<!--          <ul class="navbar-nav ml-auto" *ngIf="isLogged">-->
+<!--            <li class="nav-item disabled">-->
+<!--              <a class="nav-link" >-->
+<!--                {{userLogged.name}}-->
+<!--              </a>-->
+<!--            </li>-->
+<!--          </ul>-->
+
+<!--          <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width: 50px">-->
+<!--          <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">-->
+<!--            <i class="fas fa-sign-in-alt fa-lg"></i> Đăng Nhập</button>-->
+<!--          <button *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()">-->
+<!--            <i class="fas fa-sign-out-alt fa-lg"></i> Đăng Xuất</button>-->
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center pt-3 d-none d-lg-flex header-page mx-0">
+      <div class="row col-lg-12">
+
+        <div class="col-lg-3 col-md-12">
+          <a href="" class="text-decoration-none ">
+            <span class="h1 text-uppercase text-white px-2"><span class="fa fa-shipping-fast "></span></span>
+            <span class="font-italic text-white px-2 ml-n1" style="font-size: 40px"
+                  [routerLink]="['/home']">FateShop</span>
+          </a>
+        </div>
+        <div class="col-lg-7 col-md-12 pt-3">
+          <div action="">
+            <div class="input-group radius">
+              <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+              <div class="input-group-append">
+              <button class="input-group-text bg-transparent text-primary">
+                <i class="fa fa-search"></i>
+              </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 text-right pt-1 ">
+          <p class="m-0  text-white">Chăm sóc khách hàng</p>
+          <h5 class="m-0 text-white">+093 636 9999</h5>
+        </div>
+      </div>
+
+      <!-- Navbar Start -->
+      <div class="container-fluid row ">
+        <div class="nav-item dropdown col-lg-3 d-none d-lg-block" *ngIf="role !== 'ROLE_ADMIN'">
+          <a class="btn d-flex align-items-center justify-content-between bg-primary w-100"
+             data-toggle="collapse" style="height: 40px; padding: 0 20px;">
+            <p class="text-dark m-0"><i class="fa fa-bars mr-2"></i>DANH MỤC SẢN PHẨM</p>
+            <i class="fa fa-angle-down text-dark"></i>
+          </a>
+          <div class="dropdown-menu bg-white rounded-0 border-0 ml-3" style="width: 90% !important;">
+            <a class="dropdown-item" [routerLink]="['/laptop']">Laptop</a>
+            <a class="dropdown-item" [routerLink]="['/tivi']">Tivi</a>
+            <a class="dropdown-item" [routerLink]="['/smart-phone']">Điện Thoại</a>
+            <a class="dropdown-item" [routerLink]="['/camera']">Máy Ảnh</a>
+            <a class="dropdown-item" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown col-lg-3 d-none d-lg-block" *ngIf="role === 'ROLE_ADMIN'">
+          <a class="btn d-flex align-items-center justify-content-between bg-primary w-100"
+             data-toggle="collapse" style="height: 40px; padding: 0 20px;">
+            <p class="text-dark m-0"><i class="fa fa-bars mr-2"></i>DANH MỤC QUẢN LÍ</p>
+            <i class="fa fa-angle-down text-dark"></i>
+          </a>
+          <div class="dropdown-menu bg-white rounded-0 border-0 ml-3" style="width: 90% !important;">
+            <a [routerLink]="['/create-product']" class="dropdown-item">Thêm Mới Sản Phẩm</a>
+            <a [routerLink]="['/list-customer']" class="dropdown-item">Danh Sách Khách Hàng</a>
+            <a [routerLink]="['/yesterday']" class="dropdown-item">Lịch Sử Giao Dịch Hôm qua</a>
+            <a [routerLink]="['/transaction']" class="dropdown-item">Lịch Sử Giao Dịch Của Web</a>
+            <a [routerLink]="['/bar-chart']" class="dropdown-item">Thống Kê Doanh Thu</a>
+            <a [routerLink]="['/statistic']" class="dropdown-item">Thống Kê Top Giao Dịch</a>
+            <a [routerLink]="['/top10-customer']" class="dropdown-item">Top 10 Khách Hàng Giao Dịch</a>
+          </div>
+        </div>
+        <div class="col-lg-9 h-100">
+          <nav class="navbar navbar-expand-lg navbar-dark py-lg-0 px-0"
+               style="height: 40px !important; padding: 0 20px;">
+            <a href="" class="text-decoration-none d-block d-lg-none">
+              <span class="h1 text-uppercase text-dark bg-light px-2">Fate</span>
+              <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between dropdown-toggle" id="navbarCollapse">
+              <div class="navbar-nav mr-auto py-0 dropdown-toggle">
+                <a class="nav-item nav-link" [routerLink]="['/list-product']">Tất Cả Sản Phẩm</a>
+                <a class="nav-item nav-link" [routerLink]="['/laptop']">Laptop</a>
+                <a class="nav-item nav-link" [routerLink]="['/tivi']">Tivi</a>
+                <a class="nav-item nav-link" [routerLink]="['/smart-phone']">Điện Thoại</a>
+                <a class="nav-item nav-link" [routerLink]="['/camera']">Máy Ảnh</a>
+                <a class="nav-item nav-link" [routerLink]="['/device-sup']">Thiết Bị Hỗ Trợ</a>
+                <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Khác <i
+                    class="fa fa-angle-down mt-1"></i></a>
+                  <div class="dropdown-menu bg-white rounded-0 border-0 m-0">
+                    <a href="#" class="dropdown-item">Phụ kiện Laptop</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Tivi</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Điện thoại</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Máy ảnh</a>
+                    <a href="#" class="dropdown-item">Phụ kiện Thiết bị Hỗ trợ</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                <a  [routerLink]="['/chat']" class="btn px-0">
+                  <i class="fas fa-heart text-primary icon"></i>
+                  <span class="badge text-secondary border border-secondary rounded-circle"
+                        style="padding-bottom: 1px;">0</span>
+                </a>
+                <a [routerLink]="['/cart']" class="btn px-0 ml-3">
+                  <i class="fas fa-shopping-cart text-primary icon"></i>
+                  <span class="badge text-secondary border border-secondary rounded-circle"
+                        style="padding-bottom: 1px;" *ngIf="role != 'ROLE_ADMIN'">{{totalProductInCart}}</span>
+
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!--      </div>-->
+      <!-- Navbar End -->
+    </div>
+
+  </div>
+  <!-- Topbar End -->
+
+
+</div>

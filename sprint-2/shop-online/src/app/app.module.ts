@@ -4,10 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ChartsModule} from 'ng2-charts';
-import {BarChartComponent} from './charts-js/bar-chart/bar-chart.component';
-import {DoughnutChartComponent} from './charts-js/doughnut-chart/doughnut-chart.component';
-import {RadarChartComponent} from './charts-js/radar-chart/radar-chart.component';
-import {PieChartComponent} from './charts-js/pie-chart/pie-chart.component';
 import {ToastrModule} from 'ngx-toastr';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
@@ -28,14 +24,13 @@ import {
   AmazonLoginProvider,
 } from 'angularx-social-login';
 import {productoInterceptor} from "./interceptors/producto.interceptor";
-
+const googleLoginOptions = {
+  scope: 'profile email',
+  plugin_name: 'sample_login'
+};
 @NgModule({
   declarations: [
-    AppComponent,
-    BarChartComponent,
-    DoughnutChartComponent,
-    RadarChartComponent,
-    PieChartComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +66,8 @@ import {productoInterceptor} from "./interceptors/producto.interceptor";
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '691954765888-heqsae7l1aii1ir5njk0ekakdjkg60iu.apps.googleusercontent.com'
+              '691954765888-heqsae7l1aii1ir5njk0ekakdjkg60iu.apps.googleusercontent.com',
+              googleLoginOptions
             ),
           },
           {

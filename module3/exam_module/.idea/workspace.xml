@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4411ba52-0cfd-4eb8-842d-a26d01858f6e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../module2/src/casestudy/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module2/src/casestudy/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module2/src/casestudy/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module2/src/casestudy/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module2/src/casestudy/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module2/src/casestudy/casestudy.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_mvc_furama/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/local.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/CheckLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/CustomerRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/HistoryRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/OrderRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/ProductRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/StatisticalRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/jwt/AdminRoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/jwt/CheckLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/jwt/JwtAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/jwt/LogoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/jwt/RoleRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/controller/simple_email/SimpleEmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/CustomerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/CustomerTopDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/ErrorDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/IProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/PaymentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/RegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/dto/StatisticDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Bill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Coupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/ProductCoupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/Promotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/account/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/account/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/account/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/jwt/JwtRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/enlity/jwt/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/authentication/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/fillter/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/service/CookieService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/service/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/util/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/jwt/util/LoginUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/IAppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/IBillRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/IOrderServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/repository/IUserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/IAppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/IOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/IUserRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/impl/AppUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/java/shoponlineapi/service/impl/UserRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../c0222g2-project/C0222G2-BE" beforeDir="false" afterPath="$PROJECT_DIR$/../../c0222g2-project/C0222G2-BE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../c0222g2-project/C0222G2-FE" beforeDir="false" afterPath="$PROJECT_DIR$/../../c0222g2-project/C0222G2-FE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/case_study/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/case_study/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/case_study/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/case_study/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss1_spring_mvc/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss2_spring_controllers/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss5_csdl_orm/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss9_aop/thuc_hanh/thuc_hanh_2/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../reactjs/base-chat" beforeDir="false" afterPath="$PROJECT_DIR$/../../reactjs/base-chat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../reactjs/project_youtube_clone" beforeDir="false" afterPath="$PROJECT_DIR$/../../reactjs/project_youtube_clone" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-security/Sprint-2" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-security/Sprint-2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-security/angular7-jwt" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-security/angular7-jwt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-2/jwt-project-shop-online/shop-online-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-2/shop-online/src/app/product/all-product/all-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-2/shop-online/src/app/product/all-product/all-product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-2/sql-dml-sprint2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-2/sql-dml-sprint2.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2GOJJtU53HUAQGsGzjUCGYDWmDk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module2/src/Transport" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4411ba52-0cfd-4eb8-842d-a26d01858f6e" name="Changes" comment="" />
+      <created>1666253628601</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666253628601</updated>
+      <workItem from="1666253630507" duration="140000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,83 @@
+<!-- Page Header Start -->
+<div class="container-fluid bg-white">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Lịch Sử Giao Dịch Web</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Danh sách sản phẩm</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+<!-- Cart Start -->
+<div class="container" style="padding-bottom: 90px; height: 750px">
+  <div class="row col-12 pt-2">
+    <div class="col-lg-12 table-responsive mb-5" id="table-card">
+      <table id="table" class="table table-hover text-center mb-0">
+        <thead class="thead-dark">
+        <tr>
+          <th class="bg-th">STT</th>
+          <th class="bg-th">Mã Đơn Hàng</th>
+          <th class="bg-th">Tên Khách Hàng</th>
+          <th class="bg-th">Tên Sản Phẩm</th>
+          <th class="bg-th">Ngày Mua Hàng</th>
+          <th class="bg-th">Khuyến Mãi</th>
+          <th class="bg-th">Bảo Hành</th>
+          <th class="bg-th">Số Lượng</th>
+          <th class="bg-th">Thành Tiền</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of order,index as i">
+          <td class="align-middle">{{i+1 + number * size}}</td>
+          <td class="align-middle">{{p.bill.code}}</td>
+          <td class="align-middle">{{p.customer.name}}</td>
+          <td class="align-middle">{{p.product.name}}</td>
+          <td class="align-middle">{{p.bill.creationDate| date: 'hh:mm:ssa dd-MM-yyyy'}}</td>
+          <td class="align-middle">{{p.product.discount}}%</td>
+          <td class="align-middle">{{p.product.guaranteeTime}}</td>
+          <td class="align-middle">{{p.quantity}}</td>
+          <td class="align-middle">{{p.product.price - (p.product.price * (p.product.discount / 100))| currency: 'VND' : ''}}đ</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="col-lg-12 col-md-12 col-sm-12 pb-1 text-center font-weight-bold text-dark" style="font-size: 30px !important;" *ngIf="order.length <= 0">
+        Không có dữ liệu !!!.
+      </div>
+      <div class="col-lg-12 text-center" *ngIf="order.length > 0" style="margin-top: 15px">
+        <nav>
+          <ul class="pagination text-center justify-content-center">
+          <div [ngStyle]="{'display':displayPagination}">
+              <div style="display: flex;align-items: center;justify-content: flex-end">
+                <b style="margin: 0 10px 0 0; color: red">Số phần tử của trang:</b>
+                <select (change)="changePageSize($event)" style="width: 80px" class="form-select text-danger">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                </select>
+                <b style="margin: 0 20px 0 40px ; color: red">
+                    {{pageSize * number + 1}} - {{pageSize * number + numberOfElement}}
+                  trên {{totalElements}}
+          </b>
+                <button (click)="previousPage($event)" [ngStyle]="{'display':previousPageStyle}" type="button"
+                        class="btn btn-outline-danger">
+                  <i class="fa fa-chevron-left "></i>
+                </button>
+                <button (click)="nextPage($event)" [ngStyle]="{'display':nextPageStyle}" style="margin-left: 10px"
+                        type="button"
+                        class="btn btn-outline-danger">
+                  <i class="fa fa-chevron-right "></i>
+                </button>
+              </div>
+            </div>
+          </ul>
+        </nav>
+        </div>
+
+    </div>
+
+
+  </div>
+</div>
+<!-- Cart End -->

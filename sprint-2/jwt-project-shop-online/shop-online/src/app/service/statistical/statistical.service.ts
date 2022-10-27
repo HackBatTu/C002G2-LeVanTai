@@ -1,0 +1,51 @@
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpEvent} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Customer} from "../../model/customer";
+import {Order} from "../../model/order";
+import {environment} from "../../../environments/environment";
+import {QuantityDto} from "../../model/quantity-dto";
+import {CustomerDto} from "../../model/customer-dto";
+
+
+const APL_URL = `${environment.apiUrl}`
+
+@Injectable({
+  providedIn: 'root'
+})
+export class StatisticalService {
+  private URL_CONNECT = APL_URL + '/rest';
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+
+  getOrderByCustomer(page: number, customer: Customer): Observable<Order[]> {
+    return this.httpClient.post<Order[]>(this.URL_CONNECT + "/cart/history?page=" + page, customer);
+  }
+
+  getAllOrder( number: number, size: number): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(this.URL_CONNECT + "/list-order?page=" + number + '&size=' + size);
+  }
+
+  getAllOrderYesterday(page: number): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(this.URL_CONNECT + "/yesterday?page=" + page);
+  }
+
+  getStatisticByWeek(): Observable<QuantityDto[]> {
+    return this.httpClient.get<QuantityDto[]>(this.URL_CONNECT + "/statistic/by-week" );
+  }
+
+  getStatisticByMonth(): Observable<QuantityDto[]> {
+    return this.httpClient.get<QuantityDto[]>(this.URL_CONNECT + "/statistic/by-month" );
+  }
+
+  getStatisticByYear(): Observable<QuantityDto[]> {
+    return this.httpClient.get<QuantityDto[]>(this.URL_CONNECT + "/statistic/by-year" );
+  }
+
+
+  getTopTenListCustomer() {
+    return this.httpClient.get<CustomerDto[]>(this.URL_CONNECT + "/customer-top" );
+  }
+}

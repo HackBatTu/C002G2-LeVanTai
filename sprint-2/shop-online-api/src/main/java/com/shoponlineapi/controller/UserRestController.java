@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/rest")
+@RequestMapping("")
 public class UserRestController {
     @Autowired
     private IAppUserService appUserService;
 
-    @PostMapping("/user/register")
+    @PostMapping("/rest/user/register")
     public ResponseEntity<?> getUserRegister(@Valid @RequestBody RegisterDTO registerDTO,
                                              BindingResult bindingResult) {
         RegisterDTO registerRequestDto = new RegisterDTO();
@@ -31,7 +31,7 @@ public class UserRestController {
         this.appUserService.registerUser(registerDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @GetMapping(value = "/get/user/{username}")
+    @GetMapping(value = "/rest/get/user/{username}")
     public ResponseEntity<AppUser> getAppUserByUsername(@PathVariable String username) {
         AppUser appUser = this.appUserService.getAppUserByUsername(username);
         return new ResponseEntity<>(appUser, HttpStatus.OK);

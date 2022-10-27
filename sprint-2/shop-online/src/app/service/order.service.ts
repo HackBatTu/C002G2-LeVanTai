@@ -38,6 +38,4 @@ export class OrderService {
   goPayment(customer: Customer): Observable<any> {
     return this.httpClient.post(this.URL_CONNECT + "/cart/payment", customer);
   }
-
-
 }

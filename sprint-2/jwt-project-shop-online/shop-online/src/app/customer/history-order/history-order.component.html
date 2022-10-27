@@ -1,0 +1,194 @@
+
+<div id="pdf">
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-white">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">Lịch Sử Mua Hàng Của Bạn</h1>
+      <div class="d-inline-flex">
+        <p class="m-0"><a href="">Trang chủ</a></p>
+        <p class="m-0 px-2">-</p>
+        <p class="m-0 pb-2">Danh sách sản phẩm | <button style="border: none; background-color: orange" (click)="generatePDF(username)"> In lịch sử mua hàng</button>
+
+       </p>
+
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+  <!-- Cart Start -->
+  <div class="container-fluid" style="padding: 0px 200px 50px 200px; height: 750px" >
+    <div class="row col-12 pt-2">
+      <div class="col-lg-12 table-responsive mb-5" id="table-card">
+        <table id="table" class="table table-hover text-center mb-0">
+          <thead class="thead-dark">
+          <tr>
+            <th class="bg-th">STT</th>
+            <th class="bg-th">Mã Đơn Hàng</th>
+            <th class="bg-th">Tên Sản Phẩm</th>
+            <th class="bg-th">Ngày Mua Hàng</th>
+            <th class="bg-th">Khuyến Mãi</th>
+            <th class="bg-th">Bảo Hành</th>
+            <th class="bg-th">Số Lượng</th>
+            <th class="bg-th">Thành Tiền</th>
+            <th class="bg-th">Xem Và In</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of productOrders,index as i">
+            <td class="align-middle">{{(i + 1) + size * number}}</td>
+            <td class="align-middle">{{p.bill.code}}</td>
+            <td class="align-middle">{{p.product.name}}</td>
+            <td class="align-middle">{{p.bill.creationDate| date: 'dd-MM-yyyy hh:mm:ssa'}}</td>
+            <td class="align-middle">{{p.product.discount}}%</td>
+            <td class="align-middle">{{p.product.guaranteeTime}}</td>
+            <td class="align-middle">{{p.quantity}}</td>
+            <td class="align-middle">{{p.product.price - (p.product.price * (p.product.discount / 100))| currency: 'VND' : ''}}đ</td>
+            <td class="align-middle">
+              <a href="#"  (click)="getBillId(p.bill.id)"
+                 class="a-bill" data-bs-toggle="offcanvas" [attr.data-bs-target]="'#offcanvas' + p.bill.code">
+                <i class="fa-solid fa-eye" style="font-size: 22px; color: red"></i>
+              </a>
+              <div  class="container offcanvas offcanvas-end detail aut w-auto"  id="offcanvas{{p.bill.code}}" style="overflow: auto">
+                <div id="pdf2{{p.bill.id}}">
+                  <div class="d-flex justify-content-center text-center pt-3 pb-2">
+                      <span class="h1 text-dark pt-1"><span class="fa fa-shipping-fast "></span></span>
+                      <span class="font-italic text-dark px-2 ml-n1" style="font-size: 40px">FateShop</span>
+                  </div>
+                  <div class="row text-center">
+                    <h5>ĐC: 295 Nguyễn Tất Thành - Đà Nẵng</h5>
+                  </div>
+                  <div class="row text-center">
+                    <h5>SĐT: 0936369999</h5>
+                  </div>
+                  -------------------------
+                  <div class="row text-center pb-3 pt-1">
+                    <h3><b>Hóa Đơn Mua Hàng</b></h3>
+                  </div>
+                  <div class="row" style="text-align: left">
+                    <div class="col-5"><b>Mã Đơn Hàng:</b></div>
+                    <div class="col-7 align-middle"><p>{{p.bill.code}}</p></div>
+                  </div>
+                  <div class="row" style="text-align: left">
+                    <div class="col-5"><b>Tên Tài Khoản:</b></div>
+                    <div class="col-7 align-middle"><p>{{username}}</p></div>
+                  </div>
+                  <div class="row" style="text-align: left">
+                    <div class="col-5"><b>Tên Khách Hàng:</b></div>
+                    <div class="col-7 align-middle"><p>{{p.customer.name}}</p></div>
+                  </div>
+                  <div class="row" style="text-align: left">
+                    <div class="col-5"><b>Ngày Mua Hàng:</b></div>
+                    <div class="col-7 align-middle"><p>{{p.bill.creationDate|date: 'dd-MM-yyyy hh:mm:ssa'}}</p></div>
+                  </div>
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th class="th-stt"><b>STT</b></th>
+                      <th><b>Tên Sản Phẩm</b></th>
+                      <th><b>Giá</b></th>
+                      <th><b>Số Lượng</b></th>
+                      <th><b>Khuyến Mãi</b></th>
+                      <th><b>Thành Tiền</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let po of productOrderByCode, index as i">
+                      <td>{{i + 1}}</td>
+                      <td>{{po.product.name}}</td>
+                      <td >{{po.product.price| currency: "VND": ''}}đ</td>
+                      <td>{{po.quantity}}</td>
+                      <td>{{po.product.discount}}%</td>
+                      <td >{{(po.product.price - (po.product.price * (po.product.discount /100))) * po.quantity| currency: "VND": ''}}đ</td>
+                    </tr>
+                    </tbody>
+                  </table>
+
+                  <table class="table">
+                    <tr>
+                      <td style="text-align: left ; padding-left: 4px"><b>Tổng Cộng:</b></td>
+                      <td style="text-align: right; padding-right: 2px"><b>{{totalMoney| currency: "VND": ''}}đ</b></td>
+                    </tr>
+                  </table>
+                  <div class="row d-flex justify-content-center">
+                    ----------------------------------------------
+                  </div>
+                  <div class="row text-center">
+                    <div><b>Xin cảm ơn, hẹn gặp lại quý khách!</b></div>
+                  </div>
+                  <div class="row text-center">
+                    <div><p>Mật khẩu wifi: codegym@c022g2</p></div>
+                  </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 10px">
+
+                  <div class="col-5" style="text-align: right">
+                    <button class="btn btn-primary" [disabled]="isLoading" (click)="generatePDF2(p.bill.id)">
+                      <img *ngIf="isLoading" width="20px" src="assets/img/loading-symbol.gif"><b style="color: white">Xuất Hóa Đơn</b>
+                    </button>
+                  </div>
+                  <div class="col-7">
+                    <button type="button" class="btn bg-danger" data-bs-dismiss="offcanvas">
+                      <b style="color: white">Đóng Hóa Đơn</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-lg-12 col-md-12 col-sm-12 pb-1 text-center font-weight-bold text-dark" style="font-size: 30px !important;" *ngIf="productOrders.length <= 0">
+          Không có dữ liệu !!!.
+        </div>
+        <div class="col-lg-12" *ngIf="productOrders.length > 0"  style="margin-top: 10px">
+          <nav>
+            <ul class="pagination justify-content-center">
+              <div *ngIf="number == 0" >
+                <li class="page-item disabled">
+                  <button class="page-link" (click)="goPrevious()" hidden>Quay Lại</button>
+                </li>
+              </div>
+              <div *ngIf="number != 0">
+                <li class="page-item">
+                  <button class="page-link" (click)="goPrevious()">Quay Lại</button>
+                </li>
+              </div>
+              <div *ngFor="let count of countTotalPages; index as i" >
+                <div *ngIf="i == number">
+                  <li class="page-item active">
+                    <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+                  </li>
+                </div>
+                <div *ngIf="i != number">
+                  <li class="page-item">
+                    <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+                  </li>
+                </div>
+              </div>
+              <div *ngIf="number == totalPages - 1">
+                <li class="page-item disabled">
+                  <button class="page-link" (click)="goNext()" hidden>Tiếp</button>
+                </li>
+              </div>
+              <div *ngIf="number != totalPages - 1">
+                <li class="page-item">
+                  <button class="page-link" (click)="goNext()">Tiếp</button>
+                </li>
+              </div>
+            </ul>
+          </nav>
+        </div>
+        <div class="pt-3 pl-1 bg-th">
+          <h6 class="w-100 text-white">Ghi Chú Đơn Hàng : </h6>
+          <textarea class="w-100"></textarea>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Cart End -->
+</div>
+

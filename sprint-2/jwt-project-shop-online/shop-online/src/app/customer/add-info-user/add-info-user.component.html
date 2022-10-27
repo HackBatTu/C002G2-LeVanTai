@@ -1,0 +1,117 @@
+<div class="container-fluid bg-white">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Thêm Thông Tin Tài Khoản</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Danh sách sản phẩm</p>
+    </div>
+  </div>
+</div>
+<!-- Shop Start -->
+<div class="container pb-5 pt-1" >
+  <div class="row bg-test" style="border-radius: 10px">
+    <div class="col-xl-4 order-md-last ">
+      <h3 class="text-center text-white pt-4 pb-2"><sub>******* </sub>Ảnh Cá Nhân<sub> *******</sub></h3>
+      <ul class="list-group mb-3">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <img id="previewImage" [src]="imgSrc" width="100%"/>
+          </li>
+        </ul>
+      </ul>
+    </div>
+
+    <div class="col-xl-8 m-0 pt-5">
+      <form class="needs-validation" [formGroup]="userForm" (ngSubmit)="onEditInfo()" *ngIf="userForm">
+        <div class="row g-3">
+
+          <input type="hidden" readonly formControlName="id" *ngIf="customer != null">
+          <input type="hidden" readonly formControlName="appUser" *ngIf="customer != null">
+          <div class="col-xl-4 mt-3">
+            <label for="name" class="form-label font-weight-bold text-white"><b>Họ và tên <span class="text-white">(*)</span>:</b>
+            </label>
+            <input type="text" class="form-control border-primary" id="name" placeholder="VD: Lê Văn Code"
+                   value="" formControlName="name">
+          </div>
+
+          <div class="col-xl-4 mt-3">
+            <label for="phone" class="form-label font-weight-bold text-white"> <b>Số điện thoại<span class="text-white">(*)</span>:</b>
+            </label>
+            <input type="text" class="form-control border-primary " id="phone" placeholder="VD: 0936369999"
+                   value="" formControlName="phone">
+          </div>
+          <div class="col-xl-4 mt-3">
+            <label  class="form-label font-weight-bold text-white"> <b>Ảnh đại diện<span class="text-white">(*)</span>:</b>
+            </label>
+
+            <div class="input-group has-validation border-primary">
+<!--              <i class="fa fa-picture-o text-white" aria-hidden="true" style="font-size: 40px" (click)="picture.click()"></i>-->
+              <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input"
+                     id="image1" accept=".jpg, .png, .jpeg"
+                     name="filename" formControlName="image" *ngIf="customer == null">
+              <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input"
+                     id="image2" accept=".jpg, .png, .jpeg"
+                     name="filename" *ngIf="customer != null">
+            </div>
+          </div>
+          <div class="col-xl-6 mt-3">
+            <label for="email" class="form-label font-weight-bold text-white"><b>Email <span class="text-white">(*)</span>:</b> </label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control border-primary" id="email" placeholder="VD: example@gmail.com"
+                     formControlName="email">
+            </div>
+          </div>
+
+
+          <div class="col-xl-6 mt-3">
+            <label for="birthday" class="form-label font-weight-bold text-white"> <b>Ngày sinh<span class="text-white">(*)</span>:</b>
+            </label>
+            <div class="input-group has-validation">
+              <input type="date" class="form-control border-primary" id="birthday" placeholder="VD: 02/08/2000"
+                     formControlName="birthday">
+            </div>
+          </div>
+
+
+          <div class="col-xl-12 mt-3">
+            <label for="address" class="form-label font-weight-bold text-white"><b>Địa chỉ <span class="text-white">(*)</span>:</b>
+            </label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control border-primary" id="address" placeholder="VD: Việt Nam"
+                     formControlName="address">
+            </div>
+          </div>
+
+          <div class="col-xl-12 mt-3">
+            <label for="hobbies" class="form-label font-weight-bold text-white"><b>Sở thích<span class="text-white">(*)</span>:</b>
+            </label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control border-primary" id="hobbies" placeholder="VD: Việt Nam"
+                     formControlName="hobbies">
+            </div>
+          </div>
+
+        </div>
+        <hr class="my-4">
+        <div class="row mt-3" style="margin-bottom: 10px">
+
+          <div class="col-6" style="text-align: right">
+            <button class="btn btn-primary" [disabled]="isLoading" type="submit" >
+              <img *ngIf="isLoading" width="20px"  src="assets/img/loading-symbol.gif"><b style="color: white">Đồng ý</b>
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-danger"  [routerLink]="'/info'">
+              <b style="color: white" >Quay Lại </b>
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+

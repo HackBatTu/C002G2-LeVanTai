@@ -9,7 +9,6 @@ import {CookieService} from './cookie.service';
 export class LogoutService {
   private LOGOUT_URL = 'http://localhost:8080/logoutSecurity';
 
-
   constructor(private httpClient: HttpClient, private cookieService: CookieService) {
   }
 

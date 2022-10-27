@@ -1,0 +1,146 @@
+import { Component, OnInit } from '@angular/core';
+import {Product} from "../../model/product";
+import {ToastrService} from "ngx-toastr";
+import {Title} from "@angular/platform-browser";
+import {ActivatedRoute, ParamMap, Router, RouterOutlet} from "@angular/router";
+
+import {Order} from "../../model/order";
+import {Customer} from "../../model/customer";
+import {ProductService} from "../../service/product/product.service";
+import {OrderService} from "../../service/product/order.service";
+import {CustomerService} from "../../service/customer/customer.service";
+import {CommonService} from "../../service/security/common.service";
+import {AuthService} from "../../service/security/auth.service";
+
+@Component({
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css']
+})
+export class DetailComponent implements OnInit {
+  product: Product;
+  customer: Customer;
+  role: string = '';
+  username: string = '';
+  token: string = '';
+  public infoStatus: boolean = false;
+  productOrders: Order[] = [];
+  public loginStatus: any;
+  constructor(private title: Title,
+              private authService: AuthService,
+              private productService: ProductService,
+              private toast: ToastrService,
+              private cartService: OrderService,
+              private router: Router,
+              private active: ActivatedRoute,
+              private orderService: OrderService,
+              private customerService: CustomerService,
+              private commonService: CommonService) {
+    this.title.setTitle("Chi Tiết Sản Phẩm")
+    this.authService.checkLogin().subscribe(value => {
+      this.loginStatus = value;
+      if (value) {
+        this.authService.getRoles().subscribe(resp => {
+          this.getRole(resp);
+          this.getCustomerByUsername(resp.username);
+        }, error => {
+        });
+      }
+    }, error => {
+    });
+  }
+  getRole(value: any) {
+    if (this.isAdmin(value.grantList)) {
+      this.role = 'ROLE_ADMIN';
+    } else if (this.isUser(value.grantList)) {
+      this.role = 'ROLE_USER';
+    }
+    this.username = value.username;
+  }
+
+  isAdmin(grantList: string[]): boolean {
+    return grantList.some(value => {
+      return value === 'ROLE_ADMIN';
+    });
+  }
+
+  isUser(grantList: string[]): boolean {
+    return grantList.some(value => {
+      return value === 'ROLE_USER';
+    });
+  }
+
+
+  ngOnInit(): void {
+    this.getParamId()
+    this.getCustomerByUsername(this.username)
+    this.getProductInCardByCustomer(this.customer)
+  }
+  getProductInCardByCustomer(customer: Customer) {
+    this.cartService.getProductInCardByCustomer(customer).subscribe((pos: Order[]) => {
+      if (pos != null) {
+        this.productOrders = pos;
+      } else {
+        this.productOrders = [];
+      }
+    });
+  }
+  getParamId() {
+    this.active.paramMap.subscribe((paraMap: ParamMap) => {
+      const id = paraMap.get('id');
+      // @ts-ignore
+      this.productService.findById(parseInt(id)).subscribe(data => {
+        console.log(data)
+        // @ts-ignore
+        this.product = data;
+        if (data == null) {
+          this.toast.error("Không có dữ liệu hoặc bạn đang nhập quá dữ liệu hiện có", "Thông Báo")
+          this.router.navigateByUrl('/home').then();
+        }
+      });
+    });
+  }
+  addToCartMessage2() {
+    this.router.navigateByUrl('/login').then(value => {
+      this.toast.warning('Vui lòng đăng nhập tài khoản thành viên để thực hiện chức năng này!');
+    });
+  }
+  addToCart(product: Product) {
+    let order: Order = {
+      customer: this.customer,
+      product: product,
+      quantity: 1
+    };
+    this.orderService.addOrder(order).subscribe((po: Order) => {
+      this.toast.success('Thêm thành công sản phẩm ' + po.product.name);
+      this.sendMessage();
+    }, error => {
+      if (error.error.message == 'quantity') {
+        this.toast.warning('Bạn đã thêm vượt quá số lượng sản phẩm!');
+      }
+    });
+  }
+  sendMessage(): void {
+    this.commonService.sendUpdate('Success!');
+  }
+  getCustomerByUsername(username: string) {
+    this.customerService.getCustomerByUserName(username).subscribe(value => {
+      this.customer = value;
+      if (value == null) {
+        this.infoStatus = true;
+      } else {
+        this.infoStatus = value.appUser.isDeleted;
+      }
+    });
+  }
+
+  addToCartMessage() {
+    this.toast.warning('Vui lòng đăng nhập thành viên để thực hiện chức năng này!');
+  }
+
+  updateInfoMessage() {
+    this.router.navigateByUrl('/info').then(value => {
+      this.toast.warning('Vui lòng cập nhật thông tin để mua hàng!');
+    });
+  }
+}

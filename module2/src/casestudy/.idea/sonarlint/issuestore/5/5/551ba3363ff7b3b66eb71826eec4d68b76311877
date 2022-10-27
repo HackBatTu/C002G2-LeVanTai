@@ -1,0 +1,20 @@
+
+J
+java:S3740"/Provide the parametrized type for this generic.(ÅÖÀ‰ıÿÿÿÿ
+\
+java:S2259"AA "NullPointerException" could be thrown; "fos" is nullable here.(æŒÕ®ùÿÿÿÿ
+V
+java:S2259"AA "NullPointerException" could be thrown; "oos" is nullable here.(İÛĞK
+j
+java:S2095*"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(·¿ƒ…ıÿÿÿÿ
+h
+java:S2095)"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(ê Ó¿şÿÿÿÿ
+f
+java:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(¿Öå£
+P
+java:S1118":Add a private constructor to hide the implicit public one.(–§ ®
+\	java:S899"BDo something with the "boolean" value returned by "createNewFile".(Ğ’Íùÿÿÿÿ
+Z
+java:S2147"DCombine this catch with the one at line 23, which has the same body.(ï­£Ä
+E
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ

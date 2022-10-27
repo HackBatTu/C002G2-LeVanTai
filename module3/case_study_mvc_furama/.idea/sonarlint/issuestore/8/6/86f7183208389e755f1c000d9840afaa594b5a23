@@ -1,0 +1,40 @@
+
+g
+java:S11920"QDefine a constant instead of duplicating this literal "customer_address" 3 times.(¿Å•º
+g
+java:S1192-"QDefine a constant instead of duplicating this literal "customer_id_card" 3 times.(¬Ëù
+j
+java:S1192."ODefine a constant instead of duplicating this literal "customer_phone" 4 times.(ÅÒøÿÿÿÿ
+h
+java:S1192+"RDefine a constant instead of duplicating this literal "customer_birthday" 3 times.(ÚÔº“
+j
+java:S1192/"ODefine a constant instead of duplicating this literal "customer_email" 4 times.(òŸÓüÿÿÿÿ
+d
+java:S1192*"NDefine a constant instead of duplicating this literal "customer_name" 4 times.(ç¼ô·
+n
+java:S1192)"SDefine a constant instead of duplicating this literal "customer_type_name" 3 times.(ğ½™äùÿÿÿÿ
+b
+java:S1192'"LDefine a constant instead of duplicating this literal "customer_id" 4 times.(ÊË€ø
+f
+java:S1192,"PDefine a constant instead of duplicating this literal "customer_gender" 4 times.(éú¢Ñ
+g
+java:S1192("QDefine a constant instead of duplicating this literal "customer_type_id" 4 times.(ğòú
+j
+java:S2095$"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(×ô¾şÿÿÿÿ
+j
+java:S2095t"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ï÷”‹ùÿÿÿÿ
+f
+java:S2095‡"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(æ§º
+e
+java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¥†¦¥
+k
+java:S2095Æ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.( É¯ÿÿÿÿÿ
+e
+java:S2095["OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¨İ¢„
+f
+java:S2095á"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ë“­î
+k
+java:S2095¨"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ø·‚¾ıÿÿÿÿ
+{	java:S116"fRename this field "SELECT_ALL_CUSTOMER_SERVICE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äÏ÷¼
+7
+java:S1170"!Make this final field static too.(äÏ÷¼

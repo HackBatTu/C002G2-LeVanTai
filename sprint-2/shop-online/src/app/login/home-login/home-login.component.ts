@@ -417,6 +417,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   signInWithGoogle(): void {
     this.authServices.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data => {
+        console.log(data)
         this.socialUser = data;
         const tokenGoogle = new TokenDto(this.socialUser.idToken);
         this.oauthService.google(tokenGoogle).subscribe(
@@ -441,6 +442,7 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
   signInWithFB(): void {
     this.authServices.signIn(FacebookLoginProvider.PROVIDER_ID).then(
       data => {
+        console.log(data)
         this.socialUser = data;
         const tokenFace = new TokenDto(this.socialUser.authToken);
         this.oauthService.facebook(tokenFace).subscribe(
@@ -469,55 +471,5 @@ export class HomeLoginComponent implements OnInit, OnDestroy {
       }
     );
   }
-  // submitLogin() {
-  //   console.log("submit login to facebook");
-  //   // FB.login();
-  //   FB.login((response)=>
-  //   {
-  //     console.log('submitLogin',response);
-  //     if (response.authResponse)
-  //     {
-  //       this.toastrService.success('login successful', 'Success!');
-  //     }
-  //     else
-  //     {
-  //       console.log('User login failed');
-  //     }
-  //   });
-  // }
-  // googleInitialize() {
-  //   window['googleSDKLoaded'] = () => {
-  //     window['gapi'].load('auth2', () => {
-  //       this.auth2 = window['gapi'].auth2.init({
-  //         client_id: '798327737941-5me6s9dbebgulst7e6bpsasctkelj4hg.apps.googleusercontent.com',
-  //         cookie_policy: 'single_host_origin',
-  //         scope: 'profile email'
-  //       });
-  //       this.prepareLogin();
-  //     });
-  //   }
-  //   (function(d, s, id){
-  //     var js, fjs = d.getElementsByTagName(s)[0];
-  //     if (d.getElementById(id)) {return;}
-  //     js = d.createElement(s); js.id = id;
-  //     js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
-  //     fjs.parentNode.insertBefore(js, fjs);
-  //   }(document, 'script', 'google-jssdk'));
-  // }
-
-  // prepareLogin() {
-  //   this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
-  //     (googleUser) => {
-  //       let profile = googleUser.getBasicProfile();
-  //       console.log('Token || ' + googleUser.getAuthResponse().id_token);
-  //       // this.show = true;
-  //       // this.Name =  profile.getName();
-  //       console.log('Image URL: ' + profile.getImageUrl());
-  //       console.log('Email: ' + profile.getEmail());
-  //     }, (error) => {
-  //       alert(JSON.stringify(error, undefined, 2));
-  //     });
-  // }
-
 
 }

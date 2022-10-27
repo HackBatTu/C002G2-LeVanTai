@@ -96,17 +96,4 @@ export class ProductService {
   getDevice() {
     return this.httpClient.get(this.URL_CONNECT + '/device-sup');
   }
-
-
-  getAllCategoriesPage(size: number): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.URL_CONNECT + "/categories/page?size=" + size);
-  }
-
-  getCategoriesDiscount(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.URL_CONNECT + "/categories/discount");
-  }
-
-  getAllCategoriesList(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.URL_CONNECT + "/categories/list");
-  }
 }

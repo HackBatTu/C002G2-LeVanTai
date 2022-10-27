@@ -1,0 +1,18 @@
+
+b
+java:S1192-"GDefine a constant instead of duplicating this literal "idCard" 3 times.(é¬Ğñşÿÿÿÿ
+b
+java:S1192."GDefine a constant instead of duplicating this literal "salary" 3 times.(„–¬ÿúÿÿÿÿ
+\
+java:S11920"FDefine a constant instead of duplicating this literal "email" 4 times.(»öÃ—
+d
+java:S1192,"IDefine a constant instead of duplicating this literal "birthDay" 3 times.(É£Ïšıÿÿÿÿ
+c
+java:S11921"HDefine a constant instead of duplicating this literal "address" 3 times.(€€Ìÿÿÿÿÿ
+e
+java:S1192:"JDefine a constant instead of duplicating this literal "/employee" 3 times.(Â¼âÁıÿÿÿÿ
+a
+java:S1192/"FDefine a constant instead of duplicating this literal "phone" 3 times.(Ú˜Åßùÿÿÿÿ
+f	java:S117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñîŞ
+f	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÓàÑ
+f	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜØ²Ü

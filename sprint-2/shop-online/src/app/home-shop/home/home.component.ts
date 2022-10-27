@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit {
     this.getAll(0,this.categoryId, this.searchName, this.searchOrigin, this.startPrice,this.endPrice,this.sort);
   }
 
+
   goPrevious() {
     let numberPage: number = this.number;
     if (numberPage > 0) {

@@ -1,0 +1,11 @@
+.bg-home {
+  background-color: #F5F5F5;
+}
+.back-to-top {
+  position: fixed;
+  display: block;
+  right: 30px;
+  bottom: 30px;
+  z-index: 11;
+  animation: action 2s infinite alternate;
+}

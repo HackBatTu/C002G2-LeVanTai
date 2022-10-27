@@ -1,0 +1,50 @@
+
+g
+java:S1192+"LDefine a constant instead of duplicating this literal "contract_id" 3 times.(”™€Èúÿÿÿÿ
+e
+java:S1192-"ODefine a constant instead of duplicating this literal "date_check_out" 3 times.(æûÙÜ
+f
+java:S11924"KDefine a constant instead of duplicating this literal "service_id" 4 times.(®«Ê”úÿÿÿÿ
+p
+java:S1192/"UDefine a constant instead of duplicating this literal "contract_total_money" 3 times.(«¯Ì¹şÿÿÿÿ
+c
+java:S11925"MDefine a constant instead of duplicating this literal "service_name" 4 times.(É¥èô
+i
+java:S11921"NDefine a constant instead of duplicating this literal "employee_name" 4 times.(¦ıšúÿÿÿÿ
+g
+java:S1192."QDefine a constant instead of duplicating this literal "contract_deposit" 3 times.(®ÍÓ™
+d
+java:S1192,"NDefine a constant instead of duplicating this literal "date_check_in" 3 times.(’ü
+g
+java:S11920"LDefine a constant instead of duplicating this literal "employee_id" 4 times.(ëñç±ÿÿÿÿÿ
+i
+java:S11923"NDefine a constant instead of duplicating this literal "customer_name" 4 times.(¸¨æ¿ûÿÿÿÿ
+b
+java:S11922"LDefine a constant instead of duplicating this literal "customer_id" 4 times.(Ñ¿î€
+k	java:S117k"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ‚ Ëùÿÿÿÿ
+f	java:S117l"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—‹Šæ
+k	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¼Öıùÿÿÿÿ
+f	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ½¦Ì
+f	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àª‚
+f	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ¯‚­
+e
+java:S2095`"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŒˆáË
+k
+java:S2095’"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ó“³ôùÿÿÿÿ
+d
+java:S2095("OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Âäùp
+e
+java:S2095G"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¥†¦¥
+k
+java:S2095¤"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Î¢š’ÿÿÿÿÿ
+f
+java:S2095…"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ˆóÔ
+k
+java:S2095Ş"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(º¬ş™ùÿÿÿÿ
+f
+java:S2095Å"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ñì¤Æ
+f
+java:S2095ş"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¼ñØû
+u	java:S116"`Rename this field "SEARCH_CONTRACT_BY_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šôä
+7
+java:S1170"!Make this final field static too.(šôä

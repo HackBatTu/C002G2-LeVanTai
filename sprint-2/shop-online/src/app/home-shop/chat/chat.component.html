@@ -1,11 +1,11 @@
-<div class="container border-primary border">
+<div style="padding : 0px 200px">
   <div class="row clearfix" style="height: 800px">
     <div class="col-lg-12">
       <div class="card chat-app">
         <div id="plist" class="people-list">
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-search"></i></span>
+              <span class="input-group-text"><i class="fa fa-search" style="font-size: 25px"></i></span>
             </div>
             <input type="text" class="form-control" placeholder="Search...">
           </div>
@@ -34,10 +34,10 @@
                   <small>Last seen: 2 hours ago</small>
                 </div>
               </div>
-              <div class="col-lg-6 hidden-sm text-right">
-                <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+              <div class="col-lg-6 hidden-sm " style="text-align: right">
+                <a href="javascript:void(0);" class="btn btn-outline-secondary" style="margin-right: 10px"><i class="fa fa-camera"></i></a>
+                <a href="javascript:void(0);" class="btn btn-outline-primary" style="margin-right: 10px"><i class="fa fa-image"></i></a>
+                <a href="javascript:void(0);" class="btn btn-outline-info" style="margin-right: 10px"><i class="fa fa-cogs"></i></a>
                 <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
               </div>
             </div>
@@ -45,31 +45,53 @@
           <div class="chat-history" #chathistory [scrollTop]="scrolltop" style="height: 78%; overflow: scroll">
             <ul class="m-b-0">
               <li class="clearfix" *ngFor="let msg of messages">
-                <div class="message-data text-right" *ngIf="msg.username == currentUserName.toLowerCase()">
-                  <small class="message-data-time mr-1" *ngIf="msg.username == currentUserName.toLowerCase() && msg.date != dateNow">{{msg.time}}, {{msg.date}}</small>
-                  <small class="message-data-time mr-1" *ngIf="msg.username == currentUserName.toLowerCase() && msg.date == dateNow">{{msg.time}}, TODAY</small>
+                <div >
+                  <div style="text-align: center" *ngIf="msg.username != currentUserName.toLowerCase()">
+                    <small class="message-data-time mr-1 " *ngIf="msg.username == currentUserName.toLowerCase() && msg.date != dateNow">{{msg.time}}, {{msg.date}}</small>
+                    <small class="message-data-time mr-1  " *ngIf="msg.username != currentUserName.toLowerCase() && msg.date == dateNow">{{msg.time}}, TODAY</small>
+                  </div>
+                  <span class="message-data" *ngIf="msg.username != currentUserName.toLowerCase()">
+                  <img src="{{secondImage}}" alt="avatar">
+                </span>
+                  <span class="message my-message" style="" *ngIf="msg.username != currentUserName.toLowerCase()"> {{msg.message}} </span>
+                </div>
+
+                <div >
+                      <div style="text-align: center" class="message-data text-right" *ngIf="msg.username == currentUserName.toLowerCase()">
+                        <small class="message-data-time mr-1" *ngIf="msg.username == currentUserName.toLowerCase() && msg.date != dateNow">{{msg.time}}, {{msg.date}}</small>
+                         <small class="message-data-time mr-1" *ngIf="msg.username == currentUserName.toLowerCase() && msg.date == dateNow">{{msg.time}} , TODAY</small>
+                     </div>
+                    <div style="text-align: right;">
+                   <span style="text-align: right" class="message-data " *ngIf="msg.username == currentUserName.toLowerCase()">
                   <img src="{{customer.image}}" alt="avatar" *ngIf="msg.username == currentUserName.toLowerCase()">
+                </span>
+                  <span  style="text-align: right" class="message other-message " *ngIf="msg.username == currentUserName.toLowerCase()">  {{msg.message}} </span>
                 </div>
-                <div class="message other-message float-right" *ngIf="msg.username == currentUserName.toLowerCase()">  {{msg.message}} </div>
-                <div class="message-data" *ngIf="msg.username != currentUserName.toLowerCase()">
-                  <small class="message-data-time mr-1" *ngIf="msg.username != currentUserName.toLowerCase() && msg.date != dateNow">{{msg.time}}, {{msg.date}}</small>
-                  <small class="message-data-time mr-1" *ngIf="msg.username != currentUserName.toLowerCase() && msg.date == dateNow">{{msg.time}}, TODAY</small>
                 </div>
-                <div class="message my-message" style="" *ngIf="msg.username != currentUserName.toLowerCase()"> {{msg.message}} </div>
               </li>
             </ul>
           </div>
           <div class="chat-message clearfix">
-            <div class="input-group mb-0">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-send"></i></span>
+            <div class="input-group mb-0 ">
+              <div class="input-group-prepend justify-content-center">
+                <i class="fa fa-plus bg-primary text-white" aria-hidden="true" style="font-size: 28px; border-radius: 45%"></i>
+
+                <i class="fas	fas fa-image text-primary" style="font-size: 28px; margin-left: 15px;"></i>
+
+                <i class="fa-sharp fa-solid fa-file text-primary" style="font-size: 28px; margin-left: 15px;"></i>
+
+                <i  class="fa-solid fa-gif text-primary"  style="font-size: 28px; padding-left: 15px;"></i>
               </div>
-              <input type="text" class="form-control" *ngIf="customer != null" placeholder="Chat gì đó..."
+              <input type="text" class="form-control" style="border-radius: 18px"  id="picture" placeholder="Chat gì đó..."
                      [(ngModel)]="message" (keydown.enter)="sendMessage()">
+              <i class="fa fa-thumbs-up " style="font-size: 29px; padding-left: 15px; color: #007bff" aria-hidden="true"></i>
             </div>
           </div>
+
         </div>
+
       </div>
+
     </div>
   </div>
 </div>

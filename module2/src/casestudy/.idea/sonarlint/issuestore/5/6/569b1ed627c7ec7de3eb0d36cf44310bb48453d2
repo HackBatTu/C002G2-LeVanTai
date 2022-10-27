@@ -1,0 +1,42 @@
+
+j
+java:S11929"TDefine a constant instead of duplicating this literal "0.Return main menu
+" 5 times.(Ğ—ÿ¡
+n
+java:S1192,"SDefine a constant instead of duplicating this literal "***You Re-Choice: " 5 times.(ş÷ñÉûÿÿÿÿ
+j
+java:S1192"TDefine a constant instead of duplicating this literal "Enter the choice : " 6 times.(‚²ü—
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ŸğÂÇ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(°ª»³úÿÿÿÿ
+M
+java:S6126"2Replace this String concatenation with Text block.(°ª»³úÿÿÿÿ
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(ş÷ñÉûÿÿÿÿ
+S	java:S1065"9Replace this use of System.out or System.err by a logger.(ÏúªØûÿÿÿÿ
+S	java:S1066"9Replace this use of System.out or System.err by a logger.(õûêôıÿÿÿÿ
+M
+java:S61266"2Replace this String concatenation with Text block.(õûêôıÿÿÿÿ
+S	java:S106I"9Replace this use of System.out or System.err by a logger.(ş÷ñÉûÿÿÿÿ
+N	java:S106Q"9Replace this use of System.out or System.err by a logger.(‰¨¤®
+N	java:S106R"9Replace this use of System.out or System.err by a logger.(ÚöÖ
+H
+java:S6126R"2Replace this String concatenation with Text block.(ÚöÖ
+S	java:S106e"9Replace this use of System.out or System.err by a logger.(ş÷ñÉûÿÿÿÿ
+S	java:S106m"9Replace this use of System.out or System.err by a logger.(±ºœÍşÿÿÿÿ
+S	java:S106n"9Replace this use of System.out or System.err by a logger.(×ñòùÿÿÿÿ
+M
+java:S6126n"2Replace this String concatenation with Text block.(×ñòùÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(ş÷ñÉûÿÿÿÿ
+T	java:S106Š"9Replace this use of System.out or System.err by a logger.(¿ú¢Ûúÿÿÿÿ
+N
+java:S6126Š"2Replace this String concatenation with Text block.(¿ú¢Ûúÿÿÿÿ
+O	java:S106 "9Replace this use of System.out or System.err by a logger.(Îú…
+T	java:S106¨"9Replace this use of System.out or System.err by a logger.(âò³øÿÿÿÿ
+O	java:S106©"9Replace this use of System.out or System.err by a logger.(‡…Õ£
+I
+java:S6126©"2Replace this String concatenation with Text block.(‡…Õ£
+T	java:S106Ä"9Replace this use of System.out or System.err by a logger.(ş÷ñÉûÿÿÿÿ
+T	java:S106Ì"9Replace this use of System.out or System.err by a logger.(ƒµŸÒÿÿÿÿÿ
+T	java:S106Í"9Replace this use of System.out or System.err by a logger.(ñóŞÖüÿÿÿÿ
+N
+java:S6126Í"2Replace this String concatenation with Text block.(ñóŞÖüÿÿÿÿ
+T	java:S106Ü"9Replace this use of System.out or System.err by a logger.(ş÷ñÉûÿÿÿÿ

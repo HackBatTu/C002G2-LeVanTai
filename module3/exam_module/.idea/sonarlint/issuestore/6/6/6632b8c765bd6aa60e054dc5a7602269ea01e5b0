@@ -1,0 +1,19 @@
+
+d
+java:S1192t"NDefine a constant instead of duplicating this literal "numberOfFloor" 3 times.(ôƒËî
+c
+java:S1192u"MDefine a constant instead of duplicating this literal "loaiVanPhong" 3 times.(¤Ö¶â
+b
+java:S1192s"GDefine a constant instead of duplicating this literal "status" 3 times.(üˆ¶æşÿÿÿÿ
+]
+java:S1192f"GDefine a constant instead of duplicating this literal "prince" 3 times.(ÏšûÑ
+f
+java:S1301T"KReplace this "switch" statement by "if" statements to increase readability.(ë´åİşÿÿÿÿ
+_
+java:S1854C"DRemove this useless assignment to local variable "loaiVanPhongList".(€Ñ£¿ÿÿÿÿÿ
+\
+java:S1854B"ARemove this useless assignment to local variable "trangThaiList".(åÚïÇüÿÿÿÿ
+M
+java:S1481B"2Remove this unused "trangThaiList" local variable.(åÚïÇüÿÿÿÿ
+P
+java:S1481C"5Remove this unused "loaiVanPhongList" local variable.(€Ñ£¿ÿÿÿÿÿ
