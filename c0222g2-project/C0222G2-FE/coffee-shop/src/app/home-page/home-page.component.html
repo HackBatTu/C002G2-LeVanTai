@@ -1,0 +1,181 @@
+<main>
+  <!-- Carousel -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active a">
+        <img src="assets/img/bao2.jpg" class="d-block w-100" style="width:100%">
+        <div class="carousel-caption d-none d-md-block">
+          COFFEE FACTORY
+          <br>
+          <div style="font-size: 30%; padding: 100px; font-family: 'Poppins', sans-serif;">
+            Hạnh phúc là một sự lựa chọn. Đau khổ cũng là một sự lựa chọn. Hãy lựa chọn khôn ngoan.
+          </div>
+        </div>
+        <button class="btn btn-light carousel-caption buttonOrder d-flex align-items-center justify-content-center"
+                style="font-size: 20px; align-content: center" *ngIf="token !== ''" routerLink="/order/screen">
+          ĐẶT MÓN
+        </button>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/bao3.jpg" class="d-block w-100" style="width:100%">
+        <div class="carousel-caption d-none d-md-block">
+          COFFEE FACTORY
+          <br>
+          <div style="font-size: 30%; padding: 100px; font-family: 'Poppins', sans-serif;">
+            Đối xử với bản thân tốt một chút vì cuộc đời này không dài đâu. Đối xử với người bên cạnh tốt một chút vì kiếp sau chắc gì đã gặp lại.
+          </div>
+        </div>
+        <button class="btn btn-light carousel-caption buttonOrder d-flex align-items-center justify-content-center"
+                style="font-size: 20px; align-content: center" *ngIf="token !== ''" routerLink="/order/screen">
+          ĐẶT MÓN
+        </button>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/bao4.jpg" class="d-block w-100" style="width:100%">
+        <div class="carousel-caption d-none d-md-block">
+          COFFEE FACTORY
+          <br>
+          <div style="font-size: 30%; padding: 100px; font-family: 'Poppins', sans-serif;">
+            Biết chấp nhận thực tế cũng là một loại năng lực. Biết hài lòng với những thứ mình có cũng là một loại hạnh phúc.
+          </div>
+        </div>
+        <button class="btn btn-light carousel-caption buttonOrder d-flex align-items-center justify-content-center"
+                style="font-size: 20px; align-content: center" *ngIf="token !== ''" routerLink="/order/screen">
+          ĐẶT MÓN
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <!-- END Carousel -->
+
+  <div style="background-color: beige; height: 2px">
+
+  </div>
+
+
+  <div id="firstBodyArea">
+
+    <div class="container firstBodyContent">
+      <div class="row" style="text-align: center">
+        <h1>5 MÓN ĐƯỢC DÙNG NHIỀU NHẤT</h1>
+        <div *ngIf="checkData === false" style="color: #a80d0d">
+          <h3>Lỗi dữ liệu, Xin hãy tải lại!</h3>
+        </div>
+      </div>
+      <div class="menu row d-flex justify-content-center" style="text-align: center">
+        <div *ngFor="let dish of dishMostOrderList; index as i" class="card col-md-2 col-sm-6 col-12" [style.background-image]="'url('+dish.image+')'" >
+          <div class="box">
+            <div class="text-in-box">
+              <h2 style="white-space: nowrap; font-size: 130%">{{dish.name}}</h2>
+              <h2 style="white-space: nowrap; font-size: 120%">{{dish.price | number}} VNĐ</h2>
+              <button class="btn btn-light" *ngIf="token !== ''" [routerLink]="['/order/screen', dish.dishId]">Đặt món</button>
+              <h2 style="white-space: nowrap; font-size: 120%;">Xếp hạng {{i+1}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container firstBodyContent">
+      <div class="row" style="text-align: center">
+        <h1>5 MÓN MỚI NHẤT</h1>
+        <div *ngIf="checkData === false" style="color: #a80d0d">
+          <h3>Lỗi dữ liệu, Xin hãy tải lại!</h3>
+        </div>
+      </div>
+      <div class="menu row d-flex justify-content-center" style="text-align: center">
+        <div *ngFor="let dish of distNewestList" class="card col-md-2 col-sm-6 col-12" [style.background-image]="'url('+dish.image+')'">
+          <div class="box">
+            <div class="text-in-box">
+              <h2 style="white-space: nowrap; font-size: 130%">{{dish.name}}</h2>
+              <h2 style="white-space: nowrap; font-size: 120%">{{dish.price | number }} VNĐ</h2>
+              <button class="btn btn-light" *ngIf="token !== ''" [routerLink]="['/order/screen', dish.id]">Đặt món</button>
+              <h2 style="white-space: nowrap; font-size: 120%;">Ngày tạo </h2>
+              <h2 style="white-space: nowrap; font-size: 120%;">{{dish.dateCreate | date : 'dd-MM-yyyy'}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: beige; height: 2px">
+
+  </div>
+
+
+  <div id="secondBodyArea" style="height: 700px">
+    <div style="text-align: center; padding-top: 80px">
+      <h1 style="color: white">
+        VỀ CHÚNG TÔI
+      </h1>
+      <div class="menu d-flex justify-content-center" style="text-align: center; margin-top: 40px">
+        <div class="col-lg-6 col-sm-12 col-12">
+          <img src="assets/img/baous2.jpg" height="350" width="600" style="border-radius: 30px">
+        </div>
+      </div>
+      <div style="margin-top: 30px">
+        <div style="color: white;text-align: center; font-size: 25px">
+          Luôn đem đến không gian thoải mái cho khách hàng.
+        </div>
+        <div style="color: white;text-align: center; font-size: 25px">
+          Còn gì tuyệt vời hơn khi ở 1 nơi thoải mái, uống 1 món đồ uống cực ngon?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: beige; height: 2px">
+
+  </div>
+
+  <div id="thirdBodyArea" style="height: 500px; padding-top: 110px">
+    <div style="text-align: center">
+      <h1>CHẤT LƯỢNG TỐT NHẤT</h1>
+    </div>
+    <div class="menu d-flex justify-content-center" style="text-align: center">
+      <div class="col-4">
+        <img src="assets/img/baoiconcf1-removebg-preview.png">
+      </div>
+      <div class="col-4">
+        <img src="assets/img/baoiconcf2-removebg-preview.png">
+      </div>
+      <div class="col-4">
+        <img src="assets/img/baoiconcf3-removebg-preview.png">
+      </div>
+    </div>
+    <div class="menu d-flex justify-content-center" style="text-align: center">
+      <div class="col-4">
+        Máy pha hiện đại nhất
+      </div>
+      <div class="col-4">
+        Những hạt cà phê chất lượng cao nhất
+      </div>
+      <div class="col-4">
+        Những ly cà phê thơm ngon nhất
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: beige; height: 2px">
+
+  </div>
+</main>

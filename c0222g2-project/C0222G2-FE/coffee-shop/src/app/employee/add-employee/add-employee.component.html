@@ -1,0 +1,201 @@
+<div id="fate">
+  <div class="container bg-white">
+    <div class="row col-lg-12 management">
+      <div class=" col-lg-8 block-1">
+        <h1 class="mb-5 text-center title">Tạo Mới Nhân Viên</h1>
+        <form id="employeeFormCreate" [formGroup]="employeeFormCreate" *ngIf="employeeFormCreate" (ngSubmit)="createEmployee()" >
+          <div class="row col-sm-12 col-12 g-3">
+
+            <div class="col-sm-6 image-edit">
+              <img [src]="imgSrc" id="img" class="image-css" (click)="fileUploader.click()">
+            </div>
+
+            <div class="col-md-6 title-image">
+              <label class="form-label title-input">Ảnh nhân viên<span class="complain">(*)</span><span> :</span>
+              </label>
+              <input id="image" type="file" class="form-control " #fileUploader (change)="showPreview($event)"
+                     accept="image/*" formGroupName="image">
+              <div *ngIf="!image.valid && (image.dirty || image.touched)">
+                <div class="text-danger" [hidden]="!image.errors.required">Vui lòng nhập thông tin hình ảnh.</div>
+                <div class="text-danger" [hidden]="!image.errors.maxlength">Ảnh không vượt quá 255 kí tự.</div>
+              </div>
+            </div>
+            <hr>
+            <div class="col-md-6 col-12 ">
+              <label for="appUser" class="form-label title-input">Tên tài khoản<span
+                style="color: red"> (*)</span><span> :</span></label>
+              <input type="text" class="form-control" id="appUser" formControlName="username">
+              <div *ngIf="!username.valid && username.touched">
+                <div class="text-danger" [hidden]="!username.errors.pattern">Vui lòng không nhập kí tự đầu tiên là số và
+                  tên không có kí tự đặc biệt
+                </div>
+                <div class="text-danger" [hidden]="!username.errors.userNameExists">Tài khoản bạn nhập đã tồn tại.</div>
+                <div class="text-danger" [hidden]="!username.errors.minlength">Vui lòng nhập trên 6 kí tự.</div>
+                <div class="text-danger" [hidden]="!username.errors.maxlength">Vui lòng nhập ít hơn 30 kí tự.</div>
+                <div class="text-danger" [hidden]="!username.errors.required">Vui lòng nhập tên tài khoản.</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label for="name" class="form-label title-input">Tên nhân viên<span
+                style="color: red"> (*)</span><span> :</span></label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+              <div *ngIf="!name.valid && (name.dirty || name.touched)">
+                <div class="text-danger" [hidden]="!name.errors.minlength">Vui lòng nhập trên 6 kí tự.</div>
+                <div class="text-danger" [hidden]="!name.errors.maxlength">Vui lòng nhập ít hơn 30 kí tự.</div>
+                <div class="text-danger" [hidden]="!name.errors.required">Vui lòng nhập thông tin.</div>
+                <div class="text-danger" [hidden]="!name.errors.pattern">Vui lòng tên viết hoa đầu mỗi từ.</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label for="birthday" class="form-label title-input">Ngày sinh<span> :</span></label>
+              <input type="date" class="form-control" id="birthday" formControlName="birthday">
+              <div *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">
+                <div class="text-danger" [hidden]="!birthday.errors.patter">Vui lòng nhập theo định dạng yyyy/MM/dd.
+                </div>
+                <div class="text-danger" [hidden]="!birthday.errors.age16">Vui lòng nhập tuổi lớn hơn 16.</div>
+                <div class="text-danger" [hidden]="!birthday.errors.checkDate">Vui lòng ngày nhỏ hơn ngày hiện tại.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label for="address" class="form-label title-input">Địa chỉ<span
+                style="color: red"> (*)</span><span> :</span></label>
+              <input type="text" class="form-control" id="address" formControlName="address" placeholder="">
+              <div *ngIf="!address.valid && (address.dirty || address.touched)">
+                <div class="text-danger" [hidden]="!address.errors.required">Vui lòng nhập thông tin địa chỉ.</div>
+                <div class="text-danger" [hidden]="!address.errors.minlength">Vui lòng nhập thông tin địa chỉ lớn hơn 6
+                  kí tự.
+                </div>
+                <div class="text-danger" [hidden]="!address.errors.maxlength">Vui lòng nhập thông tin địa chỉ nhỏ hơn
+                  255 kí tự.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label class="form-label title-input"> Giới tính <span> :</span> </label>
+              <select id="gender" formControlName="gender" name="gender" class="form-control">
+                <option value="" disabled>Chọn giới tính</option>
+                <option value="1">Nam</option>
+                <option value="2">Nữ</option>
+                <option value="0">Giới tính khác</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label for="phoneNumber" class="form-label title-input">Số điện thoại<span
+                style="color: red"> (*)</span><span> :</span></label>
+              <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+              <div *ngIf="!phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)">
+                <div class="text-danger" [hidden]="!phoneNumber.errors.required">Vui lòng nhập số điện thoại.</div>
+                <div class="text-danger" [hidden]="!phoneNumber.errors.pattern">Vui lòng nhập đầu số điện thoại là 03,08,09 hoặc (84)+9 và 8 số
+                </div>
+                <div class="text-danger" [hidden]="!phoneNumber.errors.phoneNumberExists">Số điện thoại đã tồn tại.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label for="email" class="form-label title-input">Email<span style="color: red"> (*)</span><span> :</span></label>
+              <input type="text" class="form-control" id="email" formControlName="email">
+              <div *ngIf="!email.valid && (email.dirty || email.touched)">
+                <div class="text-danger" [hidden]="!email.errors.required">Vui lòng nhập thông tin email.</div>
+                <div class="text-danger" [hidden]="!email.errors.email">Vui lòng nhập định dạng email.</div>
+                <div class="text-danger" [hidden]="!email.errors.minlength">Vui lòng nhập thông tin địa chỉ lớn hơn 6 kí
+                  tự.
+                </div>
+                <div class="text-danger" [hidden]="!email.errors.maxlength">Vui lòng nhập thông tin địa chỉ nhỏ hơn 50
+                  kí tự.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12 ">
+              <label for="salary" class="form-label title-input">Lương (VND)<span
+                style="color: red"> (*)</span><span> :</span></label>
+              <input type="text" class="form-control" id="salary" formControlName="salary">
+              <div *ngIf="!salary.valid && (salary.dirty || salary.touched)">
+                <div class="text-danger" [hidden]="!salary.errors.required">Vui lòng nhập thông tin lương.</div>
+                <div class="text-danger" [hidden]="!salary.errors.format">Vui lòng nhập thông tin lương là bội của
+                  100000.
+                </div>
+                <div class="text-danger" [hidden]="!salary.errors.max">Vui lòng nhập thông tin lương nhỏ hơn 100
+                  triệu.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 ">
+              <label for="position" class="form-label title-input">Vị trí<span
+                style="color: red"> (*)</span><span> :</span></label>
+              <select id="position" class="form-select" formControlName="position">
+<!--                <option value="" disabled>Chọn vị trí</option>-->
+                <option *ngFor="let c of position" [ngValue]="c">{{c.name}}</option>
+              </select>
+            </div>
+            <hr class="my-4">
+            <div class="row col-md-12">
+
+              <div class="col-md-6 col-12 text-center">
+                <button class="w-75 btn btn-success btn-search" [disabled]="isLoading" type="submit">
+                  <img *ngIf="isLoading" width="26px" src="../../../assets/img/dieptt-loading-symbol.gif">
+                  Lưu
+                </button>
+              </div>
+
+              <div class="col-md-6 col-12  text-center">
+                <a [routerLink]="['/employee']" type="button" class=" w-75 btn btn-danger">Quay lại</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class=" col-lg-4 order-md-last block-2">
+        <h3 class="d-flex justify-content-between align-items-center mb-3">
+          <span>* Nhân Viên Ưu Tú : </span>
+          <span class="badge bg-black rounded-pill">!</span>
+        </h3>
+        <div id="carouselExampleIndicators" class="carousel slide sliceCss" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../../../assets/img/tailv-1.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../../../assets/img/tailv-2.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../../../assets/img/tailv-3.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../../../assets/img/tailv-4.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

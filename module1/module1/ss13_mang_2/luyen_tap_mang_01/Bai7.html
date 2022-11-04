@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 4, 4, 4, 6, 7, 8, 9, 10];
+    let V = parseInt(prompt('enter V '));
+    let flag = false;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (V === arr[i]) {
+            flag = true;
+        }
+    }
+
+    if (flag === true) {
+        for (let i = 0; i < arr.length; i++) {
+            if (V === arr[i]) {
+                alert("V is in the array");
+                arr.splice( i , 1);
+                arr.push(0);
+            }
+        }
+    } else {
+        alert("V is not in the array");
+    }
+    console.log(arr)
+</script>
+</body>
+</html>

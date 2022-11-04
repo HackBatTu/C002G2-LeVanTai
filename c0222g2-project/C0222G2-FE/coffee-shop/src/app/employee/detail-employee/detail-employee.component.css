@@ -1,0 +1,30 @@
+.font-bold {
+  font-weight: 600;
+}
+.img-background-component {
+  background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(src/assets/img/background-tuyen.jpg);
+  padding-top: 100px;
+}
+a{
+  width: 78px;
+  margin:0 5px 5px !important;
+}
+img{
+  border-radius: 1rem 0 0 1rem !important;
+  height: 325px;width: 100% !important;
+  border: rgba(208,207,207,0.93) solid 1px !important;
+}
+.tab-tr {
+  background: #804707;
+  background: #6c5c48;
+  color: white;
+}
+table {
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}

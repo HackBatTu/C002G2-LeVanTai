@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhapSoThang" >
+<button onclick="tinhSoNgay()">Tính số ngày</button>
+
+<script>
+    function tinhSoNgay() {
+        let soThang = parseInt(document.getElementById('nhapSoThang').value);
+        console.log(soThang);
+
+    switch (soThang) {
+        case 1 :
+        case 3 :
+        case 5 :
+        case 7 :
+        case 8 :
+        case 10 :
+        case 12:
+            alert("thang " + soThang + " có 31 ngay");
+            break;
+        case 2 :
+            alert('thang 2 co 28 ngay || 29 ngay ');
+            break;
+        case 4 :
+        case 6 :
+        case 9 :
+        case 11 :
+            alert("thang " + soThang + " có 30 ngay");
+            break;
+        default:
+            alert('thang khong hop le')
+            break;
+    }}
+</script>
+</body>
+</html>

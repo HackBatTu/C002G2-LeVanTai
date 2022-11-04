@@ -1,0 +1,85 @@
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">CẬP NHẬT THÔNG TIN</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Cập nhật thông tin</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+<div class="container">
+  <div class="row g-5">
+    <div class="col-xl-5 order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary text-center m-auto font-weight-bold">Ảnh đại diện</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <img id="previewImage" [src]="imgSrc" width="100%"/>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xl-7">
+      <form class="needs-validation" [formGroup]="userCheckoutForm" (ngSubmit)="onCheckout()" *ngIf="userCheckoutForm">
+        <div class="row g-3">
+          <input type="hidden" readonly formControlName="id" *ngIf="customer != null">
+          <input type="hidden" readonly formControlName="appUser" *ngIf="customer != null">
+          <div class="col-xl-4 mt-3" data-toggle="name" data-content="" data-trigger="manual" data-placement="top">
+            <label for="name" class="form-label font-weight-bold">Họ và tên <span class="text-danger">(*)</span>: </label>
+            <input (input)="checkErrorName()" type="text" class="form-control border-primary" id="name" placeholder="VD: Xiaomi Mi4"
+                   value="" formControlName="name">
+          </div>
+
+          <div class="col-xl-43 mt-3" data-toggle="price" data-content="" data-trigger="manual" data-placement="top">
+            <label for="price" class="form-label font-weight-bold">Số điện thoại <span class="text-danger">(*)</span>: </label>
+            <input (input)="checkErrorPhoneNumber()" type="text" class="form-control border-primary" id="price" placeholder="VD: 18000000"
+                   value="" formControlName="phoneNumber">
+          </div>
+
+          <div class="col-xl-4 mt-3" data-toggle="quantity" data-content="" data-trigger="manual" data-placement="top">
+            <label for="quantity" class="form-label font-weight-bold">Email <span class="text-danger">(*)</span>: </label>
+            <div class="input-group has-validation">
+              <input (input)="checkErrorEmail()" type="text" class="form-control border-primary" id="quantity" placeholder="VD: 20"
+                     formControlName="email">
+            </div>
+          </div>
+
+          <div class="col-xl-6 mt-3" data-toggle="releaseTime" data-content="" data-trigger="manual" data-placement="top">
+            <label for="manufactureTime" class="form-label font-weight-bold">Ngày sinh <span class="text-danger">(*)</span>: </label>
+            <div class="input-group has-validation">
+              <input (input)="checkErrorBirthday()" type="date" class="form-control border-primary" id="manufactureTime"
+                     placeholder="VD: 02/08/2000" formControlName="birthday">
+            </div>
+          </div>
+
+          <div class="col-xl-6 mt-3" data-toggle="image" data-content="" data-trigger="manual" data-placement="top">
+            <label for="image1" class="form-label font-weight-bold">Ảnh đại diện <span class="text-danger">(*)</span>: </label>
+            <div class="input-group has-validation border-primary">
+              <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input" id="image1"
+                     name="filename" formControlName="image" *ngIf="customer == null">
+              <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input" id="image2"
+                     name="filename" *ngIf="customer != null">
+              <label class="custom-file-label border-primary" for="image2" data-browse="Tải lên">Chọn ảnh...</label>
+            </div>
+          </div>
+
+          <div class="col-xl-12 mt-3" data-toggle="origin" data-content="" data-trigger="manual" data-placement="top">
+            <label for="origin" class="form-label font-weight-bold">Địa chỉ <span class="text-danger">(*)</span>: </label>
+            <div class="input-group has-validation">
+              <input (input)="checkErrorAddress()" type="text" class="form-control border-primary" id="origin"
+                     placeholder="VD: Việt Nam" formControlName="address">
+            </div>
+          </div>
+
+        </div>
+        <hr class="my-4">
+        <button [routerLink]="['/info']" class="w-50 btn btn-secondary btn-lg" type="button">Trở về</button>
+        <button class="w-50 btn btn-primary btn-lg" type="submit">Thêm</button>
+      </form>
+    </div>
+  </div>
+</div>

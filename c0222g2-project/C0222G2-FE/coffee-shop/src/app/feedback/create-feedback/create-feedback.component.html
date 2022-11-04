@@ -1,0 +1,117 @@
+<div class="ms-2 mt-2">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" style="margin-top: 200px" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Phản hồi
+  </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content feedback">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Phản hồi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="feedbackFrom" (ngSubmit)="save()" class="feedback-form m-auto">
+
+          <div class="mb-3 row">
+            <label for="date" class="col-sm-2 col-form-label">Ngày <sup class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="date"
+                     [value]="currentDate|date : 'dd/MM/yyyy'" disabled>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Họ và tên <sup
+              class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input formControlName="creator" name="creator" type="text" class="form-control" id="name">
+              <div class="text-danger error"
+                   *ngIf="(feedbackFrom.controls.creator.hasError('required')
+                   || feedbackFrom.controls.creator.hasError('pattern')
+                   || feedbackFrom.controls.creator.hasError('minlength')
+                   || feedbackFrom.controls.creator.hasError('maxlength'))
+                   && feedbackFrom.controls.creator.touched">
+                Vui lòng nhập họ và tên, từ 2 đến 30 ký tự, đúng định dạng
+                (chỉ viết hoa chữ cái đầu mỗi từ, không chứa ký tự đặc biệt, không chứa khoảng trắng thừa, ...).
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email <sup
+              class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input formControlName="email" name="email" type="email" class="form-control" id="email">
+              <div class="text-danger error"
+                   *ngIf="(feedbackFrom.controls.email.hasError('required')
+                   || feedbackFrom.controls.email.hasError('email')
+                   || feedbackFrom.controls.email.hasError('minlength')
+                   || feedbackFrom.controls.email.hasError('maxlength'))
+                   && feedbackFrom.controls.email.touched">
+                Vui lòng nhập địa chỉ email cá nhân, từ 5 đến 320 ký tự và đúng định dạng email.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Đánh giá <sup class="text-danger">*</sup></label>
+            <div class=" align-middle col-sm-10 mt-1">
+              <div id="star">
+                <input type="number" formControlName="rating" name="rating" hidden [value]=value>
+                <span class="material-icons" style="font-size: 30px"
+                      *ngFor="let star of rating"
+                      (click)="getValue(star)"
+                      [style.color]="star <= value ?'orange':'darkgray'">
+                  star
+                </span>
+              </div>
+              <div class="text-danger error" style="margin-top: 0px"
+                   *ngIf="value == 0 &&
+                   (feedbackFrom.controls.content.dirty || feedbackFrom.controls.content.touched)">
+                Vui lòng đánh giá sao.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="feedback" class="col-sm-2 col-form-label">Phản hồi <sup class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <textarea formControlName="content" name="content" class="form-control" id="feedback" rows="3"></textarea>
+              <div class="text-danger error"
+                   *ngIf="(feedbackFrom.controls.content.hasError('required')
+                   || feedbackFrom.controls.content.hasError('minlength'))
+                   && feedbackFrom.controls.content.touched">
+                Vui lòng nhập nội dung phản hồi, từ 2 ký tự trở lên.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="photo" class="col-sm-2 col-form-label">Hình ảnh <sup
+              class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input formControlName="image" name="image" type="file" class="form-control" id="photo" accept="image/*"
+                     (change)="showPreview($event)">
+              <div class="text-danger error"
+                   *ngIf="feedbackFrom.controls.image.hasError('required')
+                   && feedbackFrom.controls.image.touched">
+                Vui lòng đính kèm ảnh phản hồi thực tế.
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <a class="btn btn-secondary" data-bs-dismiss="modal" [style.btn.disabled]="isLoading">Hủy</a>
+            <button id="send" type="submit" class="btn btn-primary" [disabled]="isLoading">
+              <img *ngIf="isLoading" width="30px" src="../../../assets/img/dieptt-loading-symbol.gif">
+              Gửi phản hồi
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

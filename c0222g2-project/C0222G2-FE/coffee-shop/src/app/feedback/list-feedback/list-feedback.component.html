@@ -1,0 +1,173 @@
+<div id="body">
+  <div class="container">
+    <h1 class="title">Quản lý phản hồi</h1>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <form class="d-flex justify-content-end" [formGroup]="searchForm" (ngSubmit)="getSearch()">
+          <div class="col-md-3 col-lg-4 pe-2">
+            <label style="color: white">Ngày bắt đầu</label>
+            <input class="form-control" type="date" name="search" formControlName="searchStartDate" value="searchStartDate"
+                   aria-label="Search">
+          </div>
+          <div class="col-md-3 col-lg-4 pe-2">
+            <label style="color: white">Ngày kết thúc</label>
+            <input class="form-control" type="date" name="search" formControlName="searchEndDate" value="searchEndDate"
+                   aria-label="Search">
+          </div>
+          <div class="col-md-3 col-lg-4 pe-2">
+            <label style="color: white">Người tạo</label>
+            <input class="form-control" type="search" name="search" formControlName="searchName" value="searchName"
+                   aria-label="Search" placeholder="Tìm người tạo">
+          </div>
+          <div class="col-sm-2 d-flex align-items-end" style="width: 10%; margin-top: 5px" >
+            <button class="btn" style="background-color: #744e3a; color: white; height: 70%; width: 99%;" type="submit"
+                    name="name" (click)="showToast()" >Tìm
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="table-wrapper mt-3" style="padding-bottom: 10px">
+      <table class="table table-hover  table-sm">
+        <thead>
+        <tr style="height: 50px">
+          <th style="width: 50px">STT</th>
+          <th style="width: 140px">Ngày phản hồi</th>
+          <th style="width: 150px">Người tạo</th>
+          <th style="width: 120px; padding: 3px">Đánh giá
+            <a style="color: white; height: 30px; padding: 0" class="btn btn-link" (click)="getSort()"><mat-icon>swap_vert</mat-icon></a>
+          </th>
+          <th style="width: 150px">Email</th>
+          <th style="width: 150px">Phản hồi</th>
+          <th class="text-center" style="width: 100px">Chi tiết</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="container-fluid" *ngFor="let f of listFeedback; index as i">
+          <td style=" padding-left: 15px; padding-top: 15px ;width: 50px">{{(i + 1) + size * number}}</td>
+          <td style=" padding-top: 15px;width: 140px">{{f.feedbackDate |date:'dd-MM-yyyy'}}</td>
+          <td style=" padding-top: 15px;width: 150px"><p class="hide_content">{{f.creator}}</p></td>
+          <td style=" padding-top: 15px;width: 120px">
+            <span *ngFor="let item of [].constructor(f.rating)" class="material-icons" style="color: orange">star</span>
+          </td>
+          <td style=" padding-top: 15px;width: 150px" class="hide_content">{{f.email}}</td>
+          <td style=" padding-top: 15px;width: 150px" class="hide_content" >{{f.content}}
+          </td>
+          <td class="mid" style=" padding-top: 15px;width: 100px">
+            <a class="btn btn-link button-detail" data-bs-toggle="offcanvas" style="height: 35px" data-bs-target="#demo" (click)="showDetail(f.id)">
+              <mat-icon class="bi">remove_red_eye</mat-icon>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <h3 *ngIf="listFeedback.length == 0" class="text-center" style="color: white">Không có dữ liệu</h3>
+    </div>
+
+    <!--      Phần trang-->
+    <div [hidden]=" listFeedback.length == 0"  >
+      <nav aria-label="Page navigation example d-flex flex-row-reverse">
+        <ul class="pagination justify-content-end">
+          <div *ngIf="number == 0">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goStart()" hidden><<</button>
+            </li>
+          </div>
+          <div *ngIf="number != 0">
+            <li class="page-item" *ngIf="checkSort == true">
+              <button class="page-link" (click)="goStart()"><<</button>
+            </li>
+            <li class="page-item" *ngIf="checkSort == false">
+              <button class="page-link text-black" (click)="previousWithoutSort()"><<</button>
+            </li>
+          </div>
+          <div *ngIf="number == 0">
+            <li class="page-item disabled"  *ngIf="checkSort == true">
+              <button class="page-link" (click)="goPrevious()" hidden><</button>
+            </li>
+            <li class="page-item" *ngIf="checkSort == false">
+              <button class="page-link text-black" (click)="goPreviousWithoutSort()" hidden><</button>
+            </li>
+          </div>
+          <div *ngIf="number != 0">
+            <li class="page-item" *ngIf="checkSort == true">
+              <button class="page-link" (click)="goPrevious()"><</button>
+            </li>
+            <li class="page-item" *ngIf="checkSort == false">
+              <button class="page-link text-black" (click)="goPreviousWithoutSort()"><</button>
+            </li>
+          </div>
+          <div class="number-pages">{{number +1}} | {{totalPages}}</div>
+          <div *ngIf="number == totalPages - 1">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goNext()" hidden>></button>
+            </li>
+          </div>
+          <div *ngIf="number != totalPages - 1">
+            <li class="page-item" *ngIf="checkSort == true">
+              <button class="page-link" (click)="goNext()">></button>
+            </li>
+            <li class="page-item" *ngIf="checkSort == false">
+              <button class="page-link text-black" (click)="goNextWithoutSort()">></button>
+            </li>
+          </div>
+          <div *ngIf="number == totalPages - 1">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goEnd()" hidden>>></button>
+            </li>
+          </div>
+          <div *ngIf="number != totalPages - 1">
+            <li class="page-item"  *ngIf="checkSort == true">
+              <button class="page-link" (click)="goEnd()">>></button>
+            </li>
+            <li class="page-item" *ngIf="checkSort == false">
+              <button class="page-link text-black" (click)="nextWithoutSort()">>></button>
+            </li>
+          </div>
+          <form [formGroup]="formPage" (ngSubmit)="searchPageCurrent()" >
+            <div class="d-flex" style="padding-top: 5px; padding-left: 5px" >
+              <label style=" color: white ;padding-right: 10px">Trang : </label>
+              <input style="width: 50px; border-radius: 10%" type="text" formControlName="pageForm" name="pageForm" >
+            </div>
+          </form>
+        </ul>
+      </nav>
+    </div>
+    <!--end-->
+  </div>
+
+  <!--  màn hình chi tiết-->
+  <div class="offcanvas offcanvas-end" id="demo">
+    <div class="offcanvas-header row text-center">
+      <h1 class="offcanvas-title">Phản hồi chi tiết</h1></div>
+    <div class="offcanvas-body">
+      <div>
+        <div class="card">
+          <div *ngIf="image == '' || image == null ">
+            <img src="../../../assets/img/luananhmacdinh.jpg" class="card-img-top">
+          </div>
+          <img src="{{image}}" class="card-img-top" alt="">
+          <div class="card-body">
+            <label>Mã phản hồi: </label><span> {{code}}</span> <br>
+            <label style="float: left; padding-top: 1px">Đánh giá : </label>
+            <span *ngFor="let item of [].constructor(rating)" class="material-icons" style="color: orange; position: relative; padding-top: 1px; float: left">star</span>
+            <br>
+            <div style="margin-top: 3px">
+              <label>Ngày phản hồi : </label><span> {{feedbackDate |date:'dd-MM-yyyy'}}</span> <br>
+              <label>Người tạo : </label> <span> {{creator}}</span> <br>
+              <label>Email :</label> <span> {{email}}</span> <br>
+              <label>Phản hồi :</label> <span> {{content}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button_close">
+        <button class="btn btn-secondary" type="button" data-bs-dismiss="offcanvas">Đóng</button>
+      </div>
+    </div>
+  </div>
+  <!--  end-->
+</div>
+
+<div style="background-color: beige; height: 2px">
+</div>

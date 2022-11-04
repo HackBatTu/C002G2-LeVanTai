@@ -1,0 +1,59 @@
+#main {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("src/assets/img/bg3-hoann.jpg");
+}
+
+.img-table {
+  height: 100%;
+  width: 100%;
+}
+
+.card-body {
+  background-color: #CA955C;
+  padding: 0 0 0 0 ;
+}
+
+.card-body p {
+  text-align: center;
+  height: 20px;
+}
+
+.card-table {
+  overflow: hidden;
+}
+
+
+.card:hover {
+  transform: scale(1.1);
+  transition: .5s;
+}
+.button-bg{
+  background-color: #f1f0f0;
+  color: #1d1b1b;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.paging-css{
+  background-color: #4c4234  !important;
+  color: #f3efeb !important;
+  display: block;
+  border: 1px solid white;
+}
+/*.button-bg:hover {*/
+/*  background-color: #c78c46;*/
+/*  color: #c9c7c7;*/
+/*  font-family: 'Montserrat', sans-serif;*/
+/*}*/
+.number-pages{
+  color: black;
+  height: 40px;
+  width: 50px;
+  border-radius: 70% ;
+  text-align: center;
+  padding-top: 7px ;
+  background-color: white
+}

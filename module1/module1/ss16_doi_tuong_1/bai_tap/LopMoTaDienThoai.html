@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class DienThoai {
+        constructor() {
+            this.trangThai = true; // mặc định mỏ
+            this.pin = 100;    // khở tạo mặc định đầy pin
+            this.vungNhoSoanThao = "";
+            this.vungNhoTinDaGui = [];
+            this.vungNhoTinDen = [];
+        }
+        getTrangThai() {
+            if (this.trangThai) {
+                console.log("điện thoại đang bật");
+            } else {
+                console.log("điện thoại đang tắt");
+            }
+        }
+        batTat() {
+            this.trangThai = !this.trangThai;
+        }
+        sacPin() {
+            this.pin = 100;
+        }
+        soanTin(text) {
+            if (this.trangThai && this.pin > 10) {
+                this.vungNhoSoanThao = text;
+            } else {
+                console.log("điện gần hết pin. Vui long sạc pin")
+            }
+            this.pin--;
+        }
+        nhanTin(message) {
+            this.vungNhoTinDen = message;
+        }
+        guiTin(mobile, message) {
+            this.soanTin(message);
+            this.vungNhoTinDaGui.push(this.vungNhoSoanThao); // đưa tin nhắn soản thảo vào trong vùng nhớ đã gửi
+            mobile.nhanTin(this.vungNhoSoanThao); // nhận tin nhắn từ điện thoại gộc
+            this.vungNhoSoanThao = "";  // gửi xong thì xóa
+        }
+        ​
+        hienThiTinDaNhan() {
+            console.log(this.vungNhoTinDen);
+        }​
+        hienThiTinDaGui() {
+            console.log(this.vungNhoTinDaGui)
+        }
+    }
+    let nokia = new DienThoai();
+    let iphone = new DienThoai();
+    let sumSung = new DienThoai();
+
+    nokia.guiTin(iphone, "xin chào iphone");
+    iphone.hienThiTinDaNhan();
+    iphone.guiTin(nokia, "mình khỏe. Mình là iphone")
+    nokia.hienThiTinDaNhan();
+    nokia.guiTin(sumSung, "hello samsung");
+    sumSung.hienThiTinDaNhan();
+
+</script>
+</body>
+</html>

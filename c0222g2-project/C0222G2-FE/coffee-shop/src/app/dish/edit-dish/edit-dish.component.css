@@ -1,0 +1,47 @@
+#menu {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(src/assets/img/luanbackground.jpg);
+  padding: 110px 0px 70px 0px;
+}
+#logo{
+  margin-top: 50px;
+}
+
+.validate {
+  color: red;
+}
+
+#suaMonMoi {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  color: #363535;
+}
+/*.form-label {*/
+/*  color: sandybrown;*/
+/*}*/
+
+/*label.form-label {*/
+/*  font-family: Blippo, fantasy;*/
+/*}*/
+
+.complain {
+  color: red;
+}
+
+.sliceCss {
+  padding: 10px 0px 0px 9px;
+  height: 530px;
+  border-radius: 70px;
+}
+
+
+#radius{
+  border-radius: 30px;
+  margin-top: 40px;
+}
+#image{
+  border-radius: 30px;
+}
+#img{
+  border-radius: 30px;
+}

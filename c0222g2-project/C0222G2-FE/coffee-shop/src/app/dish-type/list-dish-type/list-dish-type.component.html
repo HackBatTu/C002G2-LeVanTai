@@ -1,0 +1,73 @@
+<div id="menu">
+  <div class="container">
+
+    <div class="row col-lg-12" style="padding: 120px 20px 50px 120px">
+      <div id="logo" class=" col-lg-6">
+      </div>
+
+      <div id="them" class=" col-lg-6 bg-light">
+        <h2 id="suaMonMoi" class="text-success" style="text-align: center">Thêm Món Mới</h2>
+
+        <form>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="form-label">Tên món</label>
+              <input type="text" class="form-control" placeholder="vd: Cà Phê Muối">
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Mã Số Món</label>
+              <input type="text" class="form-control" placeholder="vd: CF123">
+            </div>
+
+
+            <div class="col-md-6">
+              <label class="form-label">Giá (VNĐ) </label>
+              <input type="text" class="form-control" placeholder="Vd: 10000">
+            </div>
+
+
+            <div class="col-md-6">
+              <label class="form-label">Loại Món</label>
+              <select class="form-select">
+                <option><-----Chọn Loại Món-----></option>
+                <option value="caPhe">Coffe</option>
+                <option value="tra">Bánh</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">ảnh món</label>
+              <!--                            <input type="file">-->
+              <select class="form-select"id="selectChonAnh" onchange="getImg()">
+                <option value="0"><------- Chọn Ảnh ------> </option>
+                <option value="1"> Ảnh Coffe</option>
+                <option value="2"> Ảnh Bánh </option>
+              </select>
+              <div class="row">
+                <div class="col-6">
+                  <button type="submit" class="w-10 btn btn-secondary col-sm-10">Hủy</button>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="w-10 btn btn-success col-sm-10">sửa</button>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="col-sm-6">
+              <img id="1" style="height: 100px ;width: 260px"
+                   src="/assets/image/anhCaPhe.jpeg">
+              <img id="2" style="height: 100px ;width: 260px"
+                   src="/assets/image/anhBanh.png">
+
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

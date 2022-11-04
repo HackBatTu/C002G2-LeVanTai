@@ -1,0 +1,115 @@
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">THÊM MỚI SẢN PHẨM</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="">Trang chủ</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Thêm mới sản phẩm</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="container-fluid">
+    <div class="row g-5">
+      <div class="col-xl-5 order-md-last mt-md-5">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary text-center m-auto font-weight-bold">Ảnh sản phẩm</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <img id="preview-create" [src]="imgSrc" width="100%"/>
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-xl-7">
+        <form class="needs-validation" [formGroup]="productCreateForm" (ngSubmit)="onCreateProduct()" *ngIf="productCreateForm">
+          <div class="row g-3">
+            <div class="col-xl-3 mt-3" data-toggle="name" data-content="" data-trigger="manual" data-placement="top">
+              <label for="name" class="form-label font-weight-bold">Tên <span class="text-danger">(*)</span>: </label>
+              <input (input)="checkErrorName()" type="text" class="form-control border-primary" id="name" placeholder="VD: Xiaomi Mi4" value="" formControlName="name">
+            </div>
+
+            <div class="col-xl-3 mt-3" data-toggle="price" data-content="" data-trigger="manual" data-placement="top">
+              <label for="price" class="form-label font-weight-bold">Giá (VND) <span class="text-danger">(*)</span>: </label>
+              <input (input)="checkErrorPrice()" type="text" class="form-control border-primary" id="price" placeholder="VD: 18000000" value="" formControlName="price">
+            </div>
+
+            <div class="col-xl-3 mt-3" data-toggle="origin" data-content="" data-trigger="manual" data-placement="top">
+              <label for="origin" class="form-label font-weight-bold">Xuất xứ <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorOrigin()" type="text" class="form-control border-primary" id="origin" placeholder="VD: Việt Nam" formControlName="origin">
+              </div>
+            </div>
+
+            <div class="col-xl-3 mt-3" data-toggle="quantity" data-content="" data-trigger="manual" data-placement="top">
+              <label for="quantity" class="form-label font-weight-bold">Số lượng <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorQuantity()" type="text" class="form-control border-primary" id="quantity" placeholder="VD: 20" formControlName="quantity">
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="releaseTime" data-content="" data-trigger="manual" data-placement="top">
+              <label for="manufactureTime" class="form-label font-weight-bold">Ngày sản xuất <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorManufactureTime()" type="date" class="form-control border-primary" id="manufactureTime" placeholder="VD: 02/08/2000" formControlName="manufactureTime">
+              </div>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="category" data-content="" data-trigger="manual" data-placement="top">
+              <label for="category" class="form-label font-weight-bold">Danh mục <span class="text-danger">(*)</span>: </label>
+              <select class="form-control border-primary" id="category" formControlName="category" (change)="checkErrorCategory()">
+                <option value="" [selected]="true" [disabled]="true">Chọn danh mục...</option>
+                <option *ngFor="let category of categories; index as i" [ngValue]="category">{{category.name}}</option>
+              </select>
+            </div>
+
+            <div class="col-xl-4 mt-3" data-toggle="image" data-content="" data-trigger="manual" data-placement="top">
+              <label for="image" class="form-label font-weight-bold">Ảnh sản phẩm <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation border-primary">
+                <input (input)="chooseFile()" (change)="showPreview($event)" type="file" class="custom-file-input" id="image" name="filename" formControlName="image">
+                <label class="custom-file-label border-primary" for="image" data-browse="Tải lên">Chọn ảnh...</label>
+              </div>
+            </div>
+
+            <div class="col-xl-6 mt-3" data-toggle="discountPercent" data-content="" data-trigger="manual" data-placement="top">
+              <label for="discountPercent" class="form-label font-weight-bold">Giảm giá (%) <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control border-primary" id="discountPercent" placeholder="VD: 10" formControlName="discountPercent">
+              </div>
+            </div>
+
+            <div class="col-xl-6 mt-3" data-toggle="warrantyPeriod" data-content="" data-trigger="manual" data-placement="top">
+              <label for="warrantyPeriod" class="form-label font-weight-bold">Thời hạn bảo hành <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <input (input)="checkErrorWarrantyPeriod()" type="text" class="form-control border-primary" id="warrantyPeriod" placeholder="VD: 12 tháng" formControlName="warrantyPeriod">
+              </div>
+            </div>
+
+            <div class="col-xl-12 mt-3" data-toggle="description" data-content="" data-trigger="manual" data-placement="top">
+              <label for="description" class="form-label font-weight-bold">Mô tả sản phẩm <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <ckeditor (change)="checkErrorDescription()" class="w-100 border border-primary" data="<b>MÔ TẢ SẢN PHẨM</b>" id="description"
+                          [editor]="Editor" formControlName="description"></ckeditor>
+              </div>
+            </div>
+
+            <div class="col-xl-12 mt-3" data-toggle="specifications" data-content="" data-trigger="manual" data-placement="top">
+              <label for="specifications" class="form-label font-weight-bold">Thông số kỹ thuật <span class="text-danger">(*)</span>: </label>
+              <div class="input-group has-validation">
+                <ckeditor (change)="checkErrorSpecifications()" class="w-100 border border-primary" data="<b>THÔNG SỐ KỸ THUẬT</b>" id="specifications"
+                          [editor]="Editor" formControlName="specifications"></ckeditor>
+              </div>
+            </div>
+
+          </div>
+          <hr class="my-4">
+          <button [routerLink]="['/home']" class="w-50 btn btn-secondary btn-lg" type="button">Trở về</button>
+          <button class="w-50 btn btn-primary btn-lg" type="submit">Thêm</button>
+        </form>
+      </div>
+    </div>
+</div>

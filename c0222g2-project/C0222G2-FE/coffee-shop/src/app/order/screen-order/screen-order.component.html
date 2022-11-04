@@ -1,0 +1,346 @@
+<div class="main">
+    <div class="container-fluid px-5 container-main-content">
+        <div class="container">
+            <div class="row mb-5 align-item-center pt-5 table-infor">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-5">
+                            <h1 class="number-table-infor mb-2">Số bàn:</h1>
+                        </div>
+                        <div class="col-6">
+                            <h1 class="number-table-infor mb-2" #tableCode>{{tableUser}}</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <h1 class="table-infor-date mb-2">Ngày:</h1>
+                        </div>
+                        <div class="col-6">
+                            <h1 class="table-infor-date mb-2">{{date | date: 'dd/MM/yyyy'}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 btn-container service-container d-flex flex-row-reverse">
+                    <div class="row show-service-on-desktop flex-row-reverse">
+                        <button class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3"
+                            style="font-size: 20px; align-content: center" (click)="sendNotification('Gọi phục vụ', tableUser, 'yêu cầu phục vụ')">
+                            Gọi phục vụ
+                        </button>
+                      <button class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3"
+                              data-bs-toggle="modal" data-bs-target="#staticBackdropFeedback"
+                              style="font-size: 20px; align-content: center">
+                            Phản hồi
+                        </button>
+                        <button class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3"
+                            style="font-size: 20px; align-content: center" data-bs-toggle="modal" data-bs-target="#gameButton">
+                            Game
+                        </button>
+                    </div>
+                    <div class="show-service-on-mobile">
+                        <button mat-menu-item class="btn btn-light buttonOrder btn-menu-option d-flex align-items-center justify-content-center mx-3"
+                        style="font-size: 20px; align-content: center" (click)="openMenuService()">
+                            Menu
+                        </button>
+                        <ul class="list-group menu-onMobile" *ngIf="hideMenu">
+                            <li class="list-group-item p-3" (click)="sendNotification('Gọi phục vụ', tableUser, 'yêu cầu phục vụ')"><p class="text-dark m-0">Gọi phục vụ</p></li>
+                            <li class="list-group-item p-3">
+                              <p class="text-dark m-0" data-bs-toggle="modal" data-bs-target="#staticBackdropFeedback">
+                                Phản hồi</p></li>
+                            <li class="list-group-item p-3"><p class="text-dark m-0" data-bs-toggle="modal" data-bs-target="#gameButton">Game</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 col-xl-12">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="my-5 col-3 text-center">
+                            <h3 class="d-inline-block">Món đã chọn</h3>
+                        </div>
+                        <div class="my-5 col-3 text-center">
+                            <h3 class="d-inline-block">Thời gian chờ</h3>
+                            <p id="timerCountdown"></p>
+                        </div>
+                    </div>
+                    <form action="" [formGroup]="formCheckBox" (ngSubmit)="deleteDish()">
+                        <div class="row mb-5">
+                            <table class="table table-order">
+                                <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col" class="text-center" style="font-size: 19px;">STT</th>
+                                    <th scope="col" class="text-center" style="font-size: 19px;">Tên món</th>
+                                    <th scope="col" class="text-center" style="font-size: 19px;">Số lượng</th>
+                                    <th scope="col" class="text-center" style="font-size: 19px;">Giá</th>
+                                    <th scope="col" class="text-center" style="font-size: 19px;">Tổng tiền</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let item of orderMenu, index as i">
+                                    <td>
+                                        <input #checkboxes type="checkbox" name="choose" formArrayName="selectCheckBox" [value]="i" (change)="onCheckBoxChange($event)">
+                                    </td>
+                                    <td class="text-center">{{i + 1}}</td>
+                                    <td class="text-center">{{item.dish.name}}</td>
+                                    <td class="text-center">{{item.quantity}}</td>
+                                    <td class="text-center">{{(item.dish.price | currency:'VND':'').replace(',', '.')}}đ</td>
+                                    <td class="text-center">{{(item.dish.price * item.quantity | currency:'VND':'').replace(',', '.')}}đ</td>
+                                    </tr>
+                                <tr>
+                                <tr *ngIf="orderMenu.length != 0">
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" style="font-size: 22px;">Tổng tiền:</td>
+                                    <td class="text-center" style="font-size: 22px;">{{(totalMoney| currency:'VND':'').replace(',', '.')}}đ</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div *ngIf="orderMenu.length == 0" class="text-center"><p>Chưa có món ăn được order</p></div>
+                        </div>
+                        <div class="row my-5">
+                            <div class="btn-container d-flex justify-content-center">
+                                <button class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3" style="font-size: 20px; align-content: center">
+                                    Xóa món
+                                </button>
+                                <button class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3" style="font-size: 20px; align-content: center"
+                                (click)="createOrder('Gọi phục vụ', tableUser, 'gọi món')">
+                                    Gọi món
+                                </button>
+                                <button class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3" style="font-size: 20px; align-content: center"
+                                (click)="sendNotification('Gọi phục vụ', tableUser, 'yêu cầu tính tiền')">
+                                    Tính tiền
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <!-- Game -->
+        <div class="modal fade" id="gameButton" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-game col-xl-12 container">
+                <div class="modal-content col-xl-12">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="exampleModalLabel2">MiniGame</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body modal-body-game p-0">
+                        <iframe src="https://cdn.htmlgames.com/BubbleWheel/" frameborder="0"
+                                marginheight="0"
+                                marginwidth="0"
+                                width="100%"
+                                height="100%"
+                                scrolling="auto">
+                        </iframe>
+                    </div>
+                    <div class="modal-footer border-0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid container-menu p-0">
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center mt-5 mb-5 order-header text-dark">Menu gọi món</h2>
+                <ul class="row menu-order-list mt-5">
+                    <li *ngFor="let disheType of dishTypes" class="menu-order-list-item col-3 text-center">
+                        <h5 class="m-3 menu-order-list-content text-dark" (click)="getAllDish(disheType.id, presentPage)">{{disheType.name}}</h5>
+                    </li>
+                </ul>
+                <div class="col-md-12 col-xl-12 py-2">
+                    <div class="menu-container mt-2">
+                        <div class="text-center" *ngIf="dishes.length==0">Hôm nay không có nhóm món này!</div>
+                        <div class="row row-container">
+                            <div class="my-card col-xl-3 col-md-6 p-0 p-2 col-sm-6 h-100 border-0" *ngFor="let dish of dishes">
+                                <img src="{{dish.image}}" alt="" class="card-img-top">
+                                <div class="my-card-body">
+                                    <div class="col-4 d-flex justify-content-around align-items-center p-4 w-100">
+                                        <p class="m-0 card-nameProduct text-dark">{{dish.name}}</p>
+                                        <button type="button" class="btn btn-outline-secondary btn-menu-option btn-createOrder text-dark" mat-plus data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                        (click)="getDish(dish.id)">
+                                            Chọn
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="my-3">
+                            <ul class="pagination justify-content-center">
+                            <li class="page-item" *ngIf="presentPage != 1"><a class="page-link text-dark" (click)="goPrevious()">&laquo;</a></li>
+                            <li class="page-item" *ngFor="let page of totalPages">
+                                <a class="page-link text-dark" (click)="goItem(page)">{{page}}</a>
+                            </li>
+                            <li class="page-item" *ngIf="presentPage < totalPages.length">
+                                <a class="page-link text-dark" (click)="goNext()">&raquo;</a>
+                            </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal insert drink -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form action="">
+                        <div class="modal-content" *ngIf="dish">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel1" class="text-dark">Thêm món</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="text-dark">Tên món:</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="text-dark">{{dish.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="text-dark">Số lượng:</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" placeholder="số lượng" class="form-control" #quantity id="quantity" required>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3"
+                                    style="font-size: 20px; align-content: center" data-bs-dismiss="modal">
+                                    Đóng
+                                </button>
+                                <button type="button" class="btn btn-light buttonOrder d-flex align-items-center justify-content-center mx-3"
+                                    style="font-size: 20px; align-content: center" data-bs-dismiss="modal"
+                                    (click)="addIntoMenuOrder(quantity.value)">
+                                    Thêm món
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background-color: beige; height: 2px">
+</div>
+
+<!-- Modal Feedback-->
+<div class="modal fade" id="staticBackdropFeedback" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content feedback">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Phản hồi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-right: 10px"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="feedbackFrom" (ngSubmit)="save()" class="feedback-form m-auto">
+
+          <div class="mb-3 row">
+            <label for="date" class="col-sm-2 col-form-label">Ngày <sup class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="date"
+                     [value]="currentDate|date : 'dd/MM/yyyy'" disabled>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Họ và tên <sup
+              class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input formControlName="creator" name="creator" type="text" class="form-control" id="name">
+              <div class="text-danger error"
+                   *ngIf="(feedbackFrom.controls.creator.hasError('required')
+                   || feedbackFrom.controls.creator.hasError('pattern')
+                   || feedbackFrom.controls.creator.hasError('minlength')
+                   || feedbackFrom.controls.creator.hasError('maxlength'))
+                   && feedbackFrom.controls.creator.touched">
+                Vui lòng nhập họ và tên, từ 2 đến 30 ký tự, đúng định dạng
+                (chỉ viết hoa chữ cái đầu mỗi từ, không chứa số và ký tự đặc biệt, không chứa khoảng trắng
+                thừa, ...).
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email <sup
+              class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+              <input formControlName="email" name="email" type="email" class="form-control" id="email">
+              <div class="text-danger error"
+                   *ngIf="(feedbackFrom.controls.email.hasError('required')
+                   || feedbackFrom.controls.email.hasError('email')
+                   || feedbackFrom.controls.email.hasError('minlength'))
+                   && feedbackFrom.controls.email.touched">
+                Vui lòng nhập địa chỉ email cá nhân, từ 5 ký tự trở lên và đúng định dạng email.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Đánh giá <sup class="text-danger">*</sup></label>
+            <div class=" align-middle col-sm-10 mt-1">
+              <div id="star">
+                <input type="number" formControlName="rating" name="rating" hidden [value]=value>
+                <i class="bi bi-star-fill" style="font-size: 30px"
+                   *ngFor="let star of rating"
+                   (click)="getValue(star)"
+                   [style.color]="star <= value ?'orange':'darkgray'">
+                </i>
+              </div>
+              <div class="text-danger error" style="margin-top: 0px"
+                   *ngIf="value == 0 &&
+                   (feedbackFrom.controls.content.dirty || feedbackFrom.controls.content.touched)">
+                Vui lòng đánh giá dịch vụ.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="feedback" class="col-sm-2 col-form-label">Phản hồi <sup
+              class="text-danger">*</sup></label>
+            <div class="col-sm-10">
+                        <textarea formControlName="content" name="content" class="form-control" id="feedback"
+                                  rows="3"></textarea>
+              <div class="text-danger error"
+                   *ngIf="(feedbackFrom.controls.content.hasError('required')
+                   || feedbackFrom.controls.content.hasError('minlength'))
+                   && feedbackFrom.controls.content.touched">
+                Vui lòng nhập nội dung phản hồi, từ 2 ký tự trở lên.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="photo" class="col-sm-2 col-form-label">Hình ảnh</label>
+            <div class="col-sm-10">
+              <input formControlName="image" name="image" type="file" class="form-control" id="photo"
+                     accept="image/*"
+                     (change)="showPreview($event)">
+              <div class="text-danger error"
+                   *ngIf="feedbackFrom.controls.image.hasError('pattern')
+                   && feedbackFrom.controls.image.touched">
+                Vui lòng đính kèm đúng định dạng ảnh.
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-secondary" data-bs-dismiss="modal" [style.btn.disabled]="isLoading" (click)="reset()">Hủy</a>
+            <button id="send" type="submit" class="btn btn-primary" [disabled]="isLoading">
+              <img *ngIf="isLoading" width="30px" src="../../../assets/img/dieptt-loading-symbol.gif">
+              Gửi phản hồi
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

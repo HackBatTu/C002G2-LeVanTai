@@ -1,0 +1,124 @@
+<div class="img-background-component">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-8">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-sm-12">
+              <div class="d-flex justify-content-center pt-4">
+                <h1>Chi tiết nhân viên</h1>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-4 d-none d-md-block">
+              <img style="margin: 18px 0 0 10px; height: 350px" src="{{employeeDetailDTO.image}}" alt="login form"
+                   class="img-fluid">
+            </div>
+            <div class="col-md-8 col-lg-8 ">
+              <div class="card-body text-black py-0">
+                <div class="table-responsive">
+                  <table class="table ">
+                    <thead>
+                    <tr>
+                      <th colspan="2"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td class="font-bold col-4">Họ và tên:</td>
+                      <td>{{employeeDetailDTO.name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Tên user:</td>
+                      <td>{{employeeDetailDTO.appUser}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Giới tính:</td>
+                      <td *ngIf="employeeDetailDTO.gender==1">Nam</td>
+                      <td *ngIf="employeeDetailDTO.gender==0">Nữ</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Vị trí:</td>
+                      <td>{{employeeDetailDTO.position}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Số điện thoại:</td>
+                      <td>{{employeeDetailDTO.phoneNumber | phoneFormat}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Địa chỉ:</td>
+                      <td>{{employeeDetailDTO.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Ngày sinh:</td>
+                      <td>{{employeeDetailDTO.birthday | date :"dd-MM-yyyy"}}</td>
+                    </tr>
+                    <tr>
+                      <td class="font-bold col-4">Lương:</td>
+                      <td>{{employeeDetailDTO.salary | currency:'VND':''}}đ</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row my-3 d-flex justify-content-center">
+            <div class="col-3 col-sm-2 col-lg-3 ">
+              <a class="btn btn-secondary text-decoration-none px-0 w-100" routerLink="/employee"> Quay lại</a>
+            </div>
+            <div class="col-3 col-sm-2 col-lg-3 ">
+              <a [routerLink]="['/employee/edit',employeeDetailDTO.id]"
+                 class="btn btn-warning text-decoration-none px-2 w-100">Sửa</a>
+            </div>
+            <div class="col-3 col-sm-2 col-lg-3 ">
+              <a class="btn btn-danger text-decoration-none ps-2 w-100" data-bs-toggle="modal"
+                 data-bs-target="#exampleModalDelete1">Xóa</a>
+            </div>
+          </div>
+          <div class="modal fade" id="exampleModalDelete1" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn xóa nhân viên: </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    <div>
+                      <table class="table table-responsive">
+                        <thead>
+                        <tr class="tab-tr">
+                          <th>Tên</th>
+                          <th>Tên tài khoản</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>{{employeeDetailDTO.name}}</td>
+                          <td>{{employeeDetailDTO.appUser}}</td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                  <button type="button" class="btn btn-outline-danger" (click)="deleteEmployee(employeeDetailDTO.id)"
+                          data-bs-dismiss="modal">Xác nhận
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color: beige; height: 2px">
+
+</div>

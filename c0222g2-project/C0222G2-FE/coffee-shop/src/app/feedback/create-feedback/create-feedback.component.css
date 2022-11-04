@@ -1,0 +1,48 @@
+
+.modal{
+  font-family: "Poppins", sans-serif;
+}
+.feedback{
+  background: url(src/assets/img/dieptt-bg.jpg)
+}
+.feedback-form{
+  width: 80%;
+}
+.feedback .modal-title{
+  font-family: 'Bungee', cursive;
+  font-size: 28px;
+}
+.feedback label,
+.feedback div a,
+.feedback div button{
+  font-family: 'Bungee', cursive;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.feedback label{
+  padding: 7px 2px;
+}
+.feedback label sup{
+  font-family: 'Bungee', cursive;
+  font-size: 12px;
+  font-weight: lighter;
+}
+.feedback .form-control,
+.feedback #star{
+  margin-left: 15px;
+}
+
+.feedback-form div div .material-icons{
+  color: #363535;
+  text-align: center;
+  font-size: 25px;
+  margin: 2px;
+}
+.feedback-form div div .material-icons:hover{
+  color: orange !important;
+}
+.error{
+  font-size: 12px;
+  margin-left: 15px;
+  margin-top: 5px;
+}

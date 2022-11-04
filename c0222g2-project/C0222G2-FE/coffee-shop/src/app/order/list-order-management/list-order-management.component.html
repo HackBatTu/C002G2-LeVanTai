@@ -1,0 +1,168 @@
+<div id="main">
+
+  <div class="container-fluid" style="position: relative; display: flex">
+    <div style="width: 100%">
+
+      <div style="margin-top: 150px; width: 50%; float: left">
+        <div>
+          <div class="row justify-content-center">
+            <div>
+              <a class="btn btn-danger" style="width: 40px;margin-left: 15px;color: black" (click)="refresh()"><i
+                class="bi bi-arrow-counterclockwise"></i></a>
+            </div>
+            <div class="card col-md-4 col-sm-6 col-12" *ngFor="let coffeePage of coffeeTableList; index as i"
+                 style="width: 28%; margin: 0 20px 20px 20px; padding: 0 0 0 0; ">
+              <div [ngSwitch]="coffeePage.status">
+                <div *ngSwitchCase="tableOn">
+                  <div (click)="getListById(coffeePage.id)">
+                    <img (click)="reset()"
+                         src="https://xuongbanghecafe.com/wp-content/uploads/2019/10/menu-cafe-dang-gap-6.jpg"
+                         class="card-img-top img-table" alt="...">
+                  </div>
+                  <div class="card-body d-flex align-items-center justify-content-center">
+                    <p>Bàn {{i + 1 + numberPage * size}}</p>
+                  </div>
+                </div>
+                <div *ngSwitchCase="tableOff">
+                  <div (click)="notification(coffeePage.id)">
+                    <img src="https://xuongbanghecafe.com/wp-content/uploads/2019/10/menu-cafe-dang-gap-6.jpg"
+                         class="card-img-top" alt="..." style="filter: brightness(70%);">
+                  </div>
+                  <div class=" bg-secondary card-body d-flex align-items-center  justify-content-center">
+                    <p class="">Bàn {{i + 1 + numberPage * size}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <!--phân trang-->
+            <nav aria-label="Page navigation example" style=" margin-top: 5px; position: relative;">
+              <ul class="pagination justify-content-center">
+                <div *ngIf="numberPage == 0 " style="margin-left: 10px">
+                  <li class="page-item disabled">
+                    <a class="page-link button-bg" (click)="previousPage()" hidden
+                       aria-disabled="true"><<</a>
+                  </li>
+                </div>
+                <div *ngIf="numberPage != 0 " style="margin-right: 10px">
+                  <li class="page-item ">
+                    <a class="page-link button-bg" (click)="previousPage()"
+                       aria-disabled="true"><<</a>
+                  </li>
+                </div>
+                <div class="number-pages">{{numberPage + 1}} | {{totalPage}}</div>
+
+                <div *ngIf="numberPage == totalPage" style="margin-left: 10px">
+                  <li class="page-item">
+                    <button class="page-link button-bg" (click)="nextPage()" hidden>>></button>
+                  </li>
+                </div>
+                <div *ngIf="numberPage != totalPage - 1" style="margin-left: 10px">
+                  <li class="page-item">
+                    <button class="page-link button-bg" (click)="nextPage()">>></button>
+                  </li>
+                </div>
+
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="" style="height: 800px; margin-top: 180px; width: 50%; float: left">
+        <div class="container">
+          <div style="overflow-x:auto ; background-color: beige;
+                            border-radius: 30px; box-shadow:5px 5px 5px 5px #cdaa83">
+            <div class="text-center text-black" style="padding-top: 5px"><h4 *ngIf="idTable != null">THÔNG TIN
+              BÀN {{this.idTable}} </h4></div>
+            <div class="text-center text-black" style="padding-top: 5px"><h4 *ngIf="idTable == null">VUI LÒNG CHỌN
+              BÀN</h4></div>
+            <div>
+              <table class="table table-bordered table-sm table-striped table-hover"
+                     style=" padding-top: 2px ; border-color: #eeeeee">
+                <thead>
+                <tr class="table-secondary text-center" style="background: #f1f1f1; color: #041c32; ">
+                  <td>STT</td>
+                  <td>Tên món</td>
+                  <td>Số lượng(Ly | Món)</td>
+                  <td>Đơn giá(VND)</td>
+                  <td>Tổng(VND)</td>
+                </tr>
+                </thead>
+                <tbody id="#">
+                <tr *ngFor="let list of listOrderInTable; index as i">
+                  <td>{{i + 1}}</td>
+                  <td><p class="hide_content">{{list.name}}</p></td>
+                  <td style="text-align: center">{{list.quantity}}</td>
+                  <td style="text-align: center">{{list.price | currency:'VND':'' }}</td>
+                  <td style="text-align: center">{{list.payment | currency:'VND':'' }}</td>
+                  <input type="hidden" value="{{list.id}}" id="idTable">
+                </tr>
+                <tr>
+                  <td colspan="4" style="text-align: end">Tổng tiền(VND) :</td>
+                  <td style="text-align: center">{{totalNeedPayment | currency: 'VND' : ''}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="margin-top: 1rem">
+            <ul class="pagination justify-content-center">
+
+              <li class="page-item" *ngIf="idTable == null  && totalNeedPayment == 0 ">
+                <!-- Button trigger modal -->
+                <a type="button"
+                   class="btn button-bg disabled" style="margin-right: 10px; border-color: white">Tính tiền</a>
+              </li>
+
+              <li class="page-item" *ngIf="idTable != null ">
+                <!-- Button trigger modal -->
+                <a type="button" (click)="payment()"
+                   class="btn button-bg" style="margin-right: 10px; border-color: white">Tính tiền</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalPayment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Bàn {{idTable}}</h5>
+        </div>
+        <div class="modal-body">
+          <!--     -->
+          <table>
+            <tr>
+              <td>Tiền khách trả(VND): </td>
+              <td style="padding: 0 10px 0 10px "><input type="text" class="form-control" (change)="payFunction()" [(ngModel)]="payCustomer"></td>
+            </tr>
+            <tr>
+              <td>Tiền cần thanh toán(VND): </td>
+              <td style="padding: 0 10px 0 10px "><span style="color: darkred"> {{totalNeedPayment | currency: 'VND' : ''}}</span></td>
+            </tr>
+            <tr>
+              <td>Tiền cần thối lại(VND):</td>
+              <td style="padding: 0 10px 0 10px "><span style="color: darkred"> {{backMoneyToCustomer | currency: 'VND' : ''}}</span></td>
+            </tr>
+
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn button-bg" data-bs-dismiss="modal">Đóng</button>
+          <button type="button" class="btn button-bg" (click)="addBill(idTable)">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color: beige; height: 2px">
+
+</div>

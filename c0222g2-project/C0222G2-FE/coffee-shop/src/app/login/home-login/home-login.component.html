@@ -1,0 +1,111 @@
+<div class="d-block page-section">
+  <div id="content">
+    <img src="../../../assets/img/phuongtd-background.jpg" width="100%"/>
+  </div>
+  <div class="container text-center card-img-overlay pt-xl-13 p-0" style="left: 3.5%">
+    <div class="row col-12 bg-light border">
+      <div class="col-xl-6 col-lg-12 border" style="padding: 0 !important;">
+        <img src="../../../assets/img/phuongtd-coffee.jpg" width="100%" height="100%"/>
+      </div>
+      <div class="col-xl-6 col-lg-12 align-self-center">
+        <div class="col-12 p-lg-0" style="margin: auto 0">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <img class="mb-4" src="../../../assets/img/phuongtd-coffee-house-logo.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">Đăng Nhập</h1>
+
+            <div class="form-floating mb-3 w-50 text-center m-auto">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                     formControlName="username">
+              <label for="floatingInput">Tài khoản <span class="text-danger">(*)</span> :
+                <span class="text-danger fs-10"
+                     *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched">Vui lòng
+                  nhập tên tài khoản.
+                </span>
+              </label>
+            </div>
+
+            <div class="form-floating my-3 w-50 text-center m-auto">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                     formControlName="password">
+              <label for="floatingPassword">Mật khẩu <span class="text-danger">(*)</span> :
+                <span class="text-danger fs-10"
+                     *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">Vui lòng
+                  nhập mật khẩu.
+                </span>
+              </label>
+            </div>
+
+            <div class="checkbox my-3">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="stayLogged">
+              <label class="form-check-label px-2" for="flexCheckDefault">
+                Duy trì trạng thái đăng nhập
+              </label>
+            </div>
+
+            <div class="col-12 row w-50 text-center m-auto">
+              <div *ngIf="activeLogin">
+                <div class="col-12 mb-3 w-100">
+                  <button class="btn btn-lg w-100 fs-6 btn-yellow" type="submit">Đăng nhập</button>
+                </div>
+              </div>
+              <div *ngIf="!activeLogin">
+                <div *ngIf="realTimeSecond < 10">
+                  <div class="col-12 mb-3 w-100">
+                    <button class="btn btn-lg w-100 fs-6 btn-secondary disabled" type="button">0{{realTimeMinute}} : 0{{realTimeSecond}}</button>
+                  </div>
+                </div>
+                <div *ngIf="realTimeSecond >= 10">
+                  <div class="col-12 mb-3 w-100">
+                    <button class="btn btn-lg w-100 fs-6 btn-secondary disabled" type="button">0{{realTimeMinute}} : {{realTimeSecond}}</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Button trigger modal -->
+              <div class="col-12 mb-3">
+                <button type="button" class="btn btn-lg w-100 fs-6 btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdropForgot">
+                  Quên mật khẩu
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdropForgot" data-bs-backdrop="static" data-bs-keyboard="false"
+               tabindex="-1" aria-labelledby="staticBackdropLabelForgot" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title h3 fw-bold text-brown" id="staticBackdropLabel">Tìm tài khoản
+                    của bạn</h5>
+                </div>
+                <form [formGroup]="forgotForm" (ngSubmit)="onForgot()">
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="username"
+                               placeholder="name@example.com" formControlName="username">
+                        <label for="username">Nhập tài khoản cần khôi phục <span class="text-danger">(*)</span> :
+                          <span class="text-danger fs-10"
+                               *ngIf="forgotForm.controls.username.hasError('required') && forgotForm.controls.username.touched">
+                            Vui lòng nhập tên tài khoản
+                          </span>
+                        </label>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-yellow">Gửi</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeForgot()">Đóng
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

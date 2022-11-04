@@ -1,0 +1,167 @@
+<div id="menu">
+  <div id="radius" class="container  bg-light">
+
+    <div class="row col-lg-12 management">
+
+      <div class=" col-lg-8 ">
+        <h2 id="suaMonMoi"  style="text-align: center">Sửa Món</h2>
+        <form  [formGroup]="formDish" (ngSubmit)="editDish(id)" *ngIf="formDish">
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label  for="tenMon"class="form-label">Tên món (<span class="complain">*</span> <span
+                class="form-label">) :</span></label>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-mug-hot"></i></span>
+                <input  id="tenMon" type="text" class="form-control" placeholder="vd: Cà Phê Muối" formControlName="name"
+                        name="name">
+              </div>
+              <div class="validate">
+                <p style="color: red" *ngIf="formDish.controls.name.hasError('required') && formDish.controls.name.touched">Tên món không được để trống. </p>
+                <p style="color: red" *ngIf="formDish.controls.name.hasError('minlength') && formDish.controls.name.touched">Tên món phải nhiều hơn 5 kí tự. </p>
+                <p style="color: red" *ngIf="formDish.controls.name.hasError('maxlength') && formDish.controls.name.touched">Tên món phải dưới 250 kí tự. </p>
+                <p style="color: red" *ngIf="formDish.controls.name.hasError('pattern') && formDish.controls.name.touched"> chỉ viết hoa chữ cái đầu mỗi từ, không chứa ký tự đặc biệt, không chứa khoảng trắng thừa. </p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="loaiMon" class="form-label">Nhóm Món (<span class="complain">*</span> <span
+                class="form-label">) :</span></label>
+              <div class="input-group mb-3">
+                <span id="loaiMon" class="input-group-text"><i class="fa-solid fa-align-justify"></i></span>
+                <select [compareWith]="compareDishType" [(ngModel)]="dish.dishType" class="form-select" formControlName="dishType" name="dishType">
+                  <option id="opt" value="" >Vui Lòng Chọn </option>
+                  <option *ngFor="let item of dishTypeList" [ngValue]="item"> {{item.name}}</option>
+                </select>
+              </div>
+
+
+              <div class="validate">
+                <p style="color: red"
+                   *ngIf="formDish.controls.dishType.hasError('required') && formDish.controls.dishType.touched">Nhóm
+                  món không được để trống. </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="maSoMon" class="form-label">Mã Số Món (<span class="complain">*</span> <span
+                class="form-label">) :</span></label>
+              <div class="input-group mb-3">
+                <span class="input-group-text"> <i class="fa-solid fa-qrcode"></i></span>
+                <input id="maSoMon" type="text" class="form-control" placeholder="vd: CF123" formControlName="code"
+                       name="code">
+              </div>
+              <div class="validate">
+                <p style="color: red" *ngIf="formDish.controls.code.hasError('required') && formDish.controls.code.touched">Mã số món không được để trống. </p>
+                <p style="color: red" *ngIf="formDish.controls.code.hasError('minlength') && formDish.controls.code.touched">Mã số món phải nhiều hơn 3 kí tự. </p>
+                <p style="color: red" *ngIf="formDish.controls.code.hasError('maxlength') && formDish.controls.code.touched">Mã số món phải it hơn 250 kí tự. </p>
+                <p style="color: red" *ngIf="formDish.controls.code.hasError('pattern') && formDish.controls.code.touched"> Mã số món phải bắt đầu bằng D- và kết thúc bằng số. </p>
+                <p style="color: red" *ngIf="formDish.controls.code.hasError('codeExists') && formDish.controls.code.touched"> Mã số món đã tồn tại. </p>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+              <label for="gia" class="form-label">Giá (VNĐ) (<span class="complain">*</span> <span class="form-label">) :</span>
+              </label>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-dollar-sign"></i></span>
+                <input id="gia" type="text" class="form-control" placeholder="Vd: 10000" formControlName="price"
+                       name="price">
+              </div>
+              <div class="validate">
+                <p style="color: red" *ngIf="formDish.controls.price.hasError('required') && formDish.controls.price.touched">Giá không được để trống. </p>
+                <p style="color: red" *ngIf="formDish.controls.price.hasError('min') && formDish.controls.price.touched">Giá phải lớn hơn 5000. </p>
+                <p style="color: red" *ngIf="formDish.controls.price.hasError('max') && formDish.controls.price.touched">Giá phải nhỏ hơn 1000000. </p>
+                <p style="color: red" *ngIf="formDish.controls.price.hasError('pattern') && formDish.controls.price.touched">Giá Phải là số , không có kí tự đặc biệt. </p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6">
+              <label for="avata" class="form-label">Ảnh món (<span class="complain">*</span> <span
+                class="form-label">) :</span></label>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
+                <input id="avata" formControlName="image" name="image"
+                       type="file" accept="image/png, image/gif, image/jpeg" #fileUploader (change)="showPreviews($event)" class="form-control"/>
+              </div>
+              <div class="validate">
+                <p style="color: red" *ngIf="formDish.controls.image.hasError('required') && formDish.controls.image.touched">Ảnh không được để trống. </p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 " id="xoa" >
+              <div class=" form-outline mb-2" >
+                <img  id="image" src="{{formDish.value.image}}" style=" height: auto;width: 100% ">
+              </div>
+
+              <div class=" form-outline mb-2"  >
+                <img id="img" [src]="imgSrc"   style=" height: auto;width: 100% "
+                     (click)="fileUploader.click()">
+              </div>
+            </div>
+
+          </div>
+
+          <hr>
+          <div class="row" style="padding-bottom: 20px">
+            <div class="col-lg-4 col-sm-4">
+              <button type="button" routerLink="/dish" class="w-100 btn btn-danger col-sm-10 "><i
+                class="fa-solid fa-delete-left"></i> Hủy
+              </button>
+            </div>
+            <div  class="col-lg-4 col-sm-4">
+              <button type="button" (click)="resetForm()" class="w-100 btn btn-warning col-sm-10 "><i
+                class="fa-solid fa-rotate-left"></i> Xóa Biểu Mẫu
+              </button>
+            </div>
+            <div  class="col-lg-4 col-sm-4">
+              <button type="submit" class="w-100 btn btn-success col-sm-10 "><i class="fa-solid fa-pen-to-square"></i> Sửa
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class=" col-lg-4 order-md-last block-2" style="margin-top: 40px">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span>* Top món ưa thích : </span>
+          <span class="badge bg-black rounded-pill">!</span>
+        </h4>
+        <div id="carouselExampleIndicators" class="carousel slide sliceCss" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../assets/img/bao17.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/img/bao15.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/img/bao16.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/img/bao19.png" class="d-block w-100 sliceCss" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,343 @@
+*{
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-menu-option:hover{
+    background-color: #be9c79 !important;
+}
+
+iframe {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border: none;
+}
+iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.main {
+}
+
+.btn-close{
+    width: 35px !important;
+    height: 35px !important;
+    margin: 0;
+    color: white !important;
+}
+
+iframe {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border: none;
+}
+iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.modal-header{
+    padding: 20px !important;
+}
+
+.shallow-background{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.09;
+    background-color: #000000;
+    z-index: 0;
+}
+
+.container-main-content{
+    padding: 150px 0;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/assets/img/bao4.jpg');
+}
+
+
+.card-nameProduct{
+    margin: 0;
+    min-width: 120px;
+}
+
+.card-icon-createNew{
+    position: relative;
+    top: 1px;
+}
+
+.card-container{
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src/assets/img/binhpx-background.jpg');
+}
+
+.inner-card{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.09;
+    background-color: #000000;
+}
+
+.card-img-top{
+    display: block;
+    height: 300px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+}
+
+.card-img-top:hover{
+    transform: scale(1.1);
+}
+
+.card-body{
+    background-color: #ffffff;
+}
+
+.my-card{
+    transition: background 0.8s;
+    overflow: hidden;
+    height: 400px;
+    border-radius: 32px;
+}
+
+.my-card-body{
+    background-color: #ffffff;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+.btn-createOrder{
+    min-width: 55px;
+}
+
+.modal-body-game{
+    width: 100%;
+    height: 500px;
+}
+
+.modal-dialog-game{
+    max-width: 100% !important;
+    top: 45%;
+    transform: translateY(-50%) !important;
+}
+
+.btn-service-hide{
+    display: none;
+}
+
+.order-header{
+    font-family: 'Bungee', cursive;
+}
+
+.table-infor-date,
+.number-table-infor{
+    font-family: 'Bungee', cursive
+}
+
+.modal-content{
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('src/assets/img/baobg.jpg');
+}
+
+.number-table-infor{
+    font-size: 28px;
+}
+
+.table-infor-date{
+    font-size: 20px;
+}
+
+.menu-order-list-item{
+    list-style: none;
+    cursor: pointer;
+}
+
+.menu-order-list-content{
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.menu-order-list-content::after{
+    content: "";
+    display: none;
+    position: absolute;
+    bottom: -5px;
+    height: 3px;
+    width: 100%;
+    background-color: #000000;
+    animation: fadeInAnimation .5s;
+}
+
+.menu-order-list-content:hover.menu-order-list-content::after{
+    display: block;
+}
+
+.show-service-on-mobile{
+    display: none;
+}
+
+.menu-onMobile{
+    width: 200px;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+}
+
+.buttonOrder {
+    height: 40px;
+    width: 160px;
+    background-color: rgba(0, 0, 0, 0.77);
+    color: #ffffff;
+    border-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.buttonOrder:hover {
+    background-color: #6c5c48;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-menu{
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.03)), url('src/assets/img/baobg.jpg');
+}
+
+.buttonOrder .btn-modal{
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.buttonOrder .btn-modal-red{
+    background-color: rgba(222, 125, 125, 111) !important;
+}
+
+/* Responsive */
+
+/* Animation */
+@keyframes fadeInAnimation {
+    from{
+        opacity: 0;
+        width: 0;
+    }
+    to{
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 941px) {
+    .show-service-on-mobile{
+        display: block;
+        position: relative;
+    }
+    .menu-onMobile{
+        position: absolute;
+        top: 40px;
+    }
+
+    .show-service-on-desktop{
+        display: none;
+    }
+}
+
+@media (min-width: 942px) {
+    .show-service-on-desktop{
+        display: flex;
+    }
+}
+
+
+/**
+ * Creator: DiepTT
+ * CSS for Feedback form
+ */
+
+#staticBackdropFeedback {
+  font-family: "Poppins", sans-serif;
+}
+
+.feedback {
+  background: url(src/assets/img/dieptt-bg.jpg);
+}
+
+.feedback-form {
+  width: 80%;
+}
+
+.feedback .modal-title {
+  font-family: 'Bungee', cursive;
+}
+
+.feedback .modal-title{
+  font-size: 28px;
+  color: black;
+}
+
+.feedback-form div label {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.feedback-form div a,
+.feedback-form div button {
+  font-size: 15px;
+  font-weight: lighter;
+  font-family: 'Bungee', cursive;
+}
+
+.feedback-form div div input,
+.feedback-form div div textarea{
+  color: black !important;
+  font-weight: normal !important;
+  font-family: "Poppins", sans-serif;
+}
+.feedback label {
+  padding: 7px 2px;
+}
+
+.feedback label sup {
+  font-family: 'Bungee', cursive;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.bi-star-fill {
+  color: #363535;
+  text-align: center;
+  font-size: 25px;
+  margin-left: 3px;
+  margin-right: 5px;
+}
+
+.bi-star-fill:hover {
+  color: orange !important;
+}
+
+.error {
+  font-size: 12px;
+  margin-left: 3px;
+  margin-top: 5px;
+  font-family: "Poppins", sans-serif ;
+}
+.modal-footer{
+  padding-right: 0px;
+}
+

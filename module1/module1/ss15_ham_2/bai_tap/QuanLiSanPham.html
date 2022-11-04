@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .editsp {
+            background-color: green;
+            color: white;
+            width: 400px;
+        }
+
+        .edits {
+            background-color: orange;
+            color: whitesmoke;
+            width: 100px;
+        }
+        .tables {
+            border: none;
+            width : 50%
+        }
+
+    </style>
+</head>
+<body>
+<h2 style="color: blue">Add New Product</h2>
+<input type="text" id="test" placeholder="New Product">
+
+<button type="button" onclick="addProduct()" value="Add" id="addNew" style="background-color: blue">Add</button>
+
+<h3>New Product</h3>
+<span>Product Name</span><span id = "soLuong">product</span>
+
+<hr>
+<p id="list"></p>
+
+
+<script>
+    let sanPham = ['Mazda', 'Toyota', 'Mezcedes', 'Ford', 'Lexus', 'Hyundai', 'Porsche', 'VinFast', 'gà'];
+
+    function display(sanPham) {
+        console.log(sanPham)
+        let x = "";
+        x += '<table class="tables">'
+        for (let i = 0; i < sanPham.length; i++) {
+            x += "<tr><td class='editsp'>" + sanPham[i] + "</td>" +
+                "<td ><button class='edits' onclick="+"deleteProduct("+i+")"+">Delete</button></td>" +
+                "<td ><button class='edits' onclick="+"editProduct("+i+")"+">Edit</button></td></tr>";
+        }
+        x += '</table>'
+        return x ;
+    }
+
+    document.getElementById("list").innerHTML = display(sanPham);
+    document.getElementById("soLuong").innerHTML = display(sanPham.length);
+
+    function addProduct() {
+        let newAdd = document.getElementById("test").value;
+        sanPham.push(newAdd);
+        document.getElementById("list").innerHTML = display(sanPham);
+    }
+
+    function editProduct(i) {
+        let newName = prompt(document.getElementById("test").value)
+        sanPham[i] = newName
+        document.getElementById("list").innerHTML = display(sanPham);
+
+    }
+
+    function deleteProduct(i) {
+        sanPham.splice( i , 1 )
+        document.getElementById("list").innerHTML = display(sanPham)
+    }
+
+
+
+</script>
+
+</body>
+</html>

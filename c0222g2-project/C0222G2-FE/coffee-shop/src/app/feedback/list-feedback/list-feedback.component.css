@@ -1,0 +1,173 @@
+  .hide_content {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 200px
+  }
+
+#body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(src/assets/img/luanbackground.jpg)
+}
+
+.table-wrapper {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+thead {
+  font-size: 50px;
+}
+
+table {
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table thead tr {
+  padding-bottom: 10px;
+  height: 30%;
+  background: #744e3a;
+  color: #fff;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+.table thead tr th {
+  padding-bottom: 10px;
+}
+th,td{
+  overflow: hidden;
+}
+a, th, td, label {
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.mid {
+  text-align: center;
+}
+
+.button_close {
+  text-align: right;
+  margin-top: 10px
+}
+
+.button-detail {
+  font-size: 25px;
+}
+
+.title {
+  padding-top: 10%;
+  color: white;
+  text-align: center;
+}
+
+.bi {
+  font-size: 120%;
+  color: black;
+}
+
+.checked {
+  color: orange;
+}
+
+.fontSize {
+  font-family: "Poppins", sans-serif;
+}
+.pagination{
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  padding-top: 10px
+}
+
+
+
+header
+header * {
+  box-sizing: border-box;
+}
+
+
+header #menu {
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.4s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  /*font-family: 'Montserrat', sans-serif;*/
+}
+
+header .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+header #menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 20px;
+  -webkit-transition: padding 2s;
+}
+
+header #menu a:hover {
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #6c5c48;
+  border-radius: 20px;
+  transition: 0.5s;
+
+}
+
+header li {
+  margin: 0 10px 0 10px;
+}
+
+.page-number {
+  padding: 10px;
+}
+.number-goItem{
+  background: #744e3a;
+  color: white;
+}
+
+material-icons {
+  color: #363535;
+  text-align: center;
+  font-size: 25px;
+  margin: 2px;
+}
+
+.material-icons:hover {
+  color: orange !important;
+}
+
+.pagination {
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  padding-top: 10px
+}
+.material-icons:hover{
+  color: orange !important;
+}
+
+  .number-pages{
+    padding-left: 10px;
+    background: white;
+    color: blue;
+    width: 50px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    border-radius: 45%;
+  }

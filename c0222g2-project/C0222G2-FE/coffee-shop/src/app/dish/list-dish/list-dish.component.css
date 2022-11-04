@@ -1,0 +1,141 @@
+
+a, th, td,h1 {
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+label {
+  margin: 5px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+.container-table100 {
+  max-width: 1366px;
+  margin: 0 auto;
+  min-height: 70vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 33px 100px;
+}
+
+.wrap-table100 {
+  width: 100%;
+}
+
+table thead tr {
+  height: 60px;
+  background: #744e3a;
+}
+
+.table100-head th {
+  font-size: 18px;
+  color: #fff;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+
+.background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(../../../assets/img/hieucd_image3.jpg)
+}
+
+table {
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table_wrapper {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+select:not([multiple]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: right 15px center;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets/img/hieucd_down.png);
+  background-size: 30px;
+  padding-right: 30px;
+}
+.bDelete{
+  color: red;
+}
+.tooltipHieu {
+  color: red;
+  position: relative;
+  display: inline-block;
+  text-overflow: ellipsis;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tooltipHieuDelete {
+  position: relative;
+  display: inline-block;
+  text-overflow: ellipsis;
+  width: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tooltipHieu .tooltiptextHieu {
+  visibility: hidden;
+  width: 400px;
+  background-color: blue;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltipHieu:hover .tooltiptextHieu {
+  visibility: visible;
+  opacity: 1;
+}
+.number-pages{
+  padding-left: 10px;
+  background: white;
+  color: blue;
+  width: 50px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  border-radius: 45%;
+}
+.table tbody {
+  vertical-align: middle;
+}
+

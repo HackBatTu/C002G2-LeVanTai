@@ -1,0 +1,202 @@
+.main{
+  position: relative;
+}
+
+.notification{
+  position: absolute;
+  right: 0;
+  top: 200px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.notification-container{
+  width: 450px;
+  position: absolute;
+  top: 100%;
+  left: -200%;
+  display: none;
+}
+
+.notification-list{
+  list-style: none;
+  display: block;
+}
+
+.notification-title{
+  font-size: 18px;
+}
+
+.notification-body{
+  font-size: 20px;
+}
+
+.number-notification{
+  z-index: 999;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  background-color: red;
+  color: white;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-family: 'Bungee', cursive;
+}
+
+#demo img{
+  filter: brightness(50%);
+  height: 800px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  overflow: hidden !important;
+}
+p{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-10%, -10%);
+  color: white;
+  font-size: 100px;
+  white-space: nowrap;
+}
+.carousel-caption {
+  width: 900px;
+  left: 50%;
+  top: 50% !important;
+  transform: translate(-50%,-50%);
+  font-size: 100px;
+  /*white-space: nowrap;*/
+
+}
+
+
+.text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-5%, -10%);
+  color: white;
+  font-size: 20px;
+  object-fit: cover !important;
+  overflow: clip;
+}
+
+.buttonOrder {
+  height: 60px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.77);
+  color: #ffffff;
+  border-color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+.buttonOrder:hover {
+  background-color: #6c5c48;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+#firstBodyArea {
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  backdrop-filter: brightness(20%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(src/assets/img/baobg.jpg);
+  padding-bottom: 50px;
+
+}
+
+.firstBodyContent{
+  padding-top: 50px;
+  font-family: 'Bungee', cursive;
+}
+
+#secondBodyArea {
+  position: relative;
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  backdrop-filter: brightness(20%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(src/assets/img/baobg3.jpg);
+  padding-bottom: 50px;
+}
+
+#thirdBodyArea {
+  position: relative;
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  backdrop-filter: brightness(20%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(src/assets/img/baobg2.jpg);
+  padding-bottom: 50px;
+  font-family: 'Bungee', cursive;
+}
+
+
+
+
+
+
+.card {
+  margin: 10px;
+  height: 300px;
+  width: 240px;
+  border-radius: 20px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 70px 63px -60px #000;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-in-box {
+  padding-bottom: 40px;
+  font-family: 'Bungee', cursive;
+  color: #fff;
+  margin: 20px;
+  opacity: 0.7;
+  transition: opacity 1s;
+}
+.text-in-box button{
+  font-family: 'Bungee', cursive;
+  color: #fff;
+  margin: 20px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  visibility: hidden;
+}
+
+.card:hover button{
+  opacity: 1;
+  color: black;
+  visibility: visible;
+}
+
+
+.card:hover .text-in-box {
+  opacity: 1;
+}
+
+.card {
+  background: center center no-repeat;
+  background-size: 250px;
+}
+.card:hover {
+  background: rgba(0, 0, 0, 0.89) left center no-repeat;
+  background-size: 300px;
+  transform: scale(1.1);
+  border: solid 5px #ad593e;
+  z-index: 200;
+}
+
+
+.text-in-box h2 {
+  -webkit-text-stroke: 2px #963f3f;
+}

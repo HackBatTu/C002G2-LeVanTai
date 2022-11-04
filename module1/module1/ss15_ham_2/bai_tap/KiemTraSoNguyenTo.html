@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function isPrime(numBer) {
+        flag = true
+        if (numBer < 2) {
+            flag = false
+        } else if (numBer === 2) {
+            flag = true
+        } else if (numBer % 2 === 0) {
+            flag = false
+        } else {
+            for (let i = 3; i < numBer; i += 2) {
+                if (numBer % i === 0 ) {
+                    flag = true
+                    break
+                }
+            }
+        }
+        if (flag === true) {
+            console.log(numBer + ' là số nguyên tố ')
+        } else {
+            console.log(numBer + 'không phải là số nguyên tố ')
+        }
+        return flag
+    }
+    let number = prompt('nhập số')
+    isPrime(number)
+
+</script>
+</body>
+</html>

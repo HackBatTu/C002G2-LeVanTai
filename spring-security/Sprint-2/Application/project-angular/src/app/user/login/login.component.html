@@ -1,0 +1,76 @@
+<!-- Page Header Start -->
+<!--<div class="container-fluid bg-secondary mb-5">-->
+<!--  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">-->
+<!--    <h1 class="font-weight-semi-bold text-uppercase mb-3">Đăng nhập</h1>-->
+<!--    <div class="d-inline-flex">-->
+<!--      <p class="m-0"><a href="">Trang chủ</a></p>-->
+<!--      <p class="m-0 px-2">-</p>-->
+<!--      <p class="m-0">Đăng nhập</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!-- Page Header End -->
+
+<div class="container-fluid" style="position: relative !important;">
+  <div class="bg-img">
+    <div class="content">
+      <header>Đăng nhập</header>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="field" data-toggle="username" data-content="Tên tài khoản không được để trống" id="field-username">
+          <span class="fa fa-user"></span>
+          <input id="username" type="text" required placeholder="Tên tài khoản" formControlName="username"
+                 (input)="checkErrorUsername()">
+        </div>
+        <div class="field space" data-toggle="password" data-content="Mật khẩu không được để trống" id="field-password">
+          <span class="fa fa-lock"></span>
+          <input id="password" type="password" class="pass-key" required placeholder="Nhập mật khẩu"
+                 formControlName="password"
+                 (input)="checkErrorPassword()">
+          <span class="show" (click)="showPassword()">{{passwordStatus}}</span>
+        </div>
+        <div class="pass">
+          <a href="#">Quên mật khẩu?</a>
+        </div>
+        <div *ngIf="activeLogin">
+          <div class="field">
+            <button *ngIf="buttonLoginStatus" type="submit">Đăng Nhập</button>
+            <button *ngIf="!buttonLoginStatus" type="button" style="background-color: #3498db !important; color: white !important;" disabled>
+              <div class="spinner-border spinner-border-sm mb-1"></div>
+              Đang tải...
+            </button>
+          </div>
+        </div>
+        <div *ngIf="!activeLogin">
+          <div *ngIf="realTimeSecond < 10">
+            <div class="field">
+              <button class="disabled" type="button"
+                      style="background-color: #3498db !important; color: white !important;">
+                0{{realTimeMinute}} : 0{{realTimeSecond}}
+              </button>
+            </div>
+          </div>
+          <div *ngIf="realTimeSecond >= 10">
+            <div class="field">
+              <button class="disabled" type="button"
+                      style="background-color: #3498db !important; color: white !important;">
+                0{{realTimeMinute}} : {{realTimeSecond}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="login">Hoặc đăng nhập với</div>
+      <div class="links">
+        <div class="facebook">
+          <i class="fab fa-facebook-f"><span>Facebook</span></i>
+        </div>
+        <div class="instagram">
+          <i class="fab fa-google"><span>Gmail</span></i>
+        </div>
+      </div>
+      <div class="signup">Bạn không có tài khoản?
+        <a [routerLink]="['/register']">Đăng ký</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bài 1
+
+    // let str = "tRuong    TaN   HAI";
+    // str = str.trim().toLowerCase()  //// xóa khoảng trắng 2 bên và đưa về chữ thường
+    //
+    // function convertString(str) {
+    //     let arr = str.split(' ')
+    //     for (let i = 0 ; i<arr.length ; i++){
+    //         if(arr[i]=== ''){
+    //             arr.splice(i,1)
+    //             i--;
+    //         }
+    //         arr[i] = arr[i][0].toUpperCase()+ arr[i].substring(1) //// viet hoa chữ cái đầu từ và cụm từ
+    //     }
+    //     return arr.join(' ')
+    // }
+    // function count(str) {
+    //     let arr = str.split('   ')
+    //     let maxStr = arr[0];
+    //     for (let i = 1; i < arr.length ; i++) {
+    //         if (maxStr.length < arr[i].length) {
+    //             maxStr = arr[i];
+    //         }
+    //     }
+    //     return maxStr;
+    // }
+    // console.log(str + " => " + convertString(str) + "\n" + "Max: " + count(str));
+
+    // bài 2
+    // let str = prompt('nhập chuỗi kí tự'); arr = str.split("")
+    //
+    // function demKyTu(arr) {
+    //     let count = 0;
+    //     for (let i = 0; i < arr.length ; i++) {
+    //         for (let j = i+1; j < arr.length ; j++) {
+    //             if (arr[i] === arr[j]) {
+    //                 arr[i] = " ";
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     for (let i = 0; i < arr.length ; i++) {
+    //         if (arr[i] != " ") {
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
+    // alert(demKyTu(arr));
+
+    // bài 3
+    // let s1 = 'aabcc' ;
+    // let s2 = 'adcaa' ;
+    // let count= 0;
+    // function DemKiTuChung(s1,s2) {
+    //     for (let i = 0; i < s1.length; i++) {
+    //         for (let j = 0; j < s2.length; j++) {
+    //             if (s1[i] == s2[j]) {
+    //                 s2 = s2.replace(s2[j], "");
+    //                 count++;
+    //                 break;
+    //             }
+    //         }
+    //     }return count
+    // }
+    //
+    // console.log(DemKiTuChung(s1,s2) )
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<div class="navbar-nav row align-items-center my-3 px-xl-5">
+  <div class="col-lg-12 col-12 text-left">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearchName()">
+      <div class="input-group">
+        <input type="text" formControlName="name" class="form-control border-primary" placeholder="Tìm tiếm sản phẩm">
+        <div class="input-group-append">
+            <span class="input-group-text bg-transparent text-primary">
+                                <a href="#"><i class="fa fa-search"></i></a>
+            </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="header-carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="height: 810px;">
+      <img class="img-fluid" src="assets/img/carousel-1.jpg" alt="Image">
+      <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+        <div class="p-3" style="max-width: 700px;">
+          <!--                <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>-->
+          <!--                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>-->
+          <!--          <a href="" class="btn btn-light py-2 px-3">Mua ngay</a>-->
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" style="height: 810px;">
+      <img class="img-fluid" src="assets/img/carousel-2.jpg" alt="Image">
+      <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+        <div class="p-3" style="max-width: 700px;">
+          <!--                <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>-->
+          <!--                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>-->
+          <!--          <a href="" class="btn btn-light py-2 px-3">Mua ngay</a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+    <div class="btn btn-dark" style="width: 45px; height: 45px;">
+      <span class="carousel-control-prev-icon mb-n2"></span>
+    </div>
+  </a>
+  <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+    <div class="btn btn-dark" style="width: 45px; height: 45px;">
+      <span class="carousel-control-next-icon mb-n2"></span>
+    </div>
+  </a>
+</div>
+
+
+<!-- Featured Start -->
+<div class="container-fluid pt-5">
+  <div class="row px-xl-5 pb-3">
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+        <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0">Sản phẩm chất lượng</h5>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+        <h5 class="font-weight-semi-bold m-0">Miễn phí vận chuyển</h5>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0">Đổi trả trong vòng 14 ngày</h5>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+        <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0">Hỗ trợ 24/7</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Featured End -->
+
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+  <div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">DANH MỤC</span></h2>
+  </div>
+  <div class="row px-xl-5 pb-3">
+    <div class="col-lg-4 col-md-6 pb-1" *ngFor="let category of categories; index as i">
+      <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+        <p class="text-right">{{category.totalProduct}} sản phẩm
+          <span class="text-danger" *ngIf="category.discountPercent > 0"> - {{category.discountPercent}}%</span>
+        </p>
+        <a [routerLink]="['/product/list', category.id]" class="cat-img position-relative overflow-hidden mb-3">
+          <img class="img-fluid" src="{{category.image}}" alt="">
+        </a>
+        <a [routerLink]="['/product/list', category.id]">
+          <h5 class="font-weight-semi-bold m-0">{{category.name}}</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Categories End -->
+<div class="container-fluid m-auto text-center">
+  <button class="btn btn-outline-primary" (click)="seeCategoryMore()"
+          *ngIf="categorySize < categoryTotalElements">Xem thêm</button>
+</div>
+
+<!-- Offer Start -->
+<div class="container-fluid offer pt-5">
+  <div class="row px-xl-5">
+    <div class="col-md-6 pb-4" *ngFor="let categoryDiscount of categoriesDiscount; index as i">
+      <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
+        <img src="{{categoryDiscount.image}}" alt="" style="margin-bottom: 0.8rem !important; display: none" class="d-xl-block">
+        <div class="position-relative" style="z-index: 1;">
+          <h5 class="text-uppercase text-primary mb-3" *ngIf="categoryDiscount.discountPercent > 0">Giảm <span class="text-danger font-weight-bold">{{categoryDiscount.discountPercent}}%</span> cho tất cả sản phẩm</h5>
+          <h5 class="text-uppercase text-primary mb-3" *ngIf="categoryDiscount.discountPercent <= 0">Giá ưu đãi cho tất cả sản phẩm</h5>
+          <h1 class="mb-4 font-weight-semi-bold" style="font-size: 28px !important;">{{categoryDiscount.name}}</h1>
+          <a [routerLink]="['/product/list', categoryDiscount.id]" class="btn btn-outline-primary py-md-2 px-md-3">Mua ngay</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Offer End -->
+
+
+<!-- Products Start -->
+<div class="container-fluid pt-5">
+  <div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">SẢN PHẨM HOT</span></h2>
+  </div>
+  <div class="row px-xl-5 pb-3">
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/samsung.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">Samsung Galaxy s22 Ultra 5G</h6>
+          <div class="d-flex justify-content-center">
+            <h6>25.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>30.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/iphone.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">Iphone 13 Pro Max</h6>
+          <div class="d-flex justify-content-center">
+            <h6>28.790.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>33.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/sony.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">Sony Xperia 1 IV</h6>
+          <div class="d-flex justify-content-center">
+            <h6>15.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>16.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/xiaomi.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">Xiaomi Black Shark 5 Pro</h6>
+          <div class="d-flex justify-content-center">
+            <h6>23.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>24.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/rog.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">ROG Phone 5</h6>
+          <div class="d-flex justify-content-center">
+            <h6>20.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>21.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/oppo.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">Oppo Find X5 Pro 5G</h6>
+          <div class="d-flex justify-content-center">
+            <h6>30.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>31.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/vivo.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">Vivo x80</h6>
+          <div class="d-flex justify-content-center">
+            <h6>18.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>19.990.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid w-100" src="assets/img/product-8.jpg" alt="">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3">MacBook Pro 16 M1 Max 2021/32 core-GPU</h6>
+          <div class="d-flex justify-content-center">
+            <h6>85.990.000đ</h6>
+            <h6 class="text-muted ml-2">
+              <del>90.000.000đ</del>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+            hàng</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Products End -->
+
+
+<!-- Subscribe Start -->
+<div class="container-fluid bg-secondary my-5">
+  <div class="row justify-content-md-center py-5 px-xl-5">
+    <div class="col-md-6 col-12 py-5">
+      <div class="text-center mb-2 pb-2">
+        <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">CẬP NHẬT</span></h2>
+        <p>Lưu lại email để nhận được thông tin về sản phẩm hay khuyến mãi mới.</p>
+      </div>
+      <form action="">
+        <div class="input-group">
+          <input type="text" class="form-control border-white p-4" placeholder="Nhập email">
+          <div class="input-group-append">
+            <button class="btn btn-primary px-4">Đăng ký</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Subscribe End -->
+
+
+<!-- Products Start -->
+<div class="container-fluid pt-5">
+  <div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">SẢN PHẨM MỚI</span></h2>
+  </div>
+  <div class="row px-xl-5 pb-3">
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1" *ngFor="let product of newProducts; index as i">
+      <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+          <a [routerLink]="['/product/detail', product.id]">
+            <img class="img-fluid w-100" src="{{product.image}}" alt="">
+          </a>
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+          <h6 class="text-truncate mb-3"><a class="text-dark" [routerLink]="['/product/detail', product.id]">{{product.name}}</a> - <small class="text-primary">{{product.category.name}}</small></h6>
+          <div class="d-flex justify-content-center">
+            <h6>{{(product.price - (product.price * (product.category.discountPercent / 100))) - ((product.price - (product.price * (product.category.discountPercent / 100))) * product.discountPercent / 100) | currency: 'VND': ''}}<sup>đ</sup></h6>
+            <h6 class="text-muted ml-2" *ngIf="product.price != 0">
+              <del *ngIf="product.discountPercent > 0 || product.category.discountPercent > 0">{{product.price| currency: 'VND': ''}}<sup>đ</sup></del>
+              <span class="text-danger" *ngIf="product.discountPercent > 0"> - {{product.discountPercent}}%</span>
+            </h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <a [routerLink]="['/product/detail', product.id]" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+          <a *ngIf="role != 'ROLE_ADMIN' && loginStatus == true && infoStatus == true" [routerLink]="" (click)="addToCart(product)" class="btn btn-sm text-dark p-0">
+            <i class="fas fa-shopping-cart text-primary mr-1"></i>
+            Thêm vào giỏ hàng
+          </a>
+          <a *ngIf="role != 'ROLE_ADMIN' && loginStatus == true && infoStatus == false" [routerLink]="" (click)="updateInfoMessage()" class="btn btn-sm text-dark p-0">
+            <i class="fas fa-shopping-cart text-primary mr-1"></i>
+            Thêm vào giỏ hàng
+          </a>
+          <a *ngIf="role != 'ROLE_ADMIN' && loginStatus == false && infoStatus == true" [routerLink]="" (click)="addToCartMessage()" class="btn btn-sm text-dark p-0">
+            <i class="fas fa-shopping-cart text-primary mr-1"></i>
+            Thêm vào giỏ hàng
+          </a>
+          <a *ngIf="role == 'ROLE_ADMIN' && loginStatus == true" [routerLink]="['/product/edit', product.id]" class="btn btn-sm text-dark p-0"><i class="fas fa-pencil-alt text-primary mr-1"></i>Chỉnh sửa</a>
+          <!-- Button trigger modal -->
+          <a *ngIf="role == 'ROLE_ADMIN' && loginStatus == true" class="btn btn-sm text-dark p-0" data-toggle="modal" [attr.data-target]="'#exampleModalDelete' + product.id">
+            <i class="fas fa-trash-alt text-primary mr-1"></i>Xóa
+          </a>
+
+          <!-- Modal -->
+          <div *ngIf="role == 'ROLE_ADMIN' && loginStatus == true" class="modal fade" id="exampleModalDelete{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title text-danger" id="exampleModalLabel">Cảnh báo!</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-center">
+                  Bạn đang xóa sản phẩm <span class="text-danger">{{product.name}}</span> có id = <span class="text-danger">{{product.id}}</span>.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" (click)="deleteProduct(product)">Đồng ý xóa</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Products End -->
+
+
+<!-- Vendor Start -->
+<div class="container-fluid py-5">
+  <div class="row px-xl-5">
+    <div class="col">
+      <div class="owl-carousel vendor-carousel">
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-1.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-2.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-3.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-4.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-5.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-6.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-7.jpg" alt="">
+        </div>
+        <div class="vendor-item border p-4">
+          <img src="assets/img/vendor-8.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Vendor End -->
+
+

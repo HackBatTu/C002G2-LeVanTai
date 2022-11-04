@@ -1,0 +1,83 @@
+<!-- Topbar Start -->
+<div class="container-fluid" *ngIf="!infoStatus">
+  <div class="row bg-secondary py-2 px-xl-5 text-center m-auto">
+    <div class="col-lg-12">
+      <div class="d-inline-flex align-items-center">
+        <a class="text-danger" [routerLink]="['/checkout']">Có vẻ như bạn chưa cập nhật thông tin. Hãy cập nhật thông tin cá nhân để nhận được nhiều ưu đãi!</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Topbar End -->
+<!-- Navbar Start -->
+<div class="container-fluid mb-2">
+  <div class="row border-top px-xl-5">
+    <div class="col-lg-12">
+      <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+        <a [routerLink]="['/home']" class="text-decoration-none d-block d-lg-none">
+          <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">XIAOMI</span>Store
+          </h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="col-lg-3 d-none d-lg-block mr-5">
+            <a [routerLink]="['/home']" class="text-decoration-none">
+              <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                class="text-primary font-weight-bold border px-3 mr-1">XIAOMI</span>Store</h1>
+            </a>
+          </div>
+          <div class="navbar-nav ml-auto py-0 text-center">
+            <a [routerLink]="['/home']"  class="nav-item nav-link" id="home-page">Trang chủ</a>
+            <a [routerLink]="['/product/list']"  class="nav-item nav-link" id="product-list">Danh sách sản phẩm</a>
+
+            <div class="nav-item dropdown" *ngIf="loginStatus == true && buttonLogoutStatus">
+              <a *ngIf="role == 'ROLE_ADMIN' && loginStatus == true" [routerLink]="" class="nav-link dropdown-toggle" data-toggle="dropdown" id="admin-control">Bảng điều khiển</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a *ngIf="role == 'ROLE_ADMIN' && loginStatus == true" [routerLink]="['/product/create']" class="dropdown-item" id="product-create">
+                  Thêm mới sản phẩm
+                </a>
+              </div>
+            </div>
+            <div class="nav-item dropdown" *ngIf="loginStatus == true && buttonLogoutStatus">
+              <a [routerLink]="" class="nav-link dropdown-toggle" data-toggle="dropdown" id="user-info" *ngIf="name == ''">
+                Hello {{username}}
+              </a>
+              <a [routerLink]="" class="nav-link dropdown-toggle" data-toggle="dropdown" id="user-info1" *ngIf="name != ''">
+                Hello {{name}}
+              </a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a [routerLink]="" class="dropdown-item" (click)="onLogout()" *ngIf="loginStatus == true && buttonLogoutStatus">Đăng xuất</a>
+                <a [routerLink]="['/info']" class="dropdown-item" id="info">Thông tin cá nhân</a>
+              </div>
+            </div>
+
+            <div class="nav-item dropdown" *ngIf="loginStatus == true && !buttonLogoutStatus">
+              <a [routerLink]="" class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="name == ''">
+                <div class="spinner-border spinner-border-sm mb-1"></div>
+                Hello {{username}}
+              </a>
+              <a [routerLink]="" class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="name != ''">
+                <div class="spinner-border spinner-border-sm mb-1"></div>
+                Hello {{name}}
+              </a>
+            </div>
+            <a [routerLink]="['/login']" class="nav-item nav-link" *ngIf="loginStatus == false">Đăng nhập</a>
+            <a [routerLink]="['/register']" class="nav-item nav-link" *ngIf="loginStatus == false">Đăng ký</a>
+            <a [routerLink]="['/product/cart']" class="nav-item nav-link" *ngIf="role != 'ROLE_ADMIN'">
+              <i class="fas fa-shopping-cart text-primary"></i>
+              <span class="badge">{{totalProductInCart}}</span>
+            </a>
+            <a [routerLink]="['/info']" class="mt-2">
+              <img *ngIf="loginStatus == true" [src]="avatar"
+                   width="50px" height="50px" class="rounded-circle m-auto" alt="Cinque Terre">
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- Navbar End -->
+

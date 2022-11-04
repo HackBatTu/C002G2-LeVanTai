@@ -1,0 +1,25 @@
+#menu {
+  width: 100%;
+  height: 100vh;
+
+
+  /*background-image: url("https://media.discordapp.net/attachments/1004041400112922655/1004244771331653662/background.jpg");*/
+}
+
+#suaMonMoi {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+#logo {
+  height: 500px;
+  background-size: 100% 500px;
+  background-image: url("http://inbaobicaphe.com/upload/images/Logo%20cafe%20%C4%91%E1%BA%B9p.jpg");
+}
+
+#them {
+  height: 500px;
+}
+#selectChonAnh{
+  margin-bottom: 50px;
+}

@@ -1,0 +1,200 @@
+<div class="img-background-component main pb-5">
+  <div class="container">
+    <div class="d-flex justify-content-center pb-5">
+      <h1>Danh sách nhân viên</h1>
+    </div>
+    <div class="row pb-3 ">
+      <div class="col-sm-12 col-lg-2">
+        <button class="btn btn-outline-light background-btn-add mt-4" [routerLink]="['/employee/add']">
+          <i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="col-sm-12 col-lg-10 d-flex justify-content-end">
+        <form class="d-flex justify-content-end" [formGroup]="formSearch" (ngSubmit)="searchEmployeeFormByProperty()">
+          <div class="col-sm-3 pe-2">
+            <label>Tên tài khoản :</label>
+            <input class=" form-control" placeholder="Tìm theo tài khoản" type="text" formControlName="accountForm"
+                   name="accountForm">
+          </div>
+          <div class="col-sm-3  pe-2">
+            <label>Họ và tên :</label>
+            <input class=" form-control" placeholder="Tìm theo tên" type="text" formControlName="nameForm"
+                   name="nameForm">
+          </div>
+          <div class="col-sm-3 pe-2">
+            <label>Số điện thoại :</label>
+            <input class=" form-control " placeholder="Tìm theo sđt" type="text" formControlName="phoneForm"
+                   name="phoneForm">
+          </div>
+          <div class="col-sm-2">
+            <button class="form-control btn btn-outline-light btn-search mt-4">Tìm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <div class="table_wrapper">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th style="width: 5%">STT</th>
+            <th style="width: 20%">Tên tài khoản</th>
+            <th style="width: 20%">Họ và tên<sup>
+              <a class="btn btn-link"
+                 (click)="sortByName()"><i class="fa-solid fa-arrow-down-a-z" style="margin-left: 5px"></i>
+              </a></sup></th>
+            <th style="width: 15%">Số điện thoại</th>
+            <th style="width: 10%">Vị trí</th>
+            <th style="width: 15%">Lương</th>
+            <th style="text-align: center;width: 15%">Hoạt động</th>
+          </tr>
+          </thead>
+          <tbody *ngIf="!checkSpecialCharacterName && !checkSpecialCharacterPhone && !checkSpecialCharacterAccount">
+          <tr *ngFor="let item of employeeList; index as i">
+            <td class="row-bold" style="width: 5%;text-align: center">{{1 + i + pageCurrent * size}}</td>
+            <td style="width: 20%"><span style="color: black; overflow: hidden !important;"
+                                         class="hide-width-row">{{item.appUser}}</span></td>
+            <td style="width: 23%"><a class="name-employee hide-width-row"
+                                      [routerLink]="['/employee/detail',item.id]">{{item.name}}</a></td>
+            <td style="width: 15%">{{item.phoneNumber| phoneFormat}}</td>
+            <td style="width: 10%">{{item.position}}</td>
+            <td style="width: 12%">{{item.salary | currency: 'VND':'' }}đ</td>
+
+            <td style="width: 15%">
+              <div style="width: 7%;display:inline;padding:0 10px 20px">
+                <a class="btn btn-sm btn-outline-warning" [routerLink]="['edit',item.id]">
+                  <i class="fa-solid fa-pen-to-square"></i></a>
+              </div>
+              <div style="width: 8%;display:inline;padding:0 10px 20px">
+                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalDelete1"
+                        (click)="modalDelete(item)" *ngIf="item.appUser=='manager'" disabled><i
+                  class="fa-solid fa-trash"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalDelete1" (click)="modalDelete(item)"
+                        *ngIf="item.appUser!='manager'">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="mt-2">
+          <p
+            *ngIf="employeeList.length==0 || checkSpecialCharacterName || checkSpecialCharacterPhone ||checkSpecialCharacterAccount">
+            Không có dữ liệu</p>
+        </div>
+
+        <div class="modal fade" id="exampleModalDelete1" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn xóa nhân viên: </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <div>
+                    <table class="table table-responsive">
+                      <thead>
+                      <tr>
+                        <th>Tên</th>
+                        <th>Tên tài khoản</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.appUser}}</td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deleteEmployee(employee.id)"
+                        data-bs-dismiss="modal">Xác nhận
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="d-flex justify-content-between"
+           *ngIf="employeeList.length>0 && !checkSpecialCharacterName && !checkSpecialCharacterPhone
+             && !checkSpecialCharacterAccount">
+        <div class="col-lg-6 pt-2" style="color: white">
+          <span>Hiển thị {{currentElement}} trong {{totalElement}} nhân viên</span>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end" aria-label="Page navigation example">
+          <div class="col-lg-8 d-flex justify-content-end">
+            <ul class="pagination">
+              <div *ngIf="pageCurrent == 0">
+                <li class="page-item disabled">
+                  <button class="page-link" (click)="goStart()" hidden><<</button>
+                </li>
+              </div>
+              <div *ngIf="pageCurrent != 0">
+                <li class="page-item">
+                  <button class="page-link" (click)="goStart()"><<</button>
+                </li>
+              </div>
+              <div *ngIf="pageCurrent == 0">
+                <li class="page-item disabled">
+                  <button class="page-link" (click)="goPrevious()" hidden><</button>
+                </li>
+              </div>
+              <div *ngIf="pageCurrent != 0">
+                <li class="page-item">
+                  <button class="page-link" (click)="goPrevious()"><</button>
+                </li>
+              </div>
+              <div class="number-pages">{{pageCurrent + 1}} | {{totalPages}}</div>
+              <div *ngIf="pageCurrent == totalPages - 1">
+                <li class="page-item disabled">
+                  <button class="page-link" (click)="goNext()" hidden>></button>
+                </li>
+              </div>
+              <div *ngIf="pageCurrent != totalPages - 1">
+                <li class="page-item">
+                  <button class="page-link" (click)="goNext()">></button>
+                </li>
+              </div>
+              <div *ngIf="pageCurrent == totalPages - 1">
+                <li class="page-item disabled">
+                  <button class="page-link" (click)="goEnd()" hidden>>></button>
+                </li>
+              </div>
+              <div *ngIf="pageCurrent != totalPages - 1">
+                <li class="page-item">
+                  <button class="page-link" (click)="goEnd()">>></button>
+                </li>
+              </div>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <form style="padding: 6px 0 0 20px" [formGroup]="formPage" (ngSubmit)="searchPageCurrent()">
+              <div>
+                <label style="padding-right: 5px">Trang : </label>
+                <input style="width: 65px;" type="text" formControlName="pageForm" name="pageForm">
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color: beige; height: 2px">
+
+</div>

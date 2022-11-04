@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let count = 0
+        let tong =0
+        let dayso =""
+        let i = 1
+        while (count<30){
+            i++
+            if(i%7===0){
+                dayso += i + "&nbsp"
+                tong += i
+                count++
+                if(count===30)
+                break
+            }
+        }
+        document.write(dayso+"<br>")
+        document.write("Tổng bằng "+tong)
+    </script>
+</body>
+</html>

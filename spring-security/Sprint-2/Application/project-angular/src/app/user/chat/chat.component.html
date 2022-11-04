@@ -1,0 +1,75 @@
+<div class="container border-primary border">
+  <div class="row clearfix" style="height: 800px">
+    <div class="col-lg-12">
+      <div class="card chat-app">
+        <div id="plist" class="people-list">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+          <ul class="list-unstyled chat-list mt-2 mb-0" style="overflow: scroll; height: 700px">
+            <li class="clearfix" *ngFor="let item of appUsers" (click)="setSecondUserName(item)" id="box-user-{{item.id}}">
+              <img *ngIf="item.customer" src="{{item.customer.image}}" alt="avatar">
+              <img *ngIf="!item.customer" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+              <div class="about">
+                <div class="name" *ngIf="item.customer">{{item.customer.name}}</div>
+                <div class="name" *ngIf="!item.customer">{{item.userName}}</div>
+                <div class="status" *ngIf="item.userName == 'admin'"> <span class="text-danger">Admin</span> </div>
+                <div class="status" *ngIf="item.userName != 'admin'"> <span class="text-success">User</span> </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="chat" style="height: 800px">
+          <div class="chat-header clearfix">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                  <img src="{{secondImage}}" alt="avatar">
+                </a>
+                <div class="chat-about">
+                  <h6 class="m-b-0"> {{secondUserName}} </h6>
+                  <small>Last seen: 2 hours ago</small>
+                </div>
+              </div>
+              <div class="col-lg-6 hidden-sm text-right">
+                <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+                <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+                <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="chat-history" #chathistory [scrollTop]="scrolltop" style="height: 78%; overflow: scroll">
+            <ul class="m-b-0">
+              <li class="clearfix" *ngFor="let msg of messages">
+                <div class="message-data text-right" *ngIf="msg.username == currentUserName.toLowerCase()">
+                  <small class="message-data-time mr-1" *ngIf="msg.username == currentUserName.toLowerCase() && msg.date != dateNow">{{msg.time}}, {{msg.date}}</small>
+                  <small class="message-data-time mr-1" *ngIf="msg.username == currentUserName.toLowerCase() && msg.date == dateNow">{{msg.time}}, TODAY</small>
+                  <img src="{{customer.image}}" alt="avatar" *ngIf="msg.username == currentUserName.toLowerCase()">
+                </div>
+                <div class="message other-message float-right" *ngIf="msg.username == currentUserName.toLowerCase()">  {{msg.message}} </div>
+                <div class="message-data" *ngIf="msg.username != currentUserName.toLowerCase()">
+                  <small class="message-data-time mr-1" *ngIf="msg.username != currentUserName.toLowerCase() && msg.date != dateNow">{{msg.time}}, {{msg.date}}</small>
+                  <small class="message-data-time mr-1" *ngIf="msg.username != currentUserName.toLowerCase() && msg.date == dateNow">{{msg.time}}, TODAY</small>
+                </div>
+                <div class="message my-message" style="" *ngIf="msg.username != currentUserName.toLowerCase()"> {{msg.message}} </div>
+              </li>
+            </ul>
+          </div>
+          <div class="chat-message clearfix">
+            <div class="input-group mb-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-send"></i></span>
+              </div>
+              <input type="text" class="form-control" *ngIf="customer != null" placeholder="Chat gì đó..."
+                     [(ngModel)]="message" (keydown.enter)="sendMessage()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

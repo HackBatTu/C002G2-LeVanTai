@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //bài 1
+    // let arr =[];
+    // let e = parseInt(prompt('chiều dài mảng'));
+
+    // for(let j =0 ; j< e ; j++){
+    //     let a = parseInt(prompt('phần tử mảng a'));
+    //     arr.push(a);
+    // }
+    // console.log('Mảng ban đầu :' + arr);
+    //
+    // let b = [];
+    // let sum=0;
+    //
+    // for(let i = 0 ; i< arr.length ; i++){
+    //     sum+=arr[i];
+    //     b[i]=sum;
+    // }
+    // console.log('prefix sums  : ' + b);
+
+    // bài 2
+    // let arrA = [];
+    // let arrB = [];
+    // let arrC = [];
+    //
+    // let a = prompt(' nhập vào độ dài mảng arrA')
+    // for (let i = 0; i < a; i++) {
+    //     arrA.push(parseInt(prompt('phần tử mảng a')))
+    // }
+    //
+    // let b = prompt('nhập độ dài mảng arrB ')
+    // for (let i = 0; i < b; i++) {
+    //     arrB.push(parseInt(prompt('phần tử mảng b')))
+    // }
+
+    // for(let i = 0 ; i< b ; i++){
+    //     if(arrA.indexOf(arrB[i]) === -1 && arrC.indexOf(arrB[i]) === -1){// phần tử mảng B không thuộc A và không thuộc C
+    //         arrC.push(arrB[i])
+    //     }
+    // }
+    // arrC.sort( function (a,b) {return a-b})
+    //
+    // console.log('mảng A : ' + arrA +'\n'+
+    //         'mảng B: '+ arrB +'\n'+
+    // 'số nguyên trong mảng b nhưng lại không xuất hiện trong mảng A là ' + arrC)
+
+
+    //bài 3
+
+    // let size = prompt(' nhập độ dài mảng : ')
+    // let arr1 = []
+    // let arr2 = []
+    //
+    // for (let i = 0; i < size; i++) {
+    //     arr1.push(parseInt(prompt('nhập phần tử mảng 1 ')))
+    //     arr2.push(parseInt(prompt('nhập phần tử mảng 2 ')))
+    // }
+    // let max = 0;
+    // let index;
+    //
+    // function maxFaction(arr1, arr2) {
+    //     for (let i = 0; i < arr1.length; i++) {
+    //         if (arr1[i] / arr2[i] > max) {
+    //             max = arr1[i] / arr2[i]
+    //             index = i
+    //         }
+    //     }return index
+    //
+    // }
+    // console.log('phân số cao nhất là : ' + arr1[index] + '/' + arr2[index] + '\n' + 'với chỉ số : '+ maxFaction(arr1, arr2));
+
+
+
+    //bài 4
+
+    // let num = prompt('nhập dãy số : ');
+    // let arr = num.split('');
+    // let str = ''
+    //
+    // for (let i = 0; i < arr.length; i++) {
+    //     switch (parseInt(arr[i])) {
+    //         case 0:
+    //             str += ' không';
+    //             break;
+    //         case 1:
+    //             str += ' một';
+    //             break;
+    //         case 2:
+    //             str += ' hai';
+    //             break;
+    //         case 3:
+    //             str += ' ba';
+    //             break;
+    //         case 4:
+    //             str += ' bốn';
+    //             break;
+    //         case 5:
+    //             str += ' năm';
+    //             break;
+    //         case 6:
+    //             str += ' sáu';
+    //             break;
+    //         case 7:
+    //             str += ' bảy';
+    //             break;
+    //         case 8:
+    //             str += ' tám';
+    //             break;
+    //         case 9:
+    //             str += ' chín';
+    //             break;
+    //     }
+    //
+    // }console.log(str)
+
+
+    //bài 5
+    // let n = 0;
+    // let money = 0;
+    // let num = 0;
+    //
+    // while (n !== 7) {
+    //     n = Number(prompt("Menu đồ uống: \n" +
+    //         " 1. Cafe \n" +
+    //         " 2. Cam vắt \n" +
+    //         " 3.Nước ép cà rốt \n" +
+    //         " 4.Nước ép cà chua \n" +
+    //         " 5.Nước lọc\n" +
+    //         " 6.Nước dùa \n" +
+    //         " 7.Thoát Menu \n" +
+    //         " Chọn đồ uống: "))
+    //     switch (n) {
+    //         case 1:
+    //             num = parseInt(prompt("Nhập số lượng: "))
+    //             money = 10000;
+    //             console.log("Giá tiền : " +num+" ly cafe là: " +(money*num)+' Vnd');
+    //             break;
+    //         case 2:
+    //             num = parseInt(prompt("Nhập số lượng: "))
+    //             money = 15000;
+    //             console.log("Giá tiền : " +num+" ly cam vắt là: " +(money*num)+' Vnd');
+    //             break;
+    //         case 3:
+    //             num = parseInt(prompt("Nhập số lượng: "))
+    //             money = 25000;
+    //             console.log("Giá tiền : " +num+ " ly nước ép cà rốt là: " +(money*num)+' Vnd');
+    //             break;
+    //         case 4:
+    //             num = parseInt(prompt("Nhập số lượng: "))
+    //             money = 25000;
+    //             console.log("Giá tiền : " +num+ " ly nước ép cà chua là: " +(money*num)+' Vnd');
+    //             break;
+    //         case 5:
+    //             num = parseInt(prompt("Nhập số lượng: "))
+    //             money = 5000;
+    //             console.log("Giá tiền : " +num+ " ly nước lọc là: " +(money*num)+' Vnd');
+    //             break;
+    //         case 6:
+    //             num = parseInt(prompt("Nhập số lượng: "))
+    //             money = 30000;
+    //             console.log("Giá tiền : " +num+ " ly nước dừa là: " +(money*num)+' Vnd');
+    //             break;
+    //          default :
+    //              alert('vui lòng nhập theo yêu cầu')
+    //              break;
+    //     }
+    // }
+
+
+</script>
+</body>
+</html>

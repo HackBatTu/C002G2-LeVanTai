@@ -1,0 +1,10 @@
+<app-header></app-header>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
+<!-- Back to Top -->
+<a [routerLink]="" (click)="onActivate($event)" class="btn btn-primary back-to-top" style="left: 30px !important;"><i class="fa fa-angle-double-up"></i></a>
+
+<a [routerLink]="['/chat']" class="btn btn-primary back-to-top" style="border-radius: 50%; right: 30px !important;">
+  <i class="fab fa-facebook-messenger" id="message" style="font-size: 48px; color: white">
+  </i>
+</a>
+<app-footer></app-footer>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2> Caculator </h2>
+    <input id="num1" type="text">
+    <input id="num2" type="text"><br>
+
+    <button onclick = "sum('add')" value="Addition(+)">Addition(+)</button>
+    <button onclick = "sum('sub')" value="Subtraction(-)">Subtraction(-)</button>
+    <button onclick = "sum('mul')" value="Multiplication(X)">Multiplication(x)</button>
+    <button onclick = "sum('div')" value="Division(/)">Division(/)</button>
+    <br>
+
+    <script>
+
+    function sum(operator) {
+        let a = document.getElementById("num1").value;
+        let b = document.getElementById("num2").value;
+
+        if (operator === 'add') {
+            let c = Number(a) + Number(b);
+            document.getElementById("result").value = c ;
+        } else if (operator === 'sub') {
+            let c = Number(a) - Number(b);
+            document.getElementById("result").value = c ;
+        } else if (operator === 'mul') {
+            let c = Number(a) * Number(b);
+            document.getElementById("result").value = c ;
+        } else if (operator === 'div') {
+            let c = Number(a) / Number(b);
+            document.getElementById("result").value = c ;
+        }
+    }
+
+    </script>
+    <label for="result">Result : </label>
+
+    <input type="text" id="result">
+
+</body>
+</html>
