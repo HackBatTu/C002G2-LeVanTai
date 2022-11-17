@@ -1,0 +1,47 @@
+ <tbody>
+        <tr th:each="b, loop : ${blogList}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.name}"></td>
+            <td th:text="${b.title}"></td>
+            <td th:text="${b.content}"></td>
+            <td th:text="${b.category.name}"></td>
+            <td>
+                <a href="" th:href="@{/bloggers/edit/{id}(id=${b.id})}" class="btn btn-outline-warning">Edit</a>
+            </td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        th:data-bs-target="'#staticBackdrop' + ${b.id}">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="staticBackdrop + ${b.id}" data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Do you want delete blog <span th:text="${b.title}" class="text-warning"></span>
+                                with id = <span th:text="${b.id}" class="text-warning"></span> ?
+                            </div>
+                            <div class="modal-footer">
+                                <a href="" th:href="@{/bloggers/delete/{id}(id=${b.id})}"
+                                   class="btn btn-outline-success">Delete</a>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a href="" th:href="@{/bloggers/details/{id}(id=${b.id})}" class="btn btn-outline-success">Detail</a>
+            </td>
+        </tr>
+        </tbody>

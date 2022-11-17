@@ -1,0 +1,46 @@
+  <div formGroupName="address">
+ 
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" name="city" formControlName="city">
+    </div>
+    <div *ngIf="!city.valid && (city.dirty ||city.touched)">
+      <div [hidden]="!city.errors.required">
+        city is required
+      </div>
+    </div>
+ 
+ 
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" class="form-control" name="street" formControlName="street">
+    </div>
+    <div *ngIf="!street.valid && (street.dirty ||street.touched)">
+      <div [hidden]="!street.errors.required">
+        street is required
+      </div>
+    </div>
+ 
+    <div class="form-group">
+      <label for="pincode">Pin Code</label>
+      <input type="text" class="form-control" name="pincode" formControlName="pincode">
+    </div>
+    <div *ngIf="!pincode.valid && (pincode.dirty ||pincode.touched)">
+      <div [hidden]="!pincode.errors.required">
+        pincode is required
+      </div>
+    </div>
+ 
+  </div>
+
+ get city() {
+    return this.contactForm.get("address").get('city');
+  } 
+ 
+  get street() {
+    return this.contactForm.get("address").get('street');
+  } 
+ 
+  get pincode() {
+    return this.contactForm.get("address").get('pincode');
+  }

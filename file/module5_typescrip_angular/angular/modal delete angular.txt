@@ -1,0 +1,29 @@
+ <td style="text-align: center">
+            <button class="btn btn-outline-danger" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#deleteModal' + c.id">Delete
+            </button>
+            <!-- delete Modal -->
+            <div class="modal fade" id="deleteModal{{c.id}}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title text-danger"> SOS SOS !!!</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Are You Sure Delete Customer {{c.name}} ?? :) ??
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer(c.id)">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end delete Modal -->
+          </td>

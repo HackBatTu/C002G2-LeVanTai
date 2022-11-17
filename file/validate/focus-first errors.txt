@@ -1,0 +1,45 @@
+ private el: ElementRef
+
+for (const key of Object.keys(this.employeeFormCreate.controls)) {
+        if (this.employeeFormCreate.controls[key].invalid) {
+          const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+          invalidControl.focus();
+          this.toast.warning('Vui lòng nhập đầy đủ và đúng dữ liệu!!!', 'Thông báo!!!');
+          break;
+        }
+      }
+
+
+
+  this.toggleLoading();
+  toggleLoading() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000)
+  }
+  <div class="col-md-6 text-center">
+                <button class="w-75 btn btn-success btn-search" [disabled]="isLoading" type="submit">
+                  <img *ngIf="isLoading" width="26px" src="../../../assets/img/dieptt-loading-symbol.gif">
+                  Lưu
+                </button>
+              </div>
+
+
+-------------------------------------------------------------
+  if (this.registerForm.controls.username.invalid) {
+      $('#username').focus();
+      $('#field-username').css('border', '1px solid red');
+      $('#field-password').css('border', 'none');
+      $('#field-confirmPassword').css('border', 'none');
+    } else if (this.registerForm.controls.pass.get('password').invalid) {
+      $('#password').focus();
+      $('#field-password').css('border', '1px solid red');
+      $('#field-username').css('border', 'none');
+      $('#field-confirmPassword').css('border', 'none');
+    } else if (this.registerForm.controls.pass.get('confirmPassword').invalid || this.registerForm.controls.pass.invalid) {
+      $('#confirmPassword').focus();
+      $('#field-confirmPassword').css('border', '1px solid red');
+      $('#field-username').css('border', 'none');
+      $('#field-password').css('border', 'none');
+    }

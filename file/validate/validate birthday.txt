@@ -1,0 +1,47 @@
+private checkAge16(abstractControl: AbstractControl): any {
+    if (abstractControl.value === '') {
+      return null;
+    }
+    const today = new Date();
+    const birthDate = new Date(abstractControl.value);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return (age >= 16) ? null : {age16: true};
+  }
+-----------------------------------------
+ checkInputBirthday(birthday: AbstractControl) {
+    const value = birthday.value
+    const curDate = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
+    if (value >= curDate) {
+      return {'checkDate': true}
+    }
+    return null;
+  }
+------------------------------------------------------
+ checkBirthday(birthday: AbstractControl) {
+    const value = birthday.value
+    if (value === '') {
+      return null;
+    }
+    const today = new Date();
+    const birthDate = new Date(birthday.value);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    const curDate = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
+    if (value >= curDate) {
+      return {'checkDate': true}
+    }
+    else if(age < 16){
+      return {'age16': true}
+    }
+    else if(value.match("^\\d{4}[\\-\\/\\s]?((((0[13578])|(1[02]))[\\-\\/\\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\\-\\/\\s]?(([0-2][0-9])|(30)))|(02[\\-\\/\\s]?[0-2][0-9]))$")){
+      return {'pattern': true}
+    }
+  }
+-------------------------------------------

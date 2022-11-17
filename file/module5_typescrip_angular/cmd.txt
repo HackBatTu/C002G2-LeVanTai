@@ -1,0 +1,4 @@
+chuyển đổi thư mục ổ
+
+D:
+cd ( kéo link)

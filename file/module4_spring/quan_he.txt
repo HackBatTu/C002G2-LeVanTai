@@ -1,0 +1,19 @@
+  @OneToOne(mappedBy = "address")
+    private User user;
+
+  @OneToOne
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+................................................................................................
+
+    @Column(columnDefinition = "bit(1) default 0")
+    private int status;
+..............................................................................................
+    @ManyToOne
+    @JoinColumn(name = "customer_type_id" , referencedColumnName = "id")
+    private CustomerType customerType;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "customer")
+    List<Contract> contractList;
+..................................................................................................

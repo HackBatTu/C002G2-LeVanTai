@@ -1,0 +1,65 @@
+
+create:
+  	<div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example2">Customer Type</label>
+                <select class="form-select" aria-label="Default select example" id="form1Example2" name="customerType">
+                    <option class="selected disabled">Choice Customer Type</option>
+                    <c:forEach items="${listCustomerType}" var="i">
+                        <option value="${i.id}">${i.name}</option>
+                    </c:forEach>
+                </select>             	
+  	 </div>
+gender create:
+  	 <div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example4">Customer Gender</label>
+                <select class="form-select" aria-label="Default select example" id="form1Example4" name="gender" value="${gender}">
+                    <option selected disabled>Choice Customer Gender</option>
+                    <option value="1">Nam</option>
+                    <option value="0">nữ</option>
+                    <option value="">Other</option>
+                </select>
+       </div>
+----------------------------------------------------------------------------------------------------------------
+update:
+  	<div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example2">Customer Type</label>
+                <select class="form-select" aria-label="Default select example" id="form1Example2"
+                        name="customerType">
+                    <c:forEach items="${listCustomerType}" var="i">
+                        <c:choose>
+                            <c:when test="${i.id == customerTypeId}">
+                                <option value="${i.id}" selected>${i.name}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${i.id}">${i.name}</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+                <small class="text-primary">${errors.customerType}</small>
+        </div>
+gender: 
+  	<div class="form-outline mb-2 w-75">
+                <label class="form-label" for="form1Example4">Customer Gender</label>
+                <select class="form-select" aria-label="Default select example" id="form1Example4"
+                        name="gender">
+                    <c:choose>
+                        <c:when test="${gender == 0}">
+                            <option value="1">Nam</option>
+                            <option value="0" selected>Nữ</option>
+                            <option value="2">Other</option>
+                        </c:when>
+                        <c:when test="${gender == 1}">
+                            <option value="1" selected>Nam</option>
+                            <option value="0">Nữ</option>
+                            <option value="2">Other</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="1">Nam</option>
+                            <option value="0">Nữ</option>
+                            <option value="2" selected>Other</option>
+                        </c:otherwise>
+                    </c:choose>
+                </select>
+                <small class="text-primary">${errors.gender}</small>
+            </div>

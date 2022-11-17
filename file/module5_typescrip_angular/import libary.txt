@@ -1,0 +1,54 @@
+declare var $: any;
+"@angular/animations": "~9.0.7",
+    "@angular/common": "~9.0.7",
+    "@angular/compiler": "~9.0.7",
+    "@angular/core": "~9.0.7",
+    "@angular/forms": "~9.0.7",
+    "@angular/platform-browser": "~9.0.7",
+    "@angular/platform-browser-dynamic": "~9.0.7",
+    "@angular/router": "~9.0.7",
+    "@angular/fire": "^6.1.4",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2",
+    "jspdf": "^2.5.1",
+    "chart.js": "^2.9.3",
+    "creditcardpayments": "^1.0.3",
+    "firebase": "^8.4.2",
+    "ng2-charts": "^2.2.3",
+    "ngx-toastr": "^12.1.0",
+    "@ckeditor/ckeditor5-angular": "^4.0.0",
+    "@ckeditor/ckeditor5-build-classic": "^35.0.1"
+
+import html2canvas from "html2canvas";
+import {jsPDF} from "jspdf";
+
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+import { render} from "creditcardpayments/creditCardPayments";
+
+<div id="payments" *ngIf="totalMoney >= 0"></div>
+if (this.totalMoney >= 0) {
+      render(
+        {
+          id: '#payments',
+          currency: 'USD',
+          value: String(((this.totalMoney + 50000) / 23000).toFixed(2)),
+          onApprove: (details) => {
+            console.log(details);
+            if (details.status == 'COMPLETED') {
+              this.onPaymentSuccess();
+            }
+          }
+        }
+      );
+    }
+
+  <router-outlet class="bg-light" (activate)="onActivate($event)"></router-outlet>
+ onActivate(event) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }

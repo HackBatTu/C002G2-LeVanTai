@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+</head>
+<body>
+<div class="container">
+    <form action="/product/delete" method="post" th:object="${product}">
+        <input type="text" th:field="*{id}" hidden>
+        <div class="mb-3">
+            <div class="text-danger">Confirm</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Delete</button>
+        <a th:href="@{/product/}" href="" class="btn btn-primary">Cancel</a>
+    </form>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+</body>
+</html>

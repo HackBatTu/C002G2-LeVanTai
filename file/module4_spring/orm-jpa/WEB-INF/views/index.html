@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{html-css :: bootstrapCss}"></th:block>
+</head>
+<body>
+<header>
+    <div class="p-5 text-center bg-image"
+         style="height: 200px;">
+        <div class="mask">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-success">
+                    <h1 class="mb-3">Product Management</h1>
+                    <a class="btn btn-outline-success btn-lg" th:href="@{/product/create}" role="button">Create Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="text-success">
+    <form class="d-flex" action="/product/search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
+<div class="container mt-3">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>CN</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Detail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item, loop : ${products}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+            <td>
+                <a href="" th:href="@{/product/edit/{id}(id=${item.id})}" class="btn btn-warning">Edit</a>
+            </td>
+            <td>
+                <a href="" th:href="@{/product/delete/{id}(id=${item.id})}" class="btn btn-danger">Delete</a>
+            </td>
+            <td>
+                <a href="" th:href="@{/product/detail/{id}(id=${item.id})}" class="btn btn-success">Show Detail</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<th:block th:replace="~{html-css :: boostrapScript}"></th:block>
+</body>
+</html>

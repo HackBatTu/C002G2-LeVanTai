@@ -1,0 +1,11 @@
+git reset --soft 3b84f68e4adf8a719a355b1b6312812f63596e0f
+
+git status
+
+git add .
+
+git status
+
+git commit -m "update"
+
+git push origin HEAD -f

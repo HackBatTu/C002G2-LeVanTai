@@ -1,0 +1,7 @@
+
+ npm i;		| npm init typescript-project
+ tsc src/main.ts	| tsc --watch
+ node src/main.js	| tạo file html rồi import file js vào
+
+
+

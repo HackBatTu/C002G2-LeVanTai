@@ -1,0 +1,27 @@
+
+tạo dự án : + ng new (tên dự án ) -> y
+		+ ng g c (tên component)
+		+ ng g i (tên interface)
+		+ ng g s (tên service)
+		+ npm i (import lại node_modules)
+
+chạy : ng serve --open ( ng s --o)
+
+cài đặt bootstrap : npm i -s bootstrap jquery | @import "~bootstrap/dist/css/bootstrap.css"; (file src/styles.css)
+ 
+npm install -g @angular/cli
+
+npm i date-fns -s ( cài đặt tính toán)
+
+npm install -g json-server | json-server --watch db.json
+
+npm install firebase @angular/fire
+---------------------------------------------
+
+<app-header></app-header>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
+<app-footer></app-footer>
+
+  onActivate(event) {
+    window.scroll(0, 0);
+  }

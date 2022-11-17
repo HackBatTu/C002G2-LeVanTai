@@ -1,0 +1,84 @@
+  <td>
+          <a href="" class="link-primary nav-link" data-bs-toggle="offcanvas" style="height: 35px"
+             [attr.data-bs-target]="'#demo' + product.id">
+            {{product.name}}
+          </a>
+        </td>  
+
+<td>
+            <div class="offcanvas offcanvas-start" id="demo{{c.id}}">
+              <div class="offcanvas-header row text-center">
+                <h1 class="offcanvas-title">Chi tiết Sản Phẩm</h1></div>
+              <div class="offcanvas-body">
+                <div class="container m-auto text-center">
+                  <table class="m-auto text-center" border="1" cellpadding="8">
+                    <tr>
+                      <td>Mã sản phẩm:</td>
+                      <td>{{c.codeProduct}}</td>
+                    </tr>
+                    <tr>
+                      <td>Tên:</td>
+                      <td>{{c.name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="">Giá:</td>
+                      <td class="">{{c.unitPrice}}</td>
+                    </tr>
+                    <tr>
+                      <td class="">Trạng thái:</td>
+                      <td class="" *ngIf="c.statusProduct">Hết Hàng</td>
+                      <td class="" *ngIf="!c.statusProduct">Còn Hàng</td>
+                    </tr>
+                    <tr>
+                      <td class="">Ngày nhập hàng:</td>
+                      <td class="">{{c.dateCheckIn}}</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 1">
+                      <td class="">Xuất xứ:</td>
+                      <td class="">{{c.origin}}</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 1">
+                      <td class="">Loại nước:</td>
+                      <td class="" *ngIf="!c.statusDrink">Có gas</td>
+                      <td class="" *ngIf="c.statusDrink">Không có gas</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 2">
+                      <td class="">Xuất xứ:</td>
+                      <td class="">{{c.origin}}</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 2">
+                      <td class="">Loại Bánh:</td>
+                      <td class="" *ngIf="!c.statusFood">Bánh Ngọt</td>
+                      <td class="" *ngIf="c.statusFood">Bánh Mặn</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 3">
+                      <td class="">Tác giả:</td>
+                      <td class="">{{c.author}}</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 3">
+                      <td class="">Thể loại:</td>
+                      <td class="">{{c.bookType}}</td>
+                    </tr>
+                    <tr *ngIf="c.productType.id == 3">
+                      <td class="">Ngày xuất bản:</td>
+                      <td class="">{{c.dateIn}}</td>
+                    </tr>
+                    <tr>
+                      <td>Số lần được đặt:</td>
+                      <td>{{c.totalMoney}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="text-center m-auto mt-3">
+                  <button class="btn btn-secondary" type="button" data-bs-dismiss="offcanvas">Đóng</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+        <tbody *ngIf="product.length <= 0">
+        <tr class="text-center m-auto">
+          <th colspan="9">Không có dữ liệu</th>
+        </tr>
+        </tbody>

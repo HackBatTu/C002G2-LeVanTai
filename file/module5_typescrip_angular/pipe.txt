@@ -1,0 +1,3 @@
+(item.dish.price | currency:'VND':'').replace(',', '.')
+
+{{(i + 1) + size * pageNumber}}

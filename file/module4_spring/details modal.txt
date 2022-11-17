@@ -1,0 +1,32 @@
+ 			<td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                        Detail
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Borrow Book</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card" style="width: 100%;">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item" th:text="'ID: ' + ${item.id}"></li>
+                                            <li class="list-group-item" th:text="'Name: ' + ${item.name}"></li>
+                                            <li class="list-group-item" th:text="'Author: ' + ${item.author}"></li>
+                                            <li class="list-group-item" th:text="'Quantity: ' + ${item.quantity}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a th:href="@{/library/show-detail(id=${item.id})}" class="btn btn-primary">Borrow</a>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>

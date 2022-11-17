@@ -1,0 +1,81 @@
+html: 
+<div class="container-fluid mt-3">
+        <ul class="pagination float-end">
+          <div *ngIf="number == 0">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goPrevious()" hidden>Previous</button>
+            </li>
+          </div>
+          <div *ngIf="number != 0">
+            <li class="page-item">
+              <button class="page-link" (click)="goPrevious()">Previous</button>
+            </li>
+          </div>
+          <div *ngFor="let count of countTotalPages; index as i">
+            <div *ngIf="i == number">
+              <li class="page-item active">
+                <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+              </li>
+            </div>
+            <div *ngIf="i != number">
+              <li class="page-item">
+                <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+              </li>
+            </div>
+          </div>
+          <div *ngIf="number == totalPages - 1">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goNext()">Next</button>
+            </li>
+          </div>
+          <div *ngIf="number != totalPages - 1">
+            <li class="page-item">
+              <button class="page-link" (click)="goNext()">Next</button>
+            </li>
+          </div>
+        </ul>
+      </div>
+
+file ts:    totalPages: number;
+  		number: number;
+ 		countTotalPages: number[];
+
+ goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getAll(numberPage, '', '', '0001-01-01', '3000-01-01');
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getAll(numberPage, '', '', '0001-01-01', '3000-01-01');
+    }
+  }
+
+  goItem(i: number) {
+    this.getAll(i, '', '', '0001-01-01', '3000-01-01');
+  }
+
+  getAll(page: number, searchName, searchDateCheckOut, searchStartDate, searchEndDate) {
+    this.consignmentService.getAll(page, searchName, searchDateCheckOut, searchStartDate, searchEndDate)
+      .subscribe((data: Consignment[]) => {
+        if (data != null) {
+          // @ts-ignore
+          this.consignment = data.content;
+        } else {
+          this.consignment = [];
+        }
+        if (this.consignment.length !== 0) {
+          // @ts-ignore
+          this.totalPages = data.totalPages;
+          // @ts-ignore
+          this.countTotalPages = new Array(data.totalPages);
+          // @ts-ignore
+          this.number = data.number;
+        }
+      });
+  }

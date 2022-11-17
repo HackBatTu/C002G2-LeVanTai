@@ -1,0 +1,74 @@
+ consignment: Consignment[] = [];
+  searchForm: FormGroup;
+  totalPages: number;
+  number: number;
+  countTotalPages: number[];
+
+ ngOnInit(): void {
+    this.getAll(0, '', '', '0001-01-01', '8000-01-01');
+    this.searchForm = new FormGroup({
+      searchName: new FormControl(),
+      searchDateCheckOut: new FormControl(),
+      searchStartDate: new FormControl(),
+      searchEndDate: new FormControl()
+    });
+  }
+
+ getAll(page: number, searchName, searchDateCheckOut, searchStartDate, searchEndDate) {
+    this.consignmentService.getAll(page, searchName, searchDateCheckOut, searchStartDate, searchEndDate)
+      .subscribe((data: Consignment[]) => {
+        if (data != null) {
+          // @ts-ignore
+          this.consignment = data.content;
+        } else {
+          this.consignment = [];
+        }
+        if (this.consignment.length !== 0) {
+          // @ts-ignore
+          this.totalPages = data.totalPages;
+          // @ts-ignore
+          this.countTotalPages = new Array(data.totalPages);
+          // @ts-ignore
+          this.number = data.number;
+        }
+      });
+  }
+  getSearch() {
+    const productName = this.searchForm.value.searchName;
+    const dateCheckOut = this.searchForm.value.searchDateCheckOut;
+    const startDate = this.searchForm.value.searchStartDate;
+    const endDate = this.searchForm.value.searchEndDate;
+    this.getAll(0, productName, dateCheckOut, startDate, endDate);
+  }
+
+file: service
+ getAll(page: number, searchName, searchDateCheckOut, searchStartDate, searchEndDate) {
+    let productName;
+    let dateCheckOut;
+    let startDate;
+    let endDate;
+    if (searchName == null) {
+      productName = '';
+    } else {
+      productName = searchName;
+    }
+    if (searchDateCheckOut == null) {
+      dateCheckOut = '';
+    } else {
+      dateCheckOut = searchDateCheckOut;
+    }
+
+    if (searchStartDate == null) {
+      startDate = '0001-01-01';
+    } else {
+      startDate = searchStartDate;
+    }
+
+    if (searchEndDate == null) {
+      endDate = '3000-01-01';
+    } else {
+      endDate = searchEndDate;
+    }
+    return this.httpClient.get<Consignment[]>(this.URL_CONNECT + '/consignment?page=' + page + '&searchName=' + productName +
+      '&searchDateCheckOut=' + dateCheckOut + '&searchStartDate=' + startDate + '&searchEndDate=' + endDate);
+  }

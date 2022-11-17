@@ -1,0 +1,69 @@
+"firebase": "^8.4.2",
+"@angular/fire": "^6.1.4",
+bỏ vô package.json
+
+file: app.module
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../environments/environment";
+
+AngularFireModule.initializeApp(environment.firebaseConfig)
+
+file ts: 
+import {finalize} from "rxjs/operators";
+import {AngularFireStorage} from "@angular/fire/storage";
+import {formatDate} from '@angular/common';
+
+ private router: Router, private storage: AngularFireStorage
+
+  private selectedImage: any = null;
+
+  showPreview(event: any) {
+    this.selectedImage = event.target.files[0];
+  }
+
+  getCurrentDateTime(): string {
+    return formatDate(new Date(), 'dd-MM-yyyy-hh:mm:ssa', 'en-US');
+  }
+
+  CreateProduct() {
+    const nameImg = this.getCurrentDateTime() + this.selectedImage.name;
+    const fileRel = this.storage.ref(nameImg);
+    this.storage.upload(nameImg, this.selectedImage).snapshotChanges().pipe(
+      finalize(() => {
+        fileRel.getDownloadURL().subscribe((url) => {
+          this.productForm.patchValue({img: url});
+          this.productService.saveProduct(this.productForm.value).subscribe(() => {
+            this.router.navigateByUrl('/product-list').then(r => alert("create thành công"));
+          });
+        });
+      })
+    ).subscribe();
+  }
+
+enviroment.ts
+export const environment = {
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyACkU9AV5LAugCzfNI5hw4pyx2owsmIqs8",
+    authDomain: "fir-upload-e84f1.firebaseapp.com",
+    databaseURL: "https://fir-upload-e84f1.firebaseio.com",
+    projectId: "fir-upload-e84f1",
+    storageBucket: "fir-upload-e84f1.appspot.com",
+    messagingSenderId: "906156026637",
+    appId: "1:906156026637:web:5944ecef83e7364ccfde44",
+    measurementId: "G-BSXMPFPZZM"
+  }
+};
+
+file html: 
+ <input id="img" type="file" class="form-control-file" (change)="showPreview($event)">
+
+cliene firebase: 
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+ @Query(value = "select * from employee where status = 0 and name like :searchName", nativeQuery = true,
+    countQuery = "select count(*) from (select * from employee where status = 0 and name like :searchName ) temp_table")
+    Page<Employee> findAllEmployee(@Param("searchName") String searchName, Pageable pageable);
+
+  @Query(value = " select * from contract where status = 0 and (date_check_out between :dateIn and :dateOut)", nativeQuery = true,
+    countQuery = "select count(*) from (select * from contract where status = 0 and (date_check_out between :dateIn and :dateOut ))")
+    Page<Contract> getAllContract(Pageable pageable, @Param("dateIn") String dateIn, @Param("dateOut") String dateOut);
+
+    @Modifying
+    @Transactional
+    @Query(value = "update employee e set status = 1 where e.id = :id",nativeQuery = true)
+    void deleteEmployee(Integer id);
+
+     @Query(value = " select employee.id, employee.name, employee.image,employee.phone_number , employee.address, " +
+            " employee.email, employee.gender, employee.birthday, employee.salary, employee.position_id , " +
+            " employee.user_id, employee.is_deleted from employee where employee.is_deleted = 0 ", nativeQuery = true)
+    List<Employee> findAllEmployee();
+
+
+     @Modifying
+    @Transactional
+    @Query(value = " INSERT INTO employee (name, image, phone_number, address, email, gender, birthday, salary, position_id, `user_id`) " +
+            " VALUES (:#{#employee.name}, :#{#employee.image}, :#{#employee.phoneNumber}, " +
+            " :#{#employee.address}, :#{#employee.email}, :#{#employee.gender}, :#{#employee.birthday}, :#{#employee.salary}, " +
+            " :#{#employee.position.id} , :#{#employee.appUser.id}); ", nativeQuery = true)
+    void saveEmployee(@Param("employee") Employee employee);
+
+
+  @Transactional
+    @Modifying
+    @Query(value = " update employee set `name` = :#{#employee.name}, image = :#{#employee.image}," +
+            " birthday = :#{#employee.birthday}, email = :#{#employee.email} , gender = :#{#employee.gender}," +
+            " phone_number = :#{#employee.phoneNumber}, address = :#{#employee.address}, salary = :#{#employee.salary} ," +
+            " user_id =:#{#employee.appUser.id} , position_id = :#{#employee.position.id}" +
+            " where id = :#{#employee.id} ", nativeQuery = true)
+    void editEmployee(Employee employee);

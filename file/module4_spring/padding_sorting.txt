@@ -1,0 +1,24 @@
+<ul class="pagination" th:if="${blogList.totalPages > 0}">
+        <li class="page-item">
+            <a class="page-link" th:if="${blogList.hasPrevious()}" th:href="@{'/bloggers/list'(page=${blogList.number - 1}, search=${searchName})}">
+                Previous
+            </a>
+        </li>
+        <div th:each="item, loop : ${#numbers.sequence(1, blogList.totalPages )}">
+            <div th:if="${(blogList.number + 1) == item}">
+                <li class="page-item active">
+                    <a class="page-link" href="#" th:text="${item}" th:href="@{/bloggers/list(page=(${item}-1), search=${searchName})}"></a>
+                </li>
+            </div>
+            <div th:unless="${((blogList.number + 1) == item)}">
+                <li class="page-item">
+                    <a class="page-link" href="#" th:text="${item}" th:href="@{/bloggers/list(page=(${item}-1), search=${searchName} )}"></a>
+                </li>
+            </div>
+        </div>
+        <li class="page-item">
+            <a class="page-link" th:if="${blogList.hasNext()}" th:href="@{'/bloggers/list'(page=${blogList.number + 1}, search=${searchName})}">
+                Next
+            </a>
+        </li>
+    </ul>

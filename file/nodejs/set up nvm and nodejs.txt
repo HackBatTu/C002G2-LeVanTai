@@ -1,0 +1,19 @@
+https://github.com/coreybutler/nvm-windows/releases
+
+- cài nvm để quản lí node js
+1. Uninstall node.js 14.17.3
+2. dowload nvm.
+3. nvm kiểm tra.
+2. Install nodejs :
+ nvm install 14.17.3
+
+
+. nvm list : list node của nvm
+. node --version : kt version node đang sd.
+. nvm use (tên version) : chuyển version để sử dụng 
+
+
+npm audit(kiểm tra )
+
+clear ( reset temiral)
+

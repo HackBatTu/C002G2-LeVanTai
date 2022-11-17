@@ -1,0 +1,46 @@
+ <form class="contact-form row" [formGroup]="customerForm" *ngIf="customerForm" (ngSubmit)="createCustomer()">
+          <div class="form-field col-lg-6 ">
+            <input id="name" class="input-text js-input" type="text" formControlName="name">
+            <label class="label" for="name">Name</label>
+          </div>
+          <div *ngIf="!name.valid && (name.dirty || name.touched)">
+            <div class="text-danger" [hidden]="!name.errors.required">Name id not required</div></div>
+
+          <div class="form-field col-lg-6 ">
+            <select id="gender" class="form-select js-input" type="text" formControlName="gender">
+              <option value="">Choice Gender</option>
+              <option value="1">Male</option>
+              <option value="0">FeMale</option>
+              <option value="2">Other</option>
+            </select>
+          </div>
+          <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
+            <div class="text-danger" [hidden]="!gender.errors.required"> Gender id not required</div>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <select class="form-select" name="customerType" formControlName="customerType" >
+              <option selected="true" disabled="true">choice customer Type</option>
+              <option *ngFor="let c of customerTypes" [ngValue]="c">{{c.name}}</option>
+            </select>
+          </div>
+
+          <div class="form-field col-lg-12">
+            <input class="submit-btn" type="submit" [disabled]="!customerForm.valid" value="Submit">
+          </div>
+          <a [routerLink]="['/customer']" class="btn btn-outline-secondary">Back home</a>
+        </form>
+      
+  <div class="form-field col-lg-6">
+            <select formControlName="customerType" name="customerType" class="form-control"
+                    [compareWith]="compareCustomerType" [(ngModel)]="customer.customerType">
+              <option *ngFor="let item of customerTypes" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+
+  get name() {
+    return this.customerForm.get('name')
+  }
+ compareCustomerType(c1: CustomerType, c2: CustomerType):boolean {
+      return c1.id === c2.id;
+  }

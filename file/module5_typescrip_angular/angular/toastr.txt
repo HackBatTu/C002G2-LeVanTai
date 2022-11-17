@@ -1,0 +1,19 @@
+--------------------------------------------
+chạy phiên bản "ngx-toastr": "^12.1.0" trong package.json
+xóa node_modules rồi npm i chạy lại
+
+"node_modules/ngx-toastr/toastr.css"(angular.json-styles)
+app.module.ts:
+ 	BrowserAnimationsModule,
+       ToastrModule.forRoot({ timeOut: 1000,
+           progressBar: true,
+           progressAnimation: 'increasing',
+           preventDuplicates: true
+         })
+
+app.component.ts:
+constructor(private toastr: ToastrService){}
+showToastr(){
+this.toastr.success('Some messages','tittle',{timeOut: 500, progressBar: false})
+}
+(click) = "showToastr()" ( button thực hiện event)

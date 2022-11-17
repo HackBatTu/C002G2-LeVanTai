@@ -1,0 +1,36 @@
+    @PatchMapping(value = employeeedit)
+    public ResponseEntity<Void> editEmployee(@Valid @RequestBody EmployeeDTOEdit employeeDTOEdit , BindingResult bindingResult) {
+
+        Employee employee = this.iEmployeeService.findById(employeeDTOEdit.getId());
+
+        if(employee == null){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+        new EmployeeDTOEdit().validate(employeeDTOEdit,bindingResult);
+        if(bindingResult.hasErrors()){
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        BeanUtils.copyProperties(employeeDTOEdit, employee);
+        iEmployeeService.editEmployee(employee);
+        return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+
+
+    @PatchMapping(employeeedit)
+    public ResponseEntity<FieldError> editEmployee( @RequestBody @Valid EmployeeDTOEdit employeeDTOEdit , BindingResult bindingResult) {
+        OptionalEmployee employeeOptional = Optional.ofNullable(iEmployeeService.findById(employeeDTOEdit.getId()));
+        if (!employeeOptional.isPresent()) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity(bindingResult.getFieldError(), HttpStatus.UPGRADE_REQUIRED);
+        }
+        employeeDTOEdit.setId(employeeOptional.get().getId());
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDTOEdit, employee);
+
+        iEmployeeService.editEmployee(employee);
+        return new ResponseEntity( HttpStatus.OK);
+    }

@@ -1,0 +1,30 @@
+ create file : gte.validator.js
+
+import {AbstractControl, ValidationErrors} from "@angular/forms"
+export function gte(control: AbstractControl): ValidationErrors | null {
+	const v =+ control.value;
+	if(isNaN(v)){
+	return {'gte':true, 'requiredValue': 10}	
+	}
+	if(v<=10){
+	return {'gte': true , 'required': 10
+	}
+	return null
+}
+
+ myForm = new FormGroup({
+    numVal: new FormControl('', [gte]),
+  })
+
+
+html: 
+ <div>
+    <label for="numVal">Number :</label>
+    <input type="text" id="numVal" name="numVal" formControlName="numVal">
+    <div *ngIf="!numVal.valid && (numVal.dirty ||numVal.touched)">
+      <div *ngIf="numVal.errors.gte">
+        The number should be greater than 
+      </div>
+    </div>
+ 
+  </div>
